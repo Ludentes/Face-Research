@@ -81,10 +81,14 @@ A curated index of the most important artifacts referenced in the review, groupe
 - [Hallo4](https://arxiv.org/abs/2505.23525) — DPO-based DiT portrait diffusion. See [Ch06](06-talking-heads.md).
 - [EMO](https://humanaigc.github.io/emote-portrait-alive/) — Alibaba's expressive portrait audio-to-video (ECCV 2024, weights not released). See [Ch06](06-talking-heads.md).
 - [FLOAT](https://deepbrainai-research.github.io/float/) — flow-matching audio-driven generation. See [Ch06](06-talking-heads.md).
-- [FantasyTalking2](https://arxiv.org/abs/2508.11255) — AAAI 2026, first RLHF for talking heads (TLPO + Talking-Critic + 410K preference dataset). See [Ch06](06-talking-heads.md).
-- [PersonaLive](https://arxiv.org/abs/2512.11253) — CVPR 2026, streamable diffusion for live streaming portrait animation. See [Ch06](06-talking-heads.md).
-- [UniTalking](https://arxiv.org/abs/2603.01418) — joint audio+video diffusion with Multi-Modal Transformer Blocks. See [Ch06](06-talking-heads.md).
-- [DyStream](https://arxiv.org/abs/2512.24408) — streaming dyadic flow matching, 34 ms/frame, <100 ms latency. See [Ch06](06-talking-heads.md).
+- [FantasyTalking2](https://arxiv.org/abs/2508.11255) — first RLHF for talking heads (TLPO + Talking-Critic + 410K preference dataset); AAAI 2026 acceptance claim unconfirmed on 2026-04-14. See [Ch06](06-talking-heads.md).
+- [PersonaLive](https://arxiv.org/abs/2512.11253) — streamable diffusion for live streaming portrait animation; CVPR 2026 acceptance claim unconfirmed on 2026-04-14. See [Ch05](05-neural-deformation.md).
+- [UniTalking](https://arxiv.org/abs/2603.01418) — joint audio+video diffusion with Multi-Modal Transformer Blocks; CVPR 2026 claim unconfirmed. See [Ch06](06-talking-heads.md).
+- [DyStream](https://arxiv.org/abs/2512.24408) — streaming dyadic flow matching, 34 ms/frame, <100 ms latency; venue unconfirmed. See [Ch06](06-talking-heads.md).
+- [MMFA](https://arxiv.org/abs/2603.04302) — unsupervised 3D keypoint face animation, direct FOMM/LivePortrait-lineage 2026 entry. See [Ch05](05-neural-deformation.md).
+- [FlexiMMT](https://github.com/Ethan-Li123/FlexiMMT) — multi-object multi-motion transfer with Motion-Decoupled Mask Attention; arXiv:2603.01000, repo self-tags CVPR 2026. See [Ch05](05-neural-deformation.md).
+- [Splat-Portrait](https://arxiv.org/abs/2601.18633) — 3DGS head from single portrait + audio with predicted per-point offsets. See [Ch07](07-3dgs-avatars.md).
+- [SuperHead](https://github.com/humansensinglab/super-head) — 3DV 2026, dynamics-aware 3D inversion producing FLAME-rigged 3DGS from low-quality inputs. See [Ch07](07-3dgs-avatars.md).
 - [Wav2Lip](https://github.com/Rudrabha/Wav2Lip) — legacy lip-sync dubbing, still deployed. See [Ch06](06-talking-heads.md).
 
 ### 3DGS Avatars

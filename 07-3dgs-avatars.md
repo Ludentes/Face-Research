@@ -164,6 +164,10 @@ The next chapter turns to the other major real-time rendering alternative for no
 
 [12] Xu, Y. et al. "Gaussian Head Avatar: Ultra High-fidelity Head Avatar via Dynamic Gaussians." CVPR 2024. `github.com/YuelangX/Gaussian-Head-Avatar`.
 
+[13] "Splat-Portrait: Generalizing Talking Heads with Gaussian Splatting." arXiv:2601.18633, January 2026. Disentangles a single portrait image into a 3D Gaussian splat head plus inpainted 2D background, and animates the splats from audio and time deltas by predicting dynamic per-point offsets without an explicit deformation model. Trained self-supervised from monocular video while distilling a strong 2D face prior (no 3D supervision). Notable as an offset-based 3DGS animation approach rather than a FLAME-rigged one. Code not reported.
+
+[14] "From Blurry to Believable: Enhancing Low-quality Talking Heads with 3D Generative Priors" (SuperHead). arXiv:2602.06122, February 2026. Accepted to 3DV 2026 (confirmed by the GitHub repo's "[3DV 2026]" tag). Code public at `github.com/humansensinglab/super-head`. A dynamics-aware 3D inversion scheme that optimizes latents of a generative model to produce a super-resolved 3DGS head rigged to a parametric head (e.g. FLAME), using upscaled 2D render + depth supervision. Targets the low-quality-input regime for animatable 3D head avatars.
+
 [10] Meta Reality Labs. Codec Avatars research program. Multi-year effort, various publications, proprietary capture and models.
 
 Additional references: Qualcomm's December 2024 blog post "Driving photorealistic 3D avatars in real time with on-device 3DGS" describes the mobile deployment story from the silicon vendor's perspective. NVIDIA's Omniverse platform includes 3DGS face avatar support in its Audio2Face integration.
