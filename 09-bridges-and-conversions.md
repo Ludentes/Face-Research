@@ -78,7 +78,7 @@ FLAME is the other central node in the bridge graph, serving as the internal rep
 
 **FLAME → 3DGS avatar.** Pre-existing avatar: FLAME driving the attached Gaussians. Cost: fast rendering (100+ FPS). Quality: strong when the avatar was trained for the FLAME configuration. Availability: GaussianAvatars, 3D Gaussian Blendshapes, etc. This is the bridge that makes 3DGS avatars animatable.
 
-**FLAME → diffusion-conditioned image.** Via RigFace, Arc2Face + expression adapter, MorphFace, or Multimodal 3D Face Geometry. Cost: 1-2 seconds per image. Quality: state of the art for parametric face editing. Availability: RigFace and Arc2Face have public code and weights.
+**FLAME → diffusion-conditioned image.** Via RigFace, Arc2Face + expression adapter, MorphFace, or Multimodal 3D Face Geometry. Cost: 1-2 seconds per image. Quality: state of the art for parametric face editing. Availability: Arc2Face has public code and weights; RigFace has weights-only (HF `mengtingwei/rigface`, Apache-2.0), no inference code — see Chapter 08.
 
 **FLAME → UV-mapped raw render.** Apply a UV texture map and render via any standard 3D pipeline (PyTorch3D, OpenGL, Blender). Cost: ~10-50 ms per render. Quality: low (early 2000s game quality), but sufficient for mesh visualization and for producing conditioning inputs for diffusion methods that expect rendered images.
 

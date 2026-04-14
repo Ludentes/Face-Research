@@ -112,7 +112,7 @@ A curated index of the most important artifacts referenced in the review, groupe
 - [Arc2Face + Expression Adapter](https://arxiv.org/abs/2510.04706) — ICCVW 2025, FLAME blendshape cross-attention on top of Arc2Face. See [Ch08](08-diffusion-parametric.md).
 - [Vox2Face](https://www.mdpi.com/2078-2489/17/2/200) — MDPI *Information* 17(2):200, 2026. The first published template for projecting a non-face semantic embedding (speech) into ArcFace space and driving frozen Arc2Face. Two-stage training: cosine alignment + SDS self-consistency. See [Ch08](08-diffusion-parametric.md).
 - [Arc2Morph](https://arxiv.org/abs/2602.16569) — arXiv:2602.16569, 2026. Identity-preserving facial morphing via Arc2Face; ablates ArcFace-space vs CLIP-output-space interpolation and finds CLIP-output slerp wins for midpoint morphs. See [Ch08](08-diffusion-parametric.md).
-- [RigFace](https://github.com/weimengting/RigFace) — Wei et al., arXiv:2502.02465, full SD 1.5 fine-tune with dedicated identity UNet. See [Ch08](08-diffusion-parametric.md).
+- [RigFace](https://huggingface.co/mengtingwei/rigface) — Wei et al., arXiv:2502.02465, full SD 1.5 fine-tune with dedicated identity UNet. **Weights only on HuggingFace (Apache-2.0); no inference code released, the linked GitHub URL is 404.** See [Ch08](08-diffusion-parametric.md).
 - [MorphFace](https://arxiv.org/abs/2504.00430) — CVPR 2025, 3DMM-guided diffusion with temporal context blending. See [Ch08](08-diffusion-parametric.md).
 - [InstantID](https://github.com/InstantID/InstantID) — identity-preserving generation in seconds. See [Ch08](08-diffusion-parametric.md).
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — node-based diffusion workflow runtime, dominant for power users. See [Ch11](11-market-and-community.md).

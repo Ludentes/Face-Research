@@ -49,7 +49,7 @@ The diffusion-based face generation community overlaps only partially with VTubi
 **Key projects with face-specific relevance:**
 
 - **Arc2Face** (ECCV 2024 Oral) has strong mindshare in the research community but limited adoption outside it. The identity-embedding-to-face paradigm is influential but not yet widely deployed in production pipelines.
-- **RigFace** has meaningful research citation but very limited production adoption. The full fine-tuning cost is a barrier for most teams.
+- **RigFace** has meaningful research citation but very limited production adoption. The full fine-tuning cost is one barrier; the other is that the authors have released weights-only on HuggingFace with no inference code, forcing adopters to reverse-engineer the loader from the paper — see [Ch08](08-diffusion-parametric.md).
 - **IP-Adapter Face** variants are widely deployed in production for identity-preserving generation. Standard tool.
 - **InstantID** (2024) is another widely deployed identity-preserving generation tool. Popular in creator workflows.
 - **ControlNet Face** variants are widely deployed for pose and structure conditioning.

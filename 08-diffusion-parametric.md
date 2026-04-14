@@ -70,7 +70,7 @@ The limitation is that the identity input is constrained to the ArcFace vector s
 
 ## RigFace: Full Fine-Tuning for Maximum Control
 
-**RigFace** (Wei et al., arXiv:2502.02465, February 2025; paper formally titled "Towards Consistent and Controllable Image Synthesis for Face Editing", with "RigFace" used as the method's internal name; code at `github.com/weimengting/RigFace`) [10] is the most ambitious of the FLAME-conditioned diffusion methods and represents the current state of the art for tightly controlled face editing. Where Arc2Face uses adapters and cross-attention injection, RigFace fully fine-tunes the entire SD 1.5 backbone and adds an entire second UNet as an identity encoder. The thesis of the paper is that adapter-based methods (ControlNet, IP-Adapter, even Arc2Face's expression adapter) cannot achieve the tightest quality of identity preservation under parametric edits; full fine-tuning is necessary.
+**RigFace** (Wei et al., arXiv:2502.02465, February 2025, latest revision v3 November 2025; paper formally titled "Towards Consistent and Controllable Image Synthesis for Face Editing", with "RigFace" used as the method's internal name) [10] is the most ambitious of the FLAME-conditioned diffusion methods and represents the current state of the art for tightly controlled face editing. Where Arc2Face uses adapters and cross-attention injection, RigFace fully fine-tunes the entire SD 1.5 backbone and adds an entire second UNet as an identity encoder. The thesis of the paper is that adapter-based methods (ControlNet, IP-Adapter, even Arc2Face's expression adapter) cannot achieve the tightest quality of identity preservation under parametric edits; full fine-tuning is necessary.
 
 The RigFace architecture has four components (from the research note in `vamp-interface/docs/research/2026-04-12-rigface-technical-deep-dive.md`):
 
@@ -82,7 +82,7 @@ The RigFace architecture has four components (from the research note in `vamp-in
 
 **Attribute Rigger + Denoising UNet.** A lightweight convolutional module that injects the spatial conditions (3D renders + expression coefficients + masks) into cross-attention layers at multiple depths. The separation is clean: self-attention is for identity, cross-attention is for attributes.
 
-The training regime: 30,000 image pairs from the Aff-Wild video dataset (same-video pairs guarantee consistent identity while varying expression and pose), trained for 100,000 steps at batch size 8 with learning rate 1e-5, on 2× AMD MI250X GPUs (roughly equivalent to 2× A100), for approximately 24 GPU hours total.
+The training regime: 30,000 image pairs from the Aff-Wild video dataset (same-video pairs guarantee consistent identity while varying expression and pose), trained for 100,000 steps at batch size 4 per GPU with learning rate 1e-5, on 2× AMD MI250X GPUs, for approximately 12 wall-clock hours (≈24 GPU-hours).
 
 What you control independently:
 - **Expression**: FLAME blendshape coefficients from the target
@@ -94,7 +94,9 @@ Quality signal: 59.3% of RigFace expression edits were rated more realistic than
 
 Weaknesses: DECA-based extraction fails at extreme poses (profile, upward angles), so edits that request those poses degrade. Occlusions (hair over face, glasses, hands) also degrade output. Inference is multi-step diffusion, ~1-2 seconds per image, and is not real-time.
 
-RigFace is the reference point for "fully fine-tuned FLAME-conditioned diffusion" and represents the quality ceiling for offline face editing with tight parametric control. For applications that can afford the training cost (24 GPU hours is not trivial but is accessible) and the inference time (1-2 seconds per image), it is the best available option.
+RigFace is the reference point for "fully fine-tuned FLAME-conditioned diffusion" and represents the quality ceiling for offline face editing with tight parametric control. For applications that can afford the training cost (≈24 GPU-hours is not trivial but is accessible) and the inference time (1-2 seconds per image), it is the strongest architecture on paper.
+
+**Availability caveat.** RigFace is in a semi-released state. Pretrained weights (~8.82 GB, safetensors, Apache-2.0) are hosted under the first author's HuggingFace account at [huggingface.co/mengtingwei/rigface](https://huggingface.co/mengtingwei/rigface), but no inference code, training code, or project page is publicly available as of the paper's v3 revision (November 2025) — the weights-repo README only points to a GitHub URL that returns 404, and the arXiv paper itself does not link to any repository. To actually run RigFace you would need to reverse-engineer the loader and inference pipeline from the method section of the paper. Treat it as weights-only, code-unavailable.
 
 ## MorphFace and Other FLAME-Conditioned Methods
 
@@ -175,7 +177,7 @@ Diffusion models displaced StyleGAN and its successors as the dominant face gene
 
 [9] "ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion." ICCVW 2025. arXiv:2510.04706. Arc2Face's expression adapter paper.
 
-[10] Wei, M., Varanka, T., Li, X., Jiang, H., Khor, H.Q., Zhao, G. "Towards Consistent and Controllable Image Synthesis for Face Editing" (method name: RigFace). arXiv:2502.02465, February 2025. `github.com/weimengting/RigFace`, `huggingface.co/mengtingwei/rigface`.
+[10] Wei, M., Varanka, T., Li, X., Jiang, H., Khor, H.Q., Zhao, G. "Towards Consistent and Controllable Image Synthesis for Face Editing" (method name: RigFace). arXiv:2502.02465, v1 February 2025, latest revision v3 November 2025. Weights only: `huggingface.co/mengtingwei/rigface` (~8.82 GB, Apache-2.0, no inference code). The `github.com/weimengting/RigFace` URL linked from the HF model card returns 404 as of 2026-04-14; the arXiv paper does not advertise any repository.
 
 [11] MorphFace. CVPR 2025. arXiv:2504.00430. 3DMM-guided diffusion with context blending.
 

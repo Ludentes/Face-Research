@@ -153,7 +153,7 @@ For continuous encoding specifically: use denoising strength as the primary axis
 
 *What's your scale — thousands of images or millions?*
 
-**Recommendation:** MorphFace if available, otherwise RigFace. Both provide the parametric control over FLAME-based attributes that supervised face learning benefits from. Generate in batches offline. For millions of images, plan for a week-long generation run on a GPU cluster.
+**Recommendation:** MorphFace if its code becomes available, otherwise Arc2Face + expression adapter (the only fully-released option in this lineage). RigFace is architecturally the most ambitious but is currently weights-only with no inference code (see Chapter 08). All provide parametric control over FLAME-based attributes that supervised face learning benefits from. Generate in batches offline. For millions of images, plan for a week-long generation run on a GPU cluster.
 
 For a cheaper alternative that does not require FLAME-conditioned diffusion fine-tuning: Arc2Face + the expression adapter, with programmatic variation of the ArcFace embedding and the FLAME expression vector.
 
@@ -195,7 +195,7 @@ For a cheaper alternative that does not require FLAME-conditioned diffusion fine
 
 **Context.** Editing photos of people — changing expressions, pose, lighting — for marketing content, stock photography, or consumer photo apps. High quality is required; speed can be traded off for quality.
 
-**Recommendation:** RigFace. It was built specifically for this use case. Full fine-tuned SD 1.5 with FLAME conditioning for expression, pose, and lighting, plus full-UNet identity preservation. Public code and weights. ~1-2 seconds per image.
+**Recommendation:** RigFace is the strongest architecture on paper (full fine-tuned SD 1.5 with FLAME conditioning for expression, pose, and lighting, plus full-UNet identity preservation, ~1-2 s per image), but as of 2026-04-14 it is weights-only on HuggingFace (`mengtingwei/rigface`, Apache-2.0) with no inference code released — you would need to reverse-engineer the loader from the paper's method section. For teams unwilling to do that, Arc2Face + expression adapter (see Use Case 9 fallback) is the next-best fully-released option.
 
 **Alternative (for teams that want to fine-tune their own):** Take the Arc2Face + expression adapter architecture and fine-tune on your own data if you have domain-specific requirements (specific demographics, specific image distributions, specific lighting setups).
 
