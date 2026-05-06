@@ -72,6 +72,11 @@ A curated index of the most important artifacts referenced in the review, groupe
 - [IM-Animation](https://arxiv.org/abs/2602.07498) — 2026 successor to LivePortrait in the implicit-motion lineage. See [Ch05](05-neural-deformation.md).
 - [FG-Portrait](https://arxiv.org/abs/2603.23381) — CVPR 2026, 3D flow guided portrait animation. See [Ch05](05-neural-deformation.md).
 - [Durian](https://arxiv.org/abs/2509.04434) — diffusion-bridge portrait animation with LivePortrait baseline. See [Ch05](05-neural-deformation.md).
+- [FlashPortrait](https://github.com/Francis-Rings/FlashPortrait) — CVPR 2026, 6× DiT acceleration for long-form portrait animation via Sliding-Window Adaptive Latent Prediction on Wan2.1. See [Ch05](05-neural-deformation.md).
+- [FantasyPortrait](https://fantasy-amap.github.io/fantasy-portrait/) — Alibaba CVPR 2026, multi-character DiT-based portrait animation with expression-augmented learning. See [Ch05](05-neural-deformation.md).
+- [DeX-Portrait](https://syx132.github.io/DeX-Portrait/) — Dec 2025, disentangled pose vs expression control via dual-branch diffusion conditioning. See [Ch05](05-neural-deformation.md).
+- [FactorPortrait](https://arxiv.org/abs/2512.11645) — Dec 2025, three-axis disentanglement (expression × pose × viewpoint). See [Ch05](05-neural-deformation.md).
+- [JoyVASA](https://github.com/jdh-algo/JoyVASA) — diffusion-based audio-to-LivePortrait-keypoints bridge; the audio-side counterpart to FasterLivePortrait. See [Ch05](05-neural-deformation.md).
 
 ### Talking Heads
 
