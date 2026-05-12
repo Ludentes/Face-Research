@@ -77,6 +77,8 @@ A curated index of the most important artifacts referenced in the review, groupe
 - [DeX-Portrait](https://syx132.github.io/DeX-Portrait/) — Dec 2025, disentangled pose vs expression control via dual-branch diffusion conditioning. See [Ch05](05-neural-deformation.md).
 - [FactorPortrait](https://arxiv.org/abs/2512.11645) — Dec 2025, three-axis disentanglement (expression × pose × viewpoint). See [Ch05](05-neural-deformation.md).
 - [JoyVASA](https://github.com/jdh-algo/JoyVASA) — diffusion-based audio-to-LivePortrait-keypoints bridge; the audio-side counterpart to FasterLivePortrait. See [Ch05](05-neural-deformation.md).
+- [RAIN](https://arxiv.org/abs/2412.19489) — Real-time Animation of Infinite Video Stream (Dec 2024); SD+AnimateDiff streaming-distilled-diffusion sibling of PersonaLive with K/p cross-noise-level frame grouping; 18 FPS at 512² on RTX 4090; strict-causal ablation establishes that streaming portrait animation needs causal-at-stream-level but non-causal-inside-window design. See [Ch05](05-neural-deformation.md).
+- [ReReVST](https://arxiv.org/abs/2002.05904) — Consistent Video Style Transfer via Compound Regularization (AAAI 2020); flow-aware video style transfer, canonical reference for streaming filter post-processing on top of warp-and-decode portrait animators. See [Ch05](05-neural-deformation.md).
 
 ### Talking Heads
 
