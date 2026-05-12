@@ -80,6 +80,20 @@ A curated index of the most important artifacts referenced in the review, groupe
 - [RAIN](https://arxiv.org/abs/2412.19489) — Real-time Animation of Infinite Video Stream (Dec 2024); SD+AnimateDiff streaming-distilled-diffusion sibling of PersonaLive with K/p cross-noise-level frame grouping; 18 FPS at 512² on RTX 4090; strict-causal ablation establishes that streaming portrait animation needs causal-at-stream-level but non-causal-inside-window design. See [Ch05](05-neural-deformation.md).
 - [ReReVST](https://arxiv.org/abs/2002.05904) — Consistent Video Style Transfer via Compound Regularization (AAAI 2020); flow-aware video style transfer, canonical reference for streaming filter post-processing on top of warp-and-decode portrait animators. See [Ch05](05-neural-deformation.md).
 
+### Stylization Toolkit: SPADE Locus and the FFHQ-StyleGAN2 Layer-Swap Pool
+
+The architectural mechanism for LP-class generators' photoreal-skin bias and the StyleGAN-family resource that opens a transfer-learning path. Discussed in [Ch05](05-neural-deformation.md) and [Ch08](08-diffusion-parametric.md).
+
+- [SPADE / GauGAN](https://arxiv.org/abs/1903.07291) — Spatially-Adaptive Normalization (Park et al., CVPR 2019); the normalization scheme in LivePortrait's decoder G. The γ/β projection layers are the surgical target for stylized-LP fine-tuning.
+- [Toonify](https://www.justinpinkney.com/blog/toonify) — Pinkney's resolution-dependent GAN-interpolation layer-swap (NeurIPS 2020 Workshop); the empirical confirmation that StyleGAN resolution layers carry attributes hierarchically. Intra-architecture-family only.
+- [StyleGAN2-ADA + MetFaces](https://github.com/NVlabs/stylegan2-ada-pytorch) — Karras et al. NeurIPS 2020; the transfer-learning recipe that produces FFHQ-compatible style heads. MetFaces is 1,336 Met Museum portrait paintings, the canonical license-clean painterly head.
+- [DualStyleGAN](https://github.com/williamyang1991/DualStyleGAN) — Yang et al. CVPR 2022; ten public style heads (Cartoon, Caricature, Anime, Arcane, Comic, Pixar, Slamdunk, Fantasy, Illustration, Impasto) with per-resolution-layer blending.
+- [NeuralKuvshinov v2](https://github.com/dobrosketchkun/NeuralKuvshinov_v2) — FFHQ-transfer-trained Kuvshinov-style anime head by `dobrosketchkun`; research probe only (license-fraught).
+- [Awesome Pretrained StyleGAN2](https://github.com/justinpinkney/awesome-pretrained-stylegan2) — Pinkney's index of FFHQ-StyleGAN2-family heads including Ukiyoe Faces (5K Japanese woodblock prints).
+- [CustomDiffusion](https://arxiv.org/abs/2212.04488) — Kumari et al. CVPR 2023; the K/V-only-fine-tune precedent that justifies SPADE γ/β-only fine-tuning in encoder-decoder GANs.
+- [JoJoGAN](https://arxiv.org/abs/2112.11641) — Chong & Forsyth ECCV 2022; one-shot per-anchor face stylization, the natural reference for "per-anchor fit at upload" product mechanics.
+- [StyleGAN-NADA](https://arxiv.org/abs/2108.00946) — Gal et al. TOG 2022; zero-source-image CLIP-guided domain adaptation. Cheapest-data baseline.
+
 ### Talking Heads
 
 - [SadTalker](https://github.com/OpenTalker/SadTalker) — the dominant real-time accessible audio-driven head. See [Ch06](06-talking-heads.md).
