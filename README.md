@@ -111,6 +111,16 @@ The architectural mechanism for LP-class generators' photoreal-skin bias and the
 - [Splat-Portrait](https://arxiv.org/abs/2601.18633) — 3DGS head from single portrait + audio with predicted per-point offsets. See [Ch07](07-3dgs-avatars.md).
 - [SuperHead](https://github.com/humansensinglab/super-head) — 3DV 2026, dynamics-aware 3D inversion producing FLAME-rigged 3DGS from low-quality inputs. See [Ch07](07-3dgs-avatars.md).
 - [Wav2Lip](https://github.com/Rudrabha/Wav2Lip) — legacy lip-sync dubbing, still deployed. See [Ch06](06-talking-heads.md).
+- [FaceFormer](https://github.com/EvelynFan/FaceFormer) — Fan et al., CVPR 2022; transformer-based audio-to-3D-face, FLAME-mesh vertex output. See [Ch06](06-talking-heads.md).
+- [CodeTalker](https://github.com/Doubiiu/CodeTalker) — Xing et al., CVPR 2023; discrete motion codebook prior for audio-driven 3D facial animation, mesh-vertex output. See [Ch06](06-talking-heads.md).
+- [MeshTalk](https://github.com/facebookresearch/meshtalk) — Richard et al., ICCV 2021 (Facebook Reality Labs); categorical-latent expression code, OBJ mesh output, CC BY-NC 4.0. See [Ch06](06-talking-heads.md).
+- [EmoTalk](https://github.com/psyai-net/EmoTalk_release) — Peng et al., ICCV 2023; **explicit 52 ARKit-compatible blendshape output** with emotion disentanglement. CC BY-NC 4.0 (non-commercial). See [Ch06](06-talking-heads.md).
+- [DiffPoseTalk](https://github.com/DiffPoseTalk/DiffPoseTalk) — Sun et al., SIGGRAPH 2024; diffusion model emitting FLAME expression + jaw + global rotation. See [Ch06](06-talking-heads.md).
+- [UniTalker](https://github.com/X-niper/UniTalker) — multi-dataset unified audio-to-FLAME model targeting FLAME 2020 expression and jaw. See [Ch06](06-talking-heads.md).
+- [Rhubarb Lip Sync](https://github.com/DanielSWolf/rhubarb-lip-sync) — Boost 1.0; offline phoneme-to-6-mouth-shape CLI for hand-rigged 2D and Live2D mouth tracks. See [Ch02](02-live2d-world.md), [Ch06](06-talking-heads.md).
+- [Cubism Motion-Sync](https://docs.live2d.com/en/cubism-editor-manual/motion-sync/) — Live2D Editor's audio-to-vowel-viseme bake (`.motionsync3.json`) and the Unity runtime `CubismMotionSyncController`. See [Ch02](02-live2d-world.md).
+- [CRI LipSync in Cubism 5.0](https://blog.criware.com/index.php/2023/11/17/cri-lipsync-in-live2d-cubism-5-0/) — higher-quality real-time lip sync bundled with Cubism 5.0. See [Ch02](02-live2d-world.md).
+- [Audio2Face-3D v3.0 (Hugging Face)](https://huggingface.co/nvidia/Audio2Face-3D-v3.0) — NVIDIA's open-weights audio-to-ARKit-52 model card; NVIDIA Open Model License, commercial use permitted under terms. See [Ch03](03-mediapipe-arkit-world.md), [Ch06](06-talking-heads.md).
 
 ### 3DGS Avatars
 

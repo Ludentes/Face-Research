@@ -76,6 +76,20 @@ The choice of tracking frontend is a pragmatic question of platform and hardware
 
 **Output compositors** — usually OBS Studio — capture the rendered avatar frames and composite them into a streaming scene. The virtual camera path from middleware to OBS is the choke point for modern tool integrations; any new tool that wants to reach VTubers has to output through this path one way or another.
 
+## Audio-Driven Lip Sync in Cubism
+
+The Cubism stack includes audio-driven lip sync as a first-class capability for use cases where there is no face camera — pre-recorded narration, TTS-driven characters, AI VTubers, and any deployment where the model needs to speak without a performer behind it. The mechanisms ship at three levels of fidelity.
+
+**The simplest** is the SDK's built-in loudness sampler: an `AudioMouthInput` component reads audio level from a stream and writes a scalar value into `ParamMouthOpenY` on a per-frame basis [11]. It captures only mouth-open amplitude — no vowel shape, no lip rounding — but it is real-time, requires no model, and runs anywhere the Cubism runtime runs. This is the path that most amateur VTuber tools use for fallback lip sync when face tracking is unavailable.
+
+**The middle tier is Motion-Sync**, a Cubism Editor feature that performs offline viseme analysis on a `.wav` file and produces a `.motionsync3.json` track containing per-frame coefficients for vowels (A / I / U / E / O) plus a generic "mouth deformation" channel [12]. At runtime the `CubismMotionSyncController` applies the baked track to the rigged parameters in sync with audio playback. Motion-Sync supports sample rates up to 100 Hz and ships with smoothing and blending controls. The motion-sync system can also operate live (microphone or audio playback) via the Unity MotionSync plugin [13]. The output is richer than loudness-only — closed-mouth consonants are distinguishable from open vowels — and it is the canonical Live2D-native path for non-camera-driven mouths.
+
+**The highest fidelity bundled option** is CRI LipSync, integrated into Cubism 5.0 as a built-in feature [14]. CRI is a third-party middleware vendor whose lip-sync component analyzes audio and produces mouth shape outputs without per-speaker pretraining; the inclusion in Cubism 5.0 means rigs targeting that runtime get higher-quality real-time lip sync without external dependencies. CRI LipSync runs cross-platform on Windows, macOS, iOS, Android, and web targets.
+
+None of these paths drive anything beyond the mouth. Eyes, brows, head pose, and emotion come either from camera tracking when available or — for fully audio-only deployments — from procedural overlays (idle blink, perlin head bob, scripted expression triggers) or from a separate audio-to-blendshape model bridged in over VTube Studio's plugin API. The audio-to-ARKit-52 pipeline (NVIDIA Audio2Face, EmoTalk, and the academic mesh/blendshape lineage covered in Chapter 06) is the standard upstream when richer-than-mouth audio-driven animation is required; the bridge from ARKit-named blendshapes into Cubism parameters is per-rig hand-mapping, discussed in Chapter 09.
+
+**Rhubarb Lip Sync** [15] is the canonical lightweight pre-Live2D phoneme-to-viseme tool — a Boost-1.0-licensed CLI that processes audio offline and emits a 6-shape (plus three optional extended) mouth-shape track. It predates the Cubism Motion-Sync feature and is still widely used in indie game dialog pipelines where a baked viseme track on disk is preferred over a runtime audio analyzer; it integrates with Live2D by mapping its discrete mouth-shape labels onto the Cubism parameters that drive each shape.
+
 ## The Economics of the Creator Community
 
 The Live2D creator economy as of early 2026 is substantial. VTubing has become a mainstream content category, with the VTuber market valued at approximately $2.54 billion and growing at roughly 20.5% CAGR [3]. Approximately 5,933 active VTuber channels were counted in Q1 2025, and total VTuber viewership crossed 500 million hours watched in that quarter for the first time. Hololive Production (Cover Corp) reported ¥43.4 billion in FY2025 revenue; Nijisanji reported ¥42.9 billion with 34% YoY growth. These are businesses built entirely on top of the Live2D creator tool.
@@ -200,5 +214,15 @@ The next chapter turns to the tracking and driving-signal side: the MediaPipe/AR
 [9] Jiang et al. "MobilePortrait: Real-Time One-Shot Neural Head Avatars on Mobile Devices." CVPR 2025. arXiv:2407.05712.
 
 [10] yoyo-nb. "Thin-Plate-Spline-Motion-Model." CVPR 2022. `github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model`.
+
+[11] Live2D Cubism SDK Manual — Lip-sync. `docs.live2d.com/en/cubism-sdk-manual/lipsync/`. The `CubismAudioMouthInput` and `CubismMouthController` Unity components, Blend Mode and Smoothing parameters, and the canonical `ParamMouthOpenY` target.
+
+[12] Live2D Cubism Editor Manual — Motion-sync. `docs.live2d.com/en/cubism-editor-manual/motion-sync/`. Vowel viseme bake (A/I/U/E/O), Mouth Deformation channel, Scale/Blending/Smoothing/Sample-Rate authoring controls, `.motionsync3.json` runtime format.
+
+[13] Live2D `CubismUnityMotionSyncComponents` repository. `github.com/Live2D/CubismUnityMotionSyncComponents`. Live audio capture and runtime motion-sync controller for Unity.
+
+[14] CRI Middleware. "CRI LipSync in Live2D Cubism 5.0." November 17, 2023. `blog.criware.com/index.php/2023/11/17/cri-lipsync-in-live2d-cubism-5-0/`. Higher-accuracy real-time lip sync bundled with Cubism 5.0, cross-platform, no per-speaker pretraining.
+
+[15] DanielSWolf. "Rhubarb Lip Sync." `github.com/DanielSWolf/rhubarb-lip-sync`. Boost Software License 1.0. Offline phoneme-to-viseme CLI emitting six basic mouth shapes (plus three optional extended) suitable for hand-rigged 2D and Live2D mouth tracks.
 
 See also `portrait-to-live2d/docs/research/2026-04-03-realtime-portrait-animation-vtubing.md` and `portrait-to-live2d/docs/research/2026-04-07-cartoonalive-textoon-deep-analysis.md` for the source research underlying the Textoon/CartoonAlive analysis in this chapter.
