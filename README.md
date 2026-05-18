@@ -31,7 +31,7 @@ The field is fragmented across non-overlapping research communities. A researche
 | 09 | [Bridges and Conversions](09-bridges-and-conversions.md) | Explicit conversions between representations — cost, quality, and common pipelines |
 | 10 | [Decision Trees by Use Case](10-decision-trees.md) | Given a concrete application, which stack to pick |
 | 11 | [Market, Community, and Tooling Reality](11-market-and-community.md) | VTubing economics, enterprise digital humans, tool popularity rankings |
-| 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines — MetaHuman, Live Link Face, Unity, JALI, Speech Graphics, Audio2Face, lip-sync middleware |
+| 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines end to end — scanning, rigging, performance capture, runtime emotion; MetaHuman, JALI, Speech Graphics, Audio2Face; and what AAA studios actually use |
 | 13 | [Conclusions and 12–24 Month Horizon](13-conclusions.md) | Open problems and where the field is going |
 
 ## Curated Links
@@ -165,7 +165,12 @@ The architectural mechanism for LP-class generators' photoreal-skin bias and the
 - [JALI Research](https://jaliresearch.com/) — procedural audio-driven facial animation (JA/LI viseme model); drove every speaking character in Cyberpunk 2077. See [Ch12](12-game-engine-world.md).
 - [Speech Graphics](https://www.speech-graphics.com/) — audio-driven facial dynamics middleware (SGX offline, SG Com runtime); broad AAA footprint. See [Ch12](12-game-engine-world.md).
 - [NVIDIA Audio2Face-3D](https://github.com/NVIDIA/Audio2Face-3D) — audio-to-3D-face model, open-sourced September 2025 (MIT/Apache code, NVIDIA Open Model License weights). See [Ch06](06-talking-heads.md), [Ch12](12-game-engine-world.md).
-- [Faceware Technologies](https://facewaretech.com/) — markerless video facial capture, the principal surviving standalone capture vendor. See [Ch12](12-game-engine-world.md).
+- [Faceware Technologies](https://facewaretech.com/) — markerless video facial capture and head-mounted-camera hardware (Mark IV); the principal surviving standalone capture vendor. See [Ch12](12-game-engine-world.md).
+- [USC ICT Light Stage](https://vgl.ict.usc.edu/research_LS.php) — polarized spherical gradient facial scanning; the reference reflectance-capture rig and FACS pose-library source. See [Ch12](12-game-engine-world.md).
+- [3Lateral](https://www.3lateral.com/) — 3D/4D scanning and FACS rigging studio (Novi Sad); acquired by Epic in 2019, the rig lineage of MetaHuman and Rig Logic. See [Ch12](12-game-engine-world.md).
+- [Eisko](https://eisko.com/) — digital-double studio: high-resolution scanning and FACS-based facial rigging as a service. See [Ch12](12-game-engine-world.md).
+- [Snappers Advanced Facial Rig](https://www.snapperstech.com/) — commercial muscle-constrained FACS facial rig for Maya and game engines. See [Ch12](12-game-engine-world.md).
+- [Unreal Engine ML Deformer](https://dev.epicgames.com/documentation/unreal-engine/ml-deformer-framework-in-unreal-engine) — learned runtime deformation (neural-morph / vertex-delta), used to approximate film-grade rigs and muscle sims. See [Ch12](12-game-engine-world.md).
 - [DI4D](https://www.di4d.com/) — dense 4D facial capture (PURE4D); delivered Call of Duty: Modern Warfare II facial animation. See [Ch12](12-game-engine-world.md).
 - [OVR LipSync](https://developers.meta.com/horizon/documentation/unity/audio-ovrlipsync-viseme-reference/) — Meta's 15-viseme lip-sync plugin, now end-of-life (superseded by Movement SDK). See [Ch12](12-game-engine-world.md).
 - [SALSA LipSync Suite](https://assetstore.unity.com/packages/tools/animation/salsa-lipsync-suite-148442) — dominant amplitude-based Unity lip-sync asset. See [Ch12](12-game-engine-world.md).
