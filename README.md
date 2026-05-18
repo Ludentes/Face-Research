@@ -31,7 +31,8 @@ The field is fragmented across non-overlapping research communities. A researche
 | 09 | [Bridges and Conversions](09-bridges-and-conversions.md) | Explicit conversions between representations — cost, quality, and common pipelines |
 | 10 | [Decision Trees by Use Case](10-decision-trees.md) | Given a concrete application, which stack to pick |
 | 11 | [Market, Community, and Tooling Reality](11-market-and-community.md) | VTubing economics, enterprise digital humans, tool popularity rankings |
-| 12 | [Conclusions and 12–24 Month Horizon](12-conclusions.md) | Open problems and where the field is going |
+| 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines — MetaHuman, Live Link Face, Unity, JALI, Speech Graphics, Audio2Face, lip-sync middleware |
+| 13 | [Conclusions and 12–24 Month Horizon](13-conclusions.md) | Open problems and where the field is going |
 
 ## Curated Links
 
@@ -154,6 +155,22 @@ The architectural mechanism for LP-class generators' photoreal-skin bias and the
 - [MorphFace](https://arxiv.org/abs/2504.00430) — CVPR 2025, 3DMM-guided diffusion with temporal context blending. See [Ch08](08-diffusion-parametric.md).
 - [InstantID](https://github.com/InstantID/InstantID) — identity-preserving generation in seconds. See [Ch08](08-diffusion-parametric.md).
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — node-based diffusion workflow runtime, dominant for power users. See [Ch11](11-market-and-community.md).
+
+### Game Engine World
+
+- [MetaHuman](https://www.metahuman.com/) — Epic's photorealistic digital-human suite (Creator, Animator, Mesh-to-MetaHuman); engine-agnostic licensing since 2025. See [Ch12](12-game-engine-world.md).
+- [Rig Logic whitepaper](https://cdn2.unrealengine.com/rig-logic-whitepaper-v2-5c9f23f7e210.pdf) — the rig-evaluation engine behind MetaHuman's ~800-joint hybrid facial rig. See [Ch12](12-game-engine-world.md).
+- [Live Link Face](https://apps.apple.com/us/app/live-link-face/id1495370836) — Epic's free iOS ARKit-52 capture app, the market floor for Unreal face capture. See [Ch03](03-mediapipe-arkit-world.md), [Ch12](12-game-engine-world.md).
+- [Unity Live Capture / Face Capture](https://docs.unity3d.com/Packages/com.unity.live-capture@4.0/manual/face-capture-getting-started.html) — Unity's ARKit capture package, scheduled end-of-support at Unity 6.1. See [Ch12](12-game-engine-world.md).
+- [JALI Research](https://jaliresearch.com/) — procedural audio-driven facial animation (JA/LI viseme model); drove every speaking character in Cyberpunk 2077. See [Ch12](12-game-engine-world.md).
+- [Speech Graphics](https://www.speech-graphics.com/) — audio-driven facial dynamics middleware (SGX offline, SG Com runtime); broad AAA footprint. See [Ch12](12-game-engine-world.md).
+- [NVIDIA Audio2Face-3D](https://github.com/NVIDIA/Audio2Face-3D) — audio-to-3D-face model, open-sourced September 2025 (MIT/Apache code, NVIDIA Open Model License weights). See [Ch06](06-talking-heads.md), [Ch12](12-game-engine-world.md).
+- [Faceware Technologies](https://facewaretech.com/) — markerless video facial capture, the principal surviving standalone capture vendor. See [Ch12](12-game-engine-world.md).
+- [DI4D](https://www.di4d.com/) — dense 4D facial capture (PURE4D); delivered Call of Duty: Modern Warfare II facial animation. See [Ch12](12-game-engine-world.md).
+- [OVR LipSync](https://developers.meta.com/horizon/documentation/unity/audio-ovrlipsync-viseme-reference/) — Meta's 15-viseme lip-sync plugin, now end-of-life (superseded by Movement SDK). See [Ch12](12-game-engine-world.md).
+- [SALSA LipSync Suite](https://assetstore.unity.com/packages/tools/animation/salsa-lipsync-suite-148442) — dominant amplitude-based Unity lip-sync asset. See [Ch12](12-game-engine-world.md).
+- [uLipSync](https://github.com/hecomi/uLipSync) — open-source MFCC-based Unity lip-sync. See [Ch12](12-game-engine-world.md).
+- [Reallusion Character Creator 4](https://www.reallusion.com/character-creator/) — affordable ARKit-compatible character authoring with AccuLips lip-sync. See [Ch12](12-game-engine-world.md).
 
 ### Proprietary / Enterprise
 

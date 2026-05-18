@@ -177,7 +177,7 @@ Live2D's profile is highly asymmetric: superb at real-time driving of a pre-rigg
 
 ## Where the World Is Going
 
-The 12-to-24-month outlook for Live2D in particular — separate from the broader face-animation outlook, which Chapter 12 will address — has three main dynamics:
+The 12-to-24-month outlook for Live2D in particular — separate from the broader face-animation outlook, which Chapter 13 will address — has three main dynamics:
 
 First, **automation will continue to make incremental progress at the template-swap level but not at the from-scratch rigging level**. We should expect more tools like Textoon: pipelines that take some input (text, image, embedding, style description) and produce swapped textures for a small set of template rigs. We should not expect a tool that produces a fully novel rig with novel deformer chains from a portrait — the obstacles to that are not primarily computational but cultural and definitional (what *is* the "correct" rig for a given portrait?), and no one has articulated a research program that credibly addresses them.
 
