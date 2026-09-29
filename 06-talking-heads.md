@@ -107,7 +107,7 @@ The pattern across this lineage is that output format is the load-bearing design
 
 Audio2Face is architecturally conservative: it predicts explicit blendshape coefficients rather than generating images or videos directly, and the downstream rendering is someone else's problem. This makes it a *building block* rather than a *complete system* — you still need a rig and a renderer — but it also makes it the right tool for integrating audio-driven face animation into an existing production pipeline that already has a rig and a renderer.
 
-For a pipeline that already targets ARKit blendshapes (any Live2D VTuber rig, any MetaHuman character, any VRM avatar), NVIDIA Audio2Face is the simplest path to audio-driven animation: feed the audio in, receive the blendshape stream, drive the existing rig. No additional tooling required. This is why Audio2Face has become the de facto standard audio-to-face component for many production pipelines as of 2026.
+For a pipeline that already targets ARKit blendshapes (any Live2D VTuber rig, any MetaHuman character, any VRM avatar), NVIDIA Audio2Face is the simplest path to audio-driven animation: feed the audio in, receive the blendshape stream, drive the existing rig. No additional tooling required. This is why Audio2Face has become the de facto standard audio-to-face component for many production pipelines as of 2026. For a MetaHuman specifically, Epic's own audio solve is the in-engine alternative; it drives the MetaHuman rig directly rather than through ARKit, and it came first against Audio2Face in the one independent comparison we found (see Chapter 12).
 
 ## Comparison Table
 

@@ -31,7 +31,7 @@ The field is fragmented across non-overlapping research communities. A researche
 | 09 | [Bridges and Conversions](09-bridges-and-conversions.md) | Explicit conversions between representations — cost, quality, and common pipelines |
 | 10 | [Decision Trees by Use Case](10-decision-trees.md) | Given a concrete application, which stack to pick |
 | 11 | [Market, Community, and Tooling Reality](11-market-and-community.md) | VTubing economics, enterprise digital humans, tool popularity rankings |
-| 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines end to end — scanning, rigging, performance capture, runtime emotion; MetaHuman, JALI, Speech Graphics, Audio2Face; and what AAA studios actually use |
+| 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines end to end — scanning, rigging, performance capture, runtime emotion; MetaHuman, JALI, Speech Graphics, Audio2Face; what AAA studios actually use; and a first-hand test of MetaHuman's audio solve as an offline presenter on Linux |
 | 13 | [Conclusions and 12–24 Month Horizon](13-conclusions.md) | Open problems and where the field is going |
 
 ## Curated Links
