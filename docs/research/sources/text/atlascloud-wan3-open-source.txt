@@ -1,0 +1,623 @@
+Is Wan 3.0 Open Source? The 2026 Answer, With Receipts
+Kling 4.0 is live on Atlas Cloud — 30s native video
+Try now
+Models
+Explore
+Creator Central
+Pricing
+Developer
+Enterprise
+Contact
+$--
+LOG IN
+Models
+AI Video & Image
+LLM API
+AI Audio API
+AI 3D API
+Model Families
+Explore
+Creator Central
+Generator
+NEW
+Model Explorer
+Marketing Studio
+NEW
+Asset Library
+Pricing
+Developer
+Docs
+Coding Plan
+MCP & CLI
+Enterprise
+LOG IN
+Contact
+Latest update:
+Wan 3.0 is now live as of August 24, 2026.
+
+On August 6, 2026, Alibaba put Wan 3.0 into public beta. On August 7, Alibaba open-sourced a Wan model on Hugging Face.
+
+Read those two sentences back to back and they sound like one piece of good news. They are not. They are two separate pieces of news, and the gap between them is the entire answer to
+is Wan 3.0 open source
+.
+
+So, answer first: no. Not open source, not open weights, not even a published license.
+
+I checked both official homes for Wan code and checkpoints on August 20, 2026. Hugging Face lists 27 model repos under
+Wan-AI
+. GitHub lists 6 repos under
+Wan-Video
+. That is 33 public repos between them, and the highest version number in either place is
+2.2
+. Screenshots of both are further down, because this is the kind of claim you should not take on trust.
+
+Key takeaways
+
+No Wan 3.0 weights exist anywhere. It is an API-only public beta, live since August 6, 2026.
+
+The last open-weights flagship is Wan 2.2, released July 28, 2025 under Apache 2.0.
+
+Four flagship generations in a row have shipped closed: 2.5, 2.6, 2.7, 3.0.
+
+Alibaba has not stopped open-sourcing. Wan-Animate-2 landed August 7, 2026, Apache 2.0.
+
+Want 3.0-class output? API only. Want weights? Wan 2.2 or LTX-2.5.
+
+Closed-flagship Wan output that answers is Wan 3.0 open source in practice: a hosted Wan 2.7 render at 1080P you can rent by the second but never download
+
+This is the closed side of the answer: one still frame, one prompt, five seconds of native 1080P from Wan 2.7, rendered through a hosted playground for a quote you read before you press Run. There is no weight file for it anywhere. Shown as a silent GIF; Step 2 below has the exact settings and the real billed quote.
+
+Now hold that clip against the version you are actually allowed to download, Wan 2.2 at 480p native, and you have the real question behind "is Wan 3.0 open source". Not licensing trivia. What you give up by staying on the last version whose weights you can keep.
+
+Why "Is Wan 3.0 Open Source" Keeps Getting Answered Wrong
+
+Here's the promise of this section: after it, you will never need to trust a page like this one again, including this one.
+
+Search the question today and you get two flavors of wrong answer, and they contradict each other.
+
+Camp one, the inventors.
+Pages that state Wan 3.0 was open-sourced in April 2026 under Apache 2.0, in 1.3B and 14B sizes, with native 4K output. Every part of that is fabricated. Alibaba's own price list has exactly three tiers, 480P, 720P and 1080P, so 4K does not exist even as a paid option (
+QbitAI
+, August 2026). Those pages exist to monetize the search term.
+
+Camp two, the ghosts.
+Older pages insisting Wan 3.0 is a rumor that Alibaba never announced. That was defensible in July. The August 6 public beta ended it.
+
+Question is: why does such a simple question stay broken?
+
+Because three different things get called "open" and almost nobody separates them.
+
+Open source
+Open weights
+Free to use
+Weights downloadable
+Yes
+Yes
+No
+Inference code public
+Yes
+Usually
+No
+Training code and data public
+Yes
+Rarely
+No
+Runs offline, no rate limit
+Yes
+Yes
+No
+Fine-tune and LoRA it
+Yes
+Yes
+No
+Commercial use
+Per license
+Per license
+Per platform terms
+Where Wan 2.2 sits
+Partly (weights plus inference code, no training data)
+Yes
+Also on paid APIs
+Where Wan 3.0 sits
+No
+No
+No, paid beta only
+
+Wan 2.2 is precisely "open weights plus inference code under Apache 2.0". That is what built the ComfyUI ecosystem around it. Wan 3.0 is in the far-right column, minus the free part.
+
+The 30-second check anyone can run.
+Paste these three into a browser. If a version number is not there, its weights do not exist, no matter what any blog says:
+
+text
+Copy
+1
+https://huggingface.co/Wan-AI/models
+
+2
+https://github.com/orgs/Wan-Video/repositories
+
+3
+https://modelscope.cn/organization/Wan-AI
+
+4
+
+Judgement rule: official weights ship from the official org, on the same day the model is announced, with a license file. A "Wan 3.0 checkpoint" on any other domain is either a renamed Wan 2.2 or bait.
+
+What Alibaba Shipped Instead of Wan 3.0 Open Weights
+
+Verdict first: Alibaba did not stop open-sourcing Wan. It drew a line through the middle of the family.
+
+Here is the Hugging Face organization on August 20, 2026. Sorted by most recently updated, 27 models, and the newest things in the list are Wan2.2-Animate-2 variants and Wan-Dancer-14B. Scroll it all you like, there is no 2.5, no 2.6, no 2.7, no 3.0.
+
+Hugging Face Wan-AI organization page showing 27 models, none of which answer yes to is Wan 3.0 open source
+
+The
+Wan-AI
+organization on Hugging Face, captured August 20, 2026. Highest version number present: 2.2 (
+Hugging Face
+, August 2026).
+
+The code side tells the same story in fewer lines. Six repos, every one Apache 2.0, and the flagship line stops at Wan2.2.
+
+GitHub Wan-Video organization showing 6 repositories with no Wan 3.0 repo
+
+github.com/orgs/Wan-Video/repositories
+, captured August 20, 2026: Wan-Animate-2, Wan-Dancer, Wan-skills, Wan2.2, Wan2.1, diffusers. Wan2.2 alone carries 17k stars and 2.2k forks.
+
+Now put the dates next to each other, because this is the part no competing page has written down:
+
+August 6, 2026:
+Wan 3.0 enters public beta. Closed. First-party channels only.
+
+August 7, 2026:
+Wan2.2-Animate-2-14B ships on Hugging Face, Apache 2.0, base and distilled checkpoints, paper arXiv 2608.06009.
+
+One day apart. That is not a company abandoning open source. That is a company that has picked which half of its lineup earns money and which half feeds the ecosystem. Generation flagships go closed. Control and driving models, the ones that animate a character from a reference video or drive dance motion from music, keep shipping weights.
+
+Wan model
+Released
+Public weights
+License
+Where to get it
+Wan 2.1
+Early 2025
+Yes
+Apache 2.0
+HF Wan-AI, GitHub Wan2.1
+Wan 2.2
+Jul 28, 2025
+Yes
+Apache 2.0
+HF Wan-AI, GitHub Wan2.2
+Wan 2.5
+Not first-party confirmed
+No
+Not published
+API only
+Wan 2.6
+Not first-party confirmed
+No
+Not published
+API only
+Wan 2.7
+Not first-party confirmed
+No
+Not published
+API only
+Wan-Dancer-14B
+Jul 17, 2026
+Yes
+Apache 2.0
+HF Wan-AI, GitHub Wan-Dancer
+Wan2.2-Animate-2-14B
+Aug 7, 2026
+Yes (base + distilled)
+Apache 2.0
+HF Wan-AI, GitHub Wan-Animate-2
+Wan 3.0
+Aug 6, 2026 (beta)
+No
+Not published
+First-party channels only
+
+A note on those three blank date cells, since every other page fills them in confidently. Aggregators report roughly September 2025, December 2025 and April 2026 for 2.5, 2.6 and 2.7. None of it traces to an Alibaba announcement I could open. So the cell stays honest and empty. The column that matters says "No" either way.
+
+And the scale of what those weights built? Wan2.2-TI2V-5B-Diffusers alone has been pulled 208k times. Wan2.2-Animate-14B holds 1.24k likes. The ComfyUI templates, the LoRAs, the quantizations, the 12,571 followers on that org page, all of it grew on downloadable checkpoints. That is why this question gets asked with feeling.
+
+The Test Setup: One Frame, One Prompt, Two Generations
+
+Preview: below is a three-job test you can rerun yourself, and it answers the question people actually mean when they type the keyword. Not "is it open", but "if I can't have the new weights, what am I giving up?"
+
+Proof it is a fair fight: one image model produces a single first frame, then that identical frame plus one identical prompt goes to both video models. Nothing else changes. Not one word of the prompt, not the duration, not the aspect ratio.
+
+The subject is chosen to break things on purpose: a night-market chef tossing noodles out of a wok while a flame erupts. Fire, smoke, oil particles, and fast hands are exactly where an older video model falls apart and a newer one holds together. You will not need to know anything technical to see which is which.
+
+One honest limitation, stated up front:
+there is no Wan 3.0 clip in this article
+. No third-party platform hosts it, so I cannot run it, so I will not show you anything and call it a Wan 3.0 output. Wan 2.7 is the closest closed generation that can actually be rented and reproduced, so it stands in for the closed side.
+
+All three jobs run in one browser tab on
+Atlas Cloud
+, which happens to be one of the few places that lists the last open-weights Wan and the closed flagship generation side by side under a single key. That is the only reason it is the venue here.
+
+Step
+Model
+Job in this test
+Listed price
+1
+GPT Image 2, text-to-image
+One shared first frame, quality high, 16:9
+$0.009 per image
+2
+Wan 2.2, image-to-video
+5s, 720p, 30 fps
+$0.03 per second
+3
+Wan 2.7, image-to-video
+5s, 1080P, 30 fps
+from $0.10 per second
+
+Read those as floor prices, not receipts. Listed rates are starting rates, and the Run button quotes the real number for the exact resolution and duration you picked. Every screenshot below has that quote visible, which is why I am not writing a per-clip total into this paragraph.
+
+Let's get started.
+
+Step 1: Generate the Shared First Frame
+
+Both video models need to start from the same pixels, otherwise the comparison is worthless. So the frame gets made once, by a third model, and reused.
+
+Open the
+GPT Image 2 text-to-image playground
+and paste this:
+
+text
+Copy
+1
+Night street-food stall at a crowded Asian night market, a young chef in a white
+
+2
+tank top tossing noodles high out of a blackened steel wok, a burst of orange
+
+3
+flame flaring up from the burner, oil droplets and steam caught in mid-air,
+
+4
+red and green neon signage reflecting in the wet pavement behind the stall,
+
+5
+handheld documentary framing, shallow depth of field, warm tungsten key light
+
+6
+against cool neon rim light, photorealistic, 35mm, high detail
+
+7
+
+Settings:
+quality = high
+,
+aspect ratio = 16:9
+, everything else default. Then save the output locally, because Steps 2 and 3 both upload this exact file.
+
+GPT Image 2 playground on Atlas Cloud with quality set to high and the generated night market wok first frame in the output panel
+
+GPT Image 2 on Atlas Cloud, run completed: quality high, 16:9, and the shared first frame in the OUTPUT panel. The Run button shows the real quote for this job.
+
+Step 2: The Open-Weights Half Runs on Your Machine, Not in a Tab
+
+Here is the asymmetry, stated plainly, and it is the practical answer to the question in the title.
+
+The open half of this comparison is Wan 2.2: Apache 2.0, 27B total parameters with 14B active per step in the A14B MoE configuration, weights sitting in the ComfyUI folders of everyone who asks this question. You run it on hardware you own. Its native resolution is 480p, and its 720p option is a super-resolution upscale of that. Those are the terms of the deal you get to keep.
+
+The closed half is a URL. No download, no local run, no ComfyUI node, billed per second while it renders in someone else's datacenter. That is Wan 2.5, 2.6, 2.7 and 3.0.
+
+So the two halves cannot be run in the same browser tab, and any article that shows you both in one hosted playground is not showing you the thing that matters. If you want the open side, clone the Wan 2.2 repo and feed it the prompt below on your own GPU. If you want 3.0-class output today, keep reading, because that is the only half a hosted playground can give you.
+
+Here is the motion prompt, identical for either path:
+
+text
+Copy
+1
+The chef flicks the wok upward and the noodles arc through the air, a tall
+
+2
+orange flame erupts and licks the rim of the wok, steam and oil mist billow
+
+3
+toward the camera, the chef's arms follow through with the toss, neon
+
+4
+reflections ripple on the wet ground, handheld camera drifts slightly closer.
+
+5
+
+Local settings to match the hosted run below:
+720p
+,
+5 seconds
+, 30 fps, and remember that 720p here is an upscale of a 480p render. That ceiling is part of what you are trading away.
+
+Step 3: Same Frame, Same Prompt, Closed Wan 2.7
+
+Same file, same prompt, not one word changed. That is the whole point, so it is worth saying plainly: if you edit the prompt between Step 2 and Step 3, you have not run a comparison, you have run two unrelated jobs.
+
+Open the
+Wan 2.7 image-to-video model
+, upload the same Step 1 frame, and paste the identical prompt from Step 2.
+
+Settings:
+resolution 1080P
+(native here, not upscaled),
+duration 5s
+, 16:9. Wan 2.7 accepts 2 to 15 seconds, and its text-to-video sibling generates built-in synchronized audio, two things the open 2.2 generation cannot do at all.
+
+One practical warning from running this. The resolution and duration controls on these video playgrounds do not always commit when you change them, and a silently-reverted duration means you get billed for the default instead. Do not trust the field, read the price on the Run button before you press it. That number is the only thing that reflects what will actually render.
+
+Wan 2.7 image-to-video playground run completed on Atlas Cloud at native 1080P with the closed flagship output in the panel
+
+Wan 2.7 image-to-video, run completed: the Step 1 frame uploaded, native 1080P, 5s, and the Run button quote for this exact job. This is the clip at the top of the article, and there is no version of it you can download.
+
+Scroll back to that clip now. The flame, the oil mist and the noodle arc are the parts a 480p-native open model has to approximate, and you did not need a metric to see it.
+
+For a current hosted run, open
+Wan 3.0 on Atlas Cloud
+and test a prompt like the one below before you publish the workflow.
+
+Wan 3.0 prompt-to-result screenshot: Hosted-vs-local evidence check.
+
+What Skipping Wan 3.0 Open Weights Costs, and What to Run Instead
+
+Conclusion first: for most people the honest answer is "run both", and the break-even is decided by your reject rate, not by the sticker price.
+
+Let's do the arithmetic with the verified rates.
+
+Hosted open Wan 2.2, 5s: $0.15 at $0.03 per second. 100 clips is $15.
+
+Hosted closed Wan 2.7, 5s: from $0.50 at the listed floor. A separate 5s native-1080P Wan 2.7 text-to-video job I ran on August 10, 2026 quoted $0.75, so the real 1080P rate landed at $0.15 per second, not $0.10.
+
+Wan 3.0 itself, on Alibaba's own API: ¥0.3, ¥0.6 and ¥1.2 per second for 480P, 720P and 1080P. A full 30-second 1080P clip is ¥36.
+
+Local Wan 2.2: $0 per clip, after hardware and your evening.
+
+Now the number nobody puts in the comparison. If 1 in 3 takes is usable, and on this kind of fire-and-motion prompt that is optimistic, your effective cost per keeper triples. $0.15 becomes $0.45. The local path's marginal cost stays zero, and its real cost is measured in render minutes and reruns.
+
+Also, one correction to a claim that gets repeated constantly: Wan 2.2 does not "run on a 4090" in the way people mean. The official README asks for at least 80GB VRAM for single-GPU A14B inference. The variant that genuinely runs on a 24GB consumer card is the smaller TI2V-5B, not the 27B MoE flagship. Community quantizations narrow that gap, but the flagship-on-a-4090 story is not what the model card says.
+
+Where the open path still wins outright:
+LoRA and fine-tune ecosystems that only exist because the weights shipped, fully offline runs, zero marginal cost, no queue, no rate limit, and no platform deciding what your prompt is allowed to contain. None of that is available at any price on the closed side.
+
+So a simple rule. Iterating, training LoRAs, or working offline? Stay on Wan 2.2. Delivering client work where a reshoot costs more than the render? Rent the closed generation for the final take. The two model pages linked in Steps 2 and 3 sit under the same key, which makes running that split less annoying than it sounds.
+
+Will Wan 3.0 ever be open source?
+Nobody at Alibaba has promised it. Given four closed flagship generations plus a steady stream of open control models, betting on 3.0 weights is betting against a visible strategy. Three signals would change my mind, and all three are checkable in a minute:
+
+A
+Wan3.0
+repo appears in the
+Wan-Video
+GitHub org or
+Wan-AI
+on Hugging Face.
+
+An arXiv paper ships with runnable code, the way Wan-Animate-2 did with 2608.06009.
+
+ComfyUI publishes an official native workflow template for it.
+
+Until then, your open alternatives are Wan 2.2 and, since August 11, 2026, LTX-2.5.
+
+Wan 2.2 (A14B)
+LTX-2.5
+Weights released
+Jul 28, 2025
+Aug 11, 2026
+License
+Apache 2.0
+Permissive, free under $10M ARR
+Size
+27B total, 14B active (MoE)
+22B
+Native audio
+No
+Yes, video and audio in one pass
+Max output
+720P
+4K HDR
+ComfyUI
+Official native templates
+Day-one support
+Speed claim
+Not published
+10s image-to-video in 6.8s on 2x GB200
+
+LTX-2.5 is the more interesting one for anyone who asked this question out of ecosystem anxiety. Lightricks published weights, plus multishot generation that holds character and voice across cuts, and ComfyUI support on launch day (
+VentureBeat
+, August 2026). The "real open video model" slot did not stay empty when Wan vacated it.
+
+Frequently Asked Questions
+
+Is Wan 3.0 open source or open weights?
+
+Neither. Wan 3.0 is an API-only public beta that opened August 6, 2026. There is no checkpoint on Hugging Face, no repo on GitHub, no ModelScope entry, no ComfyUI node, and no published license text at all. "Available" and "open" are not the same word.
+
+Where can I download the Wan 3.0 weights?
+
+You cannot. No official Wan 3.0 weights exist. Any site offering a "Wan 3.0 checkpoint" download is not an official channel, and what you get will be a renamed Wan 2.2 at best. Run the three-URL check in the section above before you spend an evening on a 30GB download.
+
+What is the newest Wan model I can actually run locally?
+
+For general video generation, Wan 2.2, released July 28, 2025 under Apache 2.0. For character animation and motion transfer from a driving video, Wan2.2-Animate-2-14B from August 7, 2026 is the newest open Wan of any kind, and it ships base and distilled weights.
+
+Is Wan 2.7 open source? What about Wan 2.5 and 2.6?
+
+No, none of the three. This is worth stating flatly because a claim circulates that Wan 2.7 weights were partially released under community pressure. There is no 2.7 repo in either official organization, as the two screenshots above show. All three generations are API-only.
+
+Will Alibaba open-source Wan 3.0 later?
+
+There is no commitment either way. The pattern since Wan 2.2 is four closed flagship generations alongside continued Apache 2.0 releases of control models, so a weights drop for 3.0 looks unlikely. Watch for a repo in the official org, an arXiv paper with code, or an official ComfyUI template.
+
+Is there a genuinely open alternative to Wan 3.0 in 2026?
+
+Yes. LTX-2.5, published August 11, 2026 by Lightricks: open weights, 22B parameters, synchronized video and audio in a single model, 4K HDR output, day-one ComfyUI support, and free commercial use for organizations under $10M ARR. On the Wan side, 2.2 remains the last flagship you own a copy of.
+
+So, one last time, on
+is Wan 3.0 open source
+: no, and the more useful question is which open model you build on next. Right now that is a two-name shortlist, and both names are downloadable today.
+SHARE
+BACK TO LIST
+Related Models
+More
+Wan-3.0-Prime Text-to-video
+All-in-one Wan3.0 renderer: cinematic, hyper-real video from a text prompt, up to 30s with smart-duration and adaptive aspect ratio.
+Wan-3.0-Prime Image-to-video
+Animate a first frame (optionally with a last frame) into a coherent clip, with native audio and smart-duration up to 30s.
+Wan-3.0-Prime Reference-to-video
+All-in-One Reference: keep subjects consistent from any mix of reference images, videos, and audio; pixel-level identity/voice/space alignment.
+Wan-3.0 Text-to-video
+All-in-one Wan3.0 renderer: cinematic, hyper-real video from a text prompt, up to 30s with smart-duration and adaptive aspect ratio.
+Wan-3.0 Image-to-video
+Animate a first frame (optionally with a last frame) into a coherent clip, with native audio and smart-duration up to 30s.
+Latest Models
+NEW
+text-to-image
+GPT Image 2.5 Sunburst Text-to-Image
+GPT Image 2.5 Sunburst generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.
+From
+≈
+$
+0.004
+/PIC
+≈
+$
+0.003
+/PIC
+-20%
+Try it
+NEW
+image-to-image
+GPT Image 2.5 Sunburst Edit
+GPT Image 2.5 Sunburst Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.
+From
+≈
+$
+0.006
+/PIC
+≈
+$
+0.005
+/PIC
+-20%
+Try it
+NEW
+text-to-image
+GPT Image 2.5 Flare Text-to-Image
+GPT Image 2.5 Flare generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.
+From
+≈
+$
+0.004
+/PIC
+≈
+$
+0.003
+/PIC
+-20%
+Try it
+NEW
+image-to-image
+GPT Image 2.5 Flare Edit
+GPT Image 2.5 Flare Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.
+From
+≈
+$
+0.006
+/PIC
+≈
+$
+0.005
+/PIC
+-20%
+Try it
+One API for All Media AI.
+Explore all models
+Popular Models
+AI Video API
+Dreamina Seedance 2.5 API
+Dreamina Seedance 2.0 API
+MiniMax H3 API
+Wan 3.0 API
+Wan 2.7 API
+Veo 3.1 API
+Kling 3.0 API
+Grok Imagine API
+More · AI Video API
+AI Image API
+Seedream 5.0 Pro API
+GPT Image 2.5 API
+GPT Image 2 API
+Nano Banana 2 API
+Qwen Image API
+More · AI Image API
+AI Audio API
+MiniMax Music API
+xAI TTS API
+Gemini Flash TTS API
+Suno API
+More · AI Audio API
+LLM API
+DeepSeek API
+Kimi API
+ChatGPT API
+Claude API
+Gemini API
+More · LLM API
+Creator Generator
+Model Explorer
+AI Video Generator
+AI Image Generator
+AI Audio Generator
+AI 3D Generator
+AI Avatar Generator
+More · AI Generators
+Marketing Studio
+UGC Product Ad
+Product Visuals
+Virtual Try-on
+Food Motion
+Trend Remix
+TVC Maker
+More · Workflows
+Free AI Tools
+Free AI Headshot Generator
+Free AI Tattoo Generator
+Free AI Kissing Generator
+Free AI Baby Face Generator
+Free AI Clothing Changer
+Free AI Hairstyle Changer
+Free AI Selfie Generator
+Free AI Aging Generator
+More · AI Tools
+Resources
+Pricing
+Prompt Hub
+Docs
+Blog
+Company
+Enterprise
+About Us
+Contact
+Follow Us
+Linkedin
+Discord
+X
+Github
+Reddit
+Youtube
+SOC 2 CERTIFIED | HIPAA COMPLIANT
+©
+2026 Atlas Cloud
+All Systems Operational
+Privacy & Terms
+|
+Acceptable Use
+|
+Data Deletion Policy
+|
+Data Retention

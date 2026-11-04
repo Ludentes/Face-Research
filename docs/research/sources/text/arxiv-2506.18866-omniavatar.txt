@@ -1,0 +1,303 @@
+[2506.18866] OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2506.18866
+(cs)
+
+[Submitted on 23 Jun 2025]
+
+Title:
+OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation
+
+Authors:
+Qijun Gan
+,
+Ruizi Yang
+,
+Jianke Zhu
+,
+Shaofei Xue
+,
+Steven Hoi
+
+View a PDF of the paper titled OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation, by Qijun Gan and 4 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Significant progress has been made in audio-driven human animation, while most existing methods focus mainly on facial movements, limiting their ability to create full-body animations with natural synchronization and fluidity. They also struggle with precise prompt control for fine-grained generation. To tackle these challenges, we introduce OmniAvatar, an innovative audio-driven full-body video generation model that enhances human animation with improved lip-sync accuracy and natural movements. OmniAvatar introduces a pixel-wise multi-hierarchical audio embedding strategy to better capture audio features in the latent space, enhancing lip-syncing across diverse scenes. To preserve the capability for prompt-driven control of foundation models while effectively incorporating audio features, we employ a LoRA-based training approach. Extensive experiments show that OmniAvatar surpasses existing models in both facial and semi-body video generation, offering precise text-based control for creating videos in various domains, such as podcasts, human interactions, dynamic scenes, and singing. Our project page is
+this https URL
+.
+
+Comments:
+
+Project page:
+this https URL
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+; Artificial Intelligence (cs.AI); Multimedia (cs.MM)
+
+Cite as:
+
+arXiv:2506.18866
+[cs.CV]
+
+(or
+
+arXiv:2506.18866v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2506.18866
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Qijun Gan [
+view email
+]
+
+[v1]
+
+Mon, 23 Jun 2025 17:33:03 UTC (8,044 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation, by Qijun Gan and 4 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-06
+
+Change to browse by:
+
+cs
+
+cs.AI
+
+cs.MM
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

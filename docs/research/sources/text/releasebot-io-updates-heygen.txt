@@ -1,0 +1,1553 @@
+HeyGen Release Notes - October 2026 Latest Updates
+- Releasebot
+
+HeyGen Release Notes
+
+Follow
+
+Follow HeyGen to add their release notes to your feed!
+
+25 release notes
+curated from 33 sources by the Releasebot Team. Last updated: Oct 22, 2026
+
+Get this feed:
+
+RSS
+
+Email
+
+CLI
+
+MCP
+
+API
+
+Slack
+
+n8n
+
+Oct 21, 2026
+
+Date parsed from source:
+Oct 21, 2026
+
+First seen by Releasebot:
+Oct 22, 2026
+
+HeyGen
+
+HeyGen Voice Turbo: The #1-ranked voice model, now free in your API
+
+HeyGen makes its Voice Turbo text-to-speech model free through November 30, 2026, giving developers API access to fast speech generation with public and instant-cloned voices, subject to best-effort availability.
+
+Summary
+
+The #1-ranked text-to-speech model on Artificial Analysis now costs nothing to use through November 30. Bring an API key, pick a voice, and start shipping speech today.
+
+FREE UNTIL NOVEMBER 30, 2026
+
+$0 per million characters.
+
+No credit card. One-line switch.
+
+"model": "heygen-voice-1-turbo-free"
+
+What is HeyGen Voice Turbo?
+
+HeyGen Voice is the in-house voice model behind every HeyGen video. Turbo is its fast mode: the same voices with a shorter generation step, so audio comes back sooner and costs less to run. Faster didn't mean worse: in blind listening tests, Turbo ranks just ahead of the full model.
+
+It's built to sound like you: natural, authentic delivery instead of a flat studio read. Turbo works with HeyGen's public voices and with any instant voice you clone from a single recording.
+
+#1 and #2 on the leaderboard
+
+HeyGen Voice Turbo ranks first and HeyGen Voice second on the Artificial Analysis text-to-speech leaderboard, ahead of Qwen-Audio-3.1, Eleven v4 Turbo and Eleven v4. Every model reads the same eight cloned voices (four US, four UK), so the comparison is about the model, not the voice. The rankings come from blind listening tests: people hear two clips and pick the one that sounds better.
+
+#1 & #2
+
+Turbo and HeyGen Voice on Artificial Analysis
+
+64%
+
+Preferred over ElevenLabs
+in blind side-by-side listening by HeyGen users
+
+Artificial Analysis Text to Speech Leaderboard (Controlled Voice): every model uses the same 8 cloned voices, 4 US and 4 UK. Captured October 20, 2026.
+
+Hear it for yourself
+
+Type any line, pick a voice, and hear HeyGen Voice Turbo in seconds. Every public voice is ready in the playground, no code needed.
+
+Start in one request
+
+Create a key on the API keys page, then call Text to Speech with the free model. You get back a link to a WAV file.
+
+curl -X POST "https://api.heygen.com/v3/models/audio/tts" \
+-H "X-Api-Key: $HEYGEN_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+"model": "heygen-voice-1-turbo-free",
+"voice_id": "83548de556df48ba8c09c42a57c51d85",
+"text": "Hello from HeyGen Voice Turbo."
+}'
+
+What "free" means
+
+Free through November 30, 2026. We'll give advance notice before anything changes.
+
+Best effort: no uptime or latency guarantee. When free capacity is full, requests return 429, so retry later.
+
+Voices: public voices and your instant voices. Professional voice clones need heygen-voice-1.
+
+Ready for production?
+
+Switch the model name. Nothing else in your request changes.
+
+Turbo Free | Turbo | HeyGen Voice
+Price: $0 until Nov 30 | $4 per 1M characters | $15 per 1M characters
+Speed: Best effort | Fast, priority | Standard
+Voices: Public and instant | Public and instant | Public, instant and professional
+Best for: Prototypes and testing | Production at volume | Your own trained voice
+
+Questions
+
+Do I need a credit card?
+
+No. Create a HeyGen account and an API key, and the free model works right away.
+
+Can I use my own voice?
+
+Yes. Clone an instant voice from one recording. Creating instant voices is free during the preview.
+
+Start building for free
+
+Your first audio file is one request away.
+
+Original source
+
+Show more
+
+Oct 21, 2026
+
+Date parsed from source:
+Oct 21, 2026
+
+First seen by Releasebot:
+Oct 22, 2026
+
+HeyGen
+
+Announcing HeyGen Video: One prompt, the whole scene
+
+HeyGen releases HeyGen Video, a generative video model that creates short scenes with matching audio from text, images or reference media. Available through the API and Creative Studio, it supports styles from live action to stop-motion and output up to 2K.
+
+Summary
+
+Meet HeyGen Video, our general-purpose video model. Describe a scene and get picture and sound together in one call, via text, image or reference to video.
+
+HeyGen Video: one prompt, the whole scene, sound included.
+
+Introducing HeyGen Video, our general-purpose video model. One prompt generates the whole scene: subject, setting, light and sound, in a single call. Create 5- to 15-second clips from text, images or your own references, in styles from live action to stop-motion, at up to 2K. Available now via the HeyGen API.
+
+Most AI video is still built in pieces. One model makes the picture, another voices the lines, lip-sync stitches them together and a sound library fills the gaps. The result: room tone that doesn't match the room, footsteps that land a beat late.
+
+We built a model without the seams. With HeyGen Video, picture and sound come from the same pass, so they fit from the first frame.
+
+What is HeyGen Video?
+
+HeyGen Video is our general-purpose video model. Just describe the scene you want, and it creates the footage and its matching soundtrack together, all from the same prompt.
+
+Every clip runs 5 to 15 seconds and ships with its own audio track: dialogue, ambience and sound effects, generated alongside the image. There is no separate speech pass, no lip-sync step and no avatar to pick first.
+
+That makes it a different tool from the avatar engines HeyGen is known for. Avatar V animates a look you already own from a script you already wrote. HeyGen Video invents what isn't there yet: the subject, the setting, the light and the sound, all from a description.
+
+One model, heygen-video-1. Three ways to call it.
+
+How Does HeyGen Video Work?
+
+Mode
+You give it
+You get
+
+Text to video
+A prompt
+A brand-new scene, with its sound
+
+Image to video
+A prompt and one image
+A clip that opens on your image as its very first frame
+
+Reference to video
+A prompt plus your images, videos or audio
+A new scene that keeps the products, people or places you supplied
+
+Text to video
+
+Start from nothing but words. Describe the subject, the place, the camera and what you want to hear, and HeyGen Video builds the shot from scratch.
+
+Image to video
+
+Hand it a still and it becomes frame one. The clip opens exactly as your image looks and moves forward from there, which makes it the natural way to bring a key visual, a storyboard frame or the last frame of a previous shot to life.
+
+Reference to video
+
+This is where it gets practical for brands. Supply up to 9 images, 3 videos and 3 audio files (12 in total), then address them in your prompt by name, such as <Picture 1>. Give it a photograph of your product and its colour, form and markings survive into a scene you describe around it.
+
+Direct it like a cinematographer
+
+HeyGen Video rewards detail. Prompts of a few hundred to a few thousand characters produce materially better output, and there's no penalty for being specific. A few habits make the biggest difference:
+
+Name the camera, not the mood. "Cinematic" does almost nothing. A camera body, lens and aperture change the depth of field, grain and motion all at once.
+
+Ask for texture, then rule out the fix. Request real skin and materials, then add "no retouching, no beauty filter" so faces don't drift toward a polished look.
+
+Direct the sound. Name the room tone, the effects and how far away they are. Say "no music" if you don't want a score.
+
+Lock the seed to iterate. The same prompt and seed return the same clip, so you can change one clause at a time and see exactly what it did.
+
+How HeyGen Video Differs From Other HeyGen Products
+
+Most video models can produce one striking frame. The problem shows up a few seconds later: the cup that changes size, the chair that wasn't there a second ago, the voice that sounds like a different room. HeyGen Video was post-trained for the shot as a whole.
+
+Scenes that hold together
+
+Objects keep their size and shape, stay where they were placed and obey physics. Nothing duplicates, vanishes or reappears halfway through.
+
+It does what you asked
+
+HeyGen Video follows a brief literally instead of improvising around it. If you didn't ask for dialogue, you don't get dialogue.
+
+Picture and sound, born together
+
+Room tone, effects and speech come from the same prompt as the image, so they match the space you described. A train arriving on an empty platform sounds like a train arriving on an empty platform: near silence, then the horn, the wheels on the rail joints, the rush of air and the brakes, in that order.
+
+Your product, kept intact
+
+Give it a photo in reference to video and the object survives into the shot with its colour, form and markings intact. That's the difference between a generic product shot and your product shot.
+
+It shines brightest on short, contained shots: one subject, one place, one action and a locked or gently moving camera. That happens to describe most of the shots brands need.
+
+Any style you can name
+
+In HeyGen Video, style is just another part of the prompt. Our launch film shot the same driver close-up in four different media, then took a single drawing from pencil to oil paint to a clay model, each step starting from the last frame of the one before.
+
+The trick is to name a real production process and the marks it leaves, rather than a vibe. Some of the styles in the launch film, and what teams use them for:
+
+Style
+Built for
+
+Live-action cinema
+Brand films and launches that should look shot on set
+
+Plasticine stop-motion
+Explainers and onboarding that should feel warm and handmade
+
+Hand-painted cel anime
+Campaigns for younger audiences and fan communities
+
+Mid-century screen print
+Internal comms and culture films with a poster-art voice
+
+Pencil, fineliner and marker
+Storyboards and concept pitches before anything is shot
+
+Marker rendering
+Industrial and product design concepts
+
+Watercolour wash
+Travel, hospitality and wellness brands
+
+Impasto oil
+Arts, heritage and luxury storytelling
+
+Every style below was generated by HeyGen Video from a text prompt. Hover to play.
+
+Titles that live inside the shot
+
+Every title in the HeyGen Video launch film was generated in camera: painted on a race track, stamped in ink, pressed into cotton paper by letterpress. Short phrases render reliably when the prompt spells them out exactly and names them as the only lettering in the frame. For longer copy, like a full lockup with a tagline, add real type in the edit.
+
+NOT ANYMORE
+TEN TAKES
+IT'S RIGHT!
+VIDEO NEVER LET YOU
+GENERATE VIDEO LIKE THIS?
+
+Available via API
+
+Titles generated in camera by HeyGen Video, no post-production type.
+
+HeyGen Video is available today through the HeyGen API and Creative Studio.
+
+One request starts a job, and you poll or take a callback for the finished MP4.
+
+Spec
+Details
+
+Model
+heygen-video-1
+
+Endpoint
+POST /v3/models/videos
+
+Duration
+Any length from 5 to 15 seconds
+
+Resolution
+480p, 768p, 1080p or 2K (1080p and 2K bill at 3× the 768p rate)
+
+Aspect ratio
+21:9, 16:9, 4:3, 1:1, 3:4, 9:16, plus adaptive for reference to video
+
+Output
+MP4 (H.264) at 24 fps with AAC stereo audio
+
+Prompt length
+Up to 32,000 characters
+
+Prompt enhancement
+Turbo, quality, ultraquality, or off to follow your prompt word for word
+
+Reproducibility
+Set a seed and the same prompt returns the same clip
+
+Notifications
+Webhook callbacks, with polling as the fallback
+
+Each job can also be read through GET /v3/videos/{video_id} alongside the rest of your HeyGen videos, so it slots into pipelines you've already built. HeyGen Video runs on paid API keys.
+
+Pair it with Avatar V
+
+Avatar V is you. HeyGen Video is everything around you.
+
+Avatar V delivers your message with the stable, long-form presence that professional video needs, from a 15-second recording. HeyGen Video fills in the shots no avatar can: the cold open on an empty platform at dawn, the product turning on a wooden table, the B-roll that cuts away while you keep talking.
+
+Together they cover the whole edit. Open on a HeyGen Video scene that earns the watch, hand off to Avatar V to deliver the message, and cut back to a reference-to-video shot of your actual product to close. One platform, one API, one video.
+
+What comes next
+
+The best video tools disappear into the work. You stop thinking about which model drew the picture and which one made the sound, and start thinking about the shot.
+
+That's what HeyGen Video is for. Describe it, hear it, ship it.
+
+Original source
+
+Show more
+
+All of your release notes in one feed
+
+Join Releasebot and get updates from HeyGen and hundreds of other software products.
+
+Create account
+
+Get updates with:
+
+RSS
+
+Email
+
+CLI
+
+MCP
+
+API
+
+Slack
+
+n8n
+
+Oct 1, 2026
+
+Date parsed from source:
+Oct 1, 2026
+
+First seen by Releasebot:
+Oct 1, 2026
+
+HeyGen
+
+What’s new at HeyGen: September 2026
+
+HeyGen ships developer-focused updates with an open-source real-time avatar stack powered by GPT-Live-1, the Code2Video Benchmark for motion-graphics evaluation, and Professional Voice Clone now available in the API for high-fidelity voice generation and retraining.
+
+Summary
+
+September was built for developers. HeyGen shipped an open-source real-time avatar stack powered by GPT-Live-1, launched the Code2Video Benchmark for evaluating AI-generated motion graphics, and brought Professional Voice Clone to the API.
+
+September was for builders. None of this month's releases is a new button in the HeyGen editor. Each one is a piece you use to build your own product: a working stack to start from, a benchmark to measure against, and a voice model you can call from code. Here is what shipped, what it does, and where to get it.
+
+An open-source real-time avatar stack, built with OpenAI’s GPT-Live-1
+
+A chatbot that answers correctly in a text block doesn't pass anymore. The avatar hears you, responds, and shows its work on screen while it does it.
+
+On September 10 we open-sourced a reference integration that does exactly that, built with OpenAI.
+liveavatar-gpt-live-demos wires three systems together: GPT-Live-1, OpenAI's full-duplex speech-to-speech model, drives a HeyGen LiveAvatar, and the model's tool calls land on screen as animated HyperFrames overlays. You talk, the avatar talks back, and what it does appears next to it.
+
+Building this from nothing means getting speech in and out, a real-time model, avatar rendering, tool calling, and interface state all working together. The demo is that wiring, written to be read.
+
+Start from three working demos, not an empty repo. The repo ships three demos: a language tutor, a poker coach, and a customer support agent. The tutor, for example, teaches a word aloud, puts a term card on screen as it says it, and every few words shrinks to the corner to review what you've learned so far. Three commands (pnpm install, pnpm run setup, pnpm dev) and you're talking to it.
+
+Swap the persona, keep the face. The persona is two markdown files; adding a new on-screen visual is three small edits. Change those and the tutor becomes a support agent that looks up an order and shows the result, a sales assistant that talks through a configuration while displaying it, or a trainer that walks someone through a workflow one step at a time.
+
+Generate the visuals live. A second repo, liveavatar-hyperframes-demo, has the avatar render motion graphics on request. Say "animate three orange cats" and a background Claude Code session writes a HyperFrames composition that fades in over the avatar's video. Generation takes 30 seconds to two minutes, so the avatar acknowledges the request and keeps talking while it works.
+
+Both repos are MIT licensed. You'll need a LiveAvatar API key, plus an OpenAI key with GPT-Live access for the first demo. They are starters, not deployments: add auth before you expose one publicly, and read the hardening list in the repo's architecture doc.
+
+Code2Video: A benchmark for video, not just code
+
+Code that compiles into a video doesn't mean it’s a good video. The video has to look intentional, paced, and coherent, and the benchmark exists to measure exactly that.
+
+On September 18, HeyGen Research released the Code2Video Benchmark with Kaggle. It measures how well modelsturns a creative brief into motion-graphics code that HyperFrames renders into a finished video. Models are good at writing code that runs. They are much less good at timing, composition, and craft, and until now there was no shared way to measure the gap.
+
+168 briefs, each a beat of a real launch video. Hooks, problem statements, product intros, key features, benefits, social proof, calls to action, and brand outros, each with a human-made reference to measure against.
+
+Five axes make up the score. Engagement, prompt-intent, composition, temporal, and craft are judged separately, so you can see where a model is strong and where it falls apart.
+
+A judge trained on human preference. General-purpose vision-language models agree with human raters about 75% of the time on this task, and they carry position and self-preference biases. Our purpose-built judge model reaches 82%, returns a verdict in under a second, and predicts, for any two videos, which one people would prefer.
+
+An open, audited leaderboard. Every model run executed on Kaggle, which keeps the raw traces auditable and will add new models as they launch. Rankings are Elo, so you can watch a model move from #14 to #10 even while every model still loses to the human reference.
+
+Early findings: the top four models sit within 12 Elo of each other, open-weight models land within 50 Elo of first place, and following the brief is nearly solved while craft is not. Motion is the weak axis.
+
+If you are building agents that produce video, this is your target. The full report shows the common failure modes side by side, and running your own models against the same judge on Kaggle is coming next.
+
+Professional Voice Clone, now in the API
+
+An avatar that looks like someone but sounds like a stock voice doesn't pass. In September, Professional Voice Clone became available through the HeyGen API: a dedicated voice adapter trained on the HeyGen Voice model from at least 20 minutes of one speaker's recordings. It is the highest-fidelity clone we offer, and it now fits inside a pipeline.
+
+Train once, then generate on demand. Upload 1 to 10 recordings with the Assets API, create the voice with POST /v3/models/audio/voices, poll until it is ACTIVE, then call POST /v3/models/audio/tts for a finished WAV or /v3/models/audio/tts/stream for audio as it is generated.
+
+Keep the same voice across releases. A creator can localize or update narration without another recording session. A training team can keep every course in the same instructor's voice.
+
+Retrain without starting over. Send new recordings with the existing voice_id and the ID, name, language, and slot stay the same. If retraining fails, the previous voice stays active.
+
+Not a developer? Let your coding agent do it. The docs include a prompt you can paste into Claude Code, Codex, or Cursor that walks you through training a clone of your own voice and hearing it speak, one step at a time.
+
+Each voice occupies a slot purchased on the API usage page, each slot includes five trainings per billing period with the first training counted, and synthesis bills 0.6 API credits per generated minute. Voices belong to the workspace of the API key that created them, and deleting a voice frees its slot.
+
+Start building
+
+Everything above is live today. The demos are on GitHub, the benchmark is on Kaggle, and Professional Voice Clone is in the API docs. If you are new to the HeyGen API, start at developers.heygen.com and show us what you build.
+
+Original source
+
+Show more
+
+Sep 9, 2026
+
+Date parsed from source:
+Sep 9, 2026
+
+First seen by Releasebot:
+Sep 17, 2026
+
+HeyGen
+
+What’s new at HeyGen: August 2026
+
+HeyGen launches HeyGen for Real Estate and Edit Look, expanding its video tools with a full real estate offering and a new way to retouch existing avatars without re-recording. The August release focuses on faster, more personal video creation and easier on-camera polish.
+
+Summary
+
+See everything HeyGen shipped in August 2026, from the launch of HeyGen for Real Estate to Edit Look, a new way to retouch and refine your avatar without recording again.
+
+August marked the start of two new chapters for HeyGen. We built our first product designed end-to-end for a single profession, and we broke the oldest rule in avatar video: that you're stuck with how you looked on recording day. Here's what you need to know.
+
+HeyGen for Real Estate
+
+Real estate is a relationship business. The agent people see most is the agent they call first. But staying visible is hard. NAR's 2025 data shows that while 75% of realtors use social media, only 46% use AI to create content, because filming consistently is slow and most agents can't sustain it week after week.
+
+HeyGen for Real Estate removes the production bottleneck entirely. It packages the three highest-leverage video formats agents create, built around your own avatar with your face and your voice, so every asset feels personal without a recording session per video.
+
+Market updates that go out every week.
+Turn this month's local numbers into a camera-ready video in minutes. No filming, no editing, no crew.
+
+Listing videos for every property.
+Walk buyers through a new listing on camera without ever setting up a camera.
+
+Neighborhood insights that showcase your expertise.
+The local knowledge you already have, delivered as on-brand video that keeps you in front of your market.
+
+HeyGen White Glove, if you'd rather not touch the tools at all.
+Text us what you want, we produce the video, and you approve before it publishes. Done-for-you, available in the U.S.
+
+You keep the expertise and the relationships; HeyGen takes filming off the calendar. That's the difference between wanting to be visible and actually staying visible, which compounds directly into more listings.
+
+Learn more at https://www.heygen.com/real-estate.
+
+Edit Look
+
+Recording an avatar has always been a commitment: whatever you looked like the moment you hit record is what your videos looked like forever. So people waited for the right lighting, a better skin day, or a haircut they liked, and some never recorded at all.
+
+Edit Look ends that. It's post-hoc retouching for existing avatars: clear blemishes, even out skin, soften fine lines, enhance makeup, and adjust lighting and exposure, with a slider that runs from subtle to full glow-up.
+
+Retouch once, fixed everywhere.
+Edit Look applies at the avatar level, so every video you generate from that avatar inherits the fix. No reshoots, no waiting, no re-onboarding.
+
+You control how far it goes.
+A single slider takes you from a light touch-up to a full polish. Your avatar, your call.
+
+A lower bar to getting on camera.
+If feeling self-conscious kept you from recording an avatar, you no longer have to accept whatever the camera caught that day.
+
+Find Edit Look in your avatar settings at https://app.heygen.com/avatar/design-look.
+
+Getting started
+
+Both launches are live now. If you're a real estate agent, start with HeyGen for Real Estate; if you already have an avatar, open it and try Edit Look. More to come this fall.
+
+Original source
+
+Show more
+
+Aug 17, 2026
+
+Date parsed from source:
+Aug 17, 2026
+
+First seen by Releasebot:
+Aug 18, 2026
+
+HeyGen
+
+What’s new at HeyGen: July 2026
+
+HeyGen ships a major July 2026 update with Video Podcast, HyperFrames inside Video Agent, and longer 30-minute talking avatar videos. It also adds website-to-video, Figma-to-video, built-in media, storyboard approval, and new agentic video creation tools.
+
+Summary
+See everything HeyGen shipped in July 2026, from Video Podcast and HyperFrames inside Video Agent to 30-minute talking avatar videos, website-to-video, Figma-to-video, and new agentic video creation tools.
+
+Welcome back to What's New at HeyGen.
+
+July was mostly about making HyperFrames even more useful. We put it inside Video Agent, taught it to build videos from your website and Figma files, gave it a media library, and added storyboarding so you approve before it renders. On top of that, we shipped the world's longest talking video model and launched Video Podcast, a new app that turns any document or topic into a two-host show you can actually publish.
+
+Here's everything that's new, and why it matters for you.
+
+Introducing Video Podcast
+
+Video Podcast is a new HeyGen app that turns any script, URL, PDF, doc, or topic into a two-host video podcast in minutes, complete with studio scenes, multi-cam cuts, and B-roll.
+
+This isn't audio with a waveform slapped on it. Your two AI hosts share a real studio scene and react to each other, and the camera coverage is automatic: a wide establishing shot, close-ups on each host, and B-roll cut in over the dialogue, so the result watches like a produced show. You can edit any line of the script before you render, and the voice updates automatically. You can even invite a real co-host by email, and they join with their own avatar without needing a HeyGen account.
+
+Video podcasts outperform audio-only on YouTube and LinkedIn, but making one usually takes a studio, a schedule, and a second person. Video Podcast removes all three. If you've got a report, a blog post, or just a topic, you've got a show.
+
+Try it at app.heygen.com/apps/video-podcast, see the product page, or follow the setup guide.
+
+HyperFrames is now inside Video Agent
+
+HyperFrames, our framework that lets agents write motion graphics as code, is now part of Video Agent in the HeyGen web app. Type one prompt and you get a complete video: script, voiceover, avatar presenter, pacing, captions, music, and custom motion graphics.
+
+Until now, motion graphics came from a template library. You picked the closest match and hoped it fit. Now the agent builds each graphic custom, in code, based on what you describe. A chart growing over a photo. Words popping on beat. A diagram assembling itself while the narration explains it. Because the graphics are code, the agent can read what it's building and shape it precisely to your prompt instead of grabbing the nearest preset. It can even pull images from the web or generate its own media, then build graphics on top of it.
+
+The result is that custom motion work, the kind that used to require an editor and hours in After Effects, is now included in the same prompt that writes your script and generates your presenter. And your avatar still delivers it all in your face and voice, no camera required.
+
+Try it at app.heygen.com, or read the changelog and Day 18 of 30 Days of HyperFrames.
+
+The world's longest talking video model
+
+Our frontier avatar model can now generate a single 30-minute AI talking video in one pass. That's 6x the industry ceiling and 10x our previous maximum.
+
+The hard problem was never length. It was consistency. Most models drift over time, and by minute ten the face doesn't quite look like the person anymore. Ours stays locked in for the full 30 minutes, which means that if you make courses, training modules, or long explainers, you no longer have to stitch together a pile of short clips and hope the seams don't show. One script in, one continuous video out.
+
+It's available now on Avatar III, IV, and V, on both the API and the web app. For the engineering behind it, read our technical report, Avatar Inference at Scale: Streaming Long-Form AI Video.
+
+More ways to build with HyperFrames
+
+Five more launches made HyperFrames better from start to finish. Here's the quick tour.
+
+KeyFrames, now open source. This is GSAP-style keyframe animation, the same system pros use in After Effects, rebuilt as code inside HyperFrames. Your agent can see its own motion output and fix it with one command, npx hyperframes keyframes, and there's a visual keyframe editor in HyperFrames Studio when you'd rather work by hand. Pro-level motion work is now open to beginners and agents alike.
+
+Repo · Docs
+
+Website to video. Paste a URL, get a launch video. The agent captures your site's screens, fonts, and colors, writes a story, adds narration and music, and renders the result. Making your launch video has always been the hard part of launching. Now it starts with a link, and your first try is free at hyperframes.dev/website.
+
+Figma to video. The new /figma skill connects a Figma URL to HyperFrames. Copy the link, hand it to the agent, and get a video that matches your file 1:1, with every hex, font, and frame preserved. If you're a designer, you already own the visual system. Now you can ship the launch video without hand-animating a single frame. Install with npx hyperframes@latest skills.
+
+Media use. HyperFrames now has a built-in media library: 10,000+ music tracks, 75,000+ images, plus sound effects, logos, and access to HeyGen's generative image and video models. It's free with any HeyGen login, and assets cache locally so your next project skips the search. That's copyright-safe, on-brand media without paying for a separate stock subscription.
+
+Storyboard. Companion mode turns the agent into a director instead of a vending machine. It pitches five angles, checks in with a storyboard, and sketches key frames for your approval before building anything. You steer every step and only render what you've approved. No more surprise videos. Install with npx hyperframes@latest skills.
+
+Each of these got a deeper walkthrough in our 30 Days of HyperFrames series. Days 9, 16, and 17 cover Figma, Media Use, and Storyboard [LINKS].
+
+Getting started
+
+Everything above is live today. Open app.heygen.com and prompt Video Agent to see HyperFrames graphics in your next video, or paste a link into hyperframes.dev/website and watch your site become one.See you next month.
+
+Original source
+
+Show more
+
+Similar to HeyGen with recent updates:
+
+Eleven Labs release notes
+
+103 release notes · Latest Oct 26, 2026
+
+xAI release notes
+
+295 release notes · Latest Oct 27, 2026
+
+Anthropic release notes
+
+933 release notes · Latest Nov 2, 2026
+
+Cloudflare release notes
+
+2364 release notes · Latest Nov 2, 2026
+
+Google release notes
+
+2431 release notes · Latest Nov 2, 2026
+
+OpenAI release notes
+
+1217 release notes · Latest Oct 30, 2026
+
+Aug 12, 2026
+
+Date parsed from source:
+Aug 12, 2026
+
+First seen by Releasebot:
+Aug 13, 2026
+
+HeyGen
+
+Introducing HeyGen for Real Estate
+
+HeyGen launches its first profession-specific product for real estate, adding three ready-to-use video formats for market updates, listing spotlights and home tours, plus white-glove support to help agents create authentic AI videos without filming every week.
+
+Summary
+
+Three real estate video formats and white-glove support that help agents become the trusted face of their market, without filming every week.
+
+Introduction
+
+Today we're launching HeyGen for Real Estate, our first product built for a single profession. It gives agents three ready-to-use video formats built around the videos top real estate agents make, from market updates to listing spotlights to home tours, plus white-glove support to get the first one right.
+
+We built it because agents showed us the way. Realtors have been some of HeyGen's most inventive users, making market updates and listing videos long before we built anything just for them. Most of the industry is still waiting for that path: NAR's 2025 research found 75% of realtors use social media, yet only 46% use AI to create content. And the gap matters, because real estate is a relationship business. The agent people see the most is the agent people call first, and video is the highest-trust touchpoint an agent has. It's also the one most avoid, because filming is slow, uncomfortable, and hard to sustain.
+
+So we didn't build a generic video tool you have to spend hours adapting to your business. Every video starts from a real estate format and comes out recognizably you, with your face, your voice, and your market knowledge. You bring the expertise and the relationships. HeyGen takes the filming off your calendar.
+
+It's available today. Start making AI videos starring you, and become the trusted face of your market.
+
+Your identity, not AI slop
+
+Your face is your brand, and your reputation is on the line in every post, so the only bar that matters is whether the video feels like you.
+HeyGen is rated #1 on G2 for Most Realistic Avatars and #1 AI Video Generator for small businesses and teams. In fact, in our recent AI Avatar research, human evaluators rated our avatar model highest across every dimension tested, including identity, lip sync, and motion naturalness, beating the leading AI video models from Google, ByteDance, and Kuaishou. On identity alone, meaning how much the video looks like you, our model scored 4.98 out of 5.
+
+For an agent whose personal brand is their business, realism isn't a nice-to-have. It's what makes your brand safe to scale. With HeyGen’s AI avatar:
+
+It looks, sounds, and feels like you. Your avatar is built from your face and voice, so the person on screen is the person clients meet at the showing.
+
+No uncanny valley. No dead eyes, no rubbery mouth, no “almost” you. If the video made viewers squint, it would cost your trust instead of building it, which is why realism is the first thing we got right.
+
+Your likeness belongs to you alone. Creating an avatar requires your recorded consent, and only you can use your face and voice to make videos. Nobody else can build or borrow your identity.
+
+Trust at scale
+
+The goal is not one viral video. It's a consistent local presence that compounds, because real estate is a micro-virality game inside your market, not a national reach play. Showing up week after week is what turns your name on a sign into the agent people call first. We built HeyGen for Real Estate for the agent who shows up all year, not the one who gets lucky once.
+
+And agents are already proving the math. Consistent video creation on social turns into closed business:
+
+Over $120,000 in commissions, with $200,000 to $300,000 more in the pipeline. Pedro Casanova, founder of The KREN Group in Florida, built an AI-powered content engine that turned consistent publishing into a commission stream.
+
+25 to 30 transactions a year, and 85 to 90 percent of clients arrive already sold. Scott Henninger, a broker serving Tennessee and Virginia, publishes weekly educational videos, and most of his clients discover him through video before they ever reach out.
+
+A $650,000 listing sold after seven days on market. For Jim McDonner, a Northwest Arkansas agent, one educational listing video did the selling.
+
+Behind those outcomes is a social publishing pace filming can't sustain:
+
+From one video a week to two Reels a day. Craig Veroni, a Vancouver realtor, now reaches over 770,000 accounts a month.
+
+From one video every three weeks to three a week. Roberto Meza, a mortgage broker in Florida, made the jump and found half his views coming from entirely new audiences.
+
+15+ videos a month per agent, no added workload. Agencies supporting multiple agents are sustaining that pace across their whole roster.
+
+How it works
+
+Pick a format, add your local knowledge, and publish. Each format is built around a job agents already do.
+
+Market updates. Turn this week's numbers into a face-to-camera update your market actually watches. It's the simplest place to start, and the video that builds the habit. Rates moved on Tuesday; your take is posted Wednesday morning.
+
+Hosted home tour. Walk buyers through every room the way you would in person, narrating each feature as your avatar guides the tour. Your presence stays front and center on every listing, not just the ones that justified flying you out for a video crew.
+
+Listing spotlight. Turn a listing's photos and B-roll into a tight, avatar-narrated overview ready to post to social or MLS the same day it goes live, no shoot required.
+
+There’s also a done-for-you service layer behind it all. With HeyGen White Glove, our concierge service, a real HeyGen team member helps you get your videos right so you don’t have to figure it out alone.
+
+Getting started
+
+You're three steps from your first video. Sign up and open HeyGen, set your profession to real estate, and the three formats will be waiting on your home page. Start with a market update, and our team will make sure your first one lands.
+
+Be the trusted face of your market, without filming every week.
+
+Learn more at heygen.com/real-estate.
+
+Original source
+
+Show more
+
+Jul 8, 2026
+
+Date parsed from source:
+Jul 8, 2026
+
+First seen by Releasebot:
+Jul 9, 2026
+
+HeyGen
+
+What’s new at HeyGen: June 2026
+
+HeyGen adds major June releases across HyperFrames, avatars, and developer workflows, including cloud rendering, live avatar APIs, Speech Cleanup, longer continuous video, new avatar looks, LinkedIn publishing, Stripe integration, and a customer support agent.
+
+Summary
+
+HeyGen’s June updates include new HyperFrames skills, advanced avatar tools, live avatar APIs, Speech Cleanup, cloud rendering, and deeper integrations across developer workflows.
+
+June was a big month. We hit $200M in ARR, roughly doubling in about eight months. We celebrated for about five minutes. Then we shipped 22 launches. Here's what we built.
+
+The next generation of HyperFrames skills
+
+Skills are pre-built agent workflows. In June we shipped the next generation of HyperFrames skills, focused on workflows, bringing the platform to nine in total:
+
+Website to video gives the agent a URL and gets a finished video back. It reads the site's content, structure, and branding and scaffolds a complete video from it.
+
+PR to video takes a GitHub pull request and outputs a narrated video walkthrough of the code changes. No one reads changelogs. People watch videos.
+
+Beat sync inverts how most video is made. Instead of choosing music and editing to match it manually, you give the agent a song and it analyzes downbeats, swells, and bass drops to design the video around the music. One of our developers described it as getting to "better outputs much, much faster."
+
+Captions / video-use handles the full caption pipeline in one instruction: transcription, timing, brand-consistent formatting, and rendering. Captions aren't optional anymore. Most people watch video on mute. This makes captions the default.
+
+Launch video takes a product brief (name, features, tone) and produces a finished, publish-ready launch video. Scripting, animation, voiceover, captions, motion all handled.
+
+At the end of June, all nine HyperFrames skills became a unified, intelligent platform. The agent routes automatically based on context. You describe what you need. It goes to the right workflow. This is the shift from "code-based video tool" to "agentic video platform.”
+
+We also added additional capabilities to HyperFrames
+
+Code Snippets gave the agent a library of pre-built, tested HTML building blocks to pull from. Instead of reinventing animated title cards and data visualizations every time, the agent has proven components ready to assemble. Faster output. More consistent quality.
+
+Cloud Rendering was the unlock that made HyperFrames production-ready. Before this, rendering required headless Chrome and FFmpeg running locally. Now you push the composition and rendering happens in HeyGen's cloud. That means HyperFrames can live in CI/CD workflows, serverless functions, and scheduled pipelines without anyone's laptop being involved.
+
+Native music and sfx turned audio from an afterthought into a one-line instruction in the HeyGen CLI. 100,000 background tracks, sound effects, a free tier of tracks, all built in — all free. No external sourcing, no manual integration.
+
+Avatar technology hit new ground
+
+Avatar Look Packs
+
+Look Packs are a new way to create looks for your digital twin that actually look like you. Most AI-generated looks only kind of resemble you, with a slightly different face every time. Look Packs solve that.
+
+Powered by Image N, our new AI image engine built for generating images of people rather than general-purpose scenes, Look Packs give you a polished, persona-based set of consistent looks in one tap. The same person across every outfit, every setting, every context. No more generating one look at a time and hoping it lands. Start with health and wellness, legal, teacher, or fitness, and your twin shows up looking like you every time.
+
+Avatar Realtime API (Broadcast)
+
+This changes what an avatar can be.
+
+Until now, HeyGen avatars were pre-rendered. You write a script, render a video, publish a recording. The Avatar Realtime API makes the avatar a live streaming agent. It can browse the web, see real-time inputs, and respond in the moment. The difference between a voicemail and a phone call.
+
+We demonstrated this by putting an avatar on Twitch 24/7. Viewers sent GitHub repos in chat. The avatar opened them, reviewed the code, and gave live feedback.
+
+Link:
+
+https://developers.heygen.com/avatar-realtime
+
+World's longest talking video: 30 minutes, continuous
+
+HeyGen can now generate 30 minutes of continuous talking-head video in a single pass. That's 6x longer than the previous industry ceiling and 10x our own prior maximum.
+
+The technical achievement isn't just the length. It's the consistency. Most AI video systems drift over time: the face gradually stops looking like you, the voice subtly shifts. Our streaming inference framework stays locked on your likeness and voice for the full 30 minutes.
+
+Full online courses. Employee onboarding modules. Recorded presentations. These are now in scope for AI video. Available on Avatar III, IV, and V, on both API and web.
+
+Link:
+
+https://developers.heygen.com/models
+
+Cinematic Avatar API
+
+Cinematic Avatar API takes a natural language prompt and up to three Avatar Looks, then returns cinematic footage with your real face in it. Your coding agent can call it directly, which makes cinematic video one line in your pipeline instead of a project on your calendar.
+
+Link:
+
+https://developers.heygen.com/cinematic-avatar
+
+New content tool: Speech Cleanup
+
+Record a rough take. Upload it. Speech Cleanup removes every filler word, awkward pause, and false start, then stitches the remaining footage into a single seamless take with no visible jump cuts.
+
+Every other filler removal tool on the market (Descript, CapCut, Submagic, Cleanvoice, Adobe, Riverside) cleans the audio. The fillers disappear from the sound but the video still jumps. Speech Cleanup hides the cut visually. The final video reads as one continuous, unbroken take.
+
+Pricing is transparent: you pay per cut applied. A perfect take gets no charge.
+
+HeyGen is now inside every major developer tool
+
+June was also the month we became native to wherever developers work.
+
+Claude: HyperFrames became an officially listed MCP connector in Claude. From inside a Claude conversation, ask for a video. Claude calls HyperFrames. No context switching.
+
+Grok: HyperFrames is also in the Grok connector directory. You can prompt a video from directly inside a Grok conversation.
+
+Cursor: HeyGen became an officially listed plugin in Cursor's marketplace with three skills bundled together: heygen-avatar, heygen-video, and heygen-translate. They chain automatically. Write a video demo inside your coding environment without switching tools.
+
+Lovable: Connect it as a personal connector and avatar video becomes a feature of your app, whether it’s for onboarding, product walkthroughs, in-app explainers. You can build an app in an afternoon now. Getting people to understand it is the hard part. Now your app ships with a voice, face, and first impression.
+
+Three major AI platforms in nine days.
+
+Link:
+
+https://developers.heygen.com/mcp/overview
+
+We also launched native LinkedIn publishing: create a video in HeyGen, post it to LinkedIn directly. No download, no re-upload, no friction.
+
+And the HeyGen x Stripe integration extended video into the business layer: paywalled content, video-driven checkout flows, monetized product launches, all automated.
+
+Link:
+
+https://developers.heygen.com/docs/stripe-projects
+
+Also shipped
+
+Customer support agent: Meet your new in-app support agent. Ask it the everyday stuff, like "how do I create my avatar?" or "where do I change the language?", and get an answer in seconds while you're working. No ticket, no waiting, no digging through help docs. And it keeps up as we ship, so the answer is always current.
+
+Questions? Reach out at
+[email protected]
+or find us on X @HeyGen.
+
+Original source
+
+Show more
+
+Jun 4, 2026
+
+Date parsed from source:
+Jun 4, 2026
+
+First seen by Releasebot:
+Jun 6, 2026
+
+HeyGen
+
+What’s new at HeyGen: May 2026
+
+HeyGen expands AI video with HyperFrames, Avatar V, LiveAvatar, new integrations, and an Android app, turning HTML, avatars, and everyday tools into native video workflows.
+
+Summary
+
+Explore the biggest HeyGen updates from May 2026, including HyperFrames, Avatar V, LiveAvatar, Android, and integrations that make AI video native to your workflows.
+
+May didn't let up. Eighteen features and products shipped, and the story from April only gets louder. Video stopped being something you make and started being something your tools just do.
+
+Your webpage is now a video too, written in the same HTML and rendered a thousand ways in the cloud before standup. Your avatar takes direction, leans in, stays serious, and delivers exactly the way you want. Your Digital Twin holds a live conversation inside the voice agent you're building, in the same face and voice that recorded yesterday's keynote.
+
+Here are the big updates for the month, what each one is, and how to put it to work.
+
+Video the way you code a webpage
+
+HyperFrames turns plain HTML into video. Your agent writes the markup, the markup becomes a finished video, and the skills that already build your webpages now build your videos too. No separate tool, no separate team, no separate budget. In May, that idea grew into a full studio.
+
+Community hub. Publish your own compositions and remix everyone else's, so you start from real work instead of a blank page.
+
+HTML in Canvas. Your video can bend, melt, and move through 3D space, which unlocks motion graphics you could not pull off before.
+
+Texture and shader catalog. Texture-masked text, shader backgrounds, and shader-powered transitions, all installable with one command.
+
+Live inspector. Tweak any composition in real time, the way you would in a real editor.
+
+Open-source captions. Fifteen styles you add with a single command, then ask your agent to drop onto your video. Transcription and background removal run locally, with no API keys to manage.
+
+Templates and variables. Render at scale in the cloud on Lambda, so one composition becomes a thousand with no render farm to babysit.
+
+Vercel deploy. Spin up your own HyperFrames render API in a few clicks.
+
+The artifact your engineers already know how to build is now the same artifact your video team ships, so the localized campaign that used to need its own software, its own headcount, and its own line item needs none of them.
+
+Try it at hyperframes.heygen.com.
+
+Avatars you direct, not just prompt
+
+Avatar V got three upgrades in May that together turn an avatar from something you prompt into something you direct.
+
+Avatar V: Custom Motion. Write the performance in plain English. "Look at the camera, lean in, stay serious." "Open hand gestures throughout." "Thumbs up at the end." Face, hands, posture, gaze, and energy are all directable in a sentence, so the same script becomes a measured executive update or a high-energy social cut depending only on how you direct it.
+
+Avatar V API. The same model is now a clean API call at five cents per second, grounded enough to ship inside a product instead of a demo.
+
+LiveAvatar integrations. Your Twin can now hold a live, real-time conversation inside whatever you are building.
+
+Put together, that is one identity across three surfaces. Recorded video, live conversation, and a programmatic API, all in the same (or different) face and voice. The avatar that recorded yesterday's keynote can answer customer questions on your support page this morning.
+
+Create your AI avatar at app.heygen.com/avatars.
+
+Video that lives inside the tools you already use
+
+Four integrations and a native app shipped in May. Each one lets you generate a finished video without opening HeyGen.
+
+Superhuman. Reply to an email thread with an avatar video instead of retyping the same explanation a fourth time.
+
+Codex. Generate a product demo, tutorial, or feature walkthrough from your editor, with A-roll, B-roll, audio, captions, and motion graphics all callable as you write code. Your product can ship video the same week it ships the feature.
+
+Canva. Pull an avatar into a slide your team already built, turning a static design into a narrated video on the same canvas.
+
+Lovable. Add HeyGen as a personal connector over MCP and OAuth, then prompt avatar video straight into the app you are building, so it launches with a face and a voice on day one.
+
+Across all of them, video stops being a separate project on someone's calendar and becomes a step inside the work already in front of you.
+
+HeyGen, now on your Android
+
+The web has been HeyGen's home base. In May, the full app came to Android, so you can record, generate, and share without a laptop. The idea you have on a call, in your car, or while running an errand no longer waits until you are back at your desk. Video becomes something you do on the spot.
+
+Download it on Google Play.
+
+Original source
+
+Show more
+
+May 6, 2026
+
+Date parsed from source:
+May 6, 2026
+
+First seen by Releasebot:
+May 20, 2026
+
+HeyGen
+
+What’s new at HeyGen: April 2026
+
+HeyGen releases a major April update with advanced avatars, cinematic Digital Twin video, Instant Highlights for clips and translations, AI agent video creation, open-source HyperFrames, and new integrations that bring video production into everyday workflows.
+
+Summary
+
+Explore HeyGen’s latest updates, including advanced avatars, AI video automation, and new tools that turn prompts, agents, and workflows into fully produced videos.
+
+April was a wild ride. We launched 15 features and products, and when you stack them up, a story takes shape. Video stopped being a tool you open and started being something your tools just do. Your coding agent now ships video. Your podcast now becomes social clips in 175+ languages and dialects while you’re in line for coffee. Your Digital Twin can now walk across a cinematic scene while interacting with up to two other people.
+
+Here’s what shipped, why it matters, and how to play with it this week.
+
+One 15-second clip, unlimited looks and videos
+
+Avatar V is here, and it’s our most advanced avatar model yet. It does something no avatar model has done before: combine the flexibility of photo avatars with the realism of video avatars in a single model.
+
+Here’s the part that feels almost unfair. You record one 15-second clip. From that single take, you get full upper-body movement (waist up, not just face and shoulders), so it actually feels like real studio footage. You get multi-look generation, so you can select different outfits, settings, and styles from one base recording without losing your identity. You also get multi-angle consistency across shots, with no drift and no uncanny valley. And you get long-form stability, so your face, voice, and presence stay locked in even on the longest videos.
+
+If you’re a creator, founder, marketer, or anyone whose face is part of the brand, you’re done with reshoots. Record fifteen seconds of yourself once and get a year of content. Different outfits for different campaigns, different settings for different audiences, but the same on-screen presence everywhere.
+
+Seedance 2.0, now starring you
+
+Seedance 2.0 is the model everyone has been talking about, and HeyGen is the first avatar video platform integrating it with identity-verified human faces. Every other implementation of Seedance is locked to fictional characters. With HeyGen, your real Digital Twin gets cinematic motion, dynamic camera work, and up to three avatars in a single scene.
+
+The more interesting story is where you can actually use it. Seedance 2.0 is now wired into multiple surfaces inside HeyGen, so you can reach for it in whichever workflow already fits how you work.
+
+Inside Avatar Shots
+
+This is the most direct path. Open Avatar Shots, choose Seedance 2.0 as your generation engine, and direct your Digital Twin through cinematic scenes with full body motion and dynamic camera work. Pick the prompt, the scene, the camera move, and Seedance does the rest. If you came here to make a brand film with your face in it, this is the front door.
+
+Inside Video Agent
+
+If you’d rather just describe what you want, hand the brief to Video Agent. Seedance 2.0 is now a first-class engine in the Video Agent creation flow, alongside Avatar V. Give Video Agent a prompt, and it automatically composes the right mix of Seedance cinematic shots and Avatar V scenes into a finished video. You don’t have to step out into Avatar Shots manually or pick the engine yourself. The agent picks it for you.
+
+Across Digital Twin everywhere
+
+The same Digital Twin you built for Avatar V is the one Seedance casts in those cinematic shots. Record once, walk through a coffee shop, gesture across a stage, hand off a line to two other Twins of yourself or your team. One identity, two engines, full coverage from talking head to cinematic scene.
+
+You can now produce the kind of cinematic, story-driven video that used to require a director, a crew, a location, and a week of editing, and you can do it from whatever workflow already fits the job. Direct it yourself in Avatar Shots, or describe it once and let Video Agent compose it for you. Brand films, founder narratives, ad creative with real production value. All from your desk, with your real face, in an afternoon.
+
+Turn one podcast into a hundred clips
+
+Picture this. You recorded a 90-minute podcast on Friday. Then, your editor needs to work six hours to pull clips. By Tuesday, your audience has already moved on.
+
+Instant Highlights v2 kills that problem. Upload any long-form video, whether it’s a podcast, webinar, keynote, interview, or livestream. You get publish-ready short clips for every platform in one workflow.
+
+Type “the part where she talks about fundraising mistakes” and the AI finds the moment inside a 3-hour episode. Face tracking with dynamic camera follow makes a 9-by-16 cutdown of your keynote feel like a real op, framed it instead of a dumb static center crop. Two people on screen get auto-stacked split frame, or speaker cut. Captions, translation into more than 175 languages with lip sync, and 4K upscaling are all baked in. No third-party tools, no extra exports.
+
+If you produce long-form content, this collapses your post-production stack into one upload. The clips ship the same day as the episode. Your audience hears it while it’s still hot, and your global audience hears it in their own language without waiting for a localization vendor.
+
+Now your AI agent can ship video
+
+For everyone building with AI agents right now, there’s a quiet question that nobody answers cleanly. Agents always end at a human, so what’s the last mile? For most teams today, the answer is a wall of markdown. We don’t think that’s the answer. We think the answer is video.
+
+In 12 days, we shipped three things that make that real.
+
+HeyGen CLI wraps our v3 API in a single binary with structured JSON output and a built-in wait flag. You can pass a prompt, and let Video Agent pick the avatar, voice, script, and layout for you. Or you can pass a JSON body and drive every detail yourself. macOS and Linux, no runtime dependencies.
+
+If you’re a developer, you can now generate videos exactly like you run a curl command. Drop it into a build pipeline, a cron job, or a Slack bot. Your product can ship video as easily as it ships email.
+
+HyperFrames is now open source under Apache 2.0. The pitch is wild. You write videos as plain HTML. AI coding agents like Claude Code, Cursor, Codex, and Gemini CLI build them natively. HyperFrames renders the result to MP4. The same input always produces the same output, so it slots right into CI and CD without surprise.
+
+Video is now code. That means version control, code review, automated testing, and reproducible builds for video, the same way you already do for software. For engineering teams, this is the first time video fits inside the workflow you already use to ship everything else.
+
+HeyGen Skills might be our favorite. You’re inside Claude Code or Cursor, and you tell the agent what kind of avatar you want. The agent builds it, selects a voice, writes the script, generates the video, and hands you a share link. Your avatar is saved locally. After that, every video is just one prompt. Try it. It feels like magic.
+
+The friction between “I have an idea” and “I have a finished video” is now one sentence to your coding agent. No tabs, no app switching, no logins. If you live in an IDE, video is now native to your work.
+
+The shared install pattern across all three is npx skills add heygen-com/. Three different surfaces, one consistent way agents reach them.
+
+We open-sourced video
+
+When we open-sourced HyperFrames, we said we wanted it to be the way AI agents and creative teams ship video together. Since then, we’ve been steadily filling in every part of that loop. Today, HyperFrames is a packaged solution that covers the full lifecycle, from idea to render to share.
+
+Here’s what’s now in the box and what each piece unlocks for you.
+
+HyperFrames Timeline. A proper visual timeline editor for HTML-based video. You can scrub through your composition, trim and rearrange scenes, adjust timing, and preview transitions, like you would in any modern video editor. You no longer need to read code to fine-tune a video your agent built. Anyone on your team, technical or not, can polish the final cut.
+
+HyperFrames in Claude Design. A native bridge between Claude’s design surface and the HyperFrames renderer. Designers working in Claude can jump from a static layout into a fully rendered video without leaving the canvas. The handoff between design and motion disappears. The same artifact you used to ship as an image can now ship as a video in the same workflow.
+
+HDR rendering. High dynamic range output is now baked into the renderer, so highlights, shadows, and color depth come through with the same fidelity you’d expect from a premium pipeline. Your videos look broadcast-quality on modern displays, with no extra steps or color-grading workflow.
+
+Canvas editing in Studio. A free-form canvas in HeyGen Studio for visually arranging, editing, and iterating on HyperFrames compositions. You get a flexible, designer-friendly workspace for building video the way you’d build a presentation or a Figma board, with all the power of HyperFrames.
+
+Community discovery. A built-in way to browse, remix, and learn from videos created by people in the HyperFrames community, paired with a celebration of our HyperFrames community milestone. You don’t have to start every project from a blank canvas. Find a composition you love, fork it, and make it your own.
+
+Together, these pieces turn HyperFrames from “a way to write video as code” into a complete production stack. Your AI agent can build the first draft, your team can polish it on the timeline, your designers can finish it in Claude or Studio, the renderer ships broadcast-quality output, and your community helps you find the next idea. One packaged solution covering every step from blank page to published video.
+
+The repo lives on GitHub at heygen-com/hyperframes. The quickstart is at hyperframes.heygen.com/quickstart. There are more than fifty components in the block catalog. If you’re an agent, you’re one npx hyperframes init away from playing.
+
+Video where you already work
+
+The other big April pattern was integrations. The idea is simple. Take a tool people already live in, and make video the natural next step.
+
+The HeyGen and Gamma integration lets you go from a prompt or document to an avatar-narrated presentation video in one place. Drop in PPT, PPTX, or PDF. Get an avatar-narrated video out, fully editable in AI Studio. The Granola integration automatically turns your meeting notes into a recap video.
+
+If you’re a B2B team that lives in decks, meetings, email, or design files, you don’t have to context switch to a new tool to make a video. The deck you already wrote becomes a narrated presentation. The meeting that just ended becomes a recap your team can rewatch. The email you just drafted becomes a personalized video. Video stops being a separate project and just becomes the natural last step of the work you were already doing.
+
+The takeaway
+
+Video has a place in every agent loop now. Whether it’s CLI in your terminal, the IDE you ship from, the podcast file you uploaded, the deck you already wrote, or the meeting that just ended. April put video where the work already is.
+
+May keeps the cadence going. Subscribe to our changelog, or run npx skills add heygen-com/hyperframes and start building. We can’t wait to see what you make.
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 20, 2026
+
+HeyGen
+
+What’s new at HeyGen: February 2026
+
+HeyGen releases a redesigned homepage, one-tap social video editing on iOS, ChatGPT-powered video creation, and the new Video Agent API with HeyGen Skills for prompt-to-video workflows, making video creation faster, simpler, and more automated.
+
+Summary
+
+February’s HeyGen updates introduce a redesigned homepage, one-tap social video editing on iOS, ChatGPT video creation, and the new Video Agent API for prompt-to-video workflows.
+
+Video creation has always had a tax on it. You have an idea, but then you have to write a script, find visuals, animate an avatar, and edit it all together. It’s a process stuck in the past. We've been eliminating that tax one feature at a time, and last month we took four big swings.
+
+A redesigned homepage that gets out of your way
+
+HeyGen has grown a lot, and the old homepage was starting to show it. Finding what you needed took too many clicks.
+
+With clearer navigation and dedicated spaces for different creation paths, you can quickly create new videos, manage your avatars, or manage and edit existing content immediately. Less clicking, more creating. The updated Home experience offers greater flexibility while maintaining simplicity, organization, and readiness to support future tools.
+
+Discover the new homepage
+
+Turn videos into social-ready content in seconds
+
+Stop spending hours styling shots, timing captions, and trimming clips. Our new Edit Styles on the HeyGen iOS app turns your raw avatar footage into a polished, social-ready video with a single tap. With 12 built-in templates, it automatically adds word-synced captions, pulls out visual hooks from your script, and applies dynamic zoom effects. You can even customize colors and caption styles. No more manual editing: just shoot, tap, and post. Android support is coming soon.
+
+Download the mobile app
+
+Create videos directly inside ChatGPT
+
+You can now generate a fully produced video without leaving ChatGPT. Powered by HeyGen’s Video Agent, the integration enables users to go from a prompt, script, or idea to a fully produced video directly within ChatGPT. Just describe the video you want, and the agent will handle everything from scripting and visuals to avatar animation and editing. You can refine the video in a chat conversation until it’s perfect. It’s a new way to work. Product demos, training videos, social content, personalized outreach. All of it, from a single prompt.
+
+Try the integration
+
+Video Agent API + HeyGen Skills: One prompt video
+
+The Video Agent API is now live, and we’ve built a HeyGen Skills to go with it. You can use the Video Agent API directly or integrate it with Claude Code via HeyGen Skills.
+
+Simply install the skill, add your API key, and tell Claude what you want. It automatically optimizes your prompt, calls the API, and delivers a finished video. No web app, no timeline, no manual steps.
+
+“One prompt away” means exactly that. Daily market recaps, weekly content summaries, product demos triggered by any workflow—video is now just another output of any Claude Code task. And if you want to tweak it, your session remains accessible in HeyGen whenever you need it.
+
+Learn more
+
+Looking ahead
+
+February’s updates simplify how teams create, edit, and share video at scale. Be on the lookout for more integrations and new features in March.
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 20, 2026
+
+HeyGen
+
+Updates to HeyGen premium features and credits
+
+HeyGen improves its credit system with clearer Premium labels, upfront cost estimates, and suggested credit-free alternatives. Audio dubbing is now unlimited, while paid users keep unlimited access to core features like Avatar III, Video Agent Essential mode, and stock content.
+
+Summary
+
+HeyGen is overhauling how credits work based on user feedback that the system was confusing. The key changes: "Generative Credits" are now called "Premium Credits," features that cost credits are clearly labeled "Premium" throughout the product, users see upfront cost estimates before generating, and the platform suggests credit-free alternatives when you're running low. Audio dubbing is now unlimited (no longer costs credits). Premium features include Avatar IV, Video Translation with lip-sync, Video Agent, AI-generated avatar looks, and B-roll from Sora 2/Veo 3.1. Core features like Avatar III, Audio Dubbing, Video Agent Essential mode, and stock content remain unlimited for paid users. The long-term goal is to move more features from premium to unlimited as model efficiency improves.
+
+We heard your feedback: it's not clear which features use credits, and how many credits actions will consume. At HeyGen, we believe AI video generation should empower everyone to bring their ideas to life. We took a step towards that with generative credits late last year.
+
+Today, we're making credits and premium usage even more clear and accessible.
+
+What we heard
+
+Many of you have told us the feature and credit system is confusing. You shared stories of using credits while testing features, and finding it difficult to tell which features cost you credits and which did not. In our own experiments, we validated that confusion, and are now addressing it.
+
+Why premium credits
+
+AI video generation looks very different today than it did when we first launched in 2022. Premium credits help us sustainably deliver cutting-edge, compute-intensive AI models without charging separately for each new feature. They allow us to continuously improve and add capabilities (like Video Agent and Sora 2 integration) while keeping your base subscription predictable. But we need to make this system much clearer.
+
+The changes we're making
+
+1. Clear premium labeling
+
+Features that consume credits are now marked as "Premium" throughout the product. No more guessing which features will use credits.
+
+Premium features include:
+
+Avatar IV
+
+Video Translation with lip-sync
+
+Video Agent
+
+AI-generated avatar looks
+
+B-roll generation with Sora 2, Veo 3.1, and other third-party models
+
+2. "Generative Credits" → "Premium Credits"
+
+We renamed "Generative Credits" to "Premium Credits" to make the connection clearer: premium features use premium credits.
+
+3. Upfront cost estimates
+
+Before you generate, you will see how many credits an action will use: "This will use 50 premium credits (200 remaining)." You can make informed decisions before committing.
+
+4. More choice. More control.
+
+When you're running low on credits, we will suggest alternatives that don't consume premium credits, such as:
+
+"Use Avatar III instead of Avatar IV"
+
+"Switch to Video Agent Essential mode when premium usage runs out"
+
+5. Audio translation is now unlimited
+
+Good news: video translations with audio overlay (audio dubbing) no longer consume credits.
+
+As we continue to improve model efficiency, our goal is to move features from premium to unlimited whenever possible, expanding what's available to paid users without credit limitations.
+
+Features included in your plan
+
+These features do not consume premium credits and are unlimited for all paid users:
+
+Avatar III — Create as many videos as you need with our core avatar model, works with your personal photo or video avatars
+
+Audio Dubbing — Translate videos with audio overlay, unlimited usage
+
+Video Agent Essential mode — Basic video generation from prompts
+
+Stock avatar looks — Use any pre-made avatar appearance
+
+Stock images and videos — Access our full library of stock content
+
+Try it now
+
+Log into HeyGen and start creating. You'll see the new Premium labels, cost estimates, and unlimited alternatives throughout the platform.
+
+Have feedback?
+
+We're listening. Share your thoughts at
+[email protected]
+, our change log, or our community forum. We read everything.
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 5, 2026
+
+HeyGen
+
+Announcing Avatar V: The most realistic AI avatar model in the world
+
+HeyGen launches Avatar V, its most advanced AI avatar model, bringing highly realistic, identity-consistent video generation from a simple 15-second recording. It adds lifelike motion, multi-angle stability, long-form performance, and studio-quality results.
+
+Summary
+
+Introducing Avatar V, HeyGen’s most advanced AI avatar model. It delivers unmatched realism and identity consistency. Create studio-quality videos from a simple 15-second recording with lifelike motion, multi-angle stability, and long-form performance.
+
+Every few months, a new AI model ships with a bold claim about realism. The demos look impressive, the side-by-side comparisons are compelling, and the launch post makes it sound like everything before it was a rough draft. Then you actually use it, and that familiar feeling sets in: the slight uncanny quality, the face that drifts, the avatar that starts as you and quietly stops being you twenty seconds in.
+
+We've seen this too. We built around it.
+
+Today, we're introducing Avatar V, HeyGen's most advanced AI avatar model and the most realistic in the world.
+
+What is Avatar V?
+
+Avatar V is HeyGen's next-generation avatar model and the foundation everything else in HeyGen runs on now.
+
+Most avatar systems optimize for a single impressive moment: the screenshot, the short clip, the controlled demo environment where everything is working in the model's favor. They look great in two seconds and fall apart in twenty. Avatar V was built to do something harder.
+
+It was built to hold.
+
+What that means in practice is that one short recording from you generates studio-quality video that maintains your face, your voice, and your presence across angles, looks, and runtime. Not just for the opening shot, but for the whole thing, from the first frame to the last.
+
+We've been training avatar models for years and going deep on the specific problem of human identity in video: the micro-expressions, the natural movement, the quality threshold that separates a good talking head from footage that could genuinely pass as real. Avatar V is the result of that work compounding over time.
+
+Why it’s the best model
+
+The AI video market has a quality problem that most people describe wrong. They say the output looks AI, but what they actually mean is it doesn't look like the person it's supposed to be.
+
+Identity drift is the real problem.
+
+An avatar that starts as you and slowly stops being you. A face that holds in static shots but breaks under motion. A model that generates one great look but can't give you another without becoming someone else in the process. These aren't edge cases. They're the norm.
+
+Avatar V solves identity consistency at the model level, not as a post-processing patch applied after the fact. We trained it specifically on the hard cases: multi-angle footage, long-form content, varied looks generated from a single input recording. The result is an avatar that stays true to who you are across every variable we could throw at it.
+
+Plus, companies like Synthesia still requires studio time to get anywhere close to this output quality. HeyGen does not. Rated number one for most realistic avatars on G2, Avatar V makes that claim stronger than it's ever been.
+
+How it works
+
+Record a 15-second clip
+
+That's the input. Fifteen seconds, no professional camera setup, no studio lighting, no crew required. You need a phone and a few seconds of your time.
+
+From that reference clip, Avatar V builds a complete model of your identity, not just what you look like in one frame, but how you move, how your face settles naturally, and what makes you recognizably you across different contexts. Everything it generates afterward comes from that foundation, which is what makes the output so consistent.
+
+That gap between what goes in and what comes out is exactly where Avatar V does its work.
+
+Multi-angle consistency
+
+Real video isn't a single locked-off shot. It moves, it cuts, and the camera finds you from different positions and angles, and if the avatar can't hold up across that motion, the entire thing falls apart immediately.
+
+Avatar V holds. Your avatar maintains consistency across different shots and angles without drift, without inconsistency, and without the uncanny valley breaking through at the worst possible moment. The face that appears at the top of your video is the same face that appears at the bottom, from any angle the output requires.
+
+This is genuinely difficult to do well. Most models treat each frame as an isolated generation problem. Avatar V treats your identity as a constant and builds outward from there.
+
+Multi-look generation
+
+Every video you've ever recorded came with baggage you didn't choose. The outfit you happened to be wearing that day. The background behind you. The lighting in the room. If you wanted to look different, the answer was always the same: go record again.
+
+Avatar V changes that entirely.
+
+With Avatar IV, what you recorded was what you got. The performance and the appearance were locked together. Avatar V is the first model to separate them.
+
+You record yourself once, naturally. Avatar V captures your real movements, your real expressions, and the specific way you carry yourself when you're actually talking. That performance becomes the foundation. Then you choose how you appear: a different outfit, a different setting, a different version of yourself entirely. Your motion stays real. Everything else is yours to decide.
+
+This matters for real work. You might want one look for a sales video, another for a company-wide announcement, and another for a product walkthrough. With Avatar V, you don't film three separate times to get three distinct results. You record once and choose from there.
+
+Long-form stability
+
+Short clips are easy. Long-form is where most avatar models quietly fall apart.
+
+Avatar V maintains your identity across your longest videos, delivering the same face, the same voice, and the same presence from the first second to the last without degradation or drift. No moment where the avatar stops looking like you and starts looking like a close approximation of someone adjacent to you.
+
+This is the capability that makes Avatar V genuinely useful for the content that matters most: full training modules, product walkthroughs, onboarding videos, and the kinds of recordings that used to require a camera crew and a full studio day to produce.
+
+Pair it with Seedance 2.0
+
+Avatar V handles the message. Seedance 2.0 earns the watch.
+
+Once you have your Avatar V recording, it becomes the foundation for a scroll-stopping video when paired with Seedance 2.0. Avatar V delivers your message with the stable, long-form presence that professional video requires. Seedance generates the cinematic hooks and motion-first scenes that pull people in before you say a word. They cover opposite ends of the same video: the opening that demands attention and the body that holds it.
+
+Most people think about the hook and the message as separate production problems. With Avatar V and Seedance 2.0, they both start from the same 15-second clip. You record once to create cinematic videos starring you.
+
+What comes next
+
+Video is the highest-trust medium for human communication, and when it works, it works better than anything else. When it looks fake, trust collapses immediately and there's no recovering it.
+
+Avatar V was built on a single belief: the output has to be good enough that you'd be willing to put your name on it. Not good for AI. Just good.
+
+We think we're there.
+
+Try Avatar V today
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 5, 2026
+
+HeyGen
+
+What’s new at HeyGen: March 2026
+
+HeyGen releases March updates that make AI video creation more on-brand, interactive, and builder-friendly, with Brand Systems, interactive video, new Video Agent styles, 4K enhancement, stronger enterprise controls, and expanded API, fal, and MCP access.
+
+Summary
+
+HeyGen’s March updates focus on making AI video creation feel truly yours by improving branding speed, adding interactivity, enhancing quality, and expanding tools for builders.
+
+Every tool eventually hits the same wall. It can do the thing, but making the thing feel like yours takes extra work. Your brand colors, your style, your level of polish. March was about closing that gap. We shipped seven updates that make HeyGen videos look better, feel more on-brand, and reach more developers out of the box.
+
+Brand Systems: One URL, every asset on brand
+
+Paste your company's website URL and HeyGen extracts your logo, typography, and color palette automatically. That's your Brand System. It works across Templates, AI Studio, and Video Agent.
+
+In Templates, you apply your brand with a single click. In AI Studio, elements default to your brand fonts and colors. In Video Agent, you can prompt it to use your Brand System and it generates motion graphics that actually match your identity. Set it up once and stop manually adjusting colors on every project.
+
+This is the kind of thing that sounds simple but changes your workflow. No more eyedropping hex codes from your website or hunting for the right font file. Your brand just shows up.
+
+Interactive video experiences
+
+Static video is a one-way street. Interactive Video turns it into a conversation. You can now add in-video quizzes for real-time knowledge checks, branching paths for choose-your-own-adventure scenarios, and CTA buttons that link externally or jump between chapters.
+
+This is a big deal for training and education teams. Build a compliance module where learners make decisions and see consequences. Create onboarding flows that adapt based on role. The branching logic means one video can serve multiple paths without duplicating content.
+
+It also exports to SCORM, so it plugs directly into your existing LMS. Available on Business and Enterprise plans.
+
+Styles for Video Agent
+
+Video Agent can now generate videos in over 100 curated visual styles. Before you generate, pick a style that controls typography, font pairings, color systems, motion pacing, transitions, animation timing, and layout composition.
+
+The same script with the same avatar produces a completely different video depending on which style you choose. A product demo can feel polished and corporate or bold and editorial without changing a single word of the prompt. This makes Video Agent dramatically more flexible for teams producing content across different brands, campaigns, or audiences.
+
+4K video enhancement
+
+You can now upscale any video to 4K, powered by Topaz Starlight Precise 2.5. There are two engines: Standard is faster and uses fewer credits, while Precise delivers sharper results for when quality matters most.
+
+Beyond resolution, you also get frame interpolation that takes footage from 24fps up to 120fps. Find it under the Apps tab as "Upscale Video." Available on all plans with credits.
+
+If you've been sitting on older content that looks dated at lower resolutions, this is the fastest way to bring it up to standard.
+
+Enterprise admin controls
+
+Enterprise teams now have granular control over who can do what. Admins can manage public invite links, sub-workspace access, and default sharing permissions. Video distribution controls let you restrict downloads, public publishing, and social sharing at the org level.
+
+Feature-level settings go further: restrict custom avatar creation, AI-generated avatars, public avatar availability, and Brand Kit creation. The Members tab now supports search, active/pending filtering, and exportable status lists. Sub-workspace management got a refreshed UI with cleaner billing setup and pagination.
+
+All changes apply going forward without affecting existing content. Enterprise plan only.
+
+For builders: Pay-as-you-go API, fal, and MCP
+
+Three updates for developers this month. First, API access no longer requires a subscription. You can top up starting at $5 with straightforward USD-per-unit pricing across all API features.
+
+Optional auto-reload keeps things running without manual intervention. If you're already subscribed, your existing discounts stay intact.
+
+Second, HeyGen's core capabilities are now available on fal's, replicate, runware developer platform. That includes Video Agent, Image-to-Video, Translate (both Precision and Speed modes), and Digital Twin with Avatar 3 and Avatar 4. If you're already building on fal, you can add AI video generation without switching platforms or managing a separate integration.
+
+Lastly, HeyGen MCP is available on Claude, Manus, and OpenAI — you can generate videos directly on these platforms.
+
+Looking ahead
+
+That's seven major updates in one month, and we're just getting started. Seedance 2.0 and Gamma went live last week. April's going to be fun.
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 5, 2026
+
+HeyGen
+
+HeyGen November 2025 product release
+
+HeyGen releases a major update with Android video creation in the U.S., smarter video translation for speed or precision, upgraded Avatar IV realism and control, and a refreshed AI Studio with faster editing and new avatar styling and backgrounds.
+
+Summary
+
+This month, we're raising the bar on avatar realism, creative control, and global reach. With HeyGen now on Android, a smarter video translation engine, major upgrades to our latest avatar model (Avatar IV), and a refreshed AI Studio experience, you can produce polished, professional content even faster, whether you're scaling training, creating courses, or building your brand through video.
+
+What’s new
+
+HeyGen is now on Android
+
+HeyGen is officially available on Android in the U.S. Create, edit, and publish videos directly from your phone, regardless of device.
+
+For course creators, coaches, and anyone who needs to move fast, the Android app puts full video creation in your pocket. Capture ideas on the go, make quick edits between meetings, or publish content without ever opening your laptop.
+
+U.S. Android user? Get started here.
+
+Translate videos with speed and precision
+
+We've redesigned how video translation works with two distinct engines built for different use cases.
+
+Speed Mode provides fast, reliable translation in 175+ languages, accents, and dialects. It's optimized for quick turnaround, making it perfect for daily social posts, quick updates, or any content where you need to move fast. Speed Mode handles sentence-level translation with light alignment and solid lip-sync.
+
+Precision Mode is our best-in-class translation engine, built for when accuracy matters most. It's video-aware: better occlusion handling, better multi-speaker support, context-integrated translation that's character-sensitive and timing-aware. The result is truly lifelike lip-sync and natural voice output, even for movement-heavy content. Ideal for courses, tutorials, product demos, and client deliverables.
+
+If you're scaling content globally, you now have clear options: Speed when you need volume, Precision when you need polish.
+
+Learn more about translating with Heygen.
+
+Create more natural, controllable avatars with Avatar IV upgrades
+
+Our SOTA avatar engine just got more powerful.
+
+More natural movements
+
+Control when gestures happen and in what sequence: prompt for a wave at the beginning, then natural movement as your avatar speaks. Your avatars finally move the way a real person would: purposefully, not on a loop.
+
+Better control
+
+With better expression controls, your avatars now display subtler, more realistic expressions and body language, the kind of micro-movements that make the difference between "AI video" and "professional video."
+
+Intelligent render selection
+
+We've simplified how rendering works. Avatar IV automatically uses the best rendering approach for your video. No more fretting over which mode to pick. When you add custom motion prompts, the system routes to our higher-fidelity engine under the hood. When you don't, you get our most stable, consistent output by default. Less guesswork, better results.
+
+And AI Studio updates for all
+
+We've redesigned the AI Studio to eliminate friction and give you more creative control without leaving the editor.
+
+Style your avatar without leaving the studio
+
+Generate looks directly inside Studio, including outfits, styles, or visual treatments for your avatar without switching to the Avatar tab. Need a blazer for a pitch or something casual for a course? Switch looks in seconds without breaking your flow.
+
+Your avatar, anywhere
+
+Place your avatar in any environment instantly with custom Avatar Backgrounds. Swap backgrounds for solid colors, stock photos, AI-generated scenes, or your own custom uploads. Every background works seamlessly with all avatar framings: Full, Circle, or Close-up.
+
+A faster, cleaner editing experience
+
+Our fully redesigned Studio layout feels faster, cleaner, and easier to work in, especially for creators who spend hours editing.
+
+Enjoy smoother interactions across long editing sessions, faster response times when adjusting parameters, and a cleaner interface that consolidates essential controls.
+
+We've also overhauled the context menu, replacing More Options with a unified Properties panel. Edit any element, such as text, image, and shape, from one consistent menu, and access interactivity controls without digging through submenus.
+
+What’s leaving
+
+At HeyGen, we live for customer feedback. Our users shape who we are, what we build, and sometimes, what we remove. To enhance the user experience, please note the following changes we’ve made to the platform:
+
+Voice Tab relocation
+
+The standalone Voices tab has been relocated for your workspace. Nothing has been removed, your Voice tools now live in the workflows where they’re used most:
+
+AI Studio: Sidebar → Voice → Create / Integrate
+
+Proofread Studio: Voice dropdown → Track Voices
+
+Avatars: Voice setup for Avatar creation
+
+Flux product placement removal
+
+Flux product placement (Assets) are now removed as an editing option. Don’t worry:
+
+Your existing Flux Looks with product placement will remain untouched
+
+You can download and reuse anything you've already created but
+
+New Looks made with Flux won't include the product placement feature
+
+While Flux product placement was valuable for specific use cases, HeyGen will rely on Nanobanana exclusively for Look edits using reference images. This means product placement will now be entirely handled through the Edit existing look option, ensuring superior results.
+
+Media Tab removal
+
+This feature was removed as part of our simplification efforts. Users did not find it helpful, and thus it was deprecated.
+
+Questions? If this change impacts your workflow, our support team can help you explore options or talk through alternatives.
+
+Looking ahead
+
+The holidays are just around the corner, but for HeyGen customers, Christmas always comes early. Introducing (even more) avatars from HeyGen!
+
+We release new avatars and looks every week! Be sure to regularly check the Avatars tab for even more ways to tell your story.
+
+Sign up for free here
+
+Original source
+
+Show more
+
+May 4, 2026
+
+Date parsed from source:
+May 4, 2026
+
+First seen by Releasebot:
+May 5, 2026
+
+HeyGen
+
+HeyGen October 2025 product release
+
+HeyGen releases an October 2025 update with LiveAvatar for real-time interactive avatars, new Veo 3.1 and OpenAI Sora 2 integrations for cinematic video creation, and expanded learning tools including quizzes, a redesigned interactivity UI, and multilingual SCORM export support.
+
+Bring real conversations to life with LiveAvatar
+
+HeyGen’s October 2025 release redefines interactive storytelling with lifelike LiveAvatars, cinematic Veo 3.1 and Sora 2 integrations, and powerful new learning tools.
+
+This month, we’re taking storytelling and interactivity to the next level with new integrations, intelligent learning features, and lifelike avatars. From cinematic B-roll powered by Sora 2 and Veo 3.1 to interactive quizzes and LiveAvatar, these updates enable more dynamic, personal, and engaging video communication.
+
+We’re excited to introduce LiveAvatar by HeyGen, offering hyper-realistic, real-time interactive avatars that enable face-to-face human conversation experiences on demand, and at scale. You can create your own avatar with just two minutes of footage or choose from diverse presets to instantly bring realism and personality to customer support, coaching, or education experiences. Already used by visionaries like Reid AI, Coursera, HP, Bosch, and Proto Hologram, LiveAvatar combines authenticity, responsiveness, and enterprise reliability to bring a new level of human touch to AI-powered communication.
+
+Add integrations for next-level video communication
+
+We’re bringing cinematic power directly into your creative workflow. New Veo 3.1 and OpenAI Sora 2 integrations give you complete control over avatars, visuals, and storytelling in HeyGen.
+
+Veo 3.1
+
+The Veo 3.1 integration gives creators full control over every voice, character, and scene. Generate once in Veo and keep your avatar consistent across shots, preserving your real voice, true look, and seamless motion. Perfect for dynamic action, scroll-stopping hooks, and multi-speaker avatar videos, you can use your existing avatar or start from a photo for future use. Upload up to three images per scene to add people, products, or environments mid-story.
+
+OpenAI Sora 2
+
+OpenAI Sora 2 is now fully integrated into HeyGen. Bring cinematic-quality video generation directly into your creative workflow. With Sora 2, you can instantly generate B-roll, scenes, and dynamic visuals from a simple prompt without switching tools, exporting files, or juggling software. This integration unlocks new levels of creativity and speed for creators, educators, and businesses alike, making it easier than ever to turn ideas into polished, professional video content.
+
+Make interactive learning even easier
+
+HeyGen’s Learning & Development Solution is now more powerful and interactive, enabling teams to create personalized, trackable learning experiences that keep learners engaged.
+
+Add quizzes to videos
+
+With built-in quiz features, L&D teams can reinforce key concepts, measure learner comprehension, and keep training sessions interactive from start to finish. By embedding quizzes directly into videos, you transform passive lessons into engaging learning experiences, turning viewers into active participants who retain more through real-time understanding checks.
+
+Improved interactivity UI
+
+HeyGen’s new interactivity layout makes it easier than ever to add and manage engagement features within your videos. The redesigned UI gives creators a clear, visual way to locate and insert branching paths, quizzes, and embedded links directly in the timeline.
+
+Multilingual player support for SCORM export
+
+The multilingual player now supports SCORM export, enabling the delivery of localized training at scale. With this update, L&D teams can share all translated videos through a single link that integrates directly into their LMS, allowing learners to access and complete training in the language of their choice within a fully trackable, SCORM-compliant experience.
+
+Looking ahead
+
+This month’s releases strengthen how teams create, communicate, and teach with video. With LiveAvatar, Veo 3.1, and Sora 2 integrations, as well as new interactive and multilingual training tools, HeyGen empowers every team to create content that’s more engaging, adaptable, and globally accessible.
+
+Sign up for free here
+
+Original source
+
+Show more
+
+Load more updates
+
+Curated by the Releasebot team
+
+Releasebot is an aggregator of official release notes from
+hundreds of software vendors and thousands of sources.
+
+Our editorial process involves the manual review and audit of
+release notes procured with the help of automated systems.
+
+About us
+
+Our methodology

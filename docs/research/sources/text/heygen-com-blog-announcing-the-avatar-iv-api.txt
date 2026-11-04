@@ -1,0 +1,111 @@
+Announcing Avatar IV API | HeyGen
+Skip to main content
+HeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT
+Install HeyGen Plugin for ChatGPT
+Product Updates
+Announcing the Avatar IV API: Lifelike image-to-video, now in your product
+Written by
+Kevin Raheja
+Last Updated
+November 2nd, 2026
+Summarize with:
+ChatGPT
+Perplexity
+Claude
+Gemini
+Grok
+Create AI videos, starring you in 177+ languages and dialects.
+Get started for free
+Summarize with
+ChatGPT
+Perplexity
+Claude
+Gemini
+Grok
+AI video generator:
+Create talking videos with AI
+Start creating for free
+Summary
+Avatar IV API lets you generate lifelike talking videos from any photo, with clean lip-sync, expressive facial motion, and natural gestures.
+Earlier this summer, we launched
+Avatar IV,
+our most advanced
+image-to-video
+model ever, in the HeyGen web app. Today, I’m excited to share that Avatar IV is now available
+via API
+, allowing you
+
+to embed it directly into your product experiences.
+What’s new: Avatar IV, programmatic
+With the Avatar IV API, a photo and a script are all you need to generate a realistic talking video, featuring all the HeyGen magic: accurate lip-sync, expressive facial movement, and even
+authentic hand gestures
+. Now you can trigger that exact flow with our API inside your app or workflow.
+Under the hood, Avatar IV supports angled or profile photos and works across lifelike or stylized characters (humans, anime, and even pets). It’s built to handle real-world inputs while maintaining natural timing and motion.
+Why partners are excited
+Frictionless creation from a photo.
+Let users start with an existing image (or a generated one) and produce a studio-quality avatar performance from just a script. No cameras. No shoots. Seconds, not days.
+More expressive, more engaging.
+Avatar IV syncs voice with emotion and powers gesture-aware motion, making every message land with clarity and charisma.
+Flexible by design.
+Works with front-facing, angled, or profile images; supports lifelike and stylized outputs for on-brand experiences across education, CX, marketing, internal comms, and more.
+Built for developers and product teams.
+Spin up jobs with a simple POST to our video generation endpoints; use photo-avatar endpoints when you want to programmatically
+add motion and sound effects
+or manage avatar assets at scale.
+Here’s an example Avatar IV video to show the model’s realism and gesture quality.
+Common partner use cases
+Learning and development (L&D), and Education
+: Turn slide thumbnails or instructor headshots into narrated modules and localize at scale.
+Sales and CX platforms
+: Auto-generate personalized explainers from a CRM record and just a photo of yourself, to help build personal relationships with your audience with video.
+Creative & marketing tools
+: Provide users with an “instant host” for product demos, social content, or ads, without needing to book talent.
+Plans and availability
+Avatar IV API is
+self-serve
+on our
+Pro
+and
+Scale
+tiers, with
+Enterprise
+available for custom rates and high-volume usage. You can find the
+Avatar IV API documentation here
+.
+A note on quality and control
+We purpose-built Avatar IV to feel and look natural in real product UX, with clean lip-sync, nuanced facial dynamics, and gesture timing that follows the script. It also pairs beautifully with our voice tools for delivery control, so content sounds as intentional as it looks.
+Get started
+with Avatar IV today.
+Written by
+Kevin Raheja
+About
+Kevin Raheja is Head of Product Partnerships at HeyGen, where he leads ecosystem strategy, partner integrations, and go-to-market initiatives that bring AI video creation to new audiences. Connect with Kevin on LinkedIn.
+Product Updates
+Continue Reading
+Latest blog posts related to Announcing the Avatar IV API: Lifelike image-to-video, now in your product.
+Browse All
+Product Updates
+Published
+October 21st, 2026
+HeyGen Voice Turbo: The #1-ranked voice model, now free in your API
+The #1-ranked text-to-speech model on Artificial Analysis now costs nothing to use through November 30. Bring an API key, pick a voice, and start shipping speech today.
+Written by
+Adam Halper
+Product Updates
+Published
+October 21st, 2026
+HeyGen Video: The Highest-Quality Free AI Video Generator
+Meet HeyGen Video, our general-purpose video model. Describe a scene and get picture and sound together in one call, via text, image or reference to video.
+Written by
+Ayesha Shaheryar
+Product Updates
+Published
+October 1st, 2026
+What’s new at HeyGen: September 2026
+September was built for developers. HeyGen shipped an open-source real-time avatar stack powered by GPT-Live-1, launched the Code2Video Benchmark for evaluating AI-generated motion graphics, and brought Professional Voice Clone to the API.
+Written by
+Holly Xiao
+Start creating videos with AI
+See how businesses like yours scale content creation and drive growth with the most innovative AI video.
+Book a meeting
+Contact sales

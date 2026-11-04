@@ -1,0 +1,527 @@
+Hedra lets you give AI characters a voice — this new model is a huge step up | Tom's Guide
+
+Skip to main content
+
+Club Benefits
+
+- Join our community
+
+JOIN NOW
+
+Exclusive Newsletters
+
+Tech news direct to your inbox
+
+Polls
+
+Have your say in tech polls
+
+Quizzes
+
+Test your tech knowledge
+
+Member Competitions
+
+Member-only chances to win
+
+Community Forums
+
+Connect with members
+
+Exclusive Discounts
+
+Members get exclusive savings
+
+GET CLUB ACCESS QUICK
+
+For the fastest way to join Tom's Guide Club enter your email below. We'll send you a confirmation and sign you up to our newsletter to keep you updated on all the latest news.
+
+Contact me with news and offers from other Future brands
+
+By submitting your information you agree to the
+
+Terms & Conditions
+
+and
+
+Privacy Policy
+
+and are aged 16 or over.
+
+FIND OUT ABOUT OUR MAGAZINE
+
+Want to subscribe to the magazine? Click the button below to
+find out more information.
+
+Find out more
+
+GET TG ACCESS QUICK
+
+Join the Tom's Guide Club for quick access. Enter your email below and we'll send confirmation, and sign you up to our newsletter.
+
+Contact me with news and offers from other Future brands
+
+Sign Up
+
+By submitting your information, you confirm you are aged 16 or over,
+have read our
+
+Privacy Policy
+
+and agree to the
+
+Terms & Conditions
+. Geographical rules apply.
+
+Welcome
+
+to
+Tom's Guide Club
+
+!
+
+Hi
+
+,
+
+Your membership journey starts here.
+
+Keep exploring and earning more as a member.
+
+MY ACCOUNT
+
+Earn your first
+badge
+
+Unlock your first badge
+
+Keep earning badges
+
+Explore ways to get more involved as a member.
+
+Latest Phone Reviews
+
+Expert picks to help you choose.
+
+Read Now
+
+Best Laptop/ PC Guides
+
+Top tips to upgrade your setup.
+
+Read Now
+
+See what you’ve unlocked.
+
+Explore your membership benefits.
+
+Explore
+
+Member Exclusives
+
+Get the Tom’s Guide App
+
+Unlock and manage exclusive Tom’s Guide member rewards.
+
+Get the App
+
+Sign Out
+
+Jump To:
+
+1. The doctor
+
+2. The builder
+
+3. The barista
+
+4. The teacher
+
+5. The farmer
+
+Want more AI news?
+
+Here at Tom’s Guide our expert editors are committed to bringing you the best news, reviews and guides to help you stay informed and ahead of the curve!
+
+Become a Member in Seconds
+
+Unlock instant access to exclusive member features.
+
+Contact me with news and offers from other Future brands
+
+Receive email from us on behalf of our trusted partners or sponsors
+
+By submitting your information you agree to the
+Terms & Conditions
+and
+Privacy Policy
+and are aged 16 or over.
+
+You are now subscribed
+
+Your newsletter sign-up was successful
+
+Want to add more newsletters?
+
+Daily (Mon-Sun)
+
+Tom's Guide Daily
+
+Sign up to get the latest updates on all of your favorite content! From cutting-edge tech news and the hottest streaming buzz to unbeatable deals on the best products and in-depth reviews, we’ve got you covered.
+
+Signup +
+
+Weekly on Thursday
+
+Tom's AI Guide
+
+Be AI savvy with your weekly newsletter summing up all the biggest AI news you need to know. Plus, analysis from our AI editor and tips on how to use the latest AI tools!
+
+Signup +
+
+Weekly on Friday
+
+Tom's iGuide
+
+Unlock the vast world of Apple news straight to your inbox. With coverage on everything from exciting product launches to essential software updates, this is your go-to source for the latest updates on all the best Apple content.
+
+Signup +
+
+Weekly on Monday
+
+Tom's Streaming Guide
+
+Our weekly newsletter is expertly crafted to immerse you in the world of streaming. Stay updated on the latest releases and our top recommendations across your favorite streaming platforms.
+
+Signup +
+
+Join the club
+
+Get full access to premium articles, exclusive features and a growing list of member rewards.
+
+Explore
+
+An account already exists for this email address, please log in.
+
+(Image credit: Hedra/Future AI)
+
+Jump To:
+
+1. The doctor
+
+2. The builder
+
+3. The barista
+
+4. The teacher
+
+5. The farmer
+
+Share
+
+Copy link
+
+Facebook
+
+X
+
+Reddit
+
+Email
+
+Share this article
+
+Join the conversation
+
+Follow us
+
+Add us as a preferred source on Google
+
+Newsletter
+
+Subscribe to our newsletter
+
+Hedra
+, the AI character generation platform has launched a new version of its model and it includes even more realistic head movements and facial expressions.
+There is also a new ‘stylize’ feature that lets you put your character in different outfits, add backdrops and even change their face to a
+Lego character or anime
+.
+Character is a new family of foundation models from Hedra designed to create more consistent and realistic humans
+through AI video
+, giving creators more control over the final output. Initially, the focus is on lip-syncing and head animation. Version 1.5 adds to that capability.
+Latest Videos From
+Tom's Guide
+Watch full video here:
+Hedra offers a generous free plan for people to try it out, and I’ve found it works with any human image including photos, drawings and even action figures. It animated both the head and face fairly accurately in time to the words used in the voice track.
+Putting Hedra Character 1.5 to the test
+
+YouTube
+
+Watch On
+
+I created five characters, first through an image prompt with Flux.1 running locally on my laptop, then using ElevenLabs to create a voice for each character. Finally, I used the voice and image with Hedra to generate a video.
+
+You may like
+
+Tom's Guide Awards 2026: Our favorite AI tools, devices and features
+
+I tested ChatGPT’s Images 2.5 — these 7 prompts show how much it leveled up
+
+Chatbots and agents like Muse are getting a face — but does that make us trust them more? Here's what this AI expert had to say
+
+Each image is of a person looking straight to the ‘camera’ with each different enough to be a useful test. I then ran stylize on two of them, pushing it to see completely different looks, as well as a subtle change to the outfit and background. Beneath each description, you'll see the full prompt I gave to Flux.1 to create each character.
+1. The doctor
+(Image credit: Hedra/Flux/Future AI)
+First, we have a middle-aged doctor wearing a lab coat. I then stylised it with a bright over-the-top outfit full of splashes of color with a colorful background.
+Want more AI news?
+Sign up to the Tom's AI Guide weekly newsletter summing up all the biggest AI news you need to know. Plus, analysis from our AI editors and tips on how to use the latest AI tools!
+Contact me with news and offers from other Future brands
+Receive email from us on behalf of our trusted partners or sponsors
+It hasn’t done a bad job. There are some artifacts around the mouth and the head movement is a little exaggerated but it reflects the tone of the sound well. The voice matching isn’t AI, I found a suitable voice on ElevenLabs.
+A head-and-shoulders shot of Dr. Amelia Chen, a 45-year-old Asian-American female doctor, speaking directly to the camera. She's wearing a white lab coat over light blue scrubs, with a stethoscope draped around her neck. Her long black hair is neatly tied back, revealing a few strands of grey at her temples. Dr. Chen's expression is warm and reassuring, with subtle laugh lines around her eyes as she speaks. The background is slightly out of focus, showing a clean, well-lit hospital corridor. The lighting is soft and professional, emphasizing her facial features and the sincerity in her brown eyes as she addresses the viewer, likely explaining a medical concept or providing patient advice.
+2. The builder
+(Image credit: Hedra/Flux/Future AI)
+Next, we have a builder character. This isn’t a test of the AI image generator but rather of Hedra's lip-syncing and head movement animation capabilities.
+The head movement is more natural here with minimal artifacts but the blinking is unnatural. It is still a marked improvement on Hedra Character-1 and some other AI lip-syncing tools.
+
+What to read next
+
+7 boring jobs you can hand to an AI agent tonight — number 4 is my personal favorite
+
+ChatGPT-6 or Claude Opus 5.5? Here’s which AI I'd use for writing, planning and 5 other everyday tasks
+
+Why Siri never worked like ChatGPT — former Siri AI researcher explains what Apple had to change
+
+A head-and-shoulders shot of Marcus Johnson, a 38-year-old African-American male construction worker, speaking directly to the camera. He's wearing a yellow hard hat and an orange high-visibility vest over a grey t-shirt. Marcus has a strong jawline with a 5 o'clock shadow, and a small scar above his right eyebrow. His expression is confident and friendly as he talks, likely explaining a aspect of his work. Sweat beads on his forehead, and there's a smudge of dirt on his cheek, suggesting he's been actively working. The background is blurred but shows the vibrant blues and oranges of a construction site. Natural sunlight illuminates his face, casting small shadows that accentuate his features.
+3. The barista
+(Image credit: Hedra/Flux/Future AI)
+The barista character had the most natural blinking of the tests I ran. She again had slightly exaggerated lip-movement but overall it was a good render. It can maintain the friendly demeanor of the initial image and the voice.
+A head-and-shoulders shot of Sofia Rodriguez, a 25-year-old Hispanic female barista, speaking directly to the camera. She's wearing a dark green apron over a white button-up shirt, with the top button undone. Her curly brown hair is tied back in a messy bun, with a few stray curls framing her face. Sofia's warm brown eyes are engaged and friendly as she talks, likely describing a coffee blend or brewing technique. She has small, simple silver stud earrings, and a glimpse of a delicate tattoo is visible on her right wrist. The background is a softly blurred coffee shop interior, with warm, amber lighting that highlights the left side of her face, creating a cozy atmosphere.
+4. The teacher
+(Image credit: Hedra/Flux/Future AI)
+I’m not overly happy with the way this image turned out, looking like a bad staff ID photo rather than a video of someone talking to a camera but the realism in the image seemed to help Hedra.
+A head-and-shoulders shot of Mr. David Okafor, a 52-year-old Black British male high school teacher, speaking directly to the camera. He's wearing a navy blue blazer over a light blue shirt with a striped tie. His salt-and-pepper hair is cut short, and he wears rectangular glasses that reflect a bit of light. Mr. Okafor's expression is patient and engaging as he speaks, likely explaining a historical concept. Laugh lines and a few age spots are visible on his face, giving him a distinguished appearance. The background is a blurred classroom, with the edge of a whiteboard visible. The lighting is a mix of soft overhead lights and natural light from a nearby window, creating a warm, educational atmosphere.
+5. The farmer
+(Image credit: Hedra/Flux/Future AI)
+Finally an older face. I had the audio create a pause in the middle and Hedra accurately reflected the animation of taking in a breath/gathering thoughts.
+As with all the tests, the mouth and head movements were exaggerated compared to reality but it is a big improvement.
+A head-and-shoulders shot of Emma Larsson, a 60-year-old Scandinavian female farmer, speaking directly to the camera. She's wearing a plaid flannel shirt and a wide-brimmed sun hat that casts a slight shadow over her eyes. Emma's face is weathered from years of outdoor work, with deep laugh lines and sun spots. Her grey hair peeks out from under her hat in a practical braid. Her blue eyes are bright and passionate as she talks, likely discussing crop conditions or sustainable farming practices. The background is a blurred wheat field bathed in golden early morning light. A bead of sweat is visible on her temple, and her skin has a healthy, sun-kissed glow.
+
+Final thoughts
+I was already a fan of the way v1 animated lip movement but with 1.5 Hedra take things up a notch, adding more natural head movement and facial expressions.
+Stylise is also a powerful addition and gives us some insight into what we might see with the final, fully controllable AI video model being developed by Hedra.
+It lets you easily adapt any element of your character photo, change the way it looks or even just the clothes it is wearing in the image.
+The only thing it needs now is a widescreen and portrait option, then it can be better integrated into projects made using the growing number of AI video products including Runway and Kling.
+More from Tom's Guide
+Apple is bringing iPhone Mirroring to macOS Sequoia — here’s what we know
+iOS 18 supported devices: Here are all the compatible iPhones
+Apple Intelligence unveiled — all the new AI features coming to iOS 18, iPadOS 18 and macOS Sequoia
+Category
+Back to MacBook Air
+Brand
+Apple
+Asus
+Lenovo
+Storage Size
+128GB
+512GB
+Colour
+Black
+Grey
+Condition
+New
+Refurbished
+Storage Type
+EMMC
+SSD
+Minimum Price
+Any Minimum Price
+Maximum Price
+Any Maximum Price
+Showing 7 of 7 deals
+Filters
+☰
+SORT BY
+Price (low to high)
+Price (high to low)
+Product Name (A to Z)
+Product Name (Z to A)
+Retailer name (A to Z)
+Retailer name (Z to A)
+voucher
+gift
+Asus Zenbook S 13 OLED
+(OLED)
+1
+
+$1,599
+View
+Lenovo IdeaPad Duet 3
+2
+
+$369.99
+View
+Apple MacBook Pro 14-inch M3 (2023)
+(512GB Black)
+Our Review
+☆
+☆
+☆
+☆
+☆
+3
+
+$1,999
+View
+Lenovo IdeaPad Duet 3
+(128GB 8GB RAM)
+4
+
+$399.99
+View
+Apple MacBook Pro 14-inch M3 (2023)
+(512GB Black)
+Our Review
+☆
+☆
+☆
+☆
+☆
+5
+
+$1,999
+View
+Low Stock
+Lenovo IdeaPad Duet 3
+(128GB 8GB RAM)
+6
+
+$399.97
+View
+Apple MacBook Pro 14-inch M3 (2023)
+(512GB Black)
+Our Review
+☆
+☆
+☆
+☆
+☆
+7
+
+$1,999
+View
+
+Ryan Morrison
+
+As the former AI Editor for Tom's Guide, Ryan wielded his vast industry experience with a mix of skepticism and enthusiasm, unpacking the complexities of AI in a way that could almost make you forget about the impending robot takeover.
+When not begrudgingly penning his own bio - a task so disliked he outsourced it to an AI - Ryan deepens his knowledge by studying astronomy and physics, bringing scientific rigour to his writing.
+
+Read more
+
+AI
+
+Tom's Guide Awards 2026: Our favorite AI tools, devices and features
+
+ChatGPT
+
+I tested ChatGPT’s Images 2.5 — these 7 prompts show how much it leveled up
+
+AI
+
+Chatbots and agents like Muse are getting a face — but does that make us trust them more? Here's what this AI expert had to say
+
+AI
+
+7 boring jobs you can hand to an AI agent tonight — number 4 is my personal favorite
+
+AI
+
+ChatGPT-6 or Claude Opus 5.5? Here’s which AI I'd use for writing, planning and 5 other everyday tasks
+
+AI
+
+Why Siri never worked like ChatGPT — former Siri AI researcher explains what Apple had to change
+
+Latest in AI Image & Video
+
+AI
+
+Google just launched a free AI detector for music, videos, and images — here's how SynthID works and what it can (and can't) tell you
+
+AI Image & Video
+
+Adobe back to school deal knocks 50% off Creative Cloud Pro
+
+AI Image & Video
+
+Inside the dark market stealing real identities online
+
+AI Image & Video
+
+Uncanny valley on your FYP: 5 telltale signs your TikTok feed has been hijacked by AI
+
+AI
+
+Elon Musk says Grok is making a 'historically accurate' AI Odyssey movie — here's what we know
+
+AI Image & Video
+
+Hurry! Save 30% on Adobe Firefly Pro Plus plans
+
+Latest in News
+
+Netflix
+
+3 feel-good movies new on Netflix to chase away the Sunday scaries — including one of the most iconic movies of the '80s
+
+Streaming
+
+The scariest movies streaming on Netflix, HBO Max, Hulu, and Prime Video to watch this Halloween
+
+Netflix
+
+Netflix top 10 movies — here’s the 3 worth watching right now (Oct. 31-Nov. 1)
+
+Streaming
+
+5 new movies to stream this weekend on Netflix, Prime Video, Peacock and more (Oct. 31-Nov 1)
+
+Online Security
+
+Over 300 Chrome extensions found hijacking searches of 13.4 million users — how to stay safe
+
+Streaming
+
+19 must-watch shows and movies to watch in November 2026 on Netflix, Prime Video, Hulu and more
+
+LATEST ARTICLES
+
+1
+
+3 feel-good movies new on Netflix to chase away the Sunday scaries — including one of the most iconic movies of the '80s
+
+2
+
+I added Flipper’s Busy Bar to my desk months ago and this retro-style smart display is a productivity gadget in disguise
+
+3
+
+Amazon devices are already Black Friday-cheap — save up to 60% on Ring, Blink, Fire TV and more
+
+4
+
+I tested the Brooklyn Bedding CopperFlex Essential Mattress and it delivered plenty of cushioning for side sleepers — but here's who should steer clear
+
+5
+
+‘The Gilded Age’ season 4 review: HBO’s addictive period drama gets darker, juicier and even more watchable
+
+Close
+
+Please login or signup to comment
+
+Please wait...
+
+Login
+
+Sign Up

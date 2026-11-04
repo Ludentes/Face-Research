@@ -1,0 +1,324 @@
+[2411.19509] Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2411.19509
+(cs)
+
+[Submitted on 29 Nov 2024 (
+v1
+), last revised 30 Apr 2025 (this version, v3)]
+
+Title:
+Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis
+
+Authors:
+Tianqi Li
+,
+Ruobing Zheng
+,
+Minghui Yang
+,
+Jingdong Chen
+,
+Ming Yang
+
+View a PDF of the paper titled Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis, by Tianqi Li and 4 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Recent advances in diffusion models have endowed talking head synthesis with subtle expressions and vivid head movements, but have also led to slow inference speed and insufficient control over generated results. To address these issues, we propose Ditto, a diffusion-based talking head framework that enables fine-grained controls and real-time inference. Specifically, we utilize an off-the-shelf motion extractor and devise a diffusion transformer to generate representations in a specific motion space. We optimize the model architecture and training strategy to address the issues in generating motion representations, including insufficient disentanglement between motion and identity, and large internal discrepancies within the representation. Besides, we employ diverse conditional signals while establishing a mapping between motion representation and facial semantics, enabling control over the generation process and correction of the results. Moreover, we jointly optimize the holistic framework to enable streaming processing, real-time inference, and low first-frame delay, offering functionalities crucial for interactive applications such as AI assistants. Extensive experimental results demonstrate that Ditto generates compelling talking head videos and exhibits superiority in both controllability and real-time performance.
+
+Comments:
+
+Project Page:
+this https URL
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+; Machine Learning (cs.LG); Sound (cs.SD); Audio and Speech Processing (eess.AS)
+
+Cite as:
+
+arXiv:2411.19509
+[cs.CV]
+
+(or
+
+arXiv:2411.19509v3
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2411.19509
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Journal reference:
+
+ACM MM 2025
+
+Related DOI
+:
+
+https://doi.org/10.1145/3746027.3755075
+
+Focus to learn more
+
+DOI(s) linking to related resources
+
+Submission history
+From: Tianqi Li [
+view email
+]
+
+[v1]
+
+Fri, 29 Nov 2024 07:01:31 UTC (6,003 KB)
+
+[v2]
+
+Mon, 23 Dec 2024 14:04:09 UTC (6,003 KB)
+
+[v3]
+
+Wed, 30 Apr 2025 09:42:00 UTC (12,016 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis, by Tianqi Li and 4 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2024-11
+
+Change to browse by:
+
+cs
+
+cs.LG
+
+cs.SD
+
+eess
+
+eess.AS
+
+References & Citations
+
+NASA ADS
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

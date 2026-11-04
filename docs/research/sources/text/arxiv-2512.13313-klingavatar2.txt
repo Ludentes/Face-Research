@@ -1,0 +1,341 @@
+[2512.13313] KlingAvatar 2.0 Technical Report
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2512.13313
+(cs)
+
+[Submitted on 15 Dec 2025]
+
+Title:
+KlingAvatar 2.0 Technical Report
+
+Authors:
+Kling Team
+:
+Jialu Chen
+,
+Yikang Ding
+,
+Zhixue Fang
+,
+Kun Gai
+,
+Yuan Gao
+,
+Kang He
+,
+Jingyun Hua
+,
+Boyuan Jiang
+,
+Mingming Lao
+,
+Xiaohan Li
+,
+Hui Liu
+,
+Jiwen Liu
+,
+Xiaoqiang Liu
+,
+Yuan Liu
+,
+Shun Lu
+,
+Yongsen Mao
+,
+Yingchao Shao
+,
+Huafeng Shi
+,
+Xiaoyu Shi
+,
+Peiqin Sun
+,
+Songlin Tang
+,
+Pengfei Wan
+,
+Chao Wang
+,
+Xuebo Wang
+,
+Haoxian Zhang
+,
+Yuanxing Zhang
+,
+Yan Zhou
+
+View a PDF of the paper titled KlingAvatar 2.0 Technical Report, by Kling Team: Jialu Chen and 26 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Avatar video generation models have achieved remarkable progress in recent years. However, prior work exhibits limited efficiency in generating long-duration high-resolution videos, suffering from temporal drifting, quality degradation, and weak prompt following as video length increases. To address these challenges, we propose KlingAvatar 2.0, a spatio-temporal cascade framework that performs upscaling in both spatial resolution and temporal dimension. The framework first generates low-resolution blueprint video keyframes that capture global semantics and motion, and then refines them into high-resolution, temporally coherent sub-clips using a first-last frame strategy, while retaining smooth temporal transitions in long-form videos. To enhance cross-modal instruction fusion and alignment in extended videos, we introduce a Co-Reasoning Director composed of three modality-specific large language model (LLM) experts. These experts reason about modality priorities and infer underlying user intent, converting inputs into detailed storylines through multi-turn dialogue. A Negative Director further refines negative prompts to improve instruction alignment. Building on these components, we extend the framework to support ID-specific multi-character control. Extensive experiments demonstrate that our model effectively addresses the challenges of efficient, multimodally aligned long-form high-resolution video generation, delivering enhanced visual clarity, realistic lip-teeth rendering with accurate lip synchronization, strong identity preservation, and coherent multimodal instruction following.
+
+Comments:
+
+14 pages, 7 figures
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2512.13313
+[cs.CV]
+
+(or
+
+arXiv:2512.13313v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2512.13313
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Yikang Ding [
+view email
+]
+
+[v1]
+
+Mon, 15 Dec 2025 13:30:51 UTC (8,139 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled KlingAvatar 2.0 Technical Report, by Kling Team: Jialu Chen and 26 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-12
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

@@ -1,0 +1,481 @@
+Avatar API Latency Benchmark | Anam
+Avatar latency
+benchmark
+Sixty people each held sixteen conversations across Anam Cara-4.1 Express, HeyGen, Tavus phoenix-4.5 and LemonSlice: 960 rated conversations. We measured response latency and connection time across each provider’s full pipeline, with competitors running their defaults.
+1.24
+s
+Anam median response latency
+About
+0.6
+s quicker than HeyGen
+1.42
+s
+Anam median connection time
+About
+2.2
+s quicker than HeyGen
+Measured
+
+October 16, 2026
+Data from
+60 participants
+Includes
+
+4,703
+measured turns ·
+926
+connections
+Benchmark snapshot
+Median response latency
+Providers’ full pipelines
+Anam
+Cara-4.1 Express
+1.24
+s
+HeyGen
+Vendor default
+1.82
+s
+Tavus
+phoenix-4.5
+1.86
+s
+🍋
+LemonSlice
+Vendor default
+2.10
+s
+Providers’ full pipelines
+Response latency:
+About
+0.6
+s less waiting for each reply.
+Response latency is the time from the user finishing speaking to the avatar starting its reply, measured from audio recordings captured in the rater’s browser in the same way for every provider. Anam’s median was 1.24s, compared with 1.82s for HeyGen, the next quickest provider.
+This is end-to-end latency as experienced by the user, including transcription, language-model processing, speech and avatar generation, and network time between the rater’s machine and the provider’s server. Raters were geographically varied, primarily across Europe and North America.
+Anam
+1.24
+s
+HeyGen
+1.82
+s
+Tavus
+1.86
+s
+LemonSlice
+2.10
+s
+0s
+1s
+2s
+3s
+Median is the middle measured time. P90 and P95 are the times at or below which 90% and 95% of replies fell.
+Providers’ full pipelines
+response latency, measured October 16, 2026. Times are seconds. Rows are ordered by median, lowest first.
+Rank by median
+#
+Vendor
+Median
+P90
+P95
+Turns
+over 3s
+Measured
+turns
+1
+Anam
+Cara-4.1 Express
+1.24
+s
+1.62
+s
+1.84
+s
+0.5
+%
+1,173
+2
+HeyGen
+Vendor default
+1.82
+s
+2.30
+s
+2.52
+s
+0.8
+%
+1,240
+3
+Tavus
+phoenix-4.5
+1.86
+s
+2.52
+s
+3.62
+s
+6.4
+%
+1,118
+4
+LemonSlice
+Vendor default
+2.10
+s
+2.78
+s
+3.06
+s
+5.9
+%
+1,172
+Over 90% of Anam’s responses were faster than the closest competitor’s median response time.
+4,703
+measured turns, October 16, 2026. Further left is faster. The chart shows 0–3.5 seconds; the table includes all measured turns. The bump near zero is an artefact of how interruption latencies are measured.
+Providers’ full pipelines
+Connection time:
+Anam’s P95 was quicker than every rival’s median.
+Connection time, or time to first frame (TTFF), runs from pressing Start to the first visible avatar video frame, including the provider’s session-creation API call. Anam’s median was 1.42s, about
+2.2
+s quicker than HeyGen at 3.66s.
+P95 and P99 are the times at or below which 95% and 99% of connections completed. Counts below are measured connections, rather than conversation turns.
+Providers’ full pipelines
+connection time in seconds by vendor, measured October 16, 2026. Lower is better.
+Rank by median
+#
+Vendor
+Median
+P95
+P99
+Measured
+connections (n)
+1
+Anam
+Cara-4.1 Express
+1.42
+s
+2.97
+s
+4.55
+s
+231
+2
+HeyGen
+Vendor default
+3.66
+s
+7.57
+s
+12.30
+s
+229
+3
+Tavus
+phoenix-4.5
+5.00
+s
+9.92
+s
+23.31
+s
+233
+4
+LemonSlice
+Vendor default
+9.72
+s
+14.41
+s
+19.86
+s
+233
+The table includes all
+926
+measured connections. The study included 960 rated conversations overall.
+Anam
+Cara-4.1 Express
+Median
+1.42
+s · n =
+231
+HeyGen
+Vendor default
+Median
+3.66
+s · n =
+229
+Tavus
+phoenix-4.5
+Median
+5.00
+s · n =
+233
+LemonSlice
+Vendor default
+Median
+9.72
+s · n =
+233
+0
+s
+2
+s
+4
+s
+6
+s
+8
+s
+10
+s
+12
+s
+Time from pressing Start to the first visible avatar video frame. Anam connected fastest for all 57 raters who reached every provider in the full-pipeline study; its P95 of 2.97s was below every rival's median.
+Curves show smoothed measured connections, each scaled to the same height. Dashed lines mark medians. The chart shows 0–12s; the table includes the full tail. TTFF measures connection time, not conversational response latency.
+How do the avatar models compare on the same pipeline?
+In this separate study, 60 people held 1,200 rated conversations with the same speech-to-text model, language model and text-to-speech model across providers. Only the avatar provider changed.
+The shared pipeline used Deepgram Nova-3 as the speech-to-text model, Groq-hosted GPT OSS 120B as the language model and Cartesia Sonic-3.6 as the text-to-speech model.
+Synthesia is included here because it uses a customer-supplied speech-and-language pipeline. This is a like-for-like comparison of that setup. The full-pipeline and LiveKit studies are reported separately because their configurations differ.
+Providers’ avatar models on LiveKit
+Response latency:
+A closer comparison on the same pipeline.
+Anam’s median response latency was 2.12s and Synthesia’s was 2.20s. The paired comparison within each participant did not establish a response-speed advantage over Synthesia.
+Anam
+2.12
+s
+Synthesia
+2.20
+s
+Tavus
+2.46
+s
+HeyGen
+2.58
+s
+LemonSlice
+2.70
+s
+0s
+1s
+2s
+3s
+Shared LiveKit pipeline
+response latency, measured October 16, 2026. Times are seconds. Rows are ordered by median, lowest first.
+Rank by median
+#
+Vendor
+Median
+P90
+P95
+Turns
+over 3s
+Measured
+turns
+1
+Anam
+Cara-4.1 Express
+2.12
+s
+3.50
+s
+3.64
+s
+35.3
+%
+1,230
+2
+Synthesia
+Vendor default
+2.20
+s
+3.68
+s
+3.80
+s
+34.7
+%
+1,240
+3
+Tavus
+phoenix-4.5
+2.46
+s
+3.88
+s
+4.11
+s
+38.0
+%
+1,187
+4
+HeyGen
+Vendor default
+2.58
+s
+3.90
+s
+4.08
+s
+40.7
+%
+1,151
+5
+LemonSlice
+Vendor default
+2.70
+s
+4.12
+s
+4.26
+s
+42.3
+%
+1,134
+These
+5,942
+measured turns use the same response-latency definition as the full-pipeline study. The shared speech-and-language pipeline was slower than Anam’s own: 35.3% of Anam replies and 34.7% of Synthesia replies took over three seconds.
+Providers’ avatar models on LiveKit
+Connection time:
+Anam connected quickest on the shared pipeline.
+Anam’s median connection time was 2.76s, compared with 3.44s for Synthesia, the next quickest provider. Anam connected fastest for 55 of the 59 participants who reached all five providers.
+Shared LiveKit pipeline
+connection time in seconds by vendor, measured October 16, 2026. Lower is better.
+Rank by median
+#
+Vendor
+Median
+P95
+P99
+Measured
+connections (n)
+1
+Anam
+Cara-4.1 Express
+2.76
+s
+4.32
+s
+5.22
+s
+245
+2
+Synthesia
+Vendor default
+3.44
+s
+5.30
+s
+8.34
+s
+243
+3
+HeyGen
+Vendor default
+3.63
+s
+9.32
+s
+10.74
+s
+239
+4
+Tavus
+phoenix-4.5
+5.03
+s
+6.60
+s
+7.48
+s
+242
+5
+LemonSlice
+Vendor default
+5.36
+s
+9.00
+s
+20.14
+s
+242
+All
+1,211
+measured connections use the same Start-to-first-visible-frame definition. P95 and P99 show the 95th and 99th percentiles of connection time.
+Anam
+Cara-4.1 Express
+Median
+2.76
+s · n =
+245
+Synthesia
+Vendor default
+Median
+3.44
+s · n =
+243
+HeyGen
+Vendor default
+Median
+3.63
+s · n =
+239
+Tavus
+phoenix-4.5
+Median
+5.03
+s · n =
+242
+LemonSlice
+Vendor default
+Median
+5.36
+s · n =
+242
+0
+s
+2
+s
+4
+s
+6
+s
+8
+s
+10
+s
+12
+s
+Time from pressing Start to the first visible avatar video frame on the shared LiveKit pipeline. Anam connected fastest for 55 of the 59 participants who reached all five providers.
+Curves show smoothed measured connections, each scaled to the same height. Dashed lines mark medians. The chart shows 0–12s; the table includes the full tail. TTFF measures connection time, not conversational response latency.
+Methodology:
+How response latency and connection time were measured
+The main benchmark used 60 participants and 960 rated conversations, with each provider running its full pipeline. Anam used Cara-4.1 Express; competitors ran their defaults. The separate LiveKit study used 60 participants and 1,200 rated conversations on a shared speech-and-language pipeline.
+Response latency
+Time from the user finishing speaking to the avatar starting its reply. Measured from the two audio channels of each browser-captured recording, using the same method for every provider.
+Connection time
+Time from pressing Start to the first visible avatar video frame, also called time to first frame (TTFF). Measured from client connection events, including the provider’s session-creation API call.
+Median and percentiles
+The median is the middle measured time. P90, P95 and P99 describe the slower end of the results: 90%, 95% and 99% of measurements fall at or below those times.
+The full-pipeline results include
+4,703
+measured turns and
+926
+measured connections; the LiveKit results include
+5,942
+turns and
+1,211
+connections. A conversation can contain several turns. Counts reflect the measurements available for each metric and are separate from the number of rated conversations.
+Response tables show the median, P90, P95 and the share of replies taking over three seconds. Connection tables show the median, P95 and P99. The two studies are presented separately because their pipeline configurations differ.
+Measured on October 16, 2026. These results describe the configurations tested on that date. Products and performance can change.
+Data and transparency
+The
+benchmark repository
+includes the methodology, evaluation code, de-identified ratings, session telemetry and provider configurations, so you can inspect the setup and reproduce the results.
+Anam conducted this benchmark, and we recognise the conflict of interest in comparing our own product with competitors. The figures above use the study report’s published precision. Full-pipeline and LiveKit results are presented separately so each comparison reflects the configuration tested.
+For human ratings of lip sync, visual quality, naturalness and conversational experience, see the
+avatar quality benchmark
+.
+Build conversations with fast replies and quick connections
+Get started with Anam’s real-time avatar API.
+Sign up
+Read API docs

@@ -1,0 +1,56 @@
+Israeli company reveals new AI motor launched amid Iran war | The Jerusalem Post
+Development from the shelter: Israeli company reveals new AI motor launched amid Iranian missiles
+The engineering team of D-ID, which is based in Israel, was forced to relocate to remote work a week before having to ship the final product, after a missile fragment strike near their offices.
+Follow us on
+Google
+AI video and images.
+(
+photo credit
+:
+SHUTTERSTOCK
+)
+By
+TOBIAS HOLCMAN
+MARCH 16, 2026 15:00
+Israeli AI company
+D-ID unveiled its latest AI video-generation tool on Monday, saying its developers were forced to work remotely to meet the launch deadline after a missile struck just 200 meters from the company’s offices.
+The newly released product from D-ID will enable the creation of
+real-time AI avatars
+fast enough for live client interaction, while also making them cheaper to deploy in real-world market solutions.
+D-ID’s
+Israel-based
+engineering team was forced to shift to remote work a week before the product’s release after a missile fragment struck near the company’s offices.
+According to the company, the team managed to complete the final tests and deliver the product without delay, even while working from bomb shelters or amid missile alerts.
+What is new with this AI technology
+V4 Engine from D-ID will enable record-breaking latency when speaking in real time with an AI-generated avatar, with sub-0,5 seconds of latency recorded in the final benchmark tests.
+At the same time, the new model offers a solution that is 70 times cheaper than
+Google's Veo 3 Fast
+, their main competitor in the field.
+"Today, with V4, we’re setting a new benchmark for avatar fidelity and performance while keeping it fast enough for real-time conversations and consistent, efficient, and secure enough for enterprise scale," said D-ID Co-founder and CEO Gil Perry.
+The avatars, trained on footage of real-life professional actors to achieve realistic responses, can offer real-time emotion and sentiment alignment with LLM responses.
+The product, already used by industry giants like Microsoft, PepsiCo, and Starbucks, will be available for all D-ID clients for a subscription-based plan starting at $5.90.
+Startup Nation, in your inbox
+Deals, breakthroughs, and the tech shaping Israel's economy
+Subscribe
+See more on
+iran israel war
+|
+israel tech
+|
+Artificial intelligence
+|
+Israel Start-Up Nation
+|
+AI
+|
+Operation Roaring Lion
+Follow us on
+Google
+Related Articles
+TLVs next tech hub: Inside the NIS 320M deals at ToHa 2
+Post-election: Employers pause hiring amid uncertainty
+Shake-up in tech company rankings
+Binance: Hacker faked job interview to compromise computers
+European passport holders won't avoid Greek property tax
+Is it harder to find work in Israel?
+Half of Israelis to forgo purchases in November sales

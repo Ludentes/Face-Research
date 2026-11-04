@@ -1,0 +1,39 @@
+== AptAvatar
+TaoLiveAIGC/AptAvatar 235 Apache-2.0 2026-08-03 | Official Implementation of AptAvatar: Fast and Vivid Long-Form Audio-Driven Video Generati
+== Omni-LiveAvatar
+Aoko955/Omni-LiveAvatar 12 null 2026-08-17 | Official codebase for "Omni-LiveAvatar: Minute-Level Real-Time Streaming Joint Audio-Video
+== StreamAvatar
+StreamAvatar/streamavatar.github.io 21 null 2026-03-31 | StreamAvatar: Streaming Diffusion Models for Real-Time Interactive Human Avatars
+swefpifh/StreamAvatars_AutoSpeak 2 null 2022-08-30 | null
+swefpifh/StreamAvatars_AvatarAutoSpawn 2 null 2022-08-31 | null
+swefpifh/StreamAvatars_AppearanceOfRandomStars 1 null 2022-09-18 | null
+== OmniMate
+novemberisms/omnimate 2 MIT 2018-03-14 | a lua-based animation player object inspired by Godot's Animation Player node
+chrisx599/OmniMate 2 MIT 2025-05-23 | null
+singhdeepti166/OmniMate 1 null 2026-10-11 | A personal all-rounder AI assistant combining intelligent conversation, productivity tools
+Aa7875509/OmniMate 1 null 2026-10-27 | OmniMate 是一个运行在 Electron 壳内的本地化多模态 3D 智能助手。它具备“视听感知”能力（通过麦克风和摄像头），并能以高保真 3D 数字人的形式进行实时情感反馈
+== Wan-Streamer
+windward47/Wan-Streamer-Replication 52 null 2026-06-30 | 尝试复现论文Wan-Streamer：https://arxiv.org/abs/2606.25041
+Noita-Community/streamer-wands-backend 13 MIT 2026-10-26 | Streamer Wands mod for Noita
+soler91/streamer-wands 13 null 2020-12-20 | null
+chamadam/wandlab-cv-streamer 11 null 2020-08-31 | null
+== TurboTalk
+nithamitabh/turbotalk 1 null 2024-09-18 | This is blazing fast chat application built on top of redis which give you fast and secure
+eldo9000/TurboTalk 1 GPL-3.0 2026-08-01 | A Free, lightweight, voice to text tool. Laser fast and optimized.
+NaCl-Ltd/turbotalk 0 null 2024-04-23 | null
+aliysefian/TurboTalk 0 null 2026-06-19 | null
+== DynaForcing
+== AvatarForcing
+TaekyungKi/AvatarForcing 366 NOASSERTION 2026-06-03 | [CVPR 2026] Official Pytorch implementation of Avatar Forcing: Real-Time Interactive Head 
+KlingAIResearch/AvatarForcing 84 NOASSERTION 2026-05-09 | Official Pytorch implementation of AvatarForcing: One-Step Streaming Talking Avatars via L
+MoshiHead/Moshi-AvatarForcing-bridge-v4 0 null 2026-05-10 | Moshi-AvatarForcing-bridge-v3 repo slight update (like dynamic length video)
+MoshiHead/AvatarForcing-inference-v1 0 NOASSERTION 2026-05-07 | run in 5090 & a100
+== VividAnimator
+== Kandinsky S2V
+kandinskylab/kandinsky-s2v 17 MIT 2026-11-03 | null
+== InfinityHuman
+InfinityHuman/InfinityHuman.github.io 3 null 2025-08-29 | null
+== SoulX-LiveAct
+Soul-AILab/SoulX-LiveAct 1229 null 2026-06-15 | Official inference code for SoulX-LiveAct: Towards Hour-Scale Real-Time Human Animation wi
+Kumoris/SoulX-LiveAct_CuDNN 0 null 2026-11-04 | null
+BackupBen/liveact-studio 0 null 2026-08-24 | Self-hosted HeyGen alternative — SoulX-LiveAct webapp + RunPod worker with chunked export 

@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Meta click cookie from ?fbclid before anything can navigate away: GTM (and its pixel) loads
+         only after LCP, so visitors who left first reached Meta without the ad click. Same format the
+         pixel writes (fb.1.<ms>.<fbclid>); a valid _fbc holding this fbclid keeps its click time. Kept
+         in sync with web-marketing apps/next-2025/src/utils/analytics/metaFbc.ts. -->
+    <script>
+      (function () {
+        if (location.pathname !== '/oauth/authorize' || new URLSearchParams(location.search).get('flow') !== 'video-download') return;
+        window.__heygenVideoDownloadHandoff = true;
+        try {
+          var token = new URLSearchParams(location.hash.slice(1)).get('token');
+          if (token && token.length <= 2048) window.__heygenDownloadHandoffToken = token;
+          history.replaceState(history.state, '', location.pathname + location.search);
+        } catch (_) {}
+        var referrer = document.createElement('meta');
+        referrer.name = 'referrer';
+        referrer.content = 'no-referrer';
+        document.head.appendChild(referrer);
+      })();
+
+      // Webview landing escape arrival (src/business/webviewEscape): keep the escape id as a cookie
+      // for the server's Meta click lookup, and drop the params before anything reads the URL.
+      // SameSite=None: Safari's Google sign-in returns by a cross-site POST, which drops Lax cookies.
+      (function () {
+        try {
+          var params = new URLSearchParams(location.search);
+          var id = params.get('wv_escape');
+          if (id === null) return;
+          var cta = params.get('wv_cta') || '';
+          params.delete('wv_escape');
+          params.delete('wv_cta');
+          var qs = params.toString();
+          history.replaceState(history.state, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+          // Android's intent fallback reopens the page in the webview itself: not an arrival.
+          if (/\bInstagram\b|FBAN\/|FB_IAB\/|FBAV\//.test(navigator.userAgent)) return;
+          if (!/^[A-Za-z0-9_-]{16,64}$/.test(id) || !/^[a-z0-9_]{1,40}$/.test(cta)) return;
+          var h = location.hostname;
+          var shared = h === 'heygen.com' || h.slice(-11) === '.heygen.com';
+          document.cookie = 'heygen_wv_escape=' + id + '; path=/' + (shared ? '; domain=.heygen.com' : '') +
+            '; max-age=604800; SameSite=None; Secure';
+          window.__heygenWebviewEscapeArrival = { escapeId: id, cta: cta, path: location.pathname };
+        } catch (e) {}
+      })();
+
+      (function () {
+        try {
+          var m = /[?&]fbclid=([^&]*)/.exec(location.search);
+          if (!m) return;
+          var id = decodeURIComponent(m[1].replace(/\+/g, ' '));
+          if (!/^[A-Za-z0-9_-]{1,480}$/.test(id)) return;
+          var ts = 0;
+          document.cookie.split('; ').forEach(function (c) {
+            var p = c.indexOf('_fbc=') === 0 ? c.slice(5).split('.') : [];
+            if (p[0] === 'fb' && /^\d{10,13}$/.test(p[2]) && p[3] === id) ts = p[2];
+          });
+          var h = location.hostname;
+          var shared = h === 'heygen.com' || h.slice(-11) === '.heygen.com';
+          // A host-only copy would shadow the shared one here, so it goes before the shared one is written.
+          if (shared) document.cookie = '_fbc=; path=/; max-age=0';
+          document.cookie = '_fbc=fb.1.' + (ts || Date.now()) + '.' + id + '; path=/' + (shared ? '; domain=.heygen.com' : '') +
+            '; max-age=7776000; SameSite=Lax; Secure';
+        } catch (e) {}
+      })();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"    />
+    <meta name="google" content="notranslate" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="HeyGen - AI Spokesperson Video Creator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://app.heygen.com" />
+    <meta property="og:image" content="https://static.heygen.ai/heygen/asset/og.png" />
+    <meta property="og:description" content="Create customized videos using HeyGen's AI Video Generator, turning scripts into talking videos with customizable AI avatars in minutes, without a camera or crew." />
+    <meta property="og:site_name" content="HeyGen" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@HEYGEN_SEO_SITE_NAME" />
+    <meta name="twitter:title" content="HeyGen - AI Spokesperson Video Creator" />
+    <meta name="twitter:description" content="Create customized videos using HeyGen's AI Video Generator, turning scripts into talking videos with customizable AI avatars in minutes, without a camera or crew." />
+    <meta name="twitter:image" content="https://static.heygen.ai/heygen/asset/og.png" />
+
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" type="image/png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>HeyGen - AI Spokesperson Video Creator</title>
+    <link rel="canonical" href="https://app.heygen.com" />
+    <!-- Synchronously apply dark mode before first paint to prevent white flash -->
+    <script>
+      (function() {
+        try {
+          var mode = localStorage.getItem('themeMode');
+          // Apply dark before first paint when the saved/system preference is dark.
+          var dark = mode === 'dark' ||
+            (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.backgroundColor = '#16171a';
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Placed ABOVE the critical.css <link> deliberately. This replaced a static
+         <link rel="preload">, which the preload scanner issues immediately regardless
+         of parser state; a classic inline script instead blocks on any stylesheet
+         earlier in the document, so sitting below critical.css would start the /home
+         LCP fetch a same-origin round trip later than the tag it replaces. -->
+    <!-- LCP element on /home: SAHome background ORB logo (img.sa-bg-logo in
+         SAHome.tsx). Preload at HTML parse so the image fetch starts before
+         JS parses + React mounts the <img>. URL must match the one in
+         SAHome.tsx exactly — both reference the same ImageKit cache key.
+         Pathname-gated like the /apps block below: as a static <link> this
+         fetched at fetchpriority=high on every route, and the ORB renders on
+         only a few. The gate covers every surface that mounts it:
+           /home              SAHome (and its lazy SADesignAMore child)
+           /home/real-estate  home-real-estate/index.tsx renders the same URL
+           /video-agent       VAHome returns <SAHome/> on the va-super-agent arm
+           /apps/video-agent  VideoAgent -> HomeAgentPage -> VAHome -> SAHome on
+                              the home-v3-video-creation-flow arm; off-arm it
+                              redirects to /home, which renders SAHome anyway
+           /                  LoginRedirectWrapper client-side navigates an
+                              authed visitor to /home in this same document, so
+                              the preload still warms that render.
+         Trailing slashes are stripped first — React Router matches /home/ and
+         /video-agent/ to the same routes, so an exact-equality gate would miss
+         them. A leading /guest is stripped for the same reason: helpers/utils.ts
+         pathWithVisitor() builds every guest URL as '/guest' + path, and master
+         preloaded this ORB from an ungated static tag, so gating without the
+         strip would lose the preload on /guest/home against shipped behaviour. -->
+    <script>
+      (function () {
+        try {
+          var p = location.pathname
+            .replace(/^\/guest(?=\/|$)/, '')
+            .replace(/\/+$/, '') || '/';
+          if (
+            p !== '/' &&
+            p !== '/home' &&
+            p.indexOf('/home/') !== 0 &&
+            p !== '/video-agent' &&
+            p !== '/apps/video-agent'
+          )
+            return;
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.as = 'image';
+          l.href = 'https://dynamic.heygen.ai/app/branding/PRISM_ORB.png?tr=f-auto,q-50,w-100';
+          l.fetchPriority = 'high';
+          document.head.appendChild(l);
+        } catch (e) {
+          /* noop */
+        }
+      })();
+    </script>
+    <!-- Retry failed CSS preloads from Vite's dynamic import system.
+         Vite's __vitePreload caches attempted CSS in a `seen` map, so retrying
+         the import() alone won't re-fetch the CSS. This handler creates a fresh
+         <link> element for the failed stylesheet. JS retry is handled by the
+         retryDynamicImportsPlugin Vite plugin (viteplugin/retry-dynamic-imports.ts). -->
+    <script>
+      // Retry a function up to maxRetries times with exponential backoff.
+      // Final attempt runs without error handling so failures propagate normally.
+      function retryWithBackoff(fn, maxRetries, baseDelay) {
+        return function load(attempt) {
+          var p = fn();
+          if (attempt < maxRetries) p.catch(function() {
+            setTimeout(function() { load(attempt + 1); }, baseDelay * Math.pow(2, attempt));
+          });
+        };
+      }
+
+      // Retry failed CSS preloads from Vite's dynamic import system.
+      // Vite's __vitePreload caches attempted CSS in a `seen` map, so retrying
+      // the import() alone won't re-fetch the CSS. This handler creates a fresh
+      // <link> element for the failed stylesheet.
+      window.addEventListener('vite:preloadError', function(e) {
+        var err = e.payload;
+        if (err && err.message) {
+          var match = err.message.match(/Unable to preload CSS for (\/[^\s]+)/);
+          if (match && match[1].charAt(0) === '/') {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = match[1];
+            document.head.appendChild(link);
+            e.preventDefault();
+          }
+        }
+      });
+    </script>
+    <link rel="preconnect" href="https://static.heygen.ai" crossorigin />
+    <link rel="preconnect" href="https://dynamic.heygen.ai" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- LCP element on /apps: a FeaturedHeroCards.tsx <img> (the previewImage
+         of a featured app from appCatalog.ts). The cards are JSX-rendered, so
+         the preload scanner can't see the URLs until React mounts the lazy
+         /apps view — injecting the preloads here moves the image fetch into
+         the network-idle window while the JS bundle still evaluates. Gated on
+         pathname so other routes don't pay the bytes.
+         Slot order is the apps-config payload's featuredOrder — b-roll,
+         video-podcast-v2, filler-word-removal.
+         DEFAULT_FEATURED_APP_IDS (slot 2 = instant-highlights) is NOT the
+         order to preload for, even though advanced_disable_feature_flags_on_
+         first_load (helpers/analyze/posthog.ts) skips the first-load flag
+         fetch for signed-in users. What backfills the payload is the
+         account.get bootstrap in useAccountControl.ts: receivedFeatureFlags()
+         seeds server-evaluated flags synchronously, with a setTimeout(0)
+         reloadFeatureFlags() as backstop. Do NOT rest this on identify() —
+         posthog.ts only calls it when hasUserPropsDiff() is true, so a
+         returning user with stable props never re-requests that way.
+         b-roll (the mobile LCP element, always slot 1) preloads on every
+         viewport; slots 2-3 only at >=768px, where the grid is 3-up and the
+         cards are above the fold (any equal-size card image can win the LCP
+         race). On mobile the grid is 1-up, so the rest are below the fold.
+         No fetchpriority=high: image preloads default below scripts, so the
+         eager JS wave isn't contended on slow links. URLs must byte-match
+         appCatalog.ts or the preload is wasted — pinned by
+         src/layout/home/sections/tools/appsLcpPreload.test.ts. -->
+    <script>
+      (function () {
+        try {
+          var p = location.pathname
+            .replace(/^\/guest(?=\/|$)/, '')
+            .replace(/\/+$/, '') || '/';
+          if (p !== '/apps') return;
+          var urls = [
+            'https://dynamic.heygen.ai/APPS-PAGE-V2-ASSETS/apps-v2-ai-video-generator.jpg?tr=f-auto,q-85,h-360',
+          ];
+          if (window.matchMedia && window.matchMedia('(min-width: 768px)').matches) {
+            urls.push(
+              'https://dynamic.heygen.ai/APPS-PAGE-V2-ASSETS/apps-v2-podcast.jpg?tr=f-auto,q-85,h-360',
+              'https://dynamic.heygen.ai/APPS-PAGE-V2-ASSETS/apps-v2-speech-cleanup.jpg?tr=f-auto,q-85,h-360'
+            );
+          }
+          for (var i = 0; i < urls.length; i++) {
+            var l = document.createElement('link');
+            l.rel = 'preload';
+            l.as = 'image';
+            l.href = urls[i];
+            document.head.appendChild(l);
+          }
+        } catch (e) {
+          /* noop */
+        }
+      })();
+    </script>
+
+    <!-- DNS prefetch for third-party domains to reduce Load Delay -->
+    <link rel="dns-prefetch" href="https://widget.intercom.io" />
+    <link rel="dns-prefetch" href="https://js.stripe.com" />
+    <link rel="dns-prefetch" href="https://cdp.customer.io" />
+
+    <!-- Mobile phone detection — gates 3P scripts below (Intercom).
+         Phones only (excludes iPad / Android tablets) so tablet users keep
+         the support chat widget they'd expect on a desktop-class
+         device. Matches DeviceDetector.IsMobile semantics in JS-land. -->
+    <script>
+      (function () {
+        var ua = navigator.userAgent || '';
+        window.__HV_IS_MOBILE =
+          /iPhone|iPod/.test(ua) || (/Android/.test(ua) && /Mobile/.test(ua));
+      })();
+    </script>
+
+    <script>
+      if (window.global === undefined) {
+        window.global = window;
+      }
+    </script>
+    <script>
+      // jump terser
+      (function (global) {
+        ['log', 'trace'].forEach(function (func) {
+          globalThis[func] = console[func].bind(console);
+        });
+      })(globalThis);
+    </script>
+    <script>
+      // inject env
+      (function (global) {
+        globalThis['BUILD_TS'] = '1793746024915';
+        globalThis['BUILD_TIME'] = Number('1793746024915');
+        globalThis['VERSION'] = '4.1.0';
+        globalThis['NODE_BUILD_TAG'] = 'app-v4.1.0-2026.11.03.14.46.26';
+        globalThis['NODE_ENV'] = 'production';
+      })(globalThis);
+    </script>
+    <meta
+      name="description"
+      content="Create customized videos using HeyGen's AI Video Generator, turning scripts into talking videos with customizable AI avatars in minutes, without a camera or crew."
+    />
+    <meta
+      name="keywords"
+      content="AI spokesperson, talking avatar, corporate training, online learning, promotional video, explainer video, AI avatar video, voice clone"
+    />
+    <script type="module" crossorigin src="/main-CTq4VBXA.js"></script>
+    <link rel="modulepreload" crossorigin href="/vendor-URIgXZX6.js">
+    <link rel="stylesheet" crossorigin href="/main-CIqZwH0u.css">
+    <link rel="preload" as="fetch" crossorigin="" href="/sprite-7e956ee0b62a.svg">
+    <meta http-equiv="Content-Security-Policy" content="frame-src &#39;self&#39; *.typeform.com *.stripe.com *.stripe.network *.google.com https://challenges.cloudflare.com calendly.com recaptcha.net intercom-sheets.com *.youtube.com https://www.youtube-nocookie.com td.doubleclick.net *.heygen.ai *.heygen.com https://*.s3-accelerate.amazonaws.com https://*.s3.us-east-2.amazonaws.com *.jam.dev *.googletagmanager.com blob: renderer.gist.build code.gist.build *.chargebee.com heygen-test.chargebee.com heygen.chargebee.com https://app.tolgee.io *.facebook.com; worker-src &#39;self&#39; blob:; connect-src &#39;self&#39; *.pexels.com images.unsplash.com *.mock.pstmn.io *.getrewardful.com *.posthog.com *.intercom.io wss://nexus-websocket-a.intercom.io *.intercomcdn.com *.heygen.ai *.heygencdn.com *.heygen.com quickchart.io m.media-amazon.com *.cloudfront.net *.amazonaws.com *.google.com *.google-analytics.com *.googleadservices.com www.googletagmanager.com browser-intake-datadoghq.com *.browser-intake-datadoghq.com *.linkedin.com *.facebook.com *.twitter.com *.tiktok.com *.tiktokw.us t.co stats.g.doubleclick.net *.doubleclick.net *.stytch.com wss://api.heygen.com blob: data: https://*.daily.co wss://*.daily.co wss://*.heygen.com wss://*.livekit.cloud https://*.livekit.cloud wss://streaming.assemblyai.com wss://api.cartesia.ai https://fonts.googleapis.com https://fonts.gstatic.com https://*.customer.io https://*.api.gist.build https://*.cloud.gist.build *.velt.dev *.firebaseio.com *.googleapis.com wss://*.firebaseio.com *.gettyimages.com https://app.tolgee.io wss://2ffw53dqvbeg5owewcif4mzjxq.appsync-realtime-api.us-east-2.amazonaws.com https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://cartodb-basemaps-a.global.ssl.fastly.net https://cartodb-basemaps-b.global.ssl.fastly.net https://cartodb-basemaps-c.global.ssl.fastly.net https://cartodb-basemaps-d.global.ssl.fastly.net https://simpleicons.org https://api.cobrowse.io wss://*.cobrowse.io https://analytics.ahrefs.com https://aplo-evnt.com *.reddit.com https://verifi.podscribe.com https://verifi.pdscrb.com https://pixel.tapad.com https://ipv4.podscribe.com https://ipv4.pdscrb.com https://bzr.openai.com https://bzrcdn.openai.com; font-src &#39;self&#39; fonts.gstatic.com *.heygencdn.com *.heygen.ai *.cloudflare.com *.intercomcdn.com at.alicdn.com https://*.s3-accelerate.amazonaws.com https://*.s3.us-east-2.amazonaws.com data: blob:; img-src &#39;self&#39; *.googletagmanager.com *.heygen.com *.heygencdn.com *.heygen.ai *.cloudfront.net cdn.sanity.io *.amazonaws.com *.media-amazon.com *.intercomassets.com *.intercomcdn.com https://heygen.intercom-attachments-1.com https://heygen.intercom-attachments-2.com https://heygen.intercom-attachments-3.com https://heygen.intercom-attachments-4.com https://heygen.intercom-attachments-5.com https://heygen.intercom-attachments-6.com https://heygen.intercom-attachments-7.com https://heygen.intercom-attachments-8.com https://heygen.intercom-attachments-9.com i.ytimg.com *.ggpht.com images.unsplash.com quickchart.io images.pexels.com cdn.brandfetch.io *.linkedin.com *.facebook.com *.cdninstagram.com *.fbcdn.net *.tiktokcdn-us.com *.tiktokcdn.com *.twitter.com *.tiktok.com *.tiktokw.us t.co www.google.com www.google.es www.google.vn www.google.nl www.google.in www.google.com.tw www.google.co www.google.it www.google.ae www.google.ru www.google.ca www.google.be www.google.co.in www.google.de www.google.com.vn www.google.co.jp *.doubleclick.net www.google.com.ph www.google.com.pk www.google.com.sa www.google.ae www.google.dk www.google.com.bd www.google.com.co www.google.co.uk www.google.co.th www.google.fr www.google.co.kr www.google.pl www.google.jo www.google.co.uz www.google.ch www.google.com.ua www.google.com.hk *.media-amazon.com *.etsystatic.com *.ebayimg.com *.shopify.com *.mzstatic.com *.googleusercontent.com *.gettyimages.com *.gravatar.com data: blob: https://storage.googleapis.com/ https://firebasestorage.googleapis.com/ https://app.tolgee.io i.vimeocdn.com *.fal.media cartodb-basemaps-a.global.ssl.fastly.net cartodb-basemaps-b.global.ssl.fastly.net cartodb-basemaps-c.global.ssl.fastly.net cartodb-basemaps-d.global.ssl.fastly.net *.reddit.com https://verifi.podscribe.com https://verifi.pdscrb.com https://pixel.tapad.com https://ipv4.podscribe.com https://ipv4.pdscrb.com https://bzr.openai.com; manifest-src &#39;self&#39;; media-src &#39;self&#39; *.heygen.com *.heygencdn.com *.heygen.ai *.amazonaws.com js.intercomcdn.com https://heygen.intercom-attachments-1.com https://heygen.intercom-attachments-2.com https://heygen.intercom-attachments-3.com https://heygen.intercom-attachments-4.com https://heygen.intercom-attachments-5.com https://heygen.intercom-attachments-6.com https://heygen.intercom-attachments-7.com https://heygen.intercom-attachments-8.com https://heygen.intercom-attachments-9.com *.vimeo.com *.akamaized.net *.pexels.com *.media-amazon.com *.etsystatic.com *.ebayimg.com *.shopify.com blob: data: https://storage.googleapis.com/ https://firebasestorage.googleapis.com/ *.gettyimages.com *.cloudfront.net https://app.tolgee.io https://simpleicons.org https://cdn.jsdelivr.net; object-src *.google.com; script-src &#39;self&#39; blob: https://static.heygencdn.com https://static.heygen.ai https://files2.heygen.ai https://gen-os-static.s3.us-east-2.amazonaws.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://challenges.cloudflare.com https://js.stripe.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googletagmanager.com https://accounts.google.com https://apis.google.com https://recaptcha.net https://www.gstatic.com https://www.gstatic.cn https://td.doubleclick.net https://www.googleadservices.com https://widget.intercom.io https://js.intercomcdn.com https://appleid.cdn-apple.com https://*.velt.dev https://*.firebaseio.com https://*.googleapis.com wss://*.firebaseio.com https://snap.licdn.com https://static.ads-twitter.com https://www.redditstatic.com https://connect.facebook.net https://analytics.tiktok.com https://analytics.ahrefs.com https://www.youtube.com https://s.ytimg.com https://us-assets.i.posthog.com https://app.posthog.com https://data.heygen.com &#39;unsafe-eval&#39; *.stytch.com https://*.daily.co https://js.jam.dev data: &#39;unsafe-inline&#39; https://*.customer.io https://code.gist.build https://app.tolgee.io https://js.cobrowse.io https://r.wdfl.co https://d34r8q7sht0t9k.cloudfront.net https://bzrcdn.openai.com; style-src &#39;self&#39; &#39;unsafe-inline&#39; *.heygen.ai *.google.com fonts.googleapis.com https://www.googletagmanager.com code.gist.build https://cdnjs.cloudflare.com; form-action &#39;self&#39; https://api-iam.intercom.io https://www.facebook.com;">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="hv-deferred-stylesheets" content="/main-xFAbz4_r.css">
+  </head>
+  <body>
+    <!-- Pre-hydrate skeleton — a centered spinner that paints instantly from
+         HTML so FCP fires before the JS bundle executes. The inline SVG
+         <circle> counts as contentful content per the paint-timing spec, so
+         FCP fires on the first frame.
+         Spinner CSS replicates @pacific/heygen-design's <Spinner> exactly:
+         - hv-rotate (1.4s linear) on the SVG element
+         - hv-dash (1.4s ease-in-out) on the stroke-dasharray
+         - color rgba(0,196,255,1), thickness 13% of size
+         Sibling of #root so React's createRoot().render() doesn't nuke it.
+         Removed via MutationObserver on mount; opacity-only fade. -->
+    <style>
+      #hv-boot-skeleton {
+        position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+        /* Matches --fill-general (the app's main bg, white in light mode). */
+        background: #ffffff;
+      }
+      [data-theme="dark"] #hv-boot-skeleton { background: #16171a; }
+      /* Spinner — matches @pacific/heygen-design <Spinner> exactly. */
+      #hv-boot-skeleton .hv-spinner {
+        position: absolute; left: 50%; top: 50%;
+        width: 48px; height: 48px;
+        margin: -24px 0 0 -24px;
+      }
+      #hv-boot-skeleton .hv-spinner svg {
+        width: 100%; height: 100%;
+        animation: hv-rotate 1.4s linear infinite;
+      }
+      #hv-boot-skeleton .hv-spinner circle {
+        stroke: rgba(0,196,255,1);
+        stroke-width: 6.24; /* 13% of size 48 */
+        stroke-linecap: round;
+        fill: none;
+        stroke-dasharray: 80px, 200px;
+        stroke-dashoffset: 0px;
+        animation: hv-dash 1.4s ease-in-out infinite;
+      }
+      @keyframes hv-rotate { 100% { transform: rotate(360deg); } }
+      @keyframes hv-dash {
+        0%   { stroke-dasharray: 1px, 200px; stroke-dashoffset: 0px; }
+        50%  { stroke-dasharray: 100px, 200px; stroke-dashoffset: -15px; }
+        100% { stroke-dasharray: 100px, 200px; stroke-dashoffset: -125px; }
+      }
+    </style>
+    <div id="hv-boot-skeleton" aria-hidden="true">
+      <div class="hv-spinner">
+        <svg viewBox="24 24 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="48" cy="48" r="20.88"></circle>
+        </svg>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script>
+      // Remove the boot skeleton as soon as React mounts visible content into #root.
+      // MUST appear AFTER <div id="root"> — an inline script blocks parsing, so
+      // getElementById('root') returns null if this runs before the root div is
+      // parsed, causing the early-return guard to bail out silently and leaving
+      // the skeleton visible indefinitely.
+      (function () {
+        var root = document.getElementById('root');
+        var skel = document.getElementById('hv-boot-skeleton');
+        if (!root || !skel) return;
+        var done = false;
+        function hideSkel() {
+          if (done) return;
+          done = true;
+          skel.style.transition = 'opacity 180ms';
+          skel.style.opacity = '0';
+          setTimeout(function () { skel.parentNode && skel.parentNode.removeChild(skel); }, 220);
+        }
+        if (root.children.length > 0) { hideSkel(); return; }
+        // Store the observer reference so we can disconnect once the skeleton
+        // hides — otherwise it keeps observing #root forever, costing CPU on
+        // every DOM mutation in the live app.
+        var observer = new MutationObserver(function () {
+          if (root.children.length > 0) {
+            observer.disconnect();
+            hideSkel();
+          }
+        });
+        observer.observe(root, { childList: true });
+        // Safety net: always hide within 30s even if something goes wrong.
+        setTimeout(function () { observer.disconnect(); hideSkel(); }, 30000);
+      })();
+    </script>
+    <!-- LCP element on phone /video-agent and /apps/video-agent: SAHomeLandingFallback's
+         headline, hidden until this font loads. Same URL and CORS mode as the 'ABC Solar
+         Display Headline' @font-face, and the same <480px gate that renders the fallback.
+         Below the stylesheets on purpose: this inline script waits for them, so the
+         font doesn't take bandwidth from the CSS that gates first paint. -->
+    <script>
+      (function () {
+        try {
+          var p = location.pathname
+            .replace(/^\/guest(?=\/|$)/, '')
+            .replace(/\/+$/, '') || '/';
+          if (p !== '/video-agent' && p !== '/apps/video-agent') return;
+          if (window.matchMedia && window.matchMedia('(min-width: 480px)').matches) return;
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.as = 'font';
+          l.type = 'font/woff2';
+          l.crossOrigin = 'anonymous';
+          l.href = 'https://static.heygen.ai/fonts/solar/ABCSolarDisplay-Bold.woff2';
+          document.head.appendChild(l);
+        } catch (e) {
+          /* noop */
+        }
+      })();
+    </script>
+    <!-- Phone /home (and a signed-in "/", which lands there): TT Norms Pro, the app's body face,
+         is otherwise requested only when React's first text needs it, so the header and section
+         titles paint in the system fallback and reflow when it swaps in. Preload the three
+         weights Home's first screen uses. Same URLs and CORS mode as the @font-face rules in
+         heygen-design/src/index.css; same phone signal as the mweb-bluebox gate (phone UA, or
+         under 480px). Desktop is untouched. Pinned by index-html-font-preload.test.ts. -->
+    <script>
+      (function () {
+        try {
+          var p = location.pathname
+            .replace(/^\/guest(?=\/|$)/, '')
+            .replace(/\/+$/, '') || '/';
+          var signedInRoot =
+            p === '/' &&
+            location.pathname === '/' &&
+            /(?:^|;\s*)heygen_is_login=[^;]/.test(document.cookie);
+          if (p !== '/home' && !signedInRoot) return;
+          var narrow = !(window.matchMedia && window.matchMedia('(min-width: 480px)').matches);
+          if (!window.__HV_IS_MOBILE && !narrow) return;
+          ['Regular', 'Medium', 'DemiBold'].forEach(function (weight) {
+            var l = document.createElement('link');
+            l.rel = 'preload';
+            l.setAttribute('as', 'font');
+            l.type = 'font/woff2';
+            l.crossOrigin = 'anonymous';
+            l.href = 'https://static.heygen.ai/fonts/tt_norms_pro/TT_Norms_Pro_' + weight + '.woff2';
+            document.head.appendChild(l);
+          });
+        } catch (e) {
+          /* noop */
+        }
+      })();
+    </script>
+    <!-- /home (and a signed-in "/", which lands there) and the A-Roll routes (/avatar-video,
+         /create-video): nothing renders until i18next has
+         the session's translations (AppLayout suspends on them), and BundledBackend
+         (i18n-bundled-backend.ts) only requests /locales/<lng>.json after main.app has
+         downloaded and run. That ~500 KB file then downloads on its own in front of the
+         lobby's first render. Preload it here so it loads while main.app is still being
+         evaluated.
+         The language must be the one i18next will detect (i18n.ts detection order:
+         ?lang=, i18next cookie, localStorage, sessionStorage, navigator, each normalized as
+         normalizeDetectedLanguage does, en-US when none is supported), or the file
+         downloads twice; when it can't be sure, this skips the preload. The URL and
+         crossorigin match BundledBackend's fetch() so it reuses this response. In <body>,
+         after the head's boot chunks, so it queues behind vendor and main.app instead of
+         in front of them.
+         Maintenance: DEFAULT_LANGS mirrors i18n.ts; pinned by index-html-locale-preload.test.ts. -->
+    <script>
+      (function () {
+        try {
+          var p = location.pathname
+            .replace(/^\/guest(?=\/|$)/, '')
+            .replace(/\/+$/, '') || '/';
+          // A signed-in "/" becomes /home in this document (LoginRedirectWrapper); the
+          // login flag is the one hasLoginToken() reads. Signed out, "/" leaves for sign-in.
+          var signedInRoot =
+            p === '/' &&
+            location.pathname === '/' &&
+            /(?:^|;\s*)heygen_is_login=[^;]/.test(document.cookie);
+          var aroll = /^\/(?:avatar-video|create-video)(?:\/|$)/.test(p);
+          if (p !== '/home' && !signedInRoot && !aroll) return;
+          var DEFAULT_LANGS = [
+            'en-US', 'pt-BR', 'ko-KR', 'es-MX', 'de-DE', 'fr-FR', 'ja-JP', 'es-ES', 'it-IT', 'id-ID',
+            'zh-HK', 'th-TH', 'tr-TR', 'uk-UA', 'ru-RU', 'pl-PL', 'vi-VN', 'zh-CN', 'nl-NL',
+          ];
+          var supported = DEFAULT_LANGS;
+          try {
+            var cached = JSON.parse(localStorage.getItem('supported-languages'));
+            if (
+              Array.isArray(cached) &&
+              cached.length &&
+              cached.every(function (c) {
+                return typeof c === 'string' && c.length === 5 && c[2] === '-';
+              })
+            ) {
+              supported = cached;
+            }
+          } catch (e) {
+            /* default list, as getSupportedLngs() */
+          }
+          var candidates = [];
+          // ?lang=: the detector takes the last one, undecoded.
+          if (!location.search && location.hash.indexOf('?') > -1) return;
+          location.search
+            .substring(1)
+            .split('&')
+            .forEach(function (pair) {
+              var at = pair.indexOf('=');
+              if (at > 0 && pair.substring(0, at) === 'lang') candidates[0] = pair.substring(at + 1);
+            });
+          var cookies = document.cookie.match(/(?:^|;) *i18next=[^;]*/g) || [];
+          // i18n.ts deletes a host-only copy before detecting; which one survives is unknown here.
+          if (cookies.length > 1) return;
+          if (cookies.length) candidates.push(cookies[0].replace(/^;? *i18next=/, ''));
+          candidates.push(localStorage.getItem('i18nextLng'), sessionStorage.getItem('i18nextLng'));
+          candidates = candidates.concat(
+            Array.prototype.slice.call(navigator.languages || []),
+            navigator.language,
+          );
+          var lng = null;
+          for (var i = 0; i < candidates.length && !lng; i++) {
+            var code = candidates[i];
+            if (!code) continue;
+            if (!/^[A-Za-z0-9-]+$/.test(code)) return;
+            lng = normalize(code);
+            if (supported.indexOf(lng) < 0) lng = null;
+          }
+          // Nothing supported: i18next falls back to en-US (resolveFallbackLng).
+          if (!lng) lng = 'en-US';
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.setAttribute('as', 'fetch');
+          l.crossOrigin = 'anonymous';
+          l.href = '/locales/' + lng + '.json?ts=1793746024915';
+          document.head.appendChild(l);
+        } catch (e) {
+          /* noop */
+        }
+        // Same as normalizeDetectedLanguage (i18n-language-resolution.ts).
+        function normalize(code) {
+          var lower = code.toLowerCase();
+          for (var j = 0; j < supported.length; j++) {
+            if (supported[j].toLowerCase() === lower) return supported[j];
+          }
+          if (lower.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(lower) ? 'zh-HK' : 'zh-CN';
+          var base = lower.split('-')[0];
+          for (var k = 0; k < supported.length; k++) {
+            if (supported[k].toLowerCase().indexOf(base + '-') === 0) return supported[k];
+          }
+          return code;
+        }
+      })();
+    </script>
+
+
+    <!-- Non-critical scripts moved to end of body -->
+
+    <!-- LCP-gated analytics loader.
+         Each analytics integration below registers a callback via window.__HV_onLCP(cb, opts).
+         Optional opts.delay (ms) staggers non-critical SDKs after LCP to reduce
+         post-LCP bandwidth contention and main-thread work (improves INP).
+         The callback fires once, on the earliest of:
+           1. The LCP stream settles. The observer is NOT registered here —
+              main.app.tsx calls __HV_armLcpObserver() so the boot spinner never
+              counts as LCP. Entries inside [data-lcp-shell] (the layout chrome:
+              top bar, nav rail) are skipped: on slow loads that chrome paints
+              seconds before the route, and settling on it let GTM + its pixels
+              run before the real LCP. A hero entry (>= HERO_MIN_SIZE px²) settles
+              after LCP_SETTLE_MS = 500ms without a newer one. A smaller entry (a
+              route whose largest paint is text, e.g. mobile /home) waits
+              SMALL_SETTLE_PACE × the time from app start to that paint (at least
+              SMALL_SETTLE_MIN_MS): a slow load's next section can take as long
+              as everything before it (throttled /home: lobby text 7.8 s after
+              app start, its hero section 8.1 s later; fast loads: 0.3 s later).
+              After settle: yield once (rAF / setTimeout), then schedule on idle
+              CPU.
+           2. First tap / key / scroll before a hero entry — the browser stops
+              reporting LCP there, so there is nothing left to wait for. Listened
+              for from parse; a tap before app start flushes at app start.
+           3. Upper bound — only fires if no hero entry was seen. Counted from
+              __HV_armLcpObserver() (ARMED_CAP_MS, or ARMED_CAP_NO_LCP_MS where the
+              browser has no LCP entries), so a slow boot can't fire it before the
+              app has painted; UNARMED_CAP_MS from parse covers an app entry that
+              never runs (CDN failure). If this wins often in RUM
+              (window.__HV_LCP_TRIGGER === 'timeout'), debug LCP on those routes.
+           4. visibilitychange:hidden / pagehide — best-effort flush for the
+              engaged-bouncer cohort. Without this, their pageview is LOST.
+         Each path tags both `window.__HV_LCP_TRIGGER` and a `performance.mark`
+         (`hv-analytics-flush-<trigger>`); analytics-gate-rum-instrumentation.ts
+         reports both to DD RUM as the `hv_analytics_gate` action.
+         Globals exported by this block:
+           - window.__HV_onLCP(cb)           (fire immediately after LCP)
+           - window.__HV_onLCP(cb, {delay})  (fire delay ms after LCP)
+           - window.__HV_armLcpObserver()   (called from main.app.tsx to start observing)
+           - window.__HV_flushAnalytics()   (dev-tool: force-flush; QA only)
+           - window.__HV_LCP_TRIGGER        ('lcp' | 'lcp-small' | 'input' | 'timeout' | 'pagehide' | 'manual') -->
+
+    <script>
+      (function () {
+        var queue = [];
+        var delayed = [];
+        var fired = false;
+        var heroSeen = false;
+        var armed = false;
+        var armedAt = 0;
+        var inputSeen = false;
+        var LCP_SETTLE_MS = 500;
+        var HERO_MIN_SIZE = 5000;
+        var SMALL_SETTLE_MIN_MS = 1000;
+        var SMALL_SETTLE_PACE = 1.25;
+        var ARMED_CAP_MS = 20000;
+        var ARMED_CAP_NO_LCP_MS = 8000;
+        var UNARMED_CAP_MS = 30000;
+        var lcpRearmTimer = null;
+        function recordPath(path) {
+          if (typeof performance !== 'undefined' && performance.mark) {
+            try { performance.mark('hv-analytics-flush-' + path); } catch (e) { /* noop */ }
+          }
+        }
+        function runCallback(cb) {
+          try { cb(); }
+          catch (e) {
+            if (window.DD_RUM && typeof window.DD_RUM.addError === 'function') {
+              try { window.DD_RUM.addError(e, { source: 'hv-lcp-gate' }); } catch (_) { /* noop */ }
+            } else if (window.console && console.error) {
+              console.error('[hv-lcp-gate] analytics callback threw:', e);
+            }
+          }
+        }
+        function flushQueue(trigger) {
+          if (fired) return;
+          fired = true;
+          removeInputListeners();
+          window.__HV_LCP_TRIGGER = trigger || 'unknown';
+          recordPath(trigger || 'unknown');
+          while (queue.length) {
+            runCallback(queue.shift());
+          }
+          for (var i = 0; i < delayed.length; i++) {
+            (function (entry) {
+              setTimeout(function () { runCallback(entry.cb); }, entry.delay);
+            })(delayed[i]);
+          }
+          delayed = [];
+        }
+        function scheduleFlush(trigger) {
+          if (fired) return;
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(function () { flushQueue(trigger); }, { timeout: 1000 });
+          } else {
+            setTimeout(function () { flushQueue(trigger); }, 0);
+          }
+        }
+        // The browser stops reporting LCP at the first tap, key or scroll, so a
+        // hero that hasn't painted by then never will. Listening from parse
+        // catches a tap during boot too; that one flushes when the app starts,
+        // which keeps GTM off the app bundle's download.
+        var INPUT_EVENTS = ['pointerdown', 'keydown', 'wheel'];
+        function removeInputListeners() {
+          for (var k = 0; k < INPUT_EVENTS.length; k++) {
+            window.removeEventListener(INPUT_EVENTS[k], onInput, true);
+          }
+        }
+        function onInput() {
+          removeInputListeners();
+          inputSeen = true;
+          if (armed && !heroSeen) scheduleFlush('input');
+        }
+        for (var k = 0; k < INPUT_EVENTS.length; k++) {
+          window.addEventListener(INPUT_EVENTS[k], onInput, { capture: true, passive: true });
+        }
+        // Called from main.app.tsx after the app entry starts executing.
+        // Registers the PerformanceObserver *without* buffered: true so
+        // the boot spinner's LCP entry is never seen — only React-rendered
+        // content triggers the settle window.
+        window.__HV_armLcpObserver = function () {
+          if (fired || armed) return;
+          armed = true;
+          armedAt = performance.now();
+          if (inputSeen) {
+            scheduleFlush('input');
+            return;
+          }
+          // Fallback A: upper bound from app start, not from HTML parse — on slow
+          // Android boots a parse-relative timer fired before the app had painted.
+          // Conditioned on !heroSeen so it doesn't race the settle flush below.
+          var lcpSupported =
+            'PerformanceObserver' in window &&
+            Array.isArray(PerformanceObserver.supportedEntryTypes) &&
+            PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint') !== -1;
+          setTimeout(function () {
+            if (!heroSeen) flushQueue('timeout');
+          }, lcpSupported ? ARMED_CAP_MS : ARMED_CAP_NO_LCP_MS);
+          if (!lcpSupported) return;
+          try {
+            var po = new PerformanceObserver(function (list) {
+              if (fired) return;
+              // Entries arrive in increasing size, so the last admitted one decides.
+              var entries = list.getEntries();
+              var latest = null;
+              for (var i = 0; i < entries.length; i++) {
+                var el = entries[i].element;
+                if (el && el.closest && el.closest('[data-lcp-shell]')) continue;
+                latest = entries[i];
+              }
+              if (!latest) return;
+              var trigger = 'lcp';
+              var settleMs = LCP_SETTLE_MS;
+              if (latest.size >= HERO_MIN_SIZE) {
+                heroSeen = true;
+              } else {
+                trigger = 'lcp-small';
+                var elapsed = latest.startTime - armedAt;
+                settleMs = Math.max(SMALL_SETTLE_MIN_MS, SMALL_SETTLE_PACE * elapsed);
+              }
+              if (lcpRearmTimer) clearTimeout(lcpRearmTimer);
+              lcpRearmTimer = setTimeout(function () {
+                lcpRearmTimer = null;
+                var isHidden = typeof document !== 'undefined' && document.visibilityState === 'hidden';
+                if (!isHidden && typeof requestAnimationFrame === 'function') {
+                  requestAnimationFrame(function () { scheduleFlush(trigger); });
+                } else {
+                  setTimeout(function () { scheduleFlush(trigger); }, 0);
+                }
+              }, settleMs);
+            });
+            po.observe({ type: 'largest-contentful-paint' });
+          } catch (e) { /* unsupported entry type */ }
+        };
+        // Fallback A': the app entry never ran (CDN failure) — still flush so
+        // SDK callbacks fire.
+        setTimeout(function () {
+          if (!armed) flushQueue('timeout');
+        }, UNARMED_CAP_MS);
+        // Fallback B: page hide / visibility hidden. Best-effort flush for
+        // the engaged-bouncer cohort — users who see, leave within the LCP
+        // window. Without this, unfired callbacks are lost at unload.
+        function flushOnHide() {
+          if (fired) return;
+          if (document.visibilityState === 'hidden') flushQueue('pagehide');
+        }
+        document.addEventListener('visibilitychange', flushOnHide, { passive: true });
+        window.addEventListener('pagehide', function () {
+          if (!fired) flushQueue('pagehide');
+        }, { passive: true });
+        window.__HV_onLCP = function (cb, opts) {
+            if (window.__heygenVideoDownloadHandoff) return;
+          var delay = (opts && opts.delay) || 0;
+          if (fired) {
+            if (delay > 0) setTimeout(function () { runCallback(cb); }, delay);
+            else runCallback(cb);
+          } else {
+            if (delay > 0) delayed.push({ cb: cb, delay: delay });
+            else queue.push(cb);
+          }
+        };
+        window.__HV_flushAnalytics = function () { flushQueue('manual'); };
+      })();
+    </script>
+
+    <!-- Google Tag Manager — gtm.js fetch deferred until __HV_onLCP fires.
+         dataLayer queue is created synchronously so dataLayer.push() calls before
+         gtm.js loads are queued and replayed when the script executes. -->
+    <script>
+      if (!window.__heygenVideoDownloadHandoff && window.self === window.top) (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var loadGtm = function () {
+          var f = d.getElementsByTagName(s)[0];
+          var j = d.createElement(s);
+          var dl = l != 'dataLayer' ? '&l=' + l : '';
+          // Note: `async`/`defer` attributes are spec-ignored on scripts added via
+          // createElement + insertBefore — they execute as soon as they load, in
+          // arrival order. Kept here for clarity / parity with the canonical GTM
+          // snippet, not because it changes the loader behavior.
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        };
+        // Phone HomeV4 (mweb-bluebox test; set by the /home mobile variant's inline script) keeps
+        // mounting for seconds after LCP, and GTM's tags landing then block the first taps. There
+        // it also waits for a fully idle main thread, capped so gtm.js still loads by LCP + 8 s.
+        // A page going hidden loads it at once, as the gate's pagehide flush does.
+        var loadGtmWhenIdle = function () {
+          var done = false;
+          var load = function () {
+            if (done) return;
+            done = true;
+            loadGtm();
+          };
+          if (w.__HV_LCP_TRIGGER === 'pagehide' || d.visibilityState === 'hidden') return load();
+          d.addEventListener('visibilitychange', function () {
+            if (d.visibilityState === 'hidden') load();
+          });
+          w.addEventListener('pagehide', load);
+          setTimeout(load, 7000);
+          if (!w.requestIdleCallback) {
+            // iOS Safari has no requestIdleCallback. Treat ~0.5 s of 50 ms ticks that each arrive
+            // on time (no long task in between) as idle.
+            var quietTicks = 0;
+            var last = Date.now();
+            var probe = function () {
+              if (done) return;
+              var now = Date.now();
+              quietTicks = now - last < 70 ? quietTicks + 1 : 0;
+              last = now;
+              if (quietTicks >= 10) return load();
+              setTimeout(probe, 50);
+            };
+            setTimeout(probe, 50);
+            return;
+          }
+          var whenIdle = function (deadline) {
+            if (done) return;
+            // Nearly the 50 ms maximum: no task or frame is pending.
+            if (deadline.timeRemaining() >= 40) load();
+            else w.requestIdleCallback(whenIdle);
+          };
+          w.requestIdleCallback(whenIdle);
+        };
+        // Purchase and OAuth signup callbacks hold their redirect for GTM; logins don't, so they defer.
+        if (
+          w.location &&
+          w.location.pathname === '/callback' &&
+          (/[?&]purchase_event_id=/.test(w.location.search) ||
+            (/[?&]is_new=true(?:&|$)/.test(w.location.search) &&
+              /[?&]username=/.test(w.location.search) &&
+              /[?&](oauth_)?provider=/.test(w.location.search)))
+        ) {
+          loadGtm();
+        } else {
+          w.__HV_onLCP(w.__HV_LIKELY_HOMEV4 ? loadGtmWhenIdle : loadGtm, { delay: 1000 });
+        }
+      })(window, document, 'script', 'dataLayer', 'GTM-MW3PPLW9');
+    </script>
+
+    <!-- Customer.io Analytics — stub created sync, snippet load gated on LCP.
+         Stubs sync so cioanalytics.identify/track/page calls early in init queue
+         for replay once analytics.min.js loads. -->
+    <script>
+      (function () {
+        if (window.__heygenVideoDownloadHandoff) return;
+        var i = 'cioanalytics';
+        var analytics = (window[i] = window[i] || []);
+        if (analytics.initialize) return;
+        if (analytics.invoked) {
+          window.console && console.error && console.error('Snippet included twice.');
+          return;
+        }
+        analytics.invoked = true;
+        analytics.methods = ['trackSubmit','trackClick','trackLink','trackForm','pageview','identify','reset','group','track','ready','alias','debug','page','once','off','on','addSourceMiddleware','addIntegrationMiddleware','setAnonymousId','addDestinationMiddleware'];
+        analytics.factory = function (method) {
+          return function () {
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift(method);
+            analytics.push(args);
+            return analytics;
+          };
+        };
+        for (var k = 0; k < analytics.methods.length; k++) {
+          var key = analytics.methods[k];
+          analytics[key] = analytics.factory(key);
+        }
+        analytics.load = function (writeKey, opts) {
+          var t = document.createElement('script');
+          t.type = 'text/javascript';
+          t.defer = true;
+          t.setAttribute('data-global-customerio-analytics-key', i);
+          t.src = 'https://cdp.customer.io/v1/analytics-js/snippet/' + writeKey + '/analytics.min.js';
+          var n = document.getElementsByTagName('script')[0];
+          n.parentNode.insertBefore(t, n);
+          analytics._writeKey = writeKey;
+          analytics._loadOptions = opts;
+        };
+        analytics.SNIPPET_VERSION = '4.15.3';
+      })();
+      window.__HV_onLCP(function () {
+        if (window.cioanalytics && !window.cioanalytics._writeKey) {
+          window.cioanalytics.load(
+            '1c73d7372cad70e033ea',
+            {
+              integrations: {
+                'Customer.io In-App Plugin': {
+                  siteId: 'a5bce59bcb810322ca38',
+                  colorScheme: 'auto'
+                }
+              }
+            }
+          );
+          window.cioanalytics.page();
+        }
+      }, { delay: 3000 });
+    </script>
+
+    <!-- Intercom Support Chat — gated on LCP, skipped on mobile phones and inside
+         the framed Orby panel (/embed/orby), whose host page runs its own Intercom.
+         Stub creation (window.Intercom queue) fires immediately so identify()
+         and onIntercomReady() callbacks in the zero-delay queue can push onto
+         the stub. The actual widget script load is delayed by 5s.
+         window.__HV_intercomLoad ('pending' → 'loaded' | 'failed', each change firing `hv:intercom-load`)
+         is the app's only signal: the stub swallows commands whether or not the widget ever loads. -->
+    <script>
+      'use strict';
+      if (
+        !window.__heygenVideoDownloadHandoff &&
+        !window.__HV_IS_MOBILE &&
+        !(window.self !== window.top && /^\/embed\/orby\/?$/.test(window.location.pathname))
+      ) {
+        window.__HV_intercomLoad = 'pending';
+        var settleIntercomLoad = function (state) {
+          window.__HV_intercomLoad = state;
+          window.dispatchEvent(new Event('hv:intercom-load'));
+        };
+        function loadIntercomScript() {
+          var count = 0;
+          var max = 3;
+          var l = function () {
+            var s = document.createElement('script');
+            s.onload = function () {
+              settleIntercomLoad('loaded');
+            };
+            s.onerror = function(){
+              if(count < max){
+                count++;
+                setTimeout(function () { l(); }, 3000);
+              } else {
+                settleIntercomLoad('failed');
+              }
+            }
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://widget.intercom.io/widget/oiknz8io';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+          };
+          l();
+        }
+        window.__HV_onLCP(function () {
+          var w = window;
+          var ic = w.Intercom;
+          if (typeof ic === 'function') {
+            ic('reattach_activator');
+            ic('update', w.intercomSettings);
+          } else {
+            var i = function () { i.c(arguments); };
+            i.q = [];
+            i.c = function (args) { i.q.push(args); };
+            w.Intercom = i;
+          }
+        });
+        window.__HV_onLCP(loadIntercomScript, { delay: 5000 });
+      }
+    </script>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MW3PPLW9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>(function(){try{var p=location.pathname.replace(/^\/guest(?=\/|$)/,'').replace(/\/+$/,'')||'/';var routes=[["^/(?:avatar-video|create-video)(?:/|$)",["/avatar_video_route-DFkQtRAd.js","/idea_to_video-CFJUbBIv.js","/avatar_hub_guided_fresh_voice_flow-BuTWpow8.js","/request_voice_clone_quality_feedback-vTSdVB9T.js","/voice_engine_combos-C7rtI_ch.js","/vendor-motion-DEVTFNS0.js","/vendor-aws-43MxVL-y.js","/vendor-audio-rec-DKz-8F8M.js","/upsell_redesign-skqqkqlw.js"]]];for(var i=0;i<routes.length;i++){if(!new RegExp(routes[i][0]).test(p))continue;routes[i][1].forEach(function(h){var l=document.createElement('link');l.rel='modulepreload';l.setAttribute('fetchpriority','low');l.href=h;document.head.appendChild(l);});break;}}catch(e){}})();</script>
+  </body>
+</html>

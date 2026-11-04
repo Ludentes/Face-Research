@@ -1,0 +1,28 @@
+Book a Demo | Tavus
+
+Introducing Griffin:
+48% thought it was a real person, the first model to pass the real-time video Turing test.
+Learn more.
+Login
+Get Started
+Select an Account Type
+Choose how you want to experience Tavus. Whether you’re building with our APIs or meeting a PAL, you can switch anytime.
+Developer Account
+Build real-time, human-like AI experiences using Tavus APIs and tools.
+Best for developers, founders, and teams integrating Tavus into a product.
+NEW DEVELOPER ACCOUNT
+PALs Account
+Meet your personal AI companions who listen, remember, and are always present.
+Best for individuals looking to talk, explore, and connect with a friend.
+NEW PALS ACCOUNT
+Powering 150,000+ developers and the world's most forward-thinking companies
+Performance and reliability
+Built for real-time conversation, Tavus PALs render at 134 ms from audio to video, the fastest on the market, with enterprise uptime guarantees. Phoenix-4.5 handles rendering, Raven-1 reads tone and expression, and Sparrow-2 manages turn-taking. They're ready to scale on day one.
+see docs
+get started for free
+PERCEPTION
+Speech recognition
+LLM
+TTS
+REAL-TIME RENDERING
+FEATURE

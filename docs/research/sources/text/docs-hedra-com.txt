@@ -1,0 +1,89 @@
+Build with Hedra - Hedra
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+Contact support
+Start with managed inference through the
+v3 API
+. Choose a quickstart below;
+each walks you through creating an API key, funding your API wallet, and making
+your first request.
+
+Understand images and reason
+Send an image and a question. Read the answer directly from the chat API response.
+Generate images, video, or audio
+Submit a model job, follow its progress, and retrieve the output.
+
+Choose a model and check its inputs, limits, and pricing in the
+
+model catalog
+. To use Hedra from an assistant
+or your terminal, start with
+MCP setup
+or
+
+SDKs and developer tools
+.
+
+​
+Docs and console
+
+Use these docs for integration guides, examples, and the API reference.
+
+Open the console
+to try models, inspect jobs,
+and manage API access and billing. To start an integration,
+
+get an API key
+.
+
+​
+From inference to post-training
+
+Hedra’s research and infrastructure connect model adaptation, evaluation, and
+deployment for real-world workloads. For physical AI models, bringing your own
+model, or deploying on your own infrastructure, start with
+
+Platform and availability
+and
+
+deployment options
+.
+
+World Model Runtime is Hedra’s engine for multimodal workloads. Hedra Training connects
+model adaptation and evaluation with deployment. GPU Sandboxes provide isolated
+compute for custom code and pipelines.
+
+Training and GPU Sandboxes are currently
+research previews
+. See
+
+Hedra’s platform overview
+or
+
+contact the engineering team
+to discuss access
+and supported workloads.
+
+​
+Existing integrations
+
+Building a new integration? Use v3. If you use the
+/web-app/public
+API,
+read
+Migrate from v2 to v3
+.
+Was this page helpful?
+Yes
+No
+Suggest edits
+Raise issue
+⌘
+I

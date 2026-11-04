@@ -1,0 +1,110 @@
+AI STUDIOS Launches Real-Time AI Avatar Agents for Enterprise Customer Experience | B2B
+
+PALO ALTO, CA, April 28, 2026
+(GLOBE NEWSWIRE)
+-- Generative AI–powered digital humans now hold live, multilingual customer conversations on-device — backed by more than 100 enterprise AI agent deployments across banking, retail, healthcare, and public services.
+
+Key Highlights
+
+More than 100 on-device AI avatar agent deployments across enterprise and public-sector customers worldwide
+Native multilingual support across 150+ languages with culturally nuanced voice delivery
+Model-agnostic architecture connecting to commercial, open-source, or in-house LLMs
+Real-time conversation with natural lip-sync, powered by a low-latency generative AI engine
+On-device inference across kiosks, digital signage, tablets, and mobile devices
+
+DeepBrain AI, a global leader in AI Avatar and AI Agent technology, has released Real-Time Interactive AI Avatars on its flagship enterprise platform, AI STUDIOS. Powered by generative AI and available to enterprise customers worldwide, the release delivers hyper-realistic digital humans capable of holding live, natural customer conversations at global scale.
+
+The release arrives as enterprises move beyond text chatbots, automated voice call systems, and even text-only AI agents — toward customer experiences that more closely match the tone, responsiveness, and visual presence of a trained human agent. Industry analysts have flagged real-time, multimodal AI agents as one of the fastest-growing categories of enterprise AI in 2026, and AI STUDIOS is built to lead that shift.
+
+At the core, AI STUDIOS pairs flexible generative AI with practical performance. The system is model-agnostic — connecting to commercial AI services, open-source models, or a company's own in-house LLM — and absorbs uploaded manuals, policy guides, and compliance materials so the avatar agent speaks with the precision of an experienced employee, no retraining required. A low-latency engine keeps conversation close to real time with natural lip-sync, while native multilingual support spans more than 150 languages across the Americas, EMEA, and Asia-Pacific. Secure links to CRM and ticketing systems carry each conversation through to backend operations.
+
+Deployment moves with the customer. AI STUDIOS runs avatar inference directly on the device, so listening, reasoning, and response stay close to real time even when networks are unstable. Local inference also reduces cloud dependency and keeps sensitive interaction data inside the device.
+
+That on-device foundation is already proven at scale. DeepBrain AI has delivered more than 100 on-device AI agent deployments worldwide — spanning AI banking kiosks in bank lobbies, retail AI signage on store floors, healthcare AI tablets in hospitals and public-service centers, and mobile AI assistants for frontline staff. That accumulated field know-how, not just the underlying technology, is what now distinguishes AI STUDIOS in the on-device AI avatar market.
+
+"Real-time AI avatar agents are a practical solution that helps enterprises deliver more natural, efficient customer experiences across every touchpoint where they meet their customers," said Sae-Young Jang, CEO of DeepBrain AI. "DeepBrain AI will continue to advance generative AI agents that enterprises can deploy directly in the field, actively driving the next wave of customer communication."
+
+The avatar agents are designed for moments when a human face and voice measurably change outcomes — onboarding new customers, handling claims and appointments, supporting employees through IT and HR queries, and bringing interactive product experiences to enterprise websites. Banking, retail, healthcare, and public services lead the list of industries positioned to benefit.
+
+Beyond this release, DeepBrain AI's broader footprint in the enterprise AI market spans finance, global enterprise software, public services, and higher education. Across its wider digital human portfolio, the company has expanded its work with major financial institutions including Shinhan Bank and Samsung Securities, and continues its partnership with global IT leader SAP. DeepBrain AI is also delivering tailored digital human and AI agent solutions to public and educational institutions such as the Korea Deposit Insurance Corporation and Kyung Hee Cyber University.
+
+Enterprises interested in deploying real-time AI avatar agents can
+request a live demo
+, explore the
+Real-Time Interactive AI Avatar product page
+, or review
+
+enterprise case studies
+at aistudios.com. For media assets including high-resolution images, product video, and executive headshots, visit the
+DeepBrain AI Press Kit
+.
+
+About DeepBrain AI
+
+DeepBrain AI is a global leader in AI Avatar, AI Agent, and AI Human technology, specializing in bridging the gap between human communication and digital scalability. The company's flagship B2B SaaS platform, AI STUDIOS, empowers enterprises to create hyper-realistic AI Video Agents, real-time avatar agents, and localized video translation content in minutes. Based in Palo Alto, DeepBrain AI provides the most sophisticated digital twin and generative AI agent solutions for the modern workplace.
+
+Media Contact:
+
+Selena Kim
+global@deepbrain.io
+
+Website:
+
+www.aistudios.com
+
+CONTACT: global@deepbrain.io
+
+Sidebar
+
+GET B2B ASIA NEWS DELIVERED TO YOUR INBOX
+
+Stay up-to-date on the latest Cambodian business news by subscribing to our newsletter.
+
+Full Name
+
+Your Email
+
+Subscribe
+
+Top Companies
+
+CBRE Cambodia (CB Richard Ellis)
+
+5.0
+
+Realestate.com.kh
+
+5.0
+
+Naga Clinic
+
+5.0
+
+Cambodian Investment Management
+
+5.0
+
+Recommended
+
+Upcoming Events
+
+International Food & Lifestyle Fest 2026
+
+On
+Nov, 07 2026
+
+View More
+
+Black Swan Summit 2026
+
+On
+Nov, 15 2026
+
+View More
+
+Career Expo 2027 – AIESEC in Cambodia
+
+On
+Jan, 16 2027
+
+View More

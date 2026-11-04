@@ -1,0 +1,323 @@
+[2508.18621] Wan-S2V: Audio-Driven Cinematic Video Generation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2508.18621
+(cs)
+
+[Submitted on 26 Aug 2025]
+
+Title:
+Wan-S2V: Audio-Driven Cinematic Video Generation
+
+Authors:
+Xin Gao
+,
+Li Hu
+,
+Siqi Hu
+,
+Mingyang Huang
+,
+Chaonan Ji
+,
+Dechao Meng
+,
+Jinwei Qi
+,
+Penchong Qiao
+,
+Zhen Shen
+,
+Yafei Song
+,
+Ke Sun
+,
+Linrui Tian
+,
+Guangyuan Wang
+,
+Qi Wang
+,
+Zhongjian Wang
+,
+Jiayu Xiao
+,
+Sheng Xu
+,
+Bang Zhang
+,
+Peng Zhang
+,
+Xindi Zhang
+,
+Zhe Zhang
+,
+Jingren Zhou
+,
+Lian Zhuo
+
+View a PDF of the paper titled Wan-S2V: Audio-Driven Cinematic Video Generation, by Xin Gao and 22 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Current state-of-the-art (SOTA) methods for audio-driven character animation demonstrate promising performance for scenarios primarily involving speech and singing. However, they often fall short in more complex film and television productions, which demand sophisticated elements such as nuanced character interactions, realistic body movements, and dynamic camera work. To address this long-standing challenge of achieving film-level character animation, we propose an audio-driven model, which we refere to as Wan-S2V, built upon Wan. Our model achieves significantly enhanced expressiveness and fidelity in cinematic contexts compared to existing approaches. We conducted extensive experiments, benchmarking our method against cutting-edge models such as Hunyuan-Avatar and Omnihuman. The experimental results consistently demonstrate that our approach significantly outperforms these existing solutions. Additionally, we explore the versatility of our method through its applications in long-form video generation and precise video lip-sync editing.
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2508.18621
+[cs.CV]
+
+(or
+
+arXiv:2508.18621v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2508.18621
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Linrui Tian [
+view email
+]
+
+[v1]
+
+Tue, 26 Aug 2025 02:51:31 UTC (14,085 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Wan-S2V: Audio-Driven Cinematic Video Generation, by Xin Gao and 22 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-08
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+NASA ADS
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

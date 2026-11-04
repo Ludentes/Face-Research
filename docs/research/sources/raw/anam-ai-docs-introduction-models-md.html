@@ -1,0 +1,67 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://anam.ai/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Choose an Anam Avatar Model
+
+> Choose a Cara avatar model for live conversations and set its model name in Anam Lab or the API.
+
+For new integrations, use **Cara-4.1 Express** (`cara-4.1-express`). Choose it in [Anam Lab](https://lab.anam.ai/) or set `avatarModel` in your persona configuration through the API.
+
+Avatar models control the persona's facial animation and lip sync. They are separate from the voice and language model you choose for the conversation.
+
+## Available models
+
+### Cara-4.1 Express
+
+Set `avatarModel` to `cara-4.1-express` for the latest release. It brings more expressive animation and better adherence to [Director Notes](https://anam.ai/docs/personas/director-notes.md), including custom performance styles and cues that change the avatar's delivery during a conversation.
+
+Cara-4.1 Express is available on all plans and supports both landscape and portrait video.
+
+### Cara 4
+
+Set `avatarModel` to `cara-4` to keep using the previous stable Cara 4 release. Existing integrations can continue using this model.
+
+### Cara 4 Latest
+
+Set `avatarModel` to `cara-4-latest` to try the latest avatar model from our research. The model it selects is subject to change and may be unstable. We do not recommend it for production.
+
+For production, choose a released model by name, such as `cara-4.1-express`.
+
+### Cara 3
+
+Set `avatarModel` to `cara-3` for existing avatars or integrations that need the previous generation. Cara 3 supports landscape video only and does not support Director Notes.
+
+## Select a model through the API
+
+Add the model name to your persona configuration when [creating a persona](https://anam.ai/docs/api-reference/personas/create-persona.md) or [creating a session token](https://anam.ai/docs/api-reference/sessions/create-session-token.md):
+
+```json theme={"system"}
+{
+  "avatarModel": "cara-4.1-express"
+}
+```
+
+This is one field in your persona configuration; keep your existing avatar, voice and language model settings.
+
+If you omit `avatarModel`, Anam uses the saved persona's model or chooses a model supported by the avatar. Set it explicitly when you need a particular release.
+
+## Video output
+
+| Model | Landscape (default) | Portrait |
+| - | - | - |
+| Cara-4.1 Express | `1152x768` | `768x1152` |
+| Cara 4 | `1152x768` | `768x1152` |
+| Cara 4 Latest | `1152x768` | `768x1152` |
+| Cara 3 | `720x480` | Not supported |
+
+To request portrait output, set `videoWidth` to `768` and `videoHeight` to `1152` in `sessionOptions`. Supply both fields together. See [Video options](https://anam.ai/docs/personas/session/video.md) for the full configuration and crop behavior.
+
+## Use an existing avatar
+
+Your avatar must support the model you request. If the API rejects the combination, choose a compatible avatar or [create a custom avatar](https://anam.ai/docs/personas/avatars/custom-avatars.md). Changing the model name does not regenerate an avatar.
+
+Test the model with your avatar before updating a production integration.
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

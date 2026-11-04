@@ -1,0 +1,306 @@
+[2508.19209] OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive Simulation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2508.19209
+(cs)
+
+[Submitted on 26 Aug 2025]
+
+Title:
+OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive Simulation
+
+Authors:
+Jianwen Jiang
+,
+Weihong Zeng
+,
+Zerong Zheng
+,
+Jiaqi Yang
+,
+Chao Liang
+,
+Wang Liao
+,
+Han Liang
+,
+Yuan Zhang
+,
+Mingyuan Gao
+
+View a PDF of the paper titled OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive Simulation, by Jianwen Jiang and 8 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Existing video avatar models can produce fluid human animations, yet they struggle to move beyond mere physical likeness to capture a character's authentic essence. Their motions typically synchronize with low-level cues like audio rhythm, lacking a deeper semantic understanding of emotion, intent, or context. To bridge this gap, \textbf{we propose a framework designed to generate character animations that are not only physically plausible but also semantically coherent and expressive.} Our model, \textbf{OmniHuman-1.5}, is built upon two key technical contributions. First, we leverage Multimodal Large Language Models to synthesize a structured textual representation of conditions that provides high-level semantic guidance. This guidance steers our motion generator beyond simplistic rhythmic synchronization, enabling the production of actions that are contextually and emotionally resonant. Second, to ensure the effective fusion of these multimodal inputs and mitigate inter-modality conflicts, we introduce a specialized Multimodal DiT architecture with a novel Pseudo Last Frame design. The synergy of these components allows our model to accurately interpret the joint semantics of audio, images, and text, thereby generating motions that are deeply coherent with the character, scene, and linguistic content. Extensive experiments demonstrate that our model achieves leading performance across a comprehensive set of metrics, including lip-sync accuracy, video quality, motion naturalness and semantic consistency with textual prompts. Furthermore, our approach shows remarkable extensibility to complex scenarios, such as those involving multi-person and non-human subjects. Homepage: \href{
+this https URL
+}
+
+Comments:
+
+Homepage:
+this https URL
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2508.19209
+[cs.CV]
+
+(or
+
+arXiv:2508.19209v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2508.19209
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Liang Chao [
+view email
+]
+
+[v1]
+
+Tue, 26 Aug 2025 17:15:26 UTC (10,149 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive Simulation, by Jianwen Jiang and 8 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-08
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

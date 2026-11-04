@@ -1,0 +1,60 @@
+Plans and Pricing - Tavus
+
+Introducing Griffin:
+48% thought it was a real person, the first model to pass the real-time video Turing test.
+Learn more.
+Login
+Get Started
+Select an Account Type
+Choose how you want to experience Tavus. Whether you’re building with our APIs or meeting a PAL, you can switch anytime.
+Developer Account
+Build real-time, human-like AI experiences using Tavus APIs and tools.
+Best for developers, founders, and teams integrating Tavus into a product.
+NEW DEVELOPER ACCOUNT
+PALs Account
+Meet your personal AI companions who listen, remember, and are always present.
+Best for individuals looking to talk, explore, and connect with a friend.
+NEW PALS ACCOUNT
+
+Introducing Griffin:
+48% thought it was a real person, the first model to pass the real-time video Turing test.
+Learn more.
+Login
+Get Started
+Select an Account Type
+Choose how you want to experience Tavus. Whether you’re building with our APIs or meeting a PAL, you can switch anytime.
+Developer Account
+Build real-time, human-like AI experiences using Tavus APIs and tools.
+Best for developers, founders, and teams integrating Tavus into a product.
+NEW DEVELOPER ACCOUNT
+PALs Account
+Meet your personal AI companions who listen, remember, and are always present.
+Best for individuals looking to talk, explore, and connect with a friend.
+NEW PALS ACCOUNT
+The full Conversational AI stack
+Everything you need to build an exceptional experience — from Free to Enterprise.
+Included
+General Features
+API access
+End-to-end Conversational Video and Audio pipeline
+State of Art Models
+Deployment-ready prebuilt components
+Custom face creation
+Best in class support
+Conversational Video Interface
+All steps — LLM, TTS, WebRTC — included in price
+Lowest market latency
+1080p resolution, 24kHz fidelity
+Audio only and video pipeline modes
+Intelligent conversation flow
+Explicit and implicit emotion control
+Audio and visual perception
+Optimized Knowledge Base (RAG)
+Dynamic Memories
+Objectives and Guardrails
+Function Calling + Tools
+Custom Pronunciation Dictionary
+Advanced noise cancellation and speaker isolation
+Conversation transcripts and recordings
+Google Meet & Zoom Integration
+Pipecat and Livekit integrations

@@ -1,0 +1,119 @@
+HeyGen vs LiveAvatar - What's the Difference? • LiveAvatar
+HeyGen vs LiveAvatar - What's the Difference?
+vs
+Two products, one company. Built for different jobs. Here's when to use each.
+AI Video Creation
+Real-time Conversational Avatars
+At a Glance
+HeyGen
+
+creates pre-recorded AI videos: you write a script, pick an avatar, and get a finished video. Think marketing videos, training content, and personalized outreach at scale.
+LiveAvatar
+
+offers an API that powers real-time, interactive avatar conversations: a human-like face that talks with your users live, powered by AI. Think customer support bots, sales agents, tutors, and AI assistants that users can actually speak to.
+Different products. Different pricing. Different accounts. Same parent company.
+AI Video Creation Platform
+•
+Generate polished AI videos from text scripts
+•
+100+ stock avatars or create your own digital twin
+•
+40+ languages with lip-sync translation
+•
+Video templates, batch generation, personalized videos
+•
+Output: permanent, downloadable MP4 video files
+•
+No coding required - browser-based studio
+Real-time Conversational Avatar API
+•
+Live, two-way conversations with an AI avatar
+•
+User speaks → avatar listens, thinks, and responds in real-time
+•
+Embed on your website or integrate via API/SDK
+•
+Output: ephemeral, generated-on-the-fly video + audio streamed via WebRTC (not saved)
+•
+Developer-first - API, SDK, or iframe embed
+Side-by-Side Comparison
+What it does
+Pre-recorded AI video generation
+Real-time interactive avatar conversations
+Interaction
+One-way (watch a video)
+Two-way (talk with the avatar live)
+Output
+MP4 video file
+Live WebRTC stream
+Audience
+Marketers, content creators, L&D teams
+Developers, product teams, enterprises building AI agents
+Integration
+Browser-based studio (no code)
+API, SDK, or iframe embed
+Avatar library
+✓
+100+ stock + custom
+✓
+Stock + custom (video or photo)
+Custom avatar
+Video recording (studio quality)
+2-min video or single photo upload
+Voice
+TTS from script + voice cloning
+Real-time TTS (ElevenLabs, Gemini, custom)
+LLM / AI brain
+—
+Script-based (no LLM)
+✓
+Built-in or bring your own
+Pricing
+Separate plans at heygen.com
+Separate plans at liveavatar.com
+Account
+heygen.com login
+liveavatar.com login (same SSO, separate billing)
+Credits
+HeyGen credits (not transferable)
+LiveAvatar credits (not transferable)
+Which Product Do I Need?
+Match your use case to the right product
+Marketing & social media videos
+Create product explainers, social clips, and ad creative with an AI spokesperson - no film crew needed.
+AI customer support agent
+Embed a live avatar on your website that answers customer questions in real-time, 24/7.
+Training & onboarding videos
+Produce training modules in multiple languages. Update content by editing the script - no re-recording.
+Interactive AI tutor
+Students talk to an AI tutor face-to-face. The avatar listens, responds, and adapts to the conversation.
+Personalized video outreach
+Generate hundreds of personalized sales or recruitment videos - each one addressed to a specific person.
+AI sales representative
+A live avatar that qualifies leads, answers product questions, and books meetings - all in real-time conversation.
+Video translation & localization
+Translate existing videos into 40+ languages with matching lip-sync and voice.
+Virtual receptionist or concierge
+A face at the front desk of your app - greets users, answers questions, routes to the right place.
+Three Things to Remember
+1
+.
+Separate Products
+HeyGen and LiveAvatar are built by the same company but are distinct products with their own apps, documentation, and roadmaps.
+2
+.
+Separate Billing
+Each product has its own pricing plans and credit system. Credits do not transfer between HeyGen and LiveAvatar. You need a subscription on each.
+3
+.
+Same Login
+You sign into LiveAvatar using your HeyGen email ("Sign in with HeyGen"), but that’s where the connection ends. Once inside, LiveAvatar has its own workspace, avatars, and credits.
+
+→
+
+heygen.com
+·
+
+→
+
+liveavatar.com

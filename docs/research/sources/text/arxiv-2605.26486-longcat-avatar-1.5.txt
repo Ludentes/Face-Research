@@ -1,0 +1,314 @@
+[2605.26486] LongCat-Video-Avatar 1.5 Technical Report
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2605.26486
+(cs)
+
+[Submitted on 26 May 2026]
+
+Title:
+LongCat-Video-Avatar 1.5 Technical Report
+
+Authors:
+Meituan LongCat Team
+:
+Xunliang Cai
+,
+Meng Cheng
+,
+Feng Gao
+,
+Zhe Kong
+,
+Jiamu Li
+,
+Le Li
+,
+Weiheng Li
+,
+Hongyu Liu
+,
+Shuai Tan
+,
+Xiaoming Wei
+,
+Tianyu Yang
+,
+Yong Zhang
+
+View a PDF of the paper titled LongCat-Video-Avatar 1.5 Technical Report, by Meituan LongCat Team: Xunliang Cai and 11 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Despite advances in audio-driven video generation, achieving commercial-grade stability remains challenging. We present LongCat-Video-Avatar 1.5, an upgraded open-source framework prioritizing systematic engineering and production-readiness over architectural novelty. By upgrading the audio encoder to Whisper Large and meticulously scaling our training recipes, v1.5 achieves accurate lip-synchronization, full-body temporal stability, and robust long-video generation with strict identity consistency. Through rigorous data curation and RLHF Training, the model readily generalizes to stylized domains such as anime and animals, and natively handles complex real-world conditions, such as multi-person interactions and object handling. Furthermore, addressing the practical demands of industrial deployment, we employ advanced step distillation to accelerate inference to an optimal 8 NFE, achieving a favorable trade-off between serving efficiency and visual fidelity. The superiority of our approach is validated through extensive quantitative metrics and a rigorous human evaluation conducted on a comprehensive benchmark of over 500 diverse test cases. Results show that v1.5 achieves competitive or superior performance compared to leading closed-source systems (e.g., HeyGen, OmniHuman 1.5, Kling Avatar 2.0) across human-likeness ratings and expert-level quality assessments on our benchmark. With its open-source release, LongCat-Video-Avatar 1.5 narrows the gap between academic research prototypes and commercial-grade deployment.
+
+Comments:
+
+Homepage:
+this https URL
+Github:
+this https URL
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2605.26486
+[cs.CV]
+
+(or
+
+arXiv:2605.26486v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2605.26486
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Zhe Kong [
+view email
+]
+
+[v1]
+
+Tue, 26 May 2026 02:54:12 UTC (30,625 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled LongCat-Video-Avatar 1.5 Technical Report, by Meituan LongCat Team: Xunliang Cai and 11 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2026-05
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

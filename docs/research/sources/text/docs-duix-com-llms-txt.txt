@@ -1,0 +1,50 @@
+# Duix APIs and SDKs
+
+## Docs
+
+- [Introduction](https://docs.duix.com/documentation/introduction.md)
+- [Get conversation ID](https://docs.duix.com/documentation/get-conversation-id.md): Learn how to retrieve your conversation ID from the Interactive AI Avatar dashboard for API integration.
+- [Get API keys](https://docs.duix.com/documentation/get-your-api-keys.md): Learn how to generate and manage your Duix API keys for secure authentication with Duix services.
+- [Get token](https://docs.duix.com/documentation/get-token.md): The access token authenticates API requests to Duix interactive services. Include the token in the HTTP header for all API calls.
+- [API reference](https://docs.duix.com/documentation/api-reference.md)
+- [SDKs docs](https://docs.duix.com/documentation/sdk.md)
+- [Code sample](https://docs.duix.com/documentation/sdk-demo.md)
+- [duix-avatar-video-generation](https://docs.duix.com/documentation/duix-avatar-video-generation.md)
+- [duix-avatar-conversation](https://docs.duix.com/documentation/duix-avatar-conversation.md)
+- [Get concurrency](https://docs.duix.com/api-reference/real-time-concurrency.md): Retrieve the real-time concurrency status of an application
+- [Get sessions](https://docs.duix.com/api-reference/real-time-sessions.md): Retrieve a list of all active (in-call) sessions for an app.
+- [Close all sessions](https://docs.duix.com/api-reference/close-all-sessions.md): Terminate all active sessions for a specific app.
+- [Close session](https://docs.duix.com/api-reference/close-session.md): Terminate a active sessions by its session ID.
+- [Get conversation details](https://docs.duix.com/api-reference/get-conversation-details.md): Query conversation details by providing the conversation ID.
+- [Create avatar](https://docs.duix.com/api-reference/create-avatar.md): Create an avatar
+- [Query creation status](https://docs.duix.com/api-reference/query-creation.md): Query avatar creation status about the AI avatar using its unique taskId.
+- [Query account](https://docs.duix.com/api-reference/query-account.md): Query user account information.
+- [Quick start](https://docs.duix.com/sdks/h5/quickstart.md): Set up the Duix H5 SDK and start your first real-time digital human session in under one minute.
+- [Call process](https://docs.duix.com/sdks/h5/process.md): Step-by-step lifecycle of the Duix H5 SDK, from initialization to session termination.
+- [Methods](https://docs.duix.com/sdks/h5/methods.md): Full list of available methods in the Duix H5 SDK, including initialization, playback control, speech interaction, ASR, and session management.
+- [Events](https://docs.duix.com/sdks/h5/events.md): List of all Duix SDK events and their corresponding payload structures.
+- [Code examples](https://docs.duix.com/sdks/h5/code.md): Demonstration of initializing and starting a Duix Avatar session using the Web SDK.
+- [Frequently asked questions](https://docs.duix.com/sdks/h5/questions.md): Common issues and troubleshooting tips when integrating the Duix H5 SDK.
+- [Download and installation (Android)](https://docs.duix.com/sdks/android/download.md): Download and set up the Duix Android SDK demo project to quickly test real-time digital human capabilities.
+- [Add dependencies](https://docs.duix.com/sdks/android/dependent.md): Integrate the Duix Android SDK by adding the required AAR package and Gradle dependencies.
+- [Proguard configuration](https://docs.duix.com/sdks/android/proguard.md): Proguard rules required to prevent essential Duix SDK classes from being obfuscated during release builds.
+- [Quick start](https://docs.duix.com/sdks/android/quickstart.md): Kotlin example showing how to initialize and start a Duix Android SDK session for real-time digital human interaction.
+- [Key interfaces](https://docs.duix.com/sdks/android/interface.md)
+- [Precautions](https://docs.duix.com/sdks/android/be-careful.md): Important considerations for using the Duix Android SDK, including microphone permissions and audio format requirements.
+- [Download and installation](https://docs.duix.com/sdks/ios/download.md): Download and set up the Duix iOS SDK demo project to quickly test real-time digital human capabilities.
+- [SDK reference](https://docs.duix.com/sdks/ios/sdk-reference.md): Integration guide for the Duix iOS SDK, including framework setup and required permissions.
+- [Quick start](https://docs.duix.com/sdks/ios/quickstart.md): Initialize and start a Duix session after microphone authorization in iOS.
+- [Key interfaces](https://docs.duix.com/sdks/ios/interface.md): Core Objective-C interfaces and delegate callbacks provided by the Duix iOS SDK.
+- [Code example](https://docs.duix.com/sdks/ios/example.md): Objective-C code example demonstrating how to initialize, start, and handle errors using the Duix iOS SDK.
+- [Common errors](https://docs.duix.com/sdks/ios/error.md): List of common error codes, their causes, and possible solutions when using the Duix SDK.
+- [Version history](https://docs.duix.com/sdks/versions.md)
+
+## OpenAPI Specs
+
+- [openapi](https://docs.duix.com/api-reference/openapi.json)
+
+## Optional
+
+- [Skills](https://github.com/duixcom/duix-skills)
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

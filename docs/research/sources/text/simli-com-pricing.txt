@@ -1,0 +1,121 @@
+Pricing | Simli
+Docs
+Pricing
+Log in
+Start free
+Menu
+Pricing
+Real-time AI avatars from
+$0.009
+per minute.
+Free
+For personal use and trying out
+$0
+/month
+Free monthly minutes
+Start free
+50 minutes/month
+1 concurrent session
+Template avatars
+Hobby
+For hobbyists and prototypers
+$10
+/month
+Works out to $0.01/min
+Get Hobby
+Everything in
+Free
+, plus
+1,000 minutes/month
+$0.01/min
+2 concurrent sessions
+1 custom avatar/month
+1 concurrent avatar generation
+Pro
+Popular
+Best for small teams
+$49
+/month
+Works out to $0.0095/min
+Get Pro
+Everything in
+Hobby
+, plus
+5,500 minutes/month
+$0.0095/min
+10 concurrent sessions
+5 custom avatars/month
+1 concurrent avatar generation
+Scale
+Best value for startups
+$249
+/month
+Works out to $0.009/min
+Get Scale
+Everything in
+Pro
+, plus
+27,500 minutes/month
+$0.009/min
+50 concurrent sessions
+25 custom avatars/month
+5 concurrent avatar generations
+Enterprise
+Large scale needs? Talk to us about enterprise plans.
+Custom pricing that goes as low as
+$0.005
+per minute at scale, with higher concurrency and the enterprise features you need.
+Pricing as low as $0.005/min at scale
+Far higher concurrency
+99.95% uptime SLA
+Zero data retention
+Dedicated support
+Talk to sales
+Frequently asked questions.
+Start free
+Contact us
+How does billing work?
++
+Is there a free plan?
++
+What counts as a minute?
++
+What happens if I use all my minutes?
++
+What happens to unused minutes?
++
+What is a concurrent session?
++
+How do custom avatars work?
++
+How long does it take to create an avatar?
++
+What photos work best?
++
+Can I use my own LLM, voice and language?
++
+Can I use Simli commercially?
++
+What data does Simli store?
++
+Can I add team members?
++
+Can I change or cancel my plan?
++
+Do you offer enterprise pricing?
++
+API
+Start free
+Pricing
+Docs
+Company
+Home
+About us
+Careers
+Contact us
+Simli AS ©2026
+Legal docs
+Back to top
+Social
+X (Twitter)
+LinkedIn

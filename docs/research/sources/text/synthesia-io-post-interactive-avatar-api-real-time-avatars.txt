@@ -1,0 +1,112 @@
+Interactive Avatar API: A New Way to Embed Real-Time Avatars Anywhere
+
+Ready to try our AI video platform?
+Join over 2M+ users today and start making AI videos with 230+ avatars in 140+ languages.
+Get started for free
+Book demo
+Ready to try?
+Create a Free AI video
+Personal Avatars allow you to create custom Al avatars with a natural background in minutes
+Learn more
+
+Blog
+Synthesia
+July 15, 2026
+Interactive Avatar API: A New Way to Embed Real-Time Avatars Anywhere
+By
+Alessandra Venier
+Corporate Affairs Manager
+at Synthesia
+Create AI videos with 240+ avatars in 140+ languages
+Get started for FREE
+Summary
+Developers can now embed a real-time, photorealistic, lip-synced interactive avatar or our brand new Style Avatars powered by our latest
+Express-3 model
+into their web product via our API.
+We’re taking an open approach: you can quickly combine your own stack, including your own LLM, speech-to-text (STT) and text-to-speech (TTS) systems, with our API to create an integrated system. Synthesia handles the avatar rendering; you have the freedom to choose the rest.
+Interactive Avatar API launches today for Enterprise customers: you can use it as a support concierge, a live FAQ agent, or anywhere you need a conversational interface that actually listens and responds.
+Interactive Avatars API: a new way to interact with users
+Gartner
+forecasts
+that by 2028, seven in 10 customer journeys will begin with a conversational third-party interface. Until now, embedding a real-time, photorealistic interactive avatar into a website or app meant choosing between closed-stack vendors which offered limited customization and vendor lock-in or hand-stitched integrations with high latency and poor reliability.
+Today, we’re launching the Synthesia Interactive Avatar API to shift from broadcast video to actual conversation: real-time, interruptible, personalized, and agentic. Our Avatars can respond in any language and in real-time, and will soon be able to take actions such as scheduling follow-up meetings.
+Enterprise customers are already shipping Interactive Avatars in production, from HR onboarding and customer service to in-person kiosk experiences. You can experience it yourself by talking to
+Synthesia’s own press officer here
+.
+Three key capabilities
+Synthesia is taking a Bring-Your-Own-Stack (BYO) approach to Interactive Avatars, enabling customers to supply their own LLM, speech-to-text and text-to-speech providers while Synthesia handles the real-time, lip-synced avatar rendering.
+1. Bring your own AI stack, by default.
+Connect your own LLM from OpenAI, Anthropic, Google or any other provider, STT (any provider), and optionally TTS. Synthesia layers the avatar on top via LiveKit, and we also offer a Synthesia-hosted TTS inside the plugin as an add-on.
+2. Real-time, streaming lip sync that feels natural.
+The avatar responds with idle and listening behaviour, so conversations flow smoothly even during pauses. Interruptions and turn-taking work out of the box. Customers can build completely customizable avatars from photorealistic to branded characters like an animated mascot, with custom backgrounds.
+‍
+3. Language-agnostic and customizable.
+Lip sync works with a number of languages including French, German or Spanish, as well as accents. Use stock synthetic avatars or create custom ones, including branded Style Avatars from Avatar Builder, and make them interactive via API.
+The pipeline, input to interaction
+Here is technology stack needed to build an interactive video experience:
+Input (TTS):
+When the user speaks, the voice captured in real-time is converted to text and streamed in real-time.
+LLM layer:
+It is the brain of your agent. It has all the context, guardrails and system prompt to respond to the user.
+Voice synthesis (STT):
+Responses delivered in the avatar’s cloned voice - consistent, on-brand, and instant.
+Real-time rendering:
+Photorealistic or cartoon based avatars with lip-syncs, expressions and gestures that drive the engagement with the user.
+Agentic calls:
+Help you extend beyond conversation! Let your agent take follow-up actions – like schedule a meeting or fill a form.
+Owning the conversation layer gives customers control over data, guardrails and system prompts. Today’s release also unlocks agentic functions, so an avatar can book meetings, complete a form or trigger a workflow mid-conversation rather than just respond to it.
+Developer experience
+We’ve built this for teams that ship production-ready AI experiences, not demos:
+Official LiveKit Agents plugin (livekit-plugins-synthesia, Python): one import, minimal scaffolding
+Public quickstart repo with minimal bootstrap, RAG examples, and tool-use patterns:
+github.com/synthesia-ai/interactive-avatar-quickstarts
+Cursor/Claude skill for agent-led integration:
+github.com/synthesia-ai/skills
+Full API docs with reference and guides:
+docs.synthesia.io/reference/interactive-avatars
+
+Enterprise-grade from day one
+Interactive Avatar runs on the same platform businesses already trust for their video, offering enterprise-grade security (SOC 2 Type II, ISO 27001), systems management (ISO 42001), data privacy (GDPR and CCPA compliance), and workspace controls (SSO and SCIM). Because you bring your own AI, your data governance model doesn't change: the Avatar never sees your knowledge base, and your model never leaves your infrastructure.
+Available now
+Interactive Avatars are available now for Enterprise customers. The full-stack pipeline (Synthesia-hosted LLM + TTS + avatar, no code needed) will launch on October 1, 2026, for teams who prefer a managed approach.
+Try it out here:
+https://www.synthesia.io/features/avatars/interactive-avatars
+Alessandra Venier
+Alessandra Venier is a Corporate Affairs Manager at Synthesia
+Go to author's profile
+Table of contents
+Text link
+
+Book demo
+Get a personalized demo tailored to your use case
+You might also like
+View all posts
+Synthesia
+Synthesia Launches Plugin in ChatGPT: Create Video Without Leaving the Chat
+Synthesia is now in ChatGPT! Describe your video or share a file, and create and refine finished videos right in chat. Search “Synthesia” in the Plugins menu to connect.
+Dan Spooner
+November 3, 2026
+Synthesia
+Synthesia Brings TJ, a Cartoon Version of NVIDIA’s CEO, as an Interactive Avatar to GTC Berlin
+Alexandru Voica
+October 20, 2026
+Synthesia
+Synthesia Partners with Hays to Support Measurable Skills Development Through Roleplay Sessions
+Alessandra Venier
+October 22, 2026
+Video template title
+Video template
+Create video from template
+Ready to try our AI video platform?
+Join 2M+ users today and start creating videos with AI avatars in 140+ languages.
+Get started for FREE
+AI
+
+Create free AI video
+Trusted by 50,000+ teams.
+
+Try Synthesia with a
+free video
+.
+Simply type in text and get a free video with an AI avatar in a few clicks. No signup or credit card required.
+Create a free AI Video

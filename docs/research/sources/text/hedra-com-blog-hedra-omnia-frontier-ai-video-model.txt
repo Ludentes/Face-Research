@@ -1,0 +1,32 @@
+Hedra Omnia: A new unified base model for post-training
+Build with Hedra
+Talk to an engineer
+Read the research
+Introducing Hedra Omnia: A new unified base model for post-training
+Hedra Omnia is a world model: a unified base model built to natively understand and process the visual world. It brings vision, text, and audio together as a foundation for models that can learn how environments look, move, and change over time.
+At Hedra, we are building open core base models to allow partners to train models for their own domains. Omnia is part of that direction: a shared foundation for visual intelligence that partners can specialize through post-training with their own data, objectives, and evaluations.
+Why a World Model
+The visual world unfolds over time. Objects move, viewpoints change, and events connect across frames. Building useful visual intelligence requires learning these relationships alongside the appearance of a scene.
+We are developing Omnia around that world model perspective. Video generation gives us a way to express what a model has learned about motion, spatial relationships, and how a scene evolves. That foundation can then be adapted to the requirements of a particular application.
+Our goal is to give partners a starting point for training models that natively process visual information and learn the patterns that matter in their environments.
+A Unified Foundation for Vision, Text, and Audio
+Omnia brings visual information, language, and audio into a unified modeling approach. Vision provides information about objects, environments, motion, and perspective. Text communicates intent and context. Audio adds timing and information about events as they unfold.
+Learning across these modalities supports a richer representation of the world. A change in viewpoint, a moving object, and a sound can all describe the same event. We are building toward models that learn those connections as part of their base capabilities.
+Built for Partner Post-Training
+A base model provides a broad foundation. Post-training adapts that foundation to a partner's domain, data, and definition of success.
+Partners bring knowledge of the environments their models need to operate in: the objects and events that matter, the outputs their applications require, and the examples that define useful behavior. Our direction is to make that expertise part of the model through training.
+The work starts with a concrete task and representative data. It continues with post-training and evaluation against the conditions the model will encounter. This creates a path from a general visual foundation to a specialized model shaped around a partner's needs.
+Building Open Core Base Models
+We are building an open core approach around a shared model foundation and partner specialization. The aim is to allow partners to build on core visual capabilities while directing post-training toward their own applications.
+This is the role we see for Hedra: develop the base models, deepen their understanding of the visual world, and work with partners to turn that foundation into models suited to their domains.
+Omnia is a step toward that future. As we advance the base model, our focus is on the quality of its learned representations and how effectively those capabilities can be adapted through post-training.
+Build With Hedra
+We are building for partners who want to train models that natively understand and process the visual world. If you have domain data, a clear task, and a need for specialized visual intelligence, we want to work with you.
+Connect with Hedra to discuss your application and the role a unified world model could play in it.
+More from Hedra
+Benchmarking a Multimodal Agent
+March 31, 2026
+From 5 Months to 15 Days: How Exact Agency Uses Hedra
+June 23, 2026
+From brief to New York Subway in 2 weeks
+July 6, 2026

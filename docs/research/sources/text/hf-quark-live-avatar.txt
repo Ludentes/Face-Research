@@ -1,0 +1,368 @@
+Quark-Vision/Live-Avatar · Hugging Face
+
+🎬 Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length
+
+Yubo Huang
+1,2
+·
+
+Hailong Guo
+1,3
+·
+
+Fangtai Wu
+1,4
+·
+
+Shifeng Zhang
+1
+·
+
+Shijie Huang
+1
+·
+
+Qijun Gan
+4
+·
+
+Lin Liu
+2
+·
+
+Sirui Zhao
+2,*
+·
+
+Enhong Chen
+2,*
+·
+
+Jiaming Liu
+1,‡
+·
+
+Steven Hoi
+1
+
+1
+Alibaba Group
+
+2
+University of Science and Technology of China
+
+3
+Beijing University of Posts and Telecommunications
+
+4
+Zhejiang University
+
+*
+Corresponding authors.
+‡
+Project leader.
+
+TL;DR:
+
+Live Avatar
+is an algorithm–system co-designed framework that enables real-time, streaming, infinite-length interactive avatar video generation. Powered by a
+14B-parameter
+diffusion model, it achieves
+20 FPS
+on
+5×H800
+GPUs with
+4-step
+sampling and supports
+Block-wise Autoregressive
+processing for
+10,000+
+second streaming videos.
+
+👀 More Demos:
+
+:robot: Human-AI Conversation | ♾️ Infinite Video | 🎭 Diverse Characters | 🎬 Animated Tech Explanation
+
+👉 Click Here to Visit Project Page! 🌐
+
+✨ Highlights
+
+⚡
+​​Real-time Streaming Interaction
+​​ - Achieve
+20
+FPS real-time streaming with low latency
+
+♾️ ​​
+​​Infinite-length Autoregressive Generation
+​​​​ - Support
+10,000+
+second continuous video generation
+
+🎨 ​​
+​​Generalization Performances
+​​​​ - Strong generalization across cartoon characters, singing, and diverse scenarios
+
+📰 News
+
+[2025.12.08]
+🚀 We released real-time inference
+Code
+and the model
+Weight
+.
+
+[2025.12.08]
+🎉 LiveAvatar won the Hugging Face
+#1 Paper of the day
+!
+
+[2025.12.04]
+🏃‍♂️ We committed to open-sourcing the code in
+early December
+.
+
+[2025.12.04]
+🔥 We released
+Paper
+and
+demo page
+Website.
+
+📑 Todo List
+
+🌟
+Early December
+(core code release)
+
+✅ Release the paper
+
+✅ Release the demo website
+
+✅ Release checkpoints on Hugging Face
+
+✅ Release Gradio Web UI
+
+✅ Experimental real-time streaming inference on at least H800 GPUs
+
+✅ Distribution-matching distillation to 4 steps
+
+✅ Timestep-forcing pipeline parallelism
+
+⚙️
+Later updates
+
+⬜ UI integration for easily streaming interaction
+
+⬜ Inference code supporting single GPU (offline generation)
+
+⬜ Multi-character support
+
+⬜ Training code
+
+⬜ TTS integration
+
+⬜ LiveAvatar v1.1
+
+🛠️ Installation
+
+Please follow the steps below to set up the environment.
+
+1. Create Environment
+
+conda create -n liveavatar python=3.10 -y
+conda activate liveavatar
+
+2. Install CUDA Dependencies (optional)
+
+conda install nvidia/label/cuda-12.4.1::cuda -y
+conda install -c nvidia/label/cuda-12.4.1 cudatoolkit -y
+
+3. Install PyTorch & Flash Attention
+
+pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu128
+pip install flash-attn==2.8.3 --no-build-isolation
+
+4. Install Python Requirements
+
+pip install -r requirements.txt
+
+5. Install FFMPEG
+
+apt-get update && apt-get install -y ffmpeg
+
+📥 Download Models
+
+Please download the pretrained checkpoints from links below and place them in the
+./ckpt/
+directory.
+
+Model Component
+
+Description
+
+Link
+
+WanS2V-14B
+
+base model
+
+🤗
+Huggingface
+
+liveAvatar
+
+our lora model
+
+🤗
+Huggingface
+
+# If you are in china mainland, run this first: export HF_ENDPOINT=https://hf-mirror.com
+
+pip install
+"huggingface_hub[cli]"
+
+huggingface-cli download Wan-AI/Wan2.2-S2V-14B --local-dir ./ckpt/Wan2.2-S2V-14B
+huggingface-cli download Quark-Vision/Live-Avatar --local-dir ./ckpt/LiveAvatar
+
+After downloading, your directory structure should look like this:
+
+ckpt/
+├── Wan2.2-S2V-14B/ # Base model
+│ ├── config.json
+│ ├── diffusion_pytorch_model-*.safetensors
+│ └── ...
+└── LiveAvatar/ # Our LoRA model
+├── liveavatar.safetensors
+└── ...
+
+🚀 Inference
+
+Real-time Inference with TPP
+
+💡 Currently, This command can run on GPUs with at least 80GB VRAM.
+
+# CLI Inference
+
+bash infinite_inference_multi_gpu.sh
+
+# Gradio Web UI
+
+bash gradio_multi_gpu.sh
+
+💡 The model can generate videos from audio input combined with reference image and optional text prompt.
+
+💡 The
+size
+parameter represents the area of the generated video, with the aspect ratio following that of the original input image.
+
+💡 The
+--num_clip
+parameter controls the number of video clips generated, useful for quick preview with shorter generation time.
+
+💡 Currently, our TPP pipeline requires
+five
+GPUs for inference. We are planning to develop a 3-step version that can be deployed on a 4-GPU cluster.
+Furthermore, we are planning to integrate the
+LightX2V
+VAE component. This integration will eliminate the dependency on additional single-GPU VAE parallelism and support 4-step inference within a 4-GPU setup.
+
+Please visit our
+project page
+to see more examples and learn about the scenarios suitable for this model.
+
+📝 Citation
+
+If you find this project useful for your research, please consider citing our paper:
+
+@misc{huang2025liveavatarstreamingrealtime,
+title={Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length},
+author={Yubo Huang and Hailong Guo and Fangtai Wu and Shifeng Zhang and Shijie Huang and Qijun Gan and Lin Liu and Sirui Zhao and Enhong Chen and Jiaming Liu and Steven Hoi},
+year={2025},
+eprint={2512.04677},
+archivePrefix={arXiv},
+primaryClass={cs.CV},
+url={https://arxiv.org/abs/2512.04677},
+}
+
+⭐ Star History
+
+📜 License Agreement
+
+The majority of this project is released under the Apache 2.0 license as found in the
+LICENSE
+.
+
+The Wan model (Our base model) is also released under the Apache 2.0 license as found in the
+LICENSE
+.
+
+The project is a research preview. Please contact us if you find any potential violations. (
+jmliu1217@gmail.com
+)
+
+🙏 Acknowledgements
+
+We would like to express our gratitude to the following projects:
+
+CausVid
+
+Longlive
+
+WanS2V
+
+Downloads last month
+
+-
+
+Downloads are not tracked for this model.
+How to track
+
+Inference Providers
+
+NEW
+
+Image-to-Video
+
+This model isn't deployed by any Inference Provider.
+
+🙋
+
+2
+
+Ask for provider support
+
+Model tree for
+Quark-Vision/Live-Avatar
+
+Base model
+
+Wan-AI/Wan2.2-S2V-14B
+
+Finetuned
+
+(
+12
+)
+
+this model
+
+Spaces using
+Quark-Vision/Live-Avatar
+
+2
+
+Paper for
+Quark-Vision/Live-Avatar
+
+Paper
+•
+2512.04677
+•
+
+Published
+Dec 4, 2025
+
+•
+
+124

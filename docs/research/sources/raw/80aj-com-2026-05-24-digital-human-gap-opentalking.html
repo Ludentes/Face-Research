@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="80AJ">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://weavatar.com" crossorigin>
+<link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
+<link rel="dns-prefetch" href="//ep1.adtrafficquality.google">
+<title>填补数字人工程鸿沟：OpenTalking 实时对话框架开源</title>
+<meta name='robots' content='max-image-preview:large' />
+<meta name="description" content="开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品...">
+<link rel="canonical" href="https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/">
+<meta property="og:title" content="填补数字人工程鸿沟：OpenTalking 实时对话框架开源">
+<meta property="og:description" content="开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品...">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/">
+<meta property="og:image" content="https://www.80aj.com/wp-content/plugins/ai-seo-assistant/assets/default-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="填补数字人工程鸿沟：OpenTalking 实时对话框架开源">
+<meta name="twitter:description" content="开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品...">
+<meta name="twitter:image" content="https://www.80aj.com/wp-content/plugins/ai-seo-assistant/assets/default-og.png">
+<!-- Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+<script id="google_gtagjs-js-consent-mode-data-layer">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {"ad_personalization":"denied","ad_storage":"denied","ad_user_data":"denied","analytics_storage":"denied","functionality_storage":"denied","security_storage":"denied","personalization_storage":"denied","region":["AT","BE","BG","CH","CY","CZ","DE","DK","EE","ES","FI","FR","GB","GR","HR","HU","IE","IS","IT","LI","LT","LU","LV","MT","NL","NO","PL","PT","RO","SE","SI","SK"],"wait_for_update":500});
+window._googlesitekitConsentCategoryMap = {"statistics":["analytics_storage"],"marketing":["ad_storage","ad_user_data","ad_personalization"],"functional":["functionality_storage","security_storage"],"preferences":["personalization_storage"]};
+window._googlesitekitConsents = {"ad_personalization":"denied","ad_storage":"denied","ad_user_data":"denied","analytics_storage":"denied","functionality_storage":"denied","security_storage":"denied","personalization_storage":"denied","region":["AT","BE","BG","CH","CY","CZ","DE","DK","EE","ES","FI","FR","GB","GR","HR","HU","IE","IS","IT","LI","LT","LU","LV","MT","NL","NO","PL","PT","RO","SE","SI","SK"],"wait_for_update":500};
+</script>
+<!-- End Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<meta name="color-scheme" content="light">
+
+<link rel="alternate" type="application/rss+xml" title="80AJ &raquo; Feed" href="https://www.80aj.com/feed/">
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id="md-style-inline-css">
+ .md-widget-toc { padding: 15px; } .md-widget-toc a { color: #333333; } .post-toc-header { font-weight: 600; margin-bottom: 10px; } .md-post-toc { font-size: 0.9em; } .post h2 { overflow: hidden; } .post-toc-block { margin: 0 10px 20px 10px; overflow: hidden; } .post-toc-block.with-border { border: 1px #dddddd solid; padding: 10px; } .post-toc-block.float-right { max-width: 320px; float: right; } .post-toc-block.float-left { max-width: 320px; float: left; } .md-widget-toc ul, .md-widget-toc ol, .md-post-toc ul, .md-post-toc ol { padding-left: 15px; margin: 0; } .md-widget-toc ul ul, .md-widget-toc ul ol, .md-widget-toc ol ul, .md-widget-toc ol ol, .md-post-toc ul ul, .md-post-toc ul ol, .md-post-toc ol ul, .md-post-toc ol ol { padding-left: 2em; } .md-widget-toc ul ol, .md-post-toc ul ol { list-style-type: lower-roman; } .md-widget-toc ul ul ol, .md-widget-toc ul ol ol, .md-post-toc ul ul ol, .md-post-toc ul ol ol { list-style-type: lower-alpha; } .md-widget-toc ol ul, .md-widget-toc ol ol, .md-post-toc ol ul, .md-post-toc ol ol { padding-left: 2em; } .md-widget-toc ol ol, .md-post-toc ol ol { list-style-type: lower-roman; } .md-widget-toc ol ul ol, .md-widget-toc ol ol ol, .md-post-toc ol ul ol, .md-post-toc ol ol ol { list-style-type: lower-alpha; } 
+/*# sourceURL=md-style-inline-css */
+</style>
+<link rel='stylesheet' id='style-css' href='https://www.80aj.com/wp-content/themes/dux-anthropic/style.css?ver=2.1.0-dux9.6' media='all' />
+<link rel='stylesheet' id='dux-anthropic-custom-css' href='https://www.80aj.com/wp-content/themes/dux-anthropic/assets/css/custom.css?ver=1793535488' media='all' />
+<script id="jquery-js" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/js/libs/jquery.min.js?ver=2.1.0-dux9.6"></script>
+<script id="githuber-toc-js" src="https://www.80aj.com/wp-content/plugins/wp-githuber-md-1.17.0/assets/js/jquery.toc.min.js?ver=1.0.1"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Site Kit 添加的 Google Analytics 代码段 -->
+<script id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=GT-P82L9FQ" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.80aj.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-P82L9FQ", {"googlesitekit_post_type":"post"});
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit", ...( data && data.user_data ? {"developer_id.dZjRkOT":true} : {} ) } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+<style>.container{max-width:2800px}#focusslide{height:220px}@media (max-width: 600px) {#focusslide{height:150px}}:root{--tb--main: #d97757}</style>
+<!-- Google AdSense meta tags added by Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<!-- End Google AdSense meta tags added by Site Kit -->
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"填补数字人工程鸿沟：OpenTalking 实时对话框架开源","description":"开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品...","inLanguage":"zh-CN","datePublished":"2026-05-24T00:12:30+08:00","dateModified":"2026-05-24T00:12:31+08:00","author":{"@type":"Person","name":"Toy","url":"https://www.80aj.com/author/d184a5/","sameAs":["https://x.com/toys404","https://github.com/cfrs2005","https://www.zhihu.com/people/80aj","https://linux.do/u/toy404","https://v2ex.com/member/cfrs2005"]},"publisher":{"@type":"Organization","name":"80AJ","url":"https://www.80aj.com/","logo":{"@type":"ImageObject","url":"https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/logo-square-512.png","width":512,"height":512}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/"},"isPartOf":{"@type":"WebSite","@id":"https://www.80aj.com/#website","name":"80AJ","url":"https://www.80aj.com/"},"wordCount":567,"articleSection":"前沿哨所"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.80aj.com/"},{"@type":"ListItem","position":2,"name":"前沿哨所","item":"https://www.80aj.com/hot/"},{"@type":"ListItem","position":3,"name":"填补数字人工程鸿沟：OpenTalking 实时对话框架开源","item":"https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/"}]}</script>
+<link rel="icon" href="https://www.80aj.com/wp-content/uploads/2025/10/favicon.ico" sizes="32x32" />
+<link rel="icon" href="https://www.80aj.com/wp-content/uploads/2025/10/favicon.ico" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.80aj.com/wp-content/uploads/2025/10/favicon.ico" />
+<meta name="msapplication-TileImage" content="https://www.80aj.com/wp-content/uploads/2025/10/favicon.ico" />
+
+<meta property="article:published_time" content="2026-05-24T00:12:30+08:00">
+<meta property="article:modified_time" content="2026-05-24T00:12:31+08:00">
+<meta property="article:author" content="Toy">
+<meta property="article:section" content="前沿哨所">
+
+<meta property="og:site_name" content="80AJ">
+<meta property="og:locale" content="zh_CN">
+<link rel="icon" type="image/svg+xml" href="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/favicon.svg">
+<link rel="shortcut icon" href="https://www.80aj.com/favicon.ico">
+</head>
+<body class="wp-singular post-template-default single single-post postid-35979 single-format-standard wp-theme-dux-anthropic home m-excerpt-cat m-excerpt-desc flinks-m ajaxnumber comment-open site-layout-3 text-justify-on m-sidebar m-catplist-on fixnav-m-on">
+<script>(function(){var m=window.matchMedia("(max-width: 768px)");function s(){var c=document.body||document.documentElement;if(!c)return;c.classList.toggle("is-phone",m.matches)}if(document.body){s()}else{document.addEventListener("DOMContentLoaded",s)}m.addEventListener?m.addEventListener("change",s):m.addListener(s)})();</script>
+	<a class="aj-skip-link" href="#aj-main-content">跳到主要内容</a>
+<div class="orbui orbui-site orbui-site-00"><a href="/go/bwg?slot=ads_site_00" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/09/banner_bwg_ads_site_00_v3.svg" alt="赞助推荐 搬瓦工怎么选：三网直连 CN2 GIA-E" loading="lazy" style="display:block;width:100%;height:auto"></a></div>
+<svg class="aj-icon-sprite" aria-hidden="true" focusable="false">
+	<symbol id="aj-icon-motion" viewBox="0 0 24 24"><path d="M4 8h10a4 4 0 1 0-4-4M2 12h16a3 3 0 1 1-3 3M4 16h5a3 3 0 1 1-3 3"/></symbol>
+	<symbol id="aj-icon-home" viewBox="0 0 24 24"><path d="M3.5 10.5 12 3.8l8.5 6.7v9.2a.8.8 0 0 1-.8.8H4.3a.8.8 0 0 1-.8-.8Z"></path><path d="M9 20.5v-6h6v6"></path></symbol>
+	<symbol id="aj-icon-lookout" viewBox="0 0 24 24"><path d="M5 6.5 12 3l7 3.5v5.3c0 4.3-2.9 7.4-7 9.2-4.1-1.8-7-4.9-7-9.2Z"></path><path d="M9.2 12a2.8 2.8 0 1 1 5.6 0"></path><path d="M12 9.2V7.5M8 10l-1.3-1M16 10l1.3-1"></path></symbol>
+	<symbol id="aj-icon-topic" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"></path><path d="m8.5 10 3.5-2 3.5 2v4L12 16l-3.5-2Z"></path></symbol>
+	<symbol id="aj-icon-map" viewBox="0 0 24 24"><path d="m12 3 9 7-9 7-9-7Z"></path><path d="m7 14 5 4 5-4M7 17l5 4 5-4"></path></symbol>
+	<symbol id="aj-icon-model" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 16 3.5-8 3.5 8M10 13h4"></path></symbol>
+	<symbol id="aj-icon-tools" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><path d="M8 6h8M7 8l4 8M17 8l-4 8"></path></symbol>
+	<symbol id="aj-icon-architecture" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></symbol>
+	<symbol id="aj-icon-practice" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"></rect><rect x="15" y="3" width="6" height="6" rx="1"></rect><rect x="3" y="15" width="6" height="6" rx="1"></rect><rect x="15" y="15" width="6" height="6" rx="1"></rect><path d="M12 6h3M6 12v3M18 9v6M9 18h6"></path></symbol>
+	<symbol id="aj-icon-security" viewBox="0 0 24 24"><path d="M12 3 20 6v5.8c0 4.3-3 7.4-8 9.2-5-1.8-8-4.9-8-9.2V6Z"></path><path d="m9 12 2 2 4-4"></path></symbol>
+	<symbol id="aj-icon-prompt" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h4M8 12h8M8 16h6"></path></symbol>
+	<symbol id="aj-icon-open-source" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="6" cy="18" r="2"></circle><path d="M8 6h4a4 4 0 0 1 4 4v6M6 8v8M8 18h8"></path></symbol>
+	<symbol id="aj-icon-resources" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"></circle><circle cx="19" cy="5" r="2"></circle><circle cx="5" cy="19" r="2"></circle><circle cx="19" cy="19" r="2"></circle><path d="M7 5h10M5 7v10M19 7v10M7 19h10"></path></symbol>
+	<symbol id="aj-icon-chevron-left" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"></path></symbol>
+	<symbol id="aj-icon-chevron-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"></path></symbol>
+	<symbol id="aj-icon-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></symbol>
+	<symbol id="aj-icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 4.5 4.5"></path></symbol>
+	<symbol id="aj-icon-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 8H3c0-1 3-1 3-8Z"></path><path d="M10 20h4"></path></symbol>
+	<symbol id="aj-icon-moon" viewBox="0 0 24 24"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4 8.5 8.5 0 1 0 20 15.4Z"></path></symbol>
+	<symbol id="aj-icon-pen" viewBox="0 0 24 24"><path d="m4 20 4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16Z"></path><path d="m14.8 6.4 2.8 2.8M4 20h6"></path></symbol>
+</svg>
+
+<aside id="aj-site-rail" class="aj-brand-rail google-anno-skip" aria-label="站点品牌与导航">
+	<div class="aj-brand-rail__top">
+		<a class="aj-brand-rail__mark" href="https://www.80aj.com/" aria-label="80AJ，八零智记首页"><span class="aj-brand-rail__mark-full aj-brand-wordmark" aria-hidden="true">80aj<i>.</i></span><span class="aj-brand-rail__mark-compact aj-brand-wordmark" aria-hidden="true">80</span></a>
+		<button class="aj-rail-toggle" type="button" aria-label="收起左侧导航" aria-controls="aj-site-rail" aria-expanded="true"><svg class="aj-ui-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-left"></use></svg></button>
+	</div>
+	<p class="aj-brand-rail__tagline">工程与思考</p>
+	<nav class="aj-context-rail" aria-label="站内导航"><section class="aj-context-rail__section aj-context-rail__section--home" aria-label="首页"><ul><li><a href="https://www.80aj.com/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-home"></use></svg><span>首页</span></a></li></ul></section><section class="aj-context-rail__section" aria-labelledby="aj-ctx-explore"><p class="aj-context-rail__group" id="aj-ctx-explore">探索</p><ul><li><a href="https://www.80aj.com/hot/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-lookout"></use></svg><span>前沿哨所</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/topic-guide/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-topic"></use></svg><span>专题精选</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/tools/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-tools"></use></svg><span>工具专题</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/knowledge-map/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-map"></use></svg><span>知识地图</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li></ul></section><section class="aj-context-rail__section" aria-labelledby="aj-ctx-engineering"><p class="aj-context-rail__group" id="aj-ctx-engineering">工程能力</p><ul><li><a href="https://www.80aj.com/ai-news/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-model"></use></svg><span>AI 大模型</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/ai-tools/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-tools"></use></svg><span>工具链</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/architecture/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-architecture"></use></svg><span>架构设计</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/tutorials/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-practice"></use></svg><span>工程实践</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/security/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-security"></use></svg><span>安全与可控</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/tag/tishicigongcheng/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-prompt"></use></svg><span>Prompt 库</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li></ul></section><section class="aj-context-rail__section" aria-labelledby="aj-ctx-resources"><p class="aj-context-rail__group" id="aj-ctx-resources">资源库</p><ul><li><a href="https://www.80aj.com/tag/kaiyuanxiangmu/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-open-source"></use></svg><span>开源项目</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li><li><a href="https://www.80aj.com/resource-navigation/"><svg class="aj-nav-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-resources"></use></svg><span>资源导航</span><svg class="aj-nav-chevron" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-right"></use></svg></a></li></ul></section></nav>	<div class="aj-brand-rail__footer">
+		<p class="aj-brand-rail__motto"><span>行远致知</span><span class="aj-ink-seal" aria-label="八零印章">八零</span></p>
+	</div>
+</aside>
+
+<header class="header aj-site-header google-anno-skip">
+	<div class="aj-site-header__inner">
+		<a class="aj-mobile-brand" href="https://www.80aj.com/" aria-label="80AJ，八零智记首页"><span class="aj-brand-wordmark" aria-hidden="true">80aj<i>.</i></span></a>
+		<nav class="aj-primary-nav" aria-label="主导航"><ul><li><a href="https://www.80aj.com/">全部</a></li><li><a href="https://www.80aj.com/ai-news/">AI 大模型</a></li><li><a href="https://www.80aj.com/topic/ai-agent/">Agent / 智能体</a></li><li><a href="https://www.80aj.com/tutorials/">工程实践</a></li><li><a href="https://www.80aj.com/ai-tools/">工具链</a></li><li><a href="https://www.80aj.com/management/">产品与增长</a></li><li><a href="https://www.80aj.com/tag/kaiyuanxiangmu/">开源项目</a></li><li><a href="https://www.80aj.com/ping/">思考杂谈</a></li></ul></nav>		<ul class="site-nav site-navbar aj-mobile-menu-source"><li><a href="https://www.80aj.com/">首页</a></li><li><a href="https://www.80aj.com/hot/">前沿哨所</a></li><li><a href="https://www.80aj.com/topic-guide/">专题精选</a></li><li><a href="https://www.80aj.com/tools/">工具专题</a></li><li><a href="https://www.80aj.com/knowledge-map/">知识地图</a></li><li><a href="https://www.80aj.com/architecture/">工程架构</a></li><li><a href="https://www.80aj.com/tutorials/">实战教程</a></li><li><a href="https://www.80aj.com/ai-tools/">工具与工作流</a></li><li><a href="https://www.80aj.com/security/">安全与可控</a></li><li><a href="https://www.80aj.com/tag/kaiyuanxiangmu/">开源项目</a></li><li><a href="https://www.80aj.com/resource-navigation/">资源导航</a></li><li><a href="https://www.80aj.com/llm-api-monitoring/">模型监控</a></li><li><a href="https://www.80aj.com/tag-index/">标签索引</a></li><li><a href="https://www.80aj.com/about-me/">关于我</a></li><li><a href="https://www.80aj.com/reader-wall/">读者墙</a></li></ul>		<div class="aj-header-actions">
+			<form class="aj-header-search" role="search" method="get" action="https://www.80aj.com/">
+				<label class="screen-reader-text" for="aj-header-search-input">搜索文章</label>
+				<button class="aj-header-search__submit" type="submit" aria-label="提交搜索"><svg class="aj-search-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-search"></use></svg></button>
+				<input id="aj-header-search-input" type="search" name="s" value="" placeholder="搜索文章 / 专题 / 工具 / 关键词" autocomplete="off" required>
+				<kbd aria-hidden="true">⌘K</kbd>
+			</form>
+			<button class="navto-search search-show" type="button" aria-label="打开搜索" aria-controls="aj-site-search" aria-expanded="false"><svg class="aj-search-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-search"></use></svg></button>			<a class="aj-header-icon aj-header-notification" href="https://www.80aj.com/hot/" aria-label="查看最新内容"><svg class="aj-ui-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-bell"></use></svg></a>
+			<button class="aj-header-icon aj-theme-toggle" type="button" etap="darking" aria-label="切换显示模式" aria-pressed="false"><svg class="aj-ui-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-moon"></use></svg></button>
+			<button class="aj-header-icon aj-motion-toggle" type="button" aria-label="暂停页面动效" aria-pressed="false" title="暂停页面动效" hidden><svg class="aj-ui-icon" aria-hidden="true"><use href="#aj-icon-motion"></use></svg></button>
+						<a class="aj-header-avatar" href="https://www.80aj.com/toy404/" aria-label="登录"><img alt='' src='https://weavatar.com/avatar/7a82039cf3cbc85a76672e369e232e3e9edd1eca0b85de5112b93d9879426d2d?s=28&#038;d=identicon' srcset='https://weavatar.com/avatar/7a82039cf3cbc85a76672e369e232e3e9edd1eca0b85de5112b93d9879426d2d?s=56&#038;d=identicon 2x' class='avatar avatar-28 photo' height='28' width='28' decoding='async'><svg class="aj-ui-icon" aria-hidden="true" focusable="false"><use href="#aj-icon-chevron-down"></use></svg></a>
+		</div>
+	</div>
+</header>
+
+<button class="m-icon-nav" type="button" aria-label="打开导航" aria-controls="aj-mobile-navigation" aria-expanded="false">
+	<span class="aj-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+	<span class="screen-reader-text">打开导航</span>
+</button>
+
+<div id="aj-site-search" class="site-search" aria-label="站内搜索" aria-hidden="true">
+	<div class="container">
+		<span class="aj-site-search__label">搜索</span>
+		<form method="get" class="site-search-form" role="search" aria-label="站内搜索" action="https://www.80aj.com/">
+    <input class="search-input" name="s" type="search" aria-label="输入关键字" placeholder="输入关键字" value="" required>
+    <button class="search-btn" type="submit" aria-label="提交搜索"><svg class="aj-search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L20 20"></path></svg></button>
+</form>
+		<button class="aj-site-search__close" type="button" aria-label="关闭搜索"><span aria-hidden="true">×</span></button>
+	</div>
+</div>
+
+	<div class="breadcrumbs"><div class="container"><span class="breadcrumbs-label">当前位置：</span><span class="breadcrumbs-home"><a href="https://www.80aj.com">80aj</a> <small><i class="tbfa">&#xe87e;</i></small> </span><a href="https://www.80aj.com/hot/">前沿哨所</a> <small><i class="tbfa">&#xe87e;</i></small> 正文</div></div>
+
+
+<section class="container aj-page-shell aj-article-shell">
+	<div class="content-wrap"><main id="aj-main-content" tabindex="-1" class="content aj-article-stream">
+											<header class="aj-article-header">
+				<div class="aj-article-header__eyebrow">
+					<a href="https://www.80aj.com/hot/">前沿哨所</a>									</div>
+				<h1>填补数字人工程鸿沟：OpenTalking 实时对话框架开源</h1>
+				<div class="aj-article-header__meta"><a class="aj-byline" href="https://www.80aj.com/author/d184a5/" rel="author"><img alt='' src='https://weavatar.com/avatar/7a82039cf3cbc85a76672e369e232e3e9edd1eca0b85de5112b93d9879426d2d?s=22&#038;d=identicon' srcset='https://weavatar.com/avatar/7a82039cf3cbc85a76672e369e232e3e9edd1eca0b85de5112b93d9879426d2d?s=44&#038;d=identicon 2x' class='avatar avatar-22 photo' height='22' width='22' decoding='async' loading="lazy"><span>Toy</span></a><time class="aj-dateline aj-dateline--published" datetime="2026-05-24T00:12:30+08:00">2026-05-24</time><span>3 分钟阅读</span><span>阅读(<span class="ajaxpv" data-id="35979">208</span>)</span></div>
+			</header>
+
+						<article class="article-content" >
+				<div class="orbui orbui-post orbui-post-01"><a href="/go/workbuddy?slot=ads_post_01" rel="sponsored nofollow" target="_blank"><picture><source media="(max-width: 768px)" srcset="https://www.80aj.com/wp-content/uploads/2026/08/banner_workbuddy_ads_post_01_m_v4.svg" type="image/svg+xml"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_workbuddy_ads_post_01_v4.svg" alt="赞助推荐 团队协作里的 AI 办公工作台" loading="lazy" style="display:block;width:100%;height:auto"></picture></a></div>								<div class="wpainews-summary">
+<p>开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品落地之间的工程化难题。不同于仅关注口型同步或视频生成的单一模型（如 Wav2Lip、MuseTalk），OpenTalking 专注于构建一个完整的实时对话数字人产线。该框架集成了 LLM、TTS、STT、WebRTC、字幕事件及视频驱动模型，重点解决了多轮对话中的状态管理、事件同步、低延迟播放及用户中途打断等复杂交互逻辑。OpenTalking 提供了灵活的部署模式，包括无需模型权重的 Mock 模式、适合消费级显卡的本地推理模式（支持 QuickTalk 等），以及接入高性能云端服务的 OmniRT 模式。通过解耦后端推理与前段交互，该框架允许开发者<a href="https://www.80aj.com/tag/fenjieduan/">分阶段</a>验证和部署系统。目前项目已包含 WebUI 前端、后端 API 及会话编排功能，能够通过简单的配置实现音色、模型及角色的切换。该项目的发布标志着实时数字人领域的关注点从单纯的算法模型转向了系统集成与交互体验的优化。</p>
+<h2>事件分析</h2>
+<div class="wpainews-analysis">从技术架构角度看，OpenTalking 揭示了 AI Agent 发展的关键痛点：模型与产品之间的工程鸿沟。当前 LLM 与 TTS 技术已相对成熟，但实现毫秒级的端到端交互、处理流式数据的同步以及管理复杂的并发状态（如打断机制），仍然是构建高可用数字人的主要门槛。OpenTaking 提出的“胶水层”解决方案，实际上是在定义一套实时多模态交互的标准协议。这种解耦编排层与推理层的架构，不仅降低了开发者的试错成本，也为“模型即服务”在边缘侧和私有化部署中的灵活调度提供了参考范本。</div>
+<p> <span style="background-color: #fff3cd;color: #856404;font-weight: bold;padding: 0 4px;border-radius: 2px">💡 核心观点：AI Agent 的竞争已从算法模型层转向系统工程层，低延迟、高稳定性的全链路交互能力是数字人落地的关键。</span></p><div class="orbui orbui-d orbui-post orbui-post-content-center"><a href="/go/aliyun-opc?slot=ads_post_content_center" rel="sponsored nofollow" target="_blank"><img decoding="async" src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-opc_ads_post_content_center_v4.svg" alt="赞助推荐 一人公司 · 创业装备库" loading="lazy" style="display:block;width:100%;height:auto"></a></div><div class="orbui orbui-m orbui-post orbui-post-content-center"><a href="/go/aliyun-opc?slot=ads_post_content_center" rel="sponsored nofollow" target="_blank"><img decoding="async" src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-opc_ads_post_content_center_m_v4.svg" alt="赞助推荐 一人公司 · 创业装备库" loading="lazy" style="display:block;width:100%;height:auto"></a></div>
+</div>
+<div class="wpainews-source">
+<p><strong>原文链接：</strong><a rel="noopener noreferrer nofollow" href="https://www.v2ex.com/t/1214991" target="_blank">V2EX 分享发现</a></p>
+</div>
+<!--[googlesitekit-end-of-content]-->
+				<div class="orbui orbui-d orbui-post orbui-post-content"><a href="/go/aliyun-fc?slot=ads_post_content" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-fc_ads_post_content_v4.svg" alt="赞助推荐 一键部署 AI 大模型" loading="lazy" style="display:block;width:100%;height:auto"></a></div><div class="orbui orbui-m orbui-post orbui-post-content"><a href="/go/aliyun-fc?slot=ads_post_content" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-fc_ads_post_content_m_v4.svg" alt="赞助推荐 一键部署 AI 大模型" loading="lazy" style="display:block;width:100%;height:auto"></a></div>			</article>
+
+						<div class="orbui-post-footer"><b>赞助推荐</b><strong>【WorkBuddy】</strong><a target="_blank" rel="sponsored nofollow" href="/go/workbuddy?slot=ads_post_footer">找个 AI 搭子帮你干活，注册即可获取 2000 积分</a></div>
+										<div class="post-actions">
+					<a href="javascript:;" rel="nofollow" etap="like" class="post-like action action-like" data-pid="35979"><i class="tbfa">&#xe64c;</i>赞(<span>0</span>)</a>														</div>
+										<div class="post-copyright">未经允许不得转载：<a href="https://www.80aj.com">80aj</a> &raquo; <a href="https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/">填补数字人工程鸿沟：OpenTalking 实时对话框架开源</a></div>
+					
+		<div class="shares"><dfn>分享到</dfn><a rel="nofollow" href="javascript:;" data-url="https://www.80aj.com/2026/05/24/digital-human-gap-opentalking/" class="share-weixin" title="分享到微信"><i class="tbfa">&#xe61e;</i></a><a rel="nofollow" etap="share" data-share="weibo" class="share-tsina" title="分享到微博"><i class="tbfa">&#xe645;</i></a><a rel="nofollow" etap="share" data-share="qq" class="share-sqq" title="分享到QQ好友"><i class="tbfa">&#xe60f;</i></a><a rel="nofollow" etap="share" data-share="qzone" class="share-qzone" title="分享到QQ空间"><i class="tbfa">&#xe600;</i></a><a rel="nofollow" etap="share" data-share="line" class="share-line" title="分享到Line"><i class="tbfa">&#xe6fb;</i></a><a rel="nofollow" etap="share" data-share="twitter" class="share-twitter" title="分享到X"><i class="tbfa">&#xe604;</i></a><a rel="nofollow" etap="share" data-share="facebook" class="share-facebook" title="分享到Facebook"><i class="tbfa">&#xe725;</i></a><a rel="nofollow" etap="share" data-share="telegram" class="share-telegram" title="分享到Telegram"><i class="tbfa">&#xe9ac;</i></a><a rel="nofollow" etap="share" data-share="skype" class="share-skype" title="分享到Skype"><i class="tbfa">&#xe87d;</i></a></div>		<div class="article-tags"></div>				<nav class="article-nav" aria-label="相邻文章"><span class="article-nav-prev">上一篇<br><a href="https://www.80aj.com/2026/05/23/rust-ai-agent-kirors/" rel="prev">Rust版AI代理工具Kirors发布：支持余额持久化、凭证级代理及模型优化</a></span><span class="article-nav-next">下一篇<br><a href="https://www.80aj.com/2026/05/24/sub2api-automation-script/" rel="next">Sub2API 账号池自动化运维脚本发布：实现故障自动隔离与智能巡检</a></span></nav>		<div class="orbui orbui-d orbui-post orbui-post-02"><a href="/go/freemodel?slot=ads_post_02" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_freemodel_ads_post_02_v4.svg" alt="赞助推荐 低成本上手 Claude Code 的中转选择" loading="lazy" style="display:block;width:100%;height:auto"></a></div><div class="orbui orbui-m orbui-post orbui-post-02"><a href="/go/freemodel?slot=ads_post_02" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_freemodel_ads_post_02_m_v4.svg" alt="赞助推荐 低成本上手 Claude Code 的中转选择" loading="lazy" style="display:block;width:100%;height:auto"></a></div>		<div class="relates relates-imagetext"><div class="title"><h3>相关推荐</h3></div><ul><li><a target="_blank" href="https://www.80aj.com/2026/11/04/magpie-tailscale-api-networking/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="Magpie+Tailscale 组网方案：服务器与本机统一调用大模型 API-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/magpie-tailscale-api-networking/">Magpie+Tailscale 组网方案：服务器与本机统一调用大模型 API</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/open-source-ai-gap/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="后训练数据没有公共池：大模型开源生态的隐形鸿沟-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/open-source-ai-gap/">后训练数据没有公共池：大模型开源生态的隐形鸿沟</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/chatgpt-business-credit-25/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="ChatGPT Business 推回流优惠：重新激活停用工作空间每席位送 25 美元额度-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/chatgpt-business-credit-25/">ChatGPT Business 推回流优惠：重新激活停用工作空间每席位送 25 美元额度</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/nomi-ai-workbench-cli-tools/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="开源AI工作台Nomi发布：沙盒隔离统一调度Claude Code等多家CLI工具-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/nomi-ai-workbench-cli-tools/">开源AI工作台Nomi发布：沙盒隔离统一调度Claude Code等多家CLI工具</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/ai-math-book-gan-diffusion/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="《生成式AI基础小书》发布：195页直观数学入门，从PCA串到扩散模型与GAN-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/ai-math-book-gan-diffusion/">《生成式AI基础小书》发布：195页直观数学入门，从PCA串到扩散模型与GAN</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/macos-sensitive-words-extraction/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="逆向macOS：开发者完整提取苹果内置敏感词库-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/macos-sensitive-words-extraction/">逆向macOS：开发者完整提取苹果内置敏感词库</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/codex-plugin-tab-bar-agent-switch/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="开源插件为 Codex 桌面版注入标签栏，多 Agent 项目切换效率大增-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/codex-plugin-tab-bar-agent-switch/">开源插件为 Codex 桌面版注入标签栏，多 Agent 项目切换效率大增</a></li><li><a target="_blank" href="https://www.80aj.com/2026/11/04/flutter-foldable-screen-iphone/"><img data-thumb="default" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/img/thumbnail.png" alt="开发者实战：五年前的 Flutter 应用这样适配折叠屏 iPhone-80AJ" class="thumb" loading="lazy" decoding="async"></a><a href="https://www.80aj.com/2026/11/04/flutter-foldable-screen-iphone/">开发者实战：五年前的 Flutter 应用这样适配折叠屏 iPhone</a></li></ul></div>		<div class="orbui orbui-d orbui-post orbui-post-03"><a href="/go/aliyun-fc?slot=ads_post_03" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-fc_ads_post_03_v4.svg" alt="赞助推荐 一键部署 AI 大模型" loading="lazy" style="display:block;width:100%;height:auto"></a></div><div class="orbui orbui-m orbui-post orbui-post-03"><a href="/go/aliyun-fc?slot=ads_post_03" rel="sponsored nofollow" target="_blank"><img src="https://www.80aj.com/wp-content/uploads/2026/08/banner_aliyun-fc_ads_post_03_m_v4.svg" alt="赞助推荐 一键部署 AI 大模型" loading="lazy" style="display:block;width:100%;height:auto"></a></div>			</main></div>
+		<aside class="sidebar aj-sidebar google-anno-skip" aria-label="页面辅助导航">
+		<section class="aj-side-panel aj-side-overview">
+			<p class="aj-side-kicker">本文导读</p>
+			<h2>阅读这篇文章</h2>
+			<p class="aj-side-description">开发者近日开源了名为 OpenTalking 的实时数字人工程框架，旨在解决从单一模型演示到完整产品...</p>							<dl class="aj-side-facts">
+					<div><dt>栏目</dt><dd>前沿哨所</dd></div><div><dt>阅读</dt><dd>3 分钟</dd></div><div><dt>更新</dt><dd>2026-05-24</dd></div>				</dl>
+					</section>
+
+					<section class="aj-side-panel" aria-labelledby="aj-side-hot-title">
+				<div class="aj-side-heading aj-side-heading--split">
+					<div><p>前沿哨所</p><h2 id="aj-side-hot-title">热点速递</h2></div>
+					<a class="aj-side-heading__link" href="https://www.80aj.com/hot/">查看全部<span aria-hidden="true"> →</span></a>
+				</div>
+				<ol class="aj-side-posts aj-side-hot-posts">
+																	<li>
+							<span>01</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/threadlight-codex-claude-monitor/">开源Mac菜单栏工具ThreadLight：实时监控Codex与Claude Code对话状态</a>
+								<p>开发者社区 Linux.do 上有用户分享了一款开源的 macOS 菜单栏工具 ThreadLigh...</p>								<time datetime="2026-11-04T05:36:23+00:00">11-04 13:36</time>
+							</div>
+						</li>
+																	<li>
+							<span>02</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/magpie-tailscale-api-networking/">Magpie+Tailscale 组网方案：服务器与本机统一调用大模型 API</a>
+								<p>开发者在使用大模型 API 时，常面临本机与服务器需要分别配置模型和密钥的问题，任一端改动都要重复操...</p>								<time datetime="2026-11-04T02:49:27+00:00">11-04 10:49</time>
+							</div>
+						</li>
+																	<li>
+							<span>03</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/open-source-ai-gap/">后训练数据没有公共池：大模型开源生态的隐形鸿沟</a>
+								<p>Hacker News 上的一个讨论指出，大模型训练通常分为预训练与后训练两个阶段：预训练阶段已有 ...</p>								<time datetime="2026-11-04T00:11:22+00:00">11-04 08:11</time>
+							</div>
+						</li>
+																	<li>
+							<span>04</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/chatgpt-business-credit-25/">ChatGPT Business 推回流优惠：重新激活停用工作空间每席位送 25 美元额度</a>
+								<p>OpenAI 近期向部分已停用 ChatGPT Business 工作空间的用户发送定向优惠邮件，推...</p>								<time datetime="2026-11-04T00:01:48+00:00">11-04 08:01</time>
+							</div>
+						</li>
+																	<li>
+							<span>05</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/nomi-ai-workbench-cli-tools/">开源AI工作台Nomi发布：沙盒隔离统一调度Claude Code等多家CLI工具</a>
+								<p>Nomi（诺米）是一款开源桌面AI工作台，仓库为GitHub上的Cookieboty/nomi-ai...</p>								<time datetime="2026-11-03T22:32:05+00:00">11-04 06:32</time>
+							</div>
+						</li>
+																	<li>
+							<span>06</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/ai-math-book-gan-diffusion/">《生成式AI基础小书》发布：195页直观数学入门，从PCA串到扩散模型与GAN</a>
+								<p>《生成式AI基础小书：直观数学入门》是作者Tianhua Chen于2026年5月28日提交至arX...</p>								<time datetime="2026-11-03T22:12:30+00:00">11-04 06:12</time>
+							</div>
+						</li>
+																	<li>
+							<span>07</span>
+							<div>
+								<a href="https://www.80aj.com/2026/11/04/macos-sensitive-words-extraction/">逆向macOS：开发者完整提取苹果内置敏感词库</a>
+								<p>一位开发者发布技术文章，详细介绍了从macOS系统中提取苹果内置脏话词库的完整过程。苹果在操作系统中...</p>								<time datetime="2026-11-03T21:14:02+00:00">11-04 05:14</time>
+							</div>
+						</li>
+									</ol>
+			</section>
+		
+					<section class="aj-side-panel">
+				<div class="aj-side-heading"><p>编辑精选</p><h2>最近更新</h2></div>
+				<ol class="aj-side-posts">
+											<li><span>01</span><div><a href="https://www.80aj.com/2026/08/11/claude-team-refugee-value/">Claude Team 合租：南洋公司招 Claude 难民，275 元/月值不值</a><time datetime="2026-11-01T11:52:45+00:00">11-01</time></div></li>
+											<li><span>02</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-core-cycle-up/">Pi Agent Core 实战（10/10）：循环上线之后</a><time datetime="2026-11-01T07:41:48+00:00">11-01</time></div></li>
+											<li><span>03</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-interruption-queue/">Pi Agent Core 实战（8/10）：中断与排队</a><time datetime="2026-11-01T07:24:09+00:00">11-01</time></div></li>
+											<li><span>04</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-model-dead-calls/">Pi Agent Core 实战（9/10）：把死调用交给模型</a><time datetime="2026-11-01T07:23:40+00:00">11-01</time></div></li>
+											<li><span>05</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-intercept-hooks/">Pi Agent Core 实战（7/10）：拦截钩子</a><time datetime="2026-11-01T07:23:32+00:00">11-01</time></div></li>
+											<li><span>06</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-message-system/">Pi Agent Core 实战（6/10）：消息有两套</a><time datetime="2026-11-01T07:23:30+00:00">11-01</time></div></li>
+											<li><span>07</span><div><a href="https://www.80aj.com/2026/11/01/pi-agent-event-ui/">Pi Agent Core 实战（5/10）：把事件流当 UI</a><time datetime="2026-11-01T07:22:34+00:00">11-01</time></div></li>
+									</ol>
+			</section>
+		
+					<section class="aj-side-panel">
+				<div class="aj-side-heading"><p>持续积累</p><h2>知识路线</h2></div>
+				<ul class="aj-side-routes">
+					<li><a href="https://www.80aj.com/topic/codex/"><span>ChatGPT</span><b>307</b></a></li><li><a href="https://www.80aj.com/topic/llm-compare/"><span>AI 模型横评</span><b>271</b></a></li><li><a href="https://www.80aj.com/topic/ai-agent/"><span>AI Agent 框架</span><b>125</b></a></li><li><a href="https://www.80aj.com/topic/claude-code-subscription/"><span>Claude Code 订阅生存指南</span><b>81</b></a></li><li><a href="https://www.80aj.com/topic/ai-engineer-world-2026/"><span>AI Engineer World 2026</span><b>39</b></a></li><li><a href="https://www.80aj.com/topic/ai-weekly-report/"><span>AI 周刊：大模型、智能体与产业动态追踪</span><b>32</b></a></li><li><a href="https://www.80aj.com/topic/claude-code/"><span>Claude Code</span><b>14</b></a></li>				</ul>
+			</section>
+		
+		<section class="aj-side-panel aj-side-site-stats">
+			<div class="aj-side-heading"><p>当前规模</p><h2>站点数据</h2></div>
+			<dl><div><dt>文章</dt><dd>29,208</dd></div><div><dt>专题</dt><dd>26</dd></div><div><dt>标签</dt><dd>17,920</dd></div></dl>
+		</section>
+	</aside>
+	</section>
+
+<footer class="footer">
+	<div class="container">
+							<p>&copy; 2010-2026 &nbsp; <a href="https://www.80aj.com">80AJ</a> &nbsp; <a href="/knowledge-map/">知识地图</a>｜<a href="/privacy-policy/">隐私政策</a> | <a href="/about-me/">关于我</a> | <a href="/contact-us/">联系 Toy</a></p>
+		请求次数：9 次，加载用时：0.471 秒，内存占用：6.89 MB		<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3ObLrpuaXn7UuOxy",ck:"3ObLrpuaXn7UuOxy"})</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8922904508485390"
+     crossorigin="anonymous"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8922904508485390"
+     crossorigin="anonymous"></script>	</div>
+</footer>
+<ul class="fixnav"><li><a href="https://www.80aj.com/">首页</a></li>
+<li><a href="https://www.80aj.com/ai-news/">AI 大模型</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://www.80aj.com/hot/">前沿哨所</a></li>
+<li><a href="https://www.80aj.com/topic-guide/">专题精选</a></li>
+<li><a href="https://www.80aj.com/ping/">思考杂谈</a></li>
+<li><a href="https://www.80aj.com/architecture/">架构设计</a></li>
+<li><a href="https://www.80aj.com/tutorials/">工程实践</a></li>
+<li><a href="https://www.80aj.com/security/">安全与可控</a></li>
+<li><a href="https://www.80aj.com/life/">生活随笔</a></li>
+<li><a href="https://www.80aj.com/ai-tools/">工具链</a></li>
+<li><a href="https://www.80aj.com/management/">产品与增长</a></li>
+<li><a href="https://www.80aj.com/llm-api-monitoring/">模型监控</a></li>
+</ul>
+<script>window.TBUI={"www":"https:\/\/www.80aj.com","uri":"https:\/\/www.80aj.com\/wp-content\/themes\/dux-anthropic","ajaxurl":"https:\/\/www.80aj.com\/wp-admin\/admin-ajax.php","ver":1793454470,"roll":"1 2","copyoff":1,"ajaxpager":"5","fullimage":"1","captcha":0,"captcha_comment":1,"captcha_login":1,"captcha_register":1,"table_scroll_m":1,"table_scroll_w":"800","pre_color":1,"pre_copy":1,"lang":{"copy":"\u590d\u5236","copy_success":"\u5df2\u590d\u5236","comment_loading":"\u8bc4\u8bba\u63d0\u4ea4\u4e2d...","comment_cancel_edit":"\u53d6\u6d88\u7f16\u8f91","loadmore":"\u52a0\u8f7d\u66f4\u591a","like_login":"\u70b9\u8d5e\u8bf7\u5148\u767b\u5f55","liked":"\u4f60\u5df2\u8d5e\uff01","delete_post":"\u786e\u5b9a\u5220\u9664\u8fd9\u4e2a\u6587\u7ae0\u5417\uff1f","read_post_all":"\u70b9\u51fb\u9605\u8bfb\u4f59\u4e0b\u5168\u6587","copy_wechat":"\u5fae\u4fe1\u53f7\u5df2\u590d\u5236","sign_password_less":"\u5bc6\u7801\u592a\u77ed\uff0c\u81f3\u5c116\u4f4d","sign_username_none":"\u7528\u6237\u540d\u4e0d\u80fd\u4e3a\u7a7a","sign_email_error":"\u90ae\u7bb1\u683c\u5f0f\u9519\u8bef","sign_vcode_loading":"\u9a8c\u8bc1\u7801\u83b7\u53d6\u4e2d","sign_vcode_new":" \u79d2\u91cd\u65b0\u83b7\u53d6"},"turnstile_key":""}</script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/dux-anthropic/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+  <script id="module-mermaid"> (function($) { $(function() { if (typeof mermaid !== "undefined") { if ($(".language-mermaid").length > 0) { $(".language-mermaid").parent("pre").attr("style", "text-align: center; background: none;"); $(".language-mermaid").addClass("mermaid").removeClass("language-mermaid"); mermaid.init(); } } }); })(jQuery); </script>  <script id="module-highlight-js"> (function($) { $(function() { $("pre code").each(function(i, e) { var thisclass = $(this).attr("class"); if (typeof thisclass !== "undefined") { if ( thisclass.indexOf("katex") === -1 && thisclass.indexOf("mermaid") === -1 && thisclass.indexOf("seq") === -1 && thisclass.indexOf("flow") === -1 ) { if (typeof hljs !== "undefined") { $(this).closest("pre").addClass("hljs"); hljs.highlightBlock(e); } else { console.log("%c WP Githuber MD %c You have enabled highlight.js modules already, but you have to update this post to take effect, identifying which file should be loaded.\nGithuber MD does not load a whole-fat-packed file for every post.", "background: #222; color: #bada55", "color: #637338"); } } } }); }); })(jQuery); </script>  <script id="module-toc"> (function($) { $(function() { }); })(jQuery); </script> <script id="loader-js" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/js/loader.js?ver=2.1.0-dux9.6"></script>
+<script id="googlesitekit-consent-mode-js" src="https://www.80aj.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-consent-mode-5ef17bce870a966299fc.js"></script>
+<script id="googlesitekit-events-provider-content-events-js-before">
+window._googlesitekit = window._googlesitekit || {};
+window._googlesitekit.contentEvents = {"postID":35979,"isReadableSinglePost":true,"hasVimeoEmbed":false,"wordCount":373,"estimatedReadTimeSeconds":94,"isLastPageOfMultiPagePost":true,"readTimeThresholdPercent":85,"minimumReadTimeSeconds":5};
+//# sourceURL=googlesitekit-events-provider-content-events-js-before
+</script>
+<script id="googlesitekit-events-provider-content-events-js" src="https://www.80aj.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-content-events-90bacb156ab34fa090db.js" defer></script>
+<script id="aj-ink-theme-js" src="https://www.80aj.com/wp-content/themes/dux-anthropic/assets/js/ink-theme.js?ver=1788960280"></script>
+<script id="wp-consent-api-js-extra">
+var consent_api = {"consent_type":"","waitfor_consent_hook":"","cookie_expiration":"30","cookie_prefix":"wp_consent","services":[]};
+//# sourceURL=wp-consent-api-js-extra
+</script>
+<script id="wp-consent-api-js" src="https://www.80aj.com/wp-content/plugins/wp-consent-api/assets/js/wp-consent-api.min.js?ver=2.1.0"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a551e78f9a773548',t:'MTc5Mzc3NzMzMw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a551e78f9a773548',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+使用 PhpRedis (v6.1.0) 从 Redis 检索了 2229 个对象（298 KB）。
+-->

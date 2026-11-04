@@ -1,0 +1,259 @@
+wan2.6-r2v Model Info - Alibaba Cloud Model Studio - Alibaba Cloud Documentation Center
+
+Document Center
+
+All Products
+
+Search
+
+Document Center
+
+Alibaba Cloud Model Studio
+
+User Guide (Models)
+
+Support
+
+Model List
+
+Video Generation
+
+wan2.6-r2v
+
+all-products-head
+
+This Product
+
+This Product
+
+All Products
+
+Alibaba Cloud Model Studio:wan2.6-r2v
+
+Wan2.6 reference to video, supports using a specified person or any object as a reference, precisely maintaining consistency of appearance and voice, and allows multi‑character reference for joint performances.
+Inference Service Provider
+
+The inference service provider for
+wan2.6-r2v
+is Alibaba Cloud Model Studio.
+
+Model Capabilities
+
+China (Beijing)
+Capability
+Support
+Capability
+Support
+Input Modality
+Image
+
+Video
+
+Text
+Output Modality
+Video
+
+Audio
+Model Experience
+Unsupported
+Function Calling
+Unsupported
+Structured Outputs
+Unsupported
+Web Search
+Unsupported
+Prefix Completion
+Unsupported
+Context Caching
+Unsupported
+Batch Inference
+Unsupported
+Fine-tuning
+Unsupported
+Singapore
+Scope: International
+Capability
+Support
+Capability
+Support
+Input Modality
+Image
+
+Video
+
+Text
+Output Modality
+Video
+
+Audio
+Model Experience
+Unsupported
+Function Calling
+Unsupported
+Structured Outputs
+Unsupported
+Web Search
+Unsupported
+Prefix Completion
+Unsupported
+Context Caching
+Unsupported
+Batch Inference
+Unsupported
+Fine-tuning
+Unsupported
+Germany (Frankfurt)
+Scope: Global
+Capability
+Support
+Capability
+Support
+Input Modality
+Image
+
+Video
+
+Text
+Output Modality
+Video
+
+Audio
+Model Experience
+Unsupported
+Function Calling
+Unsupported
+Structured Outputs
+Unsupported
+Web Search
+Unsupported
+Prefix Completion
+Unsupported
+Context Caching
+Unsupported
+Batch Inference
+Unsupported
+Fine-tuning
+Unsupported
+US (Virginia)
+Scope: Global
+Capability
+Support
+Capability
+Support
+Input Modality
+Video
+
+Text
+
+Audio
+Output Modality
+Video
+
+Audio
+Model Experience
+Unsupported
+Function Calling
+Unsupported
+Structured Outputs
+Unsupported
+Web Search
+Unsupported
+Prefix Completion
+Unsupported
+Context Caching
+Unsupported
+Batch Inference
+Unsupported
+Fine-tuning
+Unsupported
+
+Context Limits
+
+Parameter
+Value
+Parameter
+Value
+Max Input Length
+—
+Max Output Length
+—
+Context Window
+—
+
+Pricing
+
+This page only shows the original pricing for model API calls, excluding any limited-time promotions. Visit
+Model Studio Console
+for promotional offers.
+
+China (Beijing)
+Billing Item
+Price (USD)
+Unit
+Video Generation(720P)
+0.086012
+Per second
+Video Generation(1080P)
+0.143353
+Per second
+Singapore
+Scope: International
+Billing Item
+Price (USD)
+Unit
+Video Generation(720P)
+0.1
+Per second
+Video Generation(1080P)
+0.15
+Per second
+Germany (Frankfurt)
+Scope: Global
+Billing Item
+Price (USD)
+Unit
+Video Generation(720P)
+0.086012
+Per second
+Video Generation(1080P)
+0.143353
+Per second
+US (Virginia)
+Scope: Global
+Billing Item
+Price (USD)
+Unit
+Video Generation(720P)
+0.086012
+Per second
+Video Generation(1080P)
+0.143353
+Per second
+
+Rate Limits
+
+China (Beijing)
+Parameter
+Value
+RPM (Requests Per Minute)
+300
+Singapore
+Scope: International
+Parameter
+Value
+RPM (Requests Per Minute)
+300
+Germany (Frankfurt)
+Scope: Global
+Parameter
+Value
+RPM (Requests Per Minute)
+300
+US (Virginia)
+Scope: Global
+Parameter
+Value
+RPM (Requests Per Minute)
+6000
+
+Thank you! We've received your feedback.

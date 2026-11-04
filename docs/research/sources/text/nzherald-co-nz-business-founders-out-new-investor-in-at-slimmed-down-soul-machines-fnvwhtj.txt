@@ -1,0 +1,115 @@
+Tech Insider: Founders Greg Cross and Mark Sagar out, new investor in at slimmed-down AI firm Soul Machines - NZ Herald
+
+Search
+Subscribe
+Sign In
+Advertisement
+Advertise with NZME.
+Greg Cross quit as Soul Machines CEO last September. The company's co-founder Mark Sagar left his role as chief science officer last month.
+
+Soul Machines, the Auckland-founded maker of AI-powered virtual people for customer services that has raised more than US$135 million in venture capital, appears to have drastically culled its staff. Its founders have departed. Hero early investors such as Mercedes-Benz now have much-reduced stakes, while early marquee customers like Air New
+
+Zealand and ANZ have exited stage left.
+
+Signs are that Auckland-founded Soul Machines has not been able to capitalise on the artificial intelligence boom. The maker of AI-powered virtual people, designed to help with customer service, released an updated schedule of its major shareholders last week.
+It revealed early big-name backer Mercedes-Benz is now down to a tiny stake, while the low-profile, British Virgin Islands-registered Bartok International now owns just under a third of the company after tripling its stake since July 2023.
+Accounts filed in the UK
+indicate a firm under pressure
+, with cash and term deposits of $12.3 million with net cash outflows of $38.1m for the year ending Mar 31, 2023, and a going-concern tag.
+Advertisement
+Advertise with NZME.
+Advertisement
+Advertise with NZME.
+Soul Machines’ headcount has reduced from 253 in July 2023 to 70 this month, according to LinkedIn Premium’s Insights tool, which also shows new hires tailing off after December 2022.
+Source / LinkedIn Premium Insights
+The San Francisco-based Julie Kim, a former marketing executive with Uber who took over from co-founder Greg Cross as chief executive last September, declined to be interviewed and did not respond to written questions; Cross and co-founder Dr Mark Sagar did not respond to requests for comment. Kim said she would be able to supply details “at a later date”.
+Cross acknowledged layoffs in 2022 and 2023 without giving numbers. The
+Herald
+understands the latest round of departures came about three months ago.
+Soul Machines co-founder Sagar has followed Cross out the door, leaving his role as chief scientific officer last month. Both also resigned from the board in June.
+Advertisement
+Advertise with NZME.
+No reasons were given for their departure.
+The pair’s resignation leaves Mingu Lee, based in the US, and Chris Lui, based in Australia, as the two remaining directors. Both work for private equity firms with minority stakes.
+Big Tech commodities AI
+Clare Capital managing partner Mark Clare said he was not immediately familiar with the privately-held Soul Machines finances or technology, but in terms of the general AI market: “Companies who’ve had a credible standalone product for some time now find their offerings commoditised by the bigger players.”
+A product could still be excellent, but now faced new, often cheaper competition from the likes of OpenAI, Microsoft, Google and AWS, and a wave of start-ups building apps that incorporate their generative AI tools, into the mainstream since ChatGPT burst onto the scene in November 2022.
+"Jamie", ANZ's digital assistant was developed by Soul Machines in 2018. "We ceased this function for customers in early 2022," a spokeswoman for the bank said this week.
+In April, Cross told Forbes Australia the explosion in popularity of chatbots had led to a “challenging time” for companies in the sector.
+Advertisement
+Advertise with NZME.
+The
+Herald
+understands Soul Machines, whose promotional material says it “holds 27 patent families, trade secrets and trademarks” believes it has an edge over new competition. While some of its early corporate customers have dropped its technology, the firm is now selling it to consumers under a “freemium” model, with monthly rates ranging from free to US$12.99 (about $22) for a basic plan covering 40 minutes of interactive conversations with a single AI assistant, US$99.99 per month for 350 minutes and three assistants, through to a US$2700 pro plan that covers 10,000 minutes and multiple avatars.
+Soul Machines co-founder Dr Mark Sagar, pictured with "Baby X", left his role as chief science officer and gave up his seat on the board last month. He remains a small shareholder. Photo / Brett Phibbs
+Soul Machines’ line-up of AI assistants for the public, several of which now employ
+OpenAI’s GPT-4o
+, includes “Elena” for learning Spanish, “Vesper” to help you plan a trip, “Isobel” for homework help and “Mia” who will help you polish your “corporate conversations”.
+Tim Warren, founder of AI chatbot and automation firm Ambit. said it seemed Soul Machines had shifted from being “a very high-end, very expensive offering” to a platform with consumer-friendly pricing. The firm didn’t appear to have landed anchor customers, or enough of them, to justify its valuation.
+Ambit founder Tim Warren: Many firms want a cheap, functional avatar.
+“They had unique IP and technology, but suddenly they’re in a crowd with everyone else.”
+While Soul Machines’ avatars might be more emotionally responsive and realistic, many customers wanted “something cheap and commoditised”, Warren said.
+Advertisement
+Advertise with NZME.
+Beautiful humanoid rendering had taken a back seat at one-time Soul Machines partner Air New Zealand, which now employs the 2D, cartoonish, in-house-developed “Oscar” as its chatbot. “Oscar was built and always operated as a fairly functional product, designed to give answers quickly and clearly,” Warren said.
+Tougher venture capital landscape
+Soul Machines was a roaring venture capital success story between its founding in 2016 and early 2022, with a US$7.5m Series A round in 2016, a follow-on US$7m Series A round in 2018, a US$40m Series B round in early 2020 and a US$70m Series C round in early 2022.
+The firm embarked on a fresh capital raise this year, according to ex-staff, amid the ongoing venture capital downturn. The company declined to comment. Companies Office records show that on July 1 Soul Machines increased its number of shares by 110,011,143 to 163,932,839 as Bartok emerged as the single largest shareholder.
+“Companies who’ve had a credible standalone AI product for some time now find their offerings commoditised by the bigger players.” Clare Capital managing partner Mark Clare.
+“There is capital out there, but VCs are looking for certain levels of recurring revenue growth and a path to profitability – and if you can’t tick the boxes with all those components there is less cash available,” Clare said.
+Warren said with Soul Machines not releasing details, it was not clear if it was an up-round (that is, at a higher valuation), a down-round or a “rescue round”.
+Baby, I love your way
+Sagar, a former Weta Digital whizz, served as the tech brains, and serial entrepreneur Cross created Soul Machines in 2016 as a spinout from Sagar’s work at the University of Auckland, where the academic created an AI-powered avatar of an infant, dubbed “Baby X”.
+The idea was to create digital on-screen “humans” who could help firms with customer service, complete with facial expressions to empathise with a customer’s emotions.
+Early hero customers, investors disengage
+Soul Machines’ new extensive shareholders list, released July 22, shows Mercedes-Benz with a 1.6% stake, compared with 4.4% in July 2023.
+Advertisement
+Advertise with NZME.
+The German firm took a 6% stake in the Kiwi start-up as it led the US$7m Series A round in 2018. At the time, Mercedes was billed as an anchor customer. Today, it is not listed in a roster of hero clients (although a “Sarah” appears as an avatar for the World Health Organisation) and it appears not to have made any follow-on investment as Soul Machines has issued new shares, meaning its stake has been watered down.
+Angel investors, such as early Soul Machines backer Uniservices (the University of Auckland’s commercialisation arm, whose stake has reduced from 20% in 2018 to 4% today), typically expect their stake to be diluted as new investors come onboard. But other early backers of the firm, including the high-profile Softbank, are not found on its register of major shareholders today.
+Brands retire avatars
+ANZ, Air New Zealand and Mercedes-Benz were also promoted as partners – their respective Soul Machines developed avatars dubbed “Jamie”, ”Sophie” and “Sarah”. This led Newstalk ZB host Mike Hosking to say: “Do you spot the problem? They’re all women”. Cross responded at the time that there were also male avatars; the choice sat with the client.
+A spokeswoman for ANZ said this week that while the bank worked with Soul Machines to create personal banking assistant Jamie from 2018, “we ceased this function for customers in early 2022”.
+And while Air New Zealand’s Sophie made her debut at an event in Los Angeles, the airline ended up going with the aforementioned, more meat-and-potatoes Oscar. A spokeswoman said the airline is not using any Soul Machines technology.
+Chris Keall is an Auckland-based member of the Herald’s business team. He joined the Herald in 2018 and is the technology editor and a senior business writer.
+Save
+Share
+Latest from Business
+Premium
+Shares
+Market close: Weak jobs data lifts NZ shares, dims chance of December rate hike
+04 Nov 05:19 AM
+Premium
+Opinion
+'The mute button is going on': The Hui's boss on show's closure – and what NZ is really losing
+04 Nov 05:00 AM
+Premium
+Inflation
+Could a left-leaning Government spook financial markets?
+04 Nov 05:00 AM
+Sponsored
+Labour, National face off on Super
+19 Oct 08:00 PM
+Advertisement
+Advertise with NZME.
+Latest from Business
+Premium
+Premium
+Shares
+Market close: Weak jobs data lifts NZ shares, dims chance of December rate hike
+The S&P/NZX 50 closed at 13,783.45, up 0.46%.
+04 Nov 05:19 AM
+Premium
+Premium
+Opinion
+'The mute button is going on': The Hui's boss on show's closure – and what NZ is really losing
+04 Nov 05:00 AM
+Premium
+Premium
+Inflation
+Could a left-leaning Government spook financial markets?
+04 Nov 05:00 AM
+Sponsored
+Labour, National face off on Super
+19 Oct 08:00 PM
+TOP

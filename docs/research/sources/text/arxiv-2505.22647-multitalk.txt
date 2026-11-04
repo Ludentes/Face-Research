@@ -1,0 +1,300 @@
+[2505.22647] Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2505.22647
+(cs)
+
+[Submitted on 28 May 2025]
+
+Title:
+Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation
+
+Authors:
+Zhe Kong
+,
+Feng Gao
+,
+Yong Zhang
+,
+Zhuoliang Kang
+,
+Xiaoming Wei
+,
+Xunliang Cai
+,
+Guanying Chen
+,
+Wenhan Luo
+
+View a PDF of the paper titled Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation, by Zhe Kong and 7 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Audio-driven human animation methods, such as talking head and talking body generation, have made remarkable progress in generating synchronized facial movements and appealing visual quality videos. However, existing methods primarily focus on single human animation and struggle with multi-stream audio inputs, facing incorrect binding problems between audio and persons. Additionally, they exhibit limitations in instruction-following capabilities. To solve this problem, in this paper, we propose a novel task: Multi-Person Conversational Video Generation, and introduce a new framework, MultiTalk, to address the challenges during multi-person generation. Specifically, for audio injection, we investigate several schemes and propose the Label Rotary Position Embedding (L-RoPE) method to resolve the audio and person binding problem. Furthermore, during training, we observe that partial parameter training and multi-task training are crucial for preserving the instruction-following ability of the base model. MultiTalk achieves superior performance compared to other methods on several datasets, including talking head, talking body, and multi-person datasets, demonstrating the powerful generation capabilities of our approach.
+
+Comments:
+
+Homepage:
+this https URL
+Github:
+this https URL
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2505.22647
+[cs.CV]
+
+(or
+
+arXiv:2505.22647v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2505.22647
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Zhe Kong [
+view email
+]
+
+[v1]
+
+Wed, 28 May 2025 17:57:06 UTC (7,474 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation, by Zhe Kong and 7 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-05
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+NASA ADS
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

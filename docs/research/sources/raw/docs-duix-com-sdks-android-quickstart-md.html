@@ -1,0 +1,110 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.duix.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Quick start
+
+> Kotlin example showing how to initialize and start a Duix Android SDK session for real-time digital human interaction.
+
+## Overview
+
+This **Quick Start** guide demonstrates how to initialize the **Duix Android SDK**,\
+set up rendering, and establish a real-time connection with the digital human.\
+Before integration, ensure your app requests **microphone permission dynamically at runtime**,\
+as it is required for real-time voice communication.
+
+***
+
+## Example Code (Kotlin)
+
+```kotlin theme={null}
+class DisplayActivity : BaseActivity() {
+
+    private var eglBaseContext = EglBase.create().eglBaseContext
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Initialize the view
+
+        binding.render.init(eglBaseContext, null)
+        binding.render.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL)
+        binding.render.setMirror(false)
+        binding.render.setEnableHardwareScaler(false)
+
+        // Initialize SDK
+        VirtualFactory.init("your appId", "your appSecret")
+
+        // Create player instance
+        player = VirtualFactory.getPlayer(mContext, eglBaseContext)
+
+        // Register callbacks
+        player?.addCallback(object : Player.Callback {
+            override fun onShow() {
+                // Digital human is ready to display
+            }
+
+            override fun onError(msgType: Int, msgSubType: Int, msg: String?) {
+                // Log connection error
+            }
+
+            override fun onAsrResult(text: String?, sentenceEnd: Boolean) {
+                // Handle ASR result
+            }
+
+            override fun onVideoTrack(track: VideoTrack) {
+                runOnUiThread {
+                    // Bind track to the digital human view
+                    track.addSink(binding.render)
+                }
+            }
+        })
+
+        // Connect to the digital human
+        player?.connect("your conversation id")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Release resources
+        player?.release()
+        binding.render.release()
+    }
+}
+```
+
+## How It Works
+
+1. **Initialize EGL context**\
+   The `EglBaseContext` is used to handle **OpenGL rendering** for the digital human view.
+
+2. **Initialize SDK**\
+   Call `VirtualFactory.init(appId, appSecret)` before creating a player instance.
+
+3. **Create Player Instance**\
+   The `VirtualFactory.getPlayer()` method returns a `Player` object that manages **RTC sessions** and **digital human rendering**.
+
+4. **Register Callbacks**\
+   The `Player.Callback` interface provides hooks for **video display**, **ASR recognition**, and **error handling**.
+
+5. **Connect to Session**\
+   Use `player.connect(conversationId)` to start interacting with the digital human in real time.
+
+6. **Clean Up**\
+   Release resources in `onDestroy()` to prevent **memory leaks**.
+
+***
+
+## Notes
+
+* The **microphone permission** must be granted before calling `VirtualFactory.getPlayer()`.
+* The digital human video stream uses **WebRTC** under the hood — ensure your device supports it.
+* For stable rendering, set `SCALE_ASPECT_FILL` and disable hardware scaling if visual artifacts occur.
+* Network interruptions or invalid credentials may trigger callback errors in `onError()`.
+
+***
+
+> **Now!**\
+> You can have a **real-time voice conversation** with the digital human through your device’s microphone.
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

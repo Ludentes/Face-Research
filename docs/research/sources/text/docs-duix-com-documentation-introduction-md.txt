@@ -1,0 +1,50 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.duix.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Introduction
+
+# Explore the Duix
+
+Take a look at our **Documentation** and **API Reference** to learn how to build with Duix.
+
+> [card] [Developer Portal](https://www.duix.com/my-duix/)
+>
+> Manage your API keys, conversations, and avatars. Create and test configurations before integrating them into your app.
+
+> [card] [Contact Us](mailto:support@duix.com)
+>
+> Need assistance? Contact our support team — we’ll help you get unblocked quickly.
+
+***
+
+# Getting Started
+
+## Prerequisites and Support
+
+All Duix plans — including the **Free Plan** — provide access to our **API (Application Programming Interface)**.
+The API enables you to integrate Duix features directly into your own applications.
+
+In this section, you’ll learn how to create your **first Duix session** by making API calls.
+
+> **Note:**
+> The Duix web app uses the same APIs as the SDK.
+> With identical settings, results should be similar; however, generation is **non-deterministic**, so slight variations may occur.
+
+***
+
+## Billing and usage
+
+You’ll need available **conversation minutes** in your account to start or use a session through the API.
+You can either:
+
+* Purchase a paid plan — see [Pricing](https://www.duix.com/pricing), or
+* Begin with the **free quota** to explore and test the workflow.
+
+***
+
+## What you’ll learn
+
+This section provides a **quick overview** with examples designed to help you become productive quickly and understand the full scope of the Duix API.
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

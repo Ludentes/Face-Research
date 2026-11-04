@@ -1,0 +1,259 @@
+meituan-longcat/LongCat-Video-Avatar · Hugging Face
+
+LongCat-Video-Avatar
+
+🚀 Model Introduction
+
+We are excited to announce the release of LongCat-Video-Avatar, a unified model that delivers expressive and highly dynamic audio-driven character animation, supporting native tasks including Audio-Text-to-Video, Audio-Text-Image-to-Video, and Video Continuation with seamless compatibility for both single-stream and multi-stream audio inputs.
+
+Key Features
+
+🌟
+Support Multiple Generation Modes
+: One unified model can be used for
+audio-text-to-video (AT2V)
+generation,
+audio-text-image-to-video (ATI2V)
+generation, and
+Video Continuation
+.
+
+🌟
+Natural Human Dynamics
+: The disentangled unconditional guidance is designed to effectively decouple speech signals from motion dynamics for natural behavior.
+
+🌟
+Avoid Repetitive Content
+: The reference skip attention is adopted to​ strategically incorporates reference cues to preserve identity while preventing excessive conditional image leakage.
+
+🌟
+Alleviate Error Accumulation from VAE
+: Cross-Chunk Latent Stitching is designed to eliminates redundant VAE decode-encode cycles to reduce pixel degradation in long sequences.
+
+For more detail, please refer to the comprehensive
+LongCat-Video-Avatar Technical Report
+.
+
+🌀 Preview Gallery
+
+The following videos showcase example generations from our model and have been compressed for easier viewing.
+
+📊 Human Evaluation
+
+Human evaluation on naturalness and realism of the synthesized videos. The benchmark EvalTalker [1] contains more than 400 testing samples with different difficulty levels for evaluating the single and multiple human video generation.
+
+Reference:
+
+[1] Zhou Y, Zhu X, Ren S, et al. EvalTalker: Learning to Evaluate Real-Portrait-Driven Multi-Subject Talking Humans[J]. arXiv preprint arXiv:2512.01340, 2025.
+
+💡 Quick Start
+
+Clone the repo
+
+git clone --single-branch --branch main https://github.com/meituan-longcat/LongCat-Video
+cd LongCat-Video
+
+Install dependencies
+
+#
+create conda environment
+
+conda create -n longcat-video python=3.10
+conda activate longcat-video
+
+#
+install torch (configure according to your CUDA version)
+
+pip install torch==2.6.0+cu124 torchvision==0.21.0+cu124 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+#
+install flash-attn-2
+
+pip install ninja
+pip install psutil
+pip install packaging
+pip install flash_attn==2.7.4.post1
+
+#
+install other requirements
+
+pip install -r requirements.txt
+
+#
+install longcat-video-avatar requirements
+
+conda install -c conda-forge librosa
+conda install -c conda-forge ffmpeg
+pip install -r requirements_avatar.txt
+
+FlashAttention-2 is enabled in the model config by default; you can also change the model config ("./weights/LongCat-Video-Avatar/avatar_multi/config.json" and "./weights/LongCat-Video-Avatar/avatar_single/config.json") to use FlashAttention-3 or xformers once installed.
+
+⛽️ Model Download
+
+Models
+
+Description
+
+Download Link
+
+LongCat-Video
+
+foundational video generation
+
+🤗
+Huggingface
+
+LongCat-Video-Avatar-Single
+
+single-character audio-driven video generation
+
+🤗
+Huggingface
+
+LongCat-Video-Avatar-Multi
+
+multi-character audio-driven video generation
+
+🤗
+Huggingface
+
+Download models using huggingface-cli:
+
+pip install "huggingface_hub[cli]"
+huggingface-cli download meituan-longcat/LongCat-Video --local-dir ./weights/LongCat-Video
+huggingface-cli download meituan-longcat/LongCat-Video-Avatar --local-dir ./weights/LongCat-Video-Avatar
+
+🔑 Quick Inference
+
+Usage Tips
+
+Lip synchronization accuracy:​​ Audio CFG works optimally between 3–5. Increase the audio CFG value for better synchronization.
+
+Prompt Enhancement: Include clear verbal-action cues (e.g., talking, speaking) in the prompt to achieve more natural lip movements.
+
+Mitigate repeated actions: Setting the reference image index（--ref_img_index, default to 10） between 0 and 24 ensures better consistency, while selecting other ranges (e.g., -10 or 30) helps reduce repeated actions. Additionally, increasing the mask frame range (--mask_frame_range, default to 3) can further help mitigate repeated actions, but excessively large values may introduce artifacts.
+
+Super resolution: Our model is compatible with both 480P and 720P, which can be controlled via --resolution.
+
+Dual-Audio Modes: Merge mode (set audio_type to para) requires two audio clips of equal length, and the resulting audio is obtained by summing the two clips; Concatenation mode (set audio_type to add) does not require equal-length inputs, and the resulting audio is formed by sequentially concatenating the two clips with silence padding for any gaps, where by default person1 speaks first and person2 speaks afterward.
+
+Single-Person Animation
+
+#
+Audio-Text-to-Video
+
+torchrun --nproc_per_node=2 run_demo_avatar_single_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --stage_1=at2v --input_json=assets/avatar/single_example_1.json
+
+#
+Audio-Image-to-Video
+
+torchrun --nproc_per_node=2 run_demo_avatar_single_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --stage_1=ai2v --input_json=assets/avatar/single_example_1.json
+
+#
+Audio-Text-to-Video and Video-Continuation
+
+torchrun --nproc_per_node=2 run_demo_avatar_single_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --stage_1=at2v --input_json=assets/avatar/single_example_1.json --num_segments=5 --ref_img_index=10 --mask_frame_range=3
+
+#
+Audio-Image-to-Video and Video-Continuation
+
+torchrun --nproc_per_node=2 run_demo_avatar_single_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --stage_1=ai2v --input_json=assets/avatar/single_example_1.json --num_segments=5 --ref_img_index=10 --mask_frame_range=3
+
+Multi-Person Animation
+
+#
+Audio-Image-to-Video
+
+torchrun --nproc_per_node=2 run_demo_avatar_multi_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --input_json=assets/avatar/multi_example_1.json
+
+#
+Audio-Image-to-Video and Video-Continuation
+
+torchrun --nproc_per_node=2 run_demo_avatar_multi_audio_to_video.py --context_parallel_size=2 --checkpoint_dir=./weights/LongCat-Video-Avatar --input_json=assets/avatar/multi_example_1.json --num_segments=5 --ref_img_index=10 --mask_frame_range=3
+
+⚖️ License Agreement
+
+The
+model weights
+are released under the
+MIT License
+.
+
+Any contributions to this repository are licensed under the MIT License, unless otherwise stated. This license does not grant any rights to use Meituan trademarks or patents.
+
+See the
+LICENSE
+file for the full license text.
+
+🧠 Usage Considerations
+
+This model has not been specifically designed or comprehensively evaluated for every possible downstream application.
+
+Developers should take into account the known limitations of large language models, including performance variations across different languages, and carefully assess accuracy, safety, and fairness before deploying the model in sensitive or high-risk scenarios.
+It is the responsibility of developers and downstream users to understand and comply with all applicable laws and regulations relevant to their use case, including but not limited to data protection, privacy, and content safety requirements.
+
+Nothing in this Model Card should be interpreted as altering or restricting the terms of the MIT License under which the model is released.
+
+📖 Citation
+
+We kindly encourage citation of our work if you find it useful.
+
+@misc{meituanlongcatteam2025longcatvideoavatartechnicalreport,
+title={LongCat-Video-Avatar Technical Report},
+author={Meituan LongCat Team},
+year={2025},
+eprint={},
+archivePrefix={arXiv},
+primaryClass={cs.CV},
+url={},
+}
+
+🙏 Acknowledgements
+
+We would like to thank the contributors to the
+Wan
+,
+UMT5-XXL
+,
+Diffusers
+and
+HuggingFace
+repositories, for their open research.
+
+📞 Contact
+
+Please contact us at
+longcat-team@meituan.com
+or join our WeChat Group if you have any questions.
+
+Downloads last month
+
+111
+
+Inference Providers
+
+NEW
+
+This model isn't deployed by any Inference Provider.
+
+🙋
+
+7
+
+Ask for provider support
+
+Spaces using
+meituan-longcat/LongCat-Video-Avatar
+
+6
+
+Paper for
+meituan-longcat/LongCat-Video-Avatar
+
+Paper
+•
+2512.01340
+•
+
+Published
+Dec 1, 2025

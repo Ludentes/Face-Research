@@ -1,0 +1,93 @@
+D-ID Pricing Plans | Generative AI Video Platform
+
+Skip to main content
+
+Go to API Pricing
+
+How do minutes work?
+
+When you create a video, the duration is deducted from the total minutes available in your plan. The length of the video is rounded up to the nearest 15-second interval. For example, a 1-minute and 10-second video will consume 1 minute and 15 seconds.
+
+Do unused minutes carry over to the next month?
+
+Minutes do not accumulate, they are renewed every month and unused minutes become void.
+
+How can I change my credit card details?
+
+1. Click the menu on the bottom left and click “Billing”
+
+2. Click the pen icon and change the details.
+
+Why do videos have a D-ID watermark on the Trial and Lite plans?
+
+It is important for us, as a company that enables users to create AI-based content, that there is transparency about the synthetic nature of the videos they generate. This is also reflected in our ethical manifesto, available at
+https://www.d-id.com/ethics/
+. Note, a full-screen watermark appears for trial users.
+
+How do I cancel my subscription?
+
+To cancel your subscription, go to “Billing” > “Cancel plan”
+
+How do I delete my account?
+
+If you’d like to delete your account, please contact
+support@d-id.com
+. Deleting your account will remove your access to D-ID, along with all your generated or translated videos, Agents, and stored data. If you decide to return, you can sign up again, but your previous data cannot be recovered.
+
+How do I switch from a monthly plan to an annual plan (and vice versa)?
+
+You can switch from a monthly to a yearly plan anytime by simply choosing an annual plan. There’s no need to contact support.
+
+Similarly, you can also switch from a yearly to a monthly plan and the update will take effect at the end of your current billing cycle.
+
+What happens to my data if I cancel my subscription?
+
+If you cancel your subscription, your plan will remain active until the end of the current billing period. Afterward, your account will be downgraded. As a free user, if you do not use D-ID for 6 months, your data will be deleted, but we will notify you via email before this happens.
+
+How can I get an API key?
+
+Login to D-ID, go to your
+Account page
+, and generate your API key.
+
+How do you calculate my minutes when I use the API?
+
+Minutes used via the API are deducted from the same balance as your web version of D-ID.
+
+Where can I find the API documentation?
+
+API documentation is available at the
+Developer Hub
+.
+
+“D-ID exceeded all of my expectations with their generative AI solutions. Their technology transformed my project, Convo.ai,
+
+from a standard AI mobile solution to something that is truly unique & intuitive. Their commitment to excellence and
+
+cutting-edge technology make D-ID the go-to choice for anyone seeking superior generative AI services.”
+
+Andrew McCalla
+
+Founder & CEO, Convo AI
+
+“As a Conversational AI provider, by using D-ID technology we’re able to showcase our value proposition of having a live conversation
+
+with a generated photorealistic person in real-time using a neural voice across different channels (web and app). D-ID’s API is well
+
+documented and the D-ID technical team was very supportive during the implementation phase.”
+
+Fernando Moreira
+
+Senior Program Director, Defined AI
+
+“In summary, D-ID has been the best solution we’ve found for achieving our mission. Their technology is not just innovative but also
+
+perfectly aligns with our focus on Social Emotional Learning (SEL), adding an emotionally resonant layer to the learning environment.
+
+We couldn’t have asked for a better partner in pioneering the future of English learning.”
+
+Michael Peled
+
+CEO, SingIt
+
+TRY NOW

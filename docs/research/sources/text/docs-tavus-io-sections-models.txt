@@ -1,0 +1,98 @@
+Models - Tavus
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+​
+Phoenix: Face Rendering Model
+
+Phoenix is built on a Gaussian diffusion model that generates
+lifelike digital faces with natural facial movements, micro-expressions, and real-time emotional responses
+.
+
+​
+Key Features
+
+Full-Face Animation
+Dynamically generates full-face expressions, micro-movements, and emotional shifts in real time.
+True Realism
+Achieves the highest fidelity by rendering with pristine identity preservation.
+Driven Emotion
+Adjusts expressions based on context, tone, and conversational cues.
+
+​
+Raven: Perception Model
+
+Raven is the first contextual perception system that
+enables machines to see, hear, reason, and understand like humans in real-time
+, interpreting emotions, speaking tone, body language, and environmental context to enhance conversation.
+
+​
+Key Features
+
+Emotional Intelligence
+Interprets emotion, intent, and expression from both visual cues and vocal tone - detecting sarcasm, frustration, excitement, and more.
+Ambient Awareness
+Continuously analyzes visual and audio streams to detect presence, environmental changes, and user state in real-time.
+Callout Key Events
+Monitors for specified gestures, objects, behaviors, or audio cues (like tone shifts) and triggers functions automatically.
+Multi-channel Processing
+Processes camera feeds, user audio, and screen share so Raven has full context for the call.
+
+​
+Raven-2
+
+Select
+layers.perception.perception_model: "raven-2"
+for camera, screen, and audio perception with visual history during the conversation. Raven-2 distinguishes the latest visible state from recent changes and builds camera and screen timelines, allowing the PAL to answer questions about content shown earlier in the call.
+
+Raven-2 also adds dedicated
+screen_awareness_queries
+and tools with
+origin: "screen"
+. Existing visual and audio settings remain supported. Raven-1 is still the default when
+perception_model
+is omitted. See
+Perception
+for configuration and upgrading an existing PAL.
+
+A Raven-2 PAL can also speak up on its own about what it sees on camera, based on its instructions.
+Callouts
+are on by default for Raven-2.
+
+​
+Screen share
+
+When Raven is enabled, participants can share their screen in the conversation and the PAL can see that shared content - not only the camera feed. No extra setup is required beyond using Raven. See
+Screen Share
+for how it works and
+Perception
+for layer configuration.
+
+​
+Sparrow: Conversational Turn-Taking Model
+
+Sparrow is a transformer-based model built for
+dynamic, natural conversations
+, reading tone, rhythm, and subtle cues to decide when to listen, wait, or speak. It is designed to reduce PAL interruptions, handle user backchannels and interruptions gracefully, respond quickly, and maintain conversational flow in the presence of background noise.
+
+See
+Conversational Flow
+for configuration.
+
+​
+Key Features
+
+Conversational Awareness
+Understands meaning, tone, and timing to respond naturally like a human.
+Turn Sensitivity
+Understands human speech rhythm, capturing cues and pauses for natural interactions.
+Heuristics & ML
+Adapts to speaking styles and conversation patterns using heuristics and machine learning.
+Optimized Latency
+Delivers ultra-fast response times for seamless real-time conversation.

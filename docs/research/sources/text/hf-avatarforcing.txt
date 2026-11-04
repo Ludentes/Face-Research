@@ -1,0 +1,129 @@
+lycui/AvatarForcing · Hugging Face
+
+AvatarForcing
+
+One-Step Streaming Talking Avatars via Local-Future Sliding-Window Denoising
+
+AvatarForcing is a
+one-step streaming diffusion
+framework for talking avatars. It generates video from
+one reference image + speech audio + (optional) text prompt
+, using
+local-future sliding-window denoising
+with
+heterogeneous noise levels
+and
+dual-anchor temporal forcing
+for long-form stability. For method details, see:
+https://arxiv.org/abs/2603.14331
+
+This Hugging Face repo (
+lycui/AvatarForcing
+) provides two training-stage checkpoints:
+
+ode_audio_init.pt
+: stage-1
+ODE
+initialization weights
+
+model.pt
+: stage-2
+DMD
+weights
+
+Model Download
+
+Models
+
+Download Link
+
+Notes
+
+Wan2.1-T2V-1.3B
+
+🤗
+Huggingface
+
+Base model (student)
+
+AvatarForcing
+
+🤗
+Huggingface
+
+ode_audio_init.pt
+(ODE) +
+model.pt
+(DMD)
+
+Wav2Vec
+
+🤗
+Huggingface
+
+Audio encoder
+
+Download models using
+huggingface-cli
+:
+
+pip install
+"huggingface_hub[cli]"
+
+mkdir
+-p pretrained_models
+
+huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir ./pretrained_models/Wan2.1-T2V-1.3B
+huggingface-cli download facebook/wav2vec2-base-960h --local-dir ./pretrained_models/wav2vec2-base-960h
+huggingface-cli download lycui/AvatarForcing --local-dir ./pretrained_models/AvatarForcing
+
+Citation
+
+@misc{cui2026avatarforcingonestepstreamingtalking,
+title={AvatarForcing: One-Step Streaming Talking Avatars via Local-Future Sliding-Window Denoising},
+author={Liyuan Cui and Wentao Hu and Wenyuan Zhang and Zesong Yang and Fan Shi and Xiaoqiang Liu},
+year={2026},
+eprint={2603.14331},
+archivePrefix={arXiv},
+primaryClass={cs.CV},
+url={https://arxiv.org/abs/2603.14331},
+}
+
+Downloads last month
+
+-
+
+Downloads are not tracked for this model.
+How to track
+
+Inference Providers
+
+NEW
+
+Image-to-Video
+
+This model isn't deployed by any Inference Provider.
+
+🙋
+
+Ask for provider support
+
+Space using
+lycui/AvatarForcing
+
+1
+
+Paper for
+lycui/AvatarForcing
+
+Paper
+•
+2603.14331
+•
+
+Published
+Mar 15
+
+•
+
+14

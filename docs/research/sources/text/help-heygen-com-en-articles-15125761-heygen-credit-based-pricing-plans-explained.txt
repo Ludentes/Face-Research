@@ -1,0 +1,315 @@
+HeyGen Credit-Based Pricing Plans & Subscriptions Explained | HeyGen Help Center
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Skip to main content
+HeyGen Credit-Based Pricing Plans & Subscriptions Explained
+Here you can find all the up-to-date information on HeyGen’s credit-based subscriptions and pricing.
+A
+Written by
+Avi
+
+Updated this week
+🎬 Prefer to watch? Check out the video below — it covers everything in this article!
+HeyGen is moving to credit-based plans to make pricing clearer, easier to understand, and more flexible as new AI video features become available. Instead of mixing unlimited usage with Premium Credit pool, credits now work as the main usage system across paid plans.
+
+This article covers HeyGen’s credit-based Avatar & Video subscriptions. These are separate from API credits (pay-as-you-go) and LiveAvatar plans.
+
+Click here to learn about our
+API credits to generate videos via API
+, or
+here to learn about our LiveAvatar pricing
+.
+🛎️️
+Important note for Legacy unlimited plan users:
+If you are currently on a legacy unlimited plan, you can keep your existing plan as long as your subscription remains active and in good standing. This article is for the newer credit-based plans. If you cancel your legacy plan or switch to a credit-based plan, you will not be able to switch back to the old legacy plan.
+Note: Legacy Premium Credits now match the rates in this article for paid features (Avatar IV, Avatar V, Video Translation, etc.). Avatar III videos and audio dubbing (no lip-sync translation) remain free and unlimited on legacy plans.
+​
+For more information on our legacy unlimited plans,
+click here.
+Key Features: Credit-Based Plans
+Let’s start with the basics and better explain our Pricing Page by highlighting the key features in each current subscription type.
+
+With credit-based plans, credits are used for video generation, translation and asset creation across HeyGen. Different features may use credits at different rates, and you’ll be able to see your credit balance as you create.
+
+HeyGen Free Plan
+For individuals learning and exploring HeyGen
+The Free plan does not use credits. Instead, Free users have a free video quota.
+Video Generation:
+1–3 free videos, depending on your region
+1 Custom Video Avatar
+3 Video Agent videos per month
+Videos up to 1 minutes in duration
+720p video sharing link
+500+ Stock Video Avatars
+30+ languages
+Share videos
+Features You’ll Love:
+Explore HeyGen before upgrading
+Access to stock avatars and core creation tools
+Share videos
+1 voice clone
+HeyGen Creator Plan
+For individuals creating short-form videos
+Creator includes
+600 credits per month
+for $29/month.
+Video Generation:
+600 credits per month
+Videos up to 30 minutes in duration
+1080p video export
+Credits can be used across supported video generation and asset creation features
+Everything in Free, plus:
+1 or 5 Custom Digital Twin (Video Avatar) slots, depending on region and account creation date
+700+ Stock Video Avatars
+Voice cloning (up to 40 voice clones)
+175+ languages and dialects
+Generate Photo Looks
+Watermark removal
+Brand Kit
+If you run out of credits on Creator, you can upgrade to Pro for more credits. Creator does not support one-time credit purchases.
+
+HeyGen Pro Plan
+For individuals creating videos on a larger scale. Not meant for small / large teams- check out the Business plan below for that!
+
+Pro starts at
+1,000 credits per month for $49/month
+and scales up based on how many credits you need.
+At checkout, you can choose a higher Pro tier with more monthly credits, up to 100,000 credits per month. Pricing increases based on the credit amount selected.
+
+Everything in Creator, plus:
+Flexible Pro credit tiers
+1 or 5 Custom Digital Twin (Video Avatar) slots, depending on region and account creation date
+1,000–100,000 credits per month
+Videos up to 30 minutes in duration
+4K video export
+Edit & proofread translation script
+Access to Seedance 2.0 engine (inside Cinematic Mode, Avatar Shots, Video Agent, and B-Roll creation)
+More room for higher-credit features like Avatar IV / V, Video Agent, video translation, and AI asset generation
+Voice cloning (up to 70 voice clones)
+If you run out of credits on Pro, you can upgrade to a higher Pro tier with more monthly credits. Pro does not use one-time credit packs; instead, you can select the Pro tier that best matches your usage.
+
+HeyGen Business Plan
+For teams and businesses that need scale, security, and advanced control
+The Business plan is designed for growing teams and organizations that need advanced video capabilities, collaboration, and security features.
+
+Business includes
+1,500 credits per month
+for $149/month for the first seat, with additional seats available for $20 per seat/month.
+
+Purchasing additional seats does not increase your credits. The credit pool is shared between all members of the space.
+
+Video Generation:
+1,500 credits per month
+Videos up to 60 minutes in duration
+4K video export
+Increased max duration for Avatar IV video generation
+Edit & proofread translation script
+Credits can be used across supported video generation and asset creation features
+Everything in Pro, plus:
+Add team members for $20 per seat / month
+5 Custom Digital Twin (Video Avatar) slots by default, or 10 in some regions, depending on region and account creation date
+Centralized billing
+Workspace collaboration
+Video draft commenting & editing
+Invites & team management
+Flexible credit add-on purchases with optional auto-recharge
+Brand asset scaling and centralized asset management
+SAML / SSO for secure authentication
+SCORM export for eLearning software
+Learning Management System (LMS) integration support for eLearning and internal development teams
+Screen Recorder for knowledge sharing / eLearning
+Interactive Video Creation for eLearning, including embedded links, branching, quizzes, and more interactivity features in your video
+Business users can purchase additional credits when needed. Extra credits cost
+$0.05 per credit
+and are purchased in blocks of
+100 credits for $5
+. You can adjust the number of credit blocks using the + and - buttons in the add-ons flow.
+
+Auto-reload is also available for Business users who want credits to be added automatically when their balance runs low.
+
+HeyGen Enterprise Plan
+For businesses with custom needs producing studio-quality videos
+Enterprise plans are customized based on your organization’s needs, usage, and contract terms.
+Enterprise may include:
+Custom usage and credit terms
+No standard self-serve credit tier
+Centrally managed roles and access
+SAML / SSO for secure authentication
+SCIM User Provisioning
+Multi-workspace control
+Enterprise-grade security & privacy
+Commercial terms
+Priority customer support
+Dedicated customer success manager
+Tailored onboarding & implementation services
+Invoice billing
+Unlimited voice clones
+Our Enterprise plans have a custom pricing model. Click here to submit a request to our team. Due to limited meeting availability, we may not be able to schedule a call for every submission—but we’ll happily answer all questions via email.
+Each plan is designed to meet the specific needs of individual users, creators, teams, and enterprise clients, providing more features and support as you move up the tiers.
+How Credits Work
+
+Credits are the main usage system for HeyGen’s credit-based paid plans.
+
+Credits can be used for video generation, translation, avatars, AI asset creation, B-roll, and other supported features. Some features use credits per minute of generated output, while others use a fixed number of credits per generation.
+
+Feature Credit Usage
+Features
+Credits Usage
+Avatar III Photo Look
+1 minute = 7 credits
+Avatar III Video Look
+1 minute = 4 credits
+Avatar IV Photo Look
+1 minute = 16 credits
+Avatar IV Video Look
+1 minute = 31 credits
+Avatar V (Photo Look & Video Look)
+1 minute = 48 credits
+Custom Expressive Motion
+1 minute = 40 credits
+Generate Look
+1 look= 1 credit
+AI Model Training
+1 training = 60 credits
+Video Translation (Speed mode)
+1 minute = 6 credits
+Video Translation - Precision mode
+1 minute = 10 credits
+Video Translation - no lipsync
+1 minute = 4 credits
+Generate Image Assets
+1 image = 2 credits
+Generate Video Assets
+Based on the video model you choose in HeyGen Creative Studio, starting at 12 credits per minute (0.2 credits per second). Rates vary by model, resolution, and length.
+Video Agent - standard mode
+1 minute= 80 credits
+Video Agent - Seedance mode
+1 minute= 240 credits
+Motion Designer Assets
+1 asset = 3 credits
+Video podcast / Batch mode
+1 minute = 3 credits
+Instant Highlights
+5 minutes = 1 credit
+Integrations
+Based on feature
+Note: Credit usage may vary based on the feature, model, duration, or generation type selected. When available, HeyGen will show the credit cost in-product before you generate.
+Credit Rollover
+Unused credits may roll over depending on your billing type.
+Monthly subscribers:
+Unused credits roll over for one additional billing cycle.
+For example, if you do not use all of your credits this month, the remaining eligible credits can carry into the next month.
+Annual subscribers:
+Annual subscription
+does not
+provide all the annual credits at once. You receive monthly allocation of your credits, at the monthly billing date anniversary when you purchased your plan. For example, if you purchased your annual plan on January 17th, your credits will be recharged every 17th of that month.
+Unused credits accumulate until your annual renewal date.
+If you cancel your paid plan and move to Free, unused credits do not roll over.
+🛎️
+Credits are used in order of expiration.
+HeyGen always deducts the credits closest to expiring first. So if you have gifted credits alongside your rollover credits, the ones with the earlier expiration date are applied to your next video — no credit goes to waste unnecessarily.
+Add-Ons
+Business Credit Add-Ons
+Business users can purchase additional credits if they need more than their included monthly credit amount.
+Additional Business credits:
+Cost $0.05 per credit
+Minimum purchase: $5 for 100 credits
+Credits are purchased in 100-credit blocks
+Use the + and - buttons in the add-ons flow to increase or decrease the number of packs
+Auto-reload is only available for Business users
+Creator and Pro Credit Add-Ons
+Creator and Pro do not use one-time credit packs.
+Creator users who need more credits can upgrade to Pro.
+Pro users who need more credits can upgrade to a higher Pro tier.
+This makes the credit amount part of the plan itself, instead of a separate recurring credit pack.
+
+Avatar Add-Ons
+Need more avatars than your plan includes? You can add more avatar slots with flexible monthly or yearly plans.
+Included Digital Twin slots can vary by account creation date and region. Creator and Pro accounts include either 1 or 5 slots, depending on region and account creation date. Business accounts include 5 slots by default, or 10 in some regions. You can see the slots on your account on the Avatars page. If you need more, you can add slots at any time as an add-on, and add-on pricing may also vary by account creation date and region.
+
+Add-On Pricing:
+Video Avatar Slots: $29/month or $288/year
+LiveAvatar Slots: $49/month — only available on the LiveAvatar platform
+To access Add-Ons, go to the pricing screen, scroll down to Avatar Add-On, and click Purchase more avatars now. From there, you can select as many Video Avatar slots as you want. Use the plus and minus signs to adjust the quantity before heading to checkout.
+
+️ Note: If you're on a monthly plan, the checkout window will default to the monthly option, but you can toggle to yearly if preferred on the pricing homepage. For those on a yearly plan, only the yearly option will be displayed.
+Contact
+[email protected]
+if you need any purchasing assistance.
+Frequently Asked Questions (FAQ)
+How do credits work?
+Credits are used for video generation and asset creation on HeyGen credit-based paid plans. Different features cost different amounts of credits. Some features charge per minute of output video, while others charge a fixed amount per generation.
+
+Do Free users have credits?
+No. Free users do not use credits. Free users can create 1–3 free videos depending on their region.
+
+What happens if I run out of credits?
+It depends on your plan:
+Creator users can upgrade to Pro for more credits.
+Pro users can upgrade to a higher Pro tier with more credits.
+Business users can buy additional credits in 100-credit blocks, starting at $5 for 100 credits, or turn on auto-reload.
+Can I buy more credits on Creator?
+No. Creator does not support one-time credit purchases. If you need more credits, you can upgrade to Pro.
+
+Can I buy more credits on Pro?
+Pro users can get more credits by upgrading to a higher Pro tier. Pro does not use one-time credit packs.
+
+Can I buy more credits on Business?
+Yes. Business users can purchase extra credits for $0.05 per credit. The minimum purchase is $5 for 100 credits, and you can increase the purchase in $5 / 100-credit increments using the + and - buttons in the add-ons flow.
+Business users can also enable auto-reload so additional credits are added automatically when the balance runs low.
+
+Do unused credits roll over?
+Yes, depending on your billing type.
+Monthly subscribers: unused credits roll over for one additional billing cycle.
+Annual subscribers: unused credits accumulate until the annual renewal date.
+If you cancel your paid plan and move to Free, unused credits do not roll over.
+
+What happens if I upgrade my plan mid-cycle?
+When you upgrade to a higher plan or Pro tier mid-cycle, you’ll be charged the difference and receive the additional credits right away. You will receive your credits immediately and be charged the difference. These credits will roll over to the next cycle as well, as long as you keep your paid plan.
+​
+Example, if you purchase Creator with 600 credits for $29 on 1/1, and choose to upgrade to Pro $49 and 1000 credits on 1/20, you will be charged the $20 difference and received the 400 credit difference on the 1/20, to be applied until the end of next billing cycle on 3/1.
+
+What happens if I downgrade my plan?
+Downgrades usually take effect at the start of your next billing cycle, so you can continue using your current plan until the end of the billing period.
+If you downgrade to a lower paid monthly plan, eligible unused credits can roll over for one additional billing cycle. If you cancel and move to Free, unused credits do not roll over.
+
+How do I cancel my plan / subscription?
+To cancel your plan
+review this article o
+r the text below
+Log in to your HeyGen account.
+Go to Settings > Plan & Billing.
+Next to the upgrade button, click the down arrow.
+Choose Cancel your plan.
+️ Note: Pausing your plan does not cancel it entirely—it simply postpones the next charge by 30 days from your last billing cycle date. If you'd like to pause indefinitely, we recommend canceling your account. All of your avatars, videos, and projects will still be accessible when you're ready to sign back up.
+
+How do I upgrade my plan?
+You can upgrade your plan anytime through your Plan & Billing settings. Upgrades take effect immediately as you will be charged the difference in pricing and receive the additional credits difference immediately based on the plan change.
+
+Can I switch back to my old legacy unlimited plan?
+No. If you cancel your legacy unlimited plan or switch to a credit-based plan, you will not be able to switch back to the old legacy plan.
+
+I’m on a legacy unlimited plan. Will my plan change automatically?
+No. If you are already on a legacy paid plan, you can keep your current plan as long as your subscription remains active and in good standing. This article is for credit-based plans.
+
+How do I apply a promo code or discount to my purchase?
+If you’ve received a promo or discount code, you can apply it at checkout. Look for the Add promotion code field under the subtotal before you complete your purchase. We occasionally share codes like these, so be sure to follow us on social media to catch future deals.
+Related Articles
+HeyGen Legacy Unlimited plans
+HeyGen API Pricing & Credits Explained
+How to Get Started with HeyGen for Mobile
+How Dynamic &. Non-Dynamic Limits work at HeyGen
+How to Use Credits on HeyGen
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃

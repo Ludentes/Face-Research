@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- prettier-ignore -->
+        <script id="web-rum-probe">(function(){var CFG = { threshold: 10000, cap: 30, resBatch: 8, resInterval: 3000, forwardToThirdPartyRum: false, resourceFilterDomains: ["adsrvr\\.org","ads-twitter\\.com","linkedin\\.com","stackadapt\\.com","appsflyer\\.com","baidu\\.com","branch\\.io","yimg\\.com","yahoo\\.com","licdn\\.com","gstatic\\.com","redditstatic\\.com","bugsnag\\.com","bat\\.bing\\.(?:com|net)","googleadservices\\.com","google-analytics\\.com","www\\.google\\.com","reddit\\.com","go-mpulse\\.net","pdst\\.fm","facebook\\.(?:com|net)","akamaihd\\.net","spotify\\.com","doubleclick\\.net","googletagmanager\\.com"], dropOpaqueErrors: true, debug: false };if(!(window.TigerBridge&&window.TigerBridge.reportTrackEvents)){return}var traceId=window.__APP_TRACE_ID__||"";var injectedN=window.__APP_WHITESCREEN_N__;var N=typeof injectedN==="number"&&injectedN>=1e3&&injectedN<=1e5?injectedN:CFG.threshold;var CAP=CFG.cap;var RES_BATCH=CFG.resBatch;var RES_INTERVAL=CFG.resInterval;var forwardToThirdPartyRum=CFG.forwardToThirdPartyRum;var FILTER=CFG.resourceFilterDomains||[];var FILTER_RE=createResourceFilterRegExp(FILTER);var DROP_OPAQUE=CFG.dropOpaqueErrors;var DEBUG=CFG.debug;var errors=[];var resources=[];var sent={};var destroyed=false;var lastSend=-Infinity;var sentCnt=0;var po=null;var resTimer=null;var reportFails=0;var navStart=(new Date).getTime();function clock(){return window.performance&&performance.now?performance.now():(new Date).getTime()-navStart}function now(){return(new Date).getTime()}function genEventId(){return"eventxxxxxxx4xxxyxxxxxxxxxxxxxxx".replace(/[xy]/g,function(c){var r=Math.random()*16|0;return(c==="x"?r:r&3|8).toString(16)})}function push(arr,x){if(arr.length<CAP){arr.push(x)}}function createResourceFilterRegExp(patterns){var validPatterns=[];var i;var pattern;for(i=0;i<patterns.length;i++){pattern=String(patterns[i]||"");if(pattern){validPatterns.push(pattern)}}return validPatterns.length?new RegExp(validPatterns.join("|"),"i"):null}function isFilteredResource(url){return!!(url&&FILTER_RE&&FILTER_RE.test(url))}function createEventItem(type){return{time:now(),type:type,eventId:genEventId(),traceId:traceId,url:window.location.href}}function clampDur(v){return v>0?v:0}function seg(start,end){return start>0&&end>0?clampDur(end-start):-1}function parseTopFrame(stack){if(!stack){return null}var m=/((?:https?|file|capacitor|ionic|webpack-internal):\/\/[^\s)]+?):(\d+):(\d+)/.exec(stack);if(!m){return null}return{name:m[1],line:+m[2],column:+m[3]}}function resInitiatorType(tag){tag=String(tag||"").toUpperCase();if(tag==="SCRIPT"){return"script"}if(tag==="IMG"){return"img"}if(tag==="LINK"){return"link"}if(tag==="VIDEO"||tag==="AUDIO"||tag==="SOURCE"){return"media"}return tag?tag.toLowerCase():"other"}function resStatusCode(url){try{if(url&&window.performance&&performance.getEntriesByName){var es=performance.getEntriesByName(url);if(es&&es.length){var rs=es[es.length-1].responseStatus;if(typeof rs==="number"){return String(rs)}}}}catch(err){}return"0"}function buildResourceItem(entry){var item=createEventItem("resource");var rs=+entry.responseStatus||0;var redirectStart=+entry.redirectStart||0;var redirectEnd=+entry.redirectEnd||0;var dnsStart=+entry.domainLookupStart||0;var dnsEnd=+entry.domainLookupEnd||0;var connectStart=+entry.connectStart||0;var connectEnd=+entry.connectEnd||0;var sslStart=+entry.secureConnectionStart||0;var reqStart=+entry.requestStart||0;var respStart=+entry.responseStart||0;var respEnd=+entry.responseEnd||0;item.name=entry.name||"";item.startTime=+entry.startTime||0;item.duration=+entry.duration||0;item.initiatorType=entry.initiatorType||"";item.nextHopProtocol=entry.nextHopProtocol||"";item.renderBlockingStatus=entry.renderBlockingStatus||"";item.statusCode=String(rs);item.success=rs===0?-1:rs>=400?0:1;item.size=+entry.decodedBodySize||0;item.transferSize=+entry.transferSize||0;item.redirectDuration=redirectStart>0?redirectEnd>0?clampDur(redirectEnd-redirectStart):-1:0;item.dnsDuration=seg(dnsStart,dnsEnd);item.connectDuration=seg(connectStart,connectEnd);item.sslDuration=sslStart>0?clampDur(connectEnd-sslStart):connectEnd>0?0:-1;item.firstByteDuration=seg(reqStart,respStart);item.downloadDuration=seg(respStart,respEnd);return item}function report(items){if(!items||!items.length){return true}var pending=[];var i;for(i=0;i<items.length;i++){if(items[i]&&items[i].eventId&&sent[items[i].eventId]){continue}pending.push(items[i])}if(!pending.length){return true}try{if(window.TigerBridge&&window.TigerBridge.reportTrackEvents){if(DEBUG&&window.console&&console.debug){console.debug("[web-rum] report → TigerBridge.reportTrackEvents",pending)}window.TigerBridge.reportTrackEvents(JSON.stringify({items:pending}));for(i=0;i<pending.length;i++){if(pending[i]&&pending[i].eventId){sent[pending[i].eventId]=1}}return true}return false}catch(e){reportFails++;return false}}function reportNow(){if(sentCnt>=20||clock()-lastSend<200){return}lastSend=clock();sentCnt++;report(errors.slice(-3))}function onError(e){if(destroyed){return}var item;if(e&&e.target&&e.target.tagName){var url=e.target.src||e.target.href||"";if(isFilteredResource(url)){return}item=createEventItem("error");item.errSource="res_error";item.name=url;item.initiatorType=resInitiatorType(e.target.tagName);item.statusCode=resStatusCode(url);item.errStartTime=clock()}else{var message=e.message||"";var stack=e.error&&e.error.stack?String(e.error.stack).slice(0,1e3):"";if(DROP_OPAQUE&&!stack&&(message===""||message==="Script error.")){return}item=createEventItem("error");item.errSource="js_error";item.name=e.filename||"";item.errorName=e.error&&e.error.name?e.error.name:"";item.errMessage=message;item.errStack=stack;item.errLine=e.lineno;item.errColumn=e.colno;item.errStartTime=clock()}push(errors,item);reportNow()}function stringifyRejectionReason(value){if(value===null){return"null"}if(typeof value==="undefined"){return"undefined"}if(typeof value!=="object"){try{return String(value)}catch(e){return"UnserializableValue"}}try{var ancestors=[];var json=JSON.stringify(value,function(key,current){var i;while(ancestors.length&&ancestors[ancestors.length-1]!==this){ancestors.pop()}if(current&&typeof current==="object"){for(i=0;i<ancestors.length;i++){if(ancestors[i]===current){return"[Circular]"}}ancestors.push(current)}return current});if(typeof json!=="undefined"){return json}}catch(e){}var keys=[];try{keys=Object.keys(value)}catch(e){}return"UnserializableObject{keys:"+(keys.length?keys.join(","):"unknown")+"}"}function onRejection(e){if(destroyed){return}var reason=e?e.reason:"";var item=createEventItem("error");var reasonMessage=reason&&reason.message;var isErrorLike=reason&&typeof reason==="object"&&(typeof reason.name==="string"||typeof reason.stack==="string"||typeof reason.message!=="undefined");item.errSource="promise_reject";if(reason&&(reasonMessage||isErrorLike)){item.errorName=reason.name?String(reason.name):"Error";item.errMessage=reasonMessage!==undefined&&reasonMessage!==null&&reasonMessage!==""?stringifyRejectionReason(reasonMessage).slice(0,500):String(reason.name||"Error").slice(0,500);item.errStack=reason.stack?String(reason.stack).slice(0,1e3):"";var frame=parseTopFrame(item.errStack);if(frame){item.name=frame.name;item.errLine=frame.line;item.errColumn=frame.column}}else{item.errMessage=stringifyRejectionReason(reason).slice(0,500)}item.errStartTime=clock();push(errors,item);reportNow()}function flush(){report(resources.concat(errors))}function flushResources(){resTimer=null;if(destroyed||resources.length===0){return}var batch=resources.slice(0,RES_BATCH);if(report(batch)){resources.splice(0,batch.length);if(resources.length>0){scheduleResFlush()}}}function scheduleResFlush(){if(destroyed){return}if(resources.length>=RES_BATCH){if(resTimer){clearTimeout(resTimer)}resTimer=setTimeout(flushResources,0);return}if(!resTimer){resTimer=setTimeout(flushResources,RES_INTERVAL)}}function destroy(){if(destroyed){return}flush();destroyed=true;window.removeEventListener("error",onError,true);window.removeEventListener("unhandledrejection",onRejection);if(resTimer){clearTimeout(resTimer);resTimer=null}if(po){try{po.disconnect()}catch(e){}po=null}}function isBodyEmpty(){if(document.querySelector("[isHtmlLoading]")){return true}var b=document.body;if(!b||b.children.length===0){return true}var text=(b.innerText||b.textContent||"").replace(/^\s+|\s+$/g,"");return text.length===0&&b.querySelectorAll("img,svg,canvas,video").length===0}window.addEventListener("error",onError,true);window.addEventListener("unhandledrejection",onRejection);if(window.PerformanceObserver){try{po=new PerformanceObserver(function(list){if(destroyed){return}try{var es=list.getEntries();var i;for(i=0;i<es.length;i++){if(es[i].entryType==="resource"){var resource=es[i].toJSON();if(resource.initiatorType==="xmlhttprequest"||resource.initiatorType==="fetch"){continue}if(isFilteredResource(resource.name)){continue}push(resources,buildResourceItem(resource))}}scheduleResFlush()}catch(e){}});po.observe({entryTypes:["resource"],buffered:true})}catch(e){}}var wait=N-clock();setTimeout(function(){if(destroyed){return}if(isBodyEmpty()){var item=createEventItem("webview_white_screen");item.white_screen_type="dom_empty";report([item])}},wait>0?wait:0);window.__TIGER_PROBE__={flush:flush,destroy:destroy,forwardToThirdPartyRum:forwardToThirdPartyRum,getData:function(){return{errors:errors,resources:resources,reportFails:reportFails}}}})();</script>
+         <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no" />
+          <meta name="author" content="tigerbrokers" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="renderer" content="webkit" />
+        <meta name="apple-itunes-app" content="app-id=1023600494" />
+        <meta name="google-play-app" content="app-id=com.tigerbrokers.stock" />
+        <meta name="theme-color" content="#ffe100" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileImage" content="https://c1.itigergrowtha.com/portal5/static/media/tiger.round.9e976572.png" />
+        <meta name="screen-orientation" content="portrait" />
+        <meta name="x5-orientation" content="portrait" />
+        <meta name="fullscreen" content="yes" />
+        <meta name="full-screen" content="yes" />
+        <meta name="x5-fullscreen" content="true" />
+        <meta name="x5-page-mode" content="app" />
+        <meta name="nightmode" content="disable" />
+        <meta name="wap-font-scale" content="no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+            name="apple-mobile-web-app-title"
+            content="Official Website of Tiger Brokers" />
+        <meta name="facebook-domain-verification" content="uh6rkcckhy6afy4jvfe53jyjed7dzw" />
+         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="https://c1.itigergrowtha.com/portal5/static/media/logo.152.1b48fddb.png" sizes="152x152" />
+        <link rel="apple-touch-icon" href="https://c1.itigergrowtha.com/portal5/static/media/logo.120.b1a2a198.png" sizes="120x120" />
+        <link rel="apple-touch-icon" href="https://c1.itigergrowtha.com/portal5/static/media/logo.76.f451ce0c.png" sizes="76x76" />
+        <link rel="apple-touch-icon" href="https://c1.itigergrowtha.com/portal5/static/media/logo.60.ebe437a8.png" sizes="60x60" />
+        <meta name="google" content="notranslate" />
+        <link rel="license" href="/info/declaration" />
+        <link rel="me" href="mailto:service@tigerbrokers.com.sg" />
+        <link rel="me" href="sms:+6569500591" />
+  <title data-react-helmet="true">IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses - Tiger Brokers</title>
+            <meta data-react-helmet="true" property="og:image" content="https://c1.itigergrowtha.com/portal5/static/media/og-logo.0a0bd8dc.png"/><meta data-react-helmet="true" property="og:url" content="https://www.itiger.com/news/1160799526"/><meta data-react-helmet="true" name="twitter:image" content="https://c1.itigergrowtha.com/portal5/static/media/og-logo.0a0bd8dc.png"/><meta data-react-helmet="true" property="og:site_name" content="Tiger Brokers"/><meta data-react-helmet="true" name="twitter:url" content="https://www.itiger.com/news/1160799526"/><meta data-react-helmet="true" name="description" content="IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses. On Tiger Brokers&#x27; website to stay informed on market trends, price movements, and investment strategies, helping you make smarter decisions."/><meta data-react-helmet="true" name="keywords" content="market trends,stock news,industry analysis,stock market quotes,market quotes,investment strategies,real time updates,global markets,Tiger Brokers"/><meta data-react-helmet="true" property="og:title" content="IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses"/><meta data-react-helmet="true" property="og:description" content="IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses. On Tiger Brokers&#x27; website to stay informed on market trends, price movements, and investment strategies, helping you make smarter decisions."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:title" content="IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses"/><meta data-react-helmet="true" name="twitter:description" content="IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses. On Tiger Brokers&#x27; website to stay informed on market trends, price movements, and investment strategies, helping you make smarter decisions."/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:site" content="@Tiger_Brokers"/><meta data-react-helmet="true" name="twitter:creator" content="@Tiger_Brokers"/>
+              <link rel="stylesheet" href="https://c1.itigergrowtha.com/portal5/static/css/vendor.867bf3dd.css" />
+<link rel="stylesheet" href="https://c1.itigergrowtha.com/portal5/static/css/common.6982df39.css" />
+<link rel="stylesheet" href="https://c1.itigergrowtha.com/portal5/static/css/financial-centre.9c2edbe7.css" />
+<noscript>
+    <link rel="preload" as="style" href="https://c1.itigergrowtha.com/portal5/static/js/runtime.3204b96f.js" />
+    <link rel="preload" as="style" href="https://c1.itigergrowtha.com/portal5/static/js/i18n.4ef1aa92.js" />
+    <link rel="preload" as="style" href="https://c1.itigergrowtha.com/portal5/static/js/vendor.f0736bf9.js" />
+    <link rel="preload" as="style" href="https://c1.itigergrowtha.com/portal5/static/js/common.725557f0.js" />
+    <link rel="preload" as="style" href="https://c1.itigergrowtha.com/portal5/static/js/financial-centre.3f34b8c2.js" />
+</noscript>
+<script>
+       var SETTINGS = {
+           isProfileHost: false,
+           isGenericRequest: false,
+           region: 'SGP',
+           edition: 'fundamental',
+           tenantId: 'TBGLOBAL',
+           entityId: 'TBSG',
+           pathRegion: 'sg',
+           pathLang: '',
+           globalPrefix: '',
+           prefixPattern: ':pathRegion(cn|sg|au|nz|hk)?/:pathLang(en|hans|hant)?',
+           cgWhiteDomainList: ["www.tradeup.com","www.tigerbrokers.nz","www.itigerup.com","www.tigertrader.app","www.tigerhkgo.com","www.gotigerhk.com","www.thetigerbrokers.com","www.tigrgood.com","www-nd.tigerbaas.com","www.itigertrader.com","www.atigrburst.com","www.atigrpulse.com","www.pocboost.com","cn.tigrdw.com","hk.tigrdw.com","au.tigrdw.com","sg.tigrdw.com","nz.tigrdw.com","ms.tigrdw.com","www.tigrdw.com","www.etasphere.com","au.etasphere.com","sg.etasphere.com","tradeup-us-uat1.qa.tigerfintech.com","www.itigertech.com","www.uat.itigertech.com","cn.tigermarketr.com","hk.tigermarketr.com","ms.tigermarketr.com","nz.tigermarketr.com","au.tigermarketw.com","cn.tigermarketw.cn","hk.tigermarketw.com","ms.tigermarketw.com","nz.tigermarketw.com","sg.tigermarketw.com","avnrnz.itigertech.com","www-sg.uat.tigerbrokers.net","itfsua.uat.itigertech.com","itfsub.uat.itigertech.com","www-tbus.uat.tradeup.com","www-wlsec.uat.itigertech.com","www-fswh.uat.itigertech.com","www-csbhk.uat.itigertech.com","www-paob.uat.itigertech.com","www-ituata.uat.itigertech.com","www-ituatb.uat.itigertech.com","avnrhk.uat.itigertech.com","zabank.uat.itigertech.com","cmsihk.uat.itigertech.com","sg.etaspherek.com","hk.tigeractivity.com","au.tigeractivity.com","www-ituata.itigertech.com","ms.tigerreferral.com","hk1.tigermarketr.com","au.tigershowtime.com","cn.tigershowtime.com","hk.tigershowtime.com","ms.tigershowtime.com","nz1.tigershowtime.com","sg.tigerhit.com","sg.tigerkickoff.com","sgp.itiger.com","hkg.itiger.com","aus.itiger.com","nzl.itiger.com","www-paob.itigertech.com"],
+           lang: 'en_US',
+           license: 'TBSG',
+           location: 'UZB',
+           currentUser: null,
+           guestUser: {"uuid":5100085958,"token_type":"Guest","access_token":"eyJhbGciOiJFUzI1NiIsImtpZCI6IjVVQzB5NGhnUXUiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3OTYzNjkwNzAsImlzcyI6IkdMT0JBTCIsIm5vbmNlIjoiZ0V5VTV3bGFOSmhnendvR0JCcjB4Y1BvV2tnWWI5Z1RDbk1WR1FXMnUyT1VLZVA3aTUiLCJ0ZW5hbnRfaWQiOiJUQkdMT0JBTCJ9.z89hDuMuRax-B1UVQJf-BJDdxWTLq7jdfArtHTMZ3ac_4YL-OlkPkszsFAZWqyAZaNxlGfSq8Vc8rwLs4-RIpA","expires_at":1796369070,"scopes":"common read write guest","pid":0,"authRoute":"GLOBAL","tenantId":"TBGLOBAL","env":"default"},
+           promotionMaterial: {"buoy":"quoteOrdinaryBuoy","bottomBanner":"quoteBottomBanner"},
+       };
+    var __downloadLinks = {"ios":"https://da.tigerfintech.com/r/m","android":"https://da.tigerfintech.com/r/u","androidMarket":"market://details?id=com.tigerbrokers.stock","mac":"https://download.tigerfintech.com/desktop/cdn/f/TigerTrade_latest.dmg","windows":"https://download.tigerfintech.com/desktop/cdn/f/TigerTradeSetup_latest.exe","region":"SGP"};
+</script>
+         <!-- canonical -->
+        <link rel="canonical" href="https://www.itiger.com/news/1160799526" />
+        <!-- hreflang -->
+        <link rel="alternate" hreflang="en" href="https://www.itiger.com/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hant-SG" href="https://www.itiger.com/hant/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hans-SG" href="https://www.itiger.com/hans/news/1160799526" />
+        <link rel="alternate" hreflang="en-HK" href="https://www.itiger.com/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hant-HK" href="https://www.itiger.com/hant/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hans-HK" href="https://www.itiger.com/hans/news/1160799526" />
+        <link rel="alternate" hreflang="en-NZ" href="https://www.itiger.com/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hant-NZ" href="https://www.itiger.com/hant/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hans-NZ" href="https://www.itiger.com/hans/news/1160799526" />
+        <link rel="alternate" hreflang="en-AU" href="https://www.itiger.com/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hant-AU" href="https://www.itiger.com/hant/news/1160799526" />
+        <link rel="alternate" hreflang="zh-Hans-AU" href="https://www.itiger.com/hans/news/1160799526" />
+        <link rel="alternate" hreflang="x-default" href="https://www.itiger.com/news/1160799526" />
+         <!-- Structured Data -->
+        <script type="application/ld+json">
+            {"@context":"https://schema.org","@graph":[]}
+        </script>
+    </head>
+    <!-- prettier-ignore -->
+    <body class="platform-desktop language-en_US region-SGP page-financial-centre invisible-footer page-financial-centre">
+        <div id="wrap">
+  <nav class="site-top-navbar">
+    <div class="container navbar-collapse">
+        <button class="btn language-nav" data-lang="en_US">
+            ENG/中
+        </button>
+     </div>
+    <script>
+        var _TOPNAV_DATA = {
+            locate: [{"name":"Hot","children":[{"name":"Singapore","code":"SGP","region":"SGP","license":"TBSG"},{"name":"New Zealand","code":"NZL","region":"NZL","license":"TBKIWI"},{"name":"Australia","code":"AUS","region":"AUS","license":"TBAU"},{"name":"Hong Kong SAR","code":"HKG","region":"HKG","license":"TBHK"}]},{"name":"Asia","children":[{"name":"Armenia","code":"ARM","region":"SGP","license":"TBSG"},{"name":"Bangladesh","code":"BGD","region":"SGP","license":"TBSG"},{"name":"Bhutan","code":"BTN","region":"SGP","license":"TBSG"},{"name":"Brunei","code":"BRN","region":"SGP","license":"TBSG"},{"name":"Cambodia","code":"KHM","region":"SGP","license":"TBSG"},{"name":"Georgia","code":"GEO","region":"SGP","license":"TBSG"},{"name":"India","code":"IND","region":"SGP","license":"TBSG"},{"name":"Indonesia","code":"IDN","region":"SGP","license":"TBSG"},{"name":"Israel","code":"ISR","region":"SGP","license":"TBSG"},{"name":"Japan","code":"JPN","region":"SGP","license":"TBSG"},{"name":"Jordan","code":"JOR","region":"SGP","license":"TBSG"},{"name":"Laos","code":"LAO","region":"SGP","license":"TBSG"},{"name":"Macau SAR","code":"MAC","region":"SGP","license":"TBSG"},{"name":"Malaysia","code":"MYS","region":"SGP","license":"TBSG"},{"name":"Maldives","code":"MDV","region":"SGP","license":"TBSG"},{"name":"Mongolia","code":"MNG","region":"SGP","license":"TBSG"},{"name":"Myanmar","code":"MMR","region":"SGP","license":"TBSG"},{"name":"Nepal","code":"NPL","region":"SGP","license":"TBSG"},{"name":"Oman","code":"OMN","region":"SGP","license":"TBSG"},{"name":"Philippines","code":"PHL","region":"SGP","license":"TBSG"},{"name":"Qatar","code":"QAT","region":"SGP","license":"TBSG"},{"name":"Singapore","code":"SGP","region":"SGP","license":"TBSG"},{"name":"South Korea","code":"KOR","region":"SGP","license":"TBSG"},{"name":"Sri Lanka","code":"LKA","region":"SGP","license":"TBSG"},{"name":"Thailand","code":"THA","region":"SGP","license":"TBSG"},{"name":"Timor-Leste","code":"TLS","region":"SGP","license":"TBSG"},{"name":"Turkmenistan","code":"TKM","region":"SGP","license":"TBSG"},{"name":"United Arab Emirates","code":"ARE","region":"SGP","license":"TBSG"},{"name":"Vietnam","code":"VNM","region":"SGP","license":"TBSG"},{"name":"Hong Kong SAR","code":"HKG","region":"HKG","license":"TBHK"}]},{"name":"Europe","children":[{"name":"Andorra","code":"AND","region":"SGP","license":"TBSG"},{"name":"Austria","code":"AUT","region":"SGP","license":"TBSG"},{"name":"Belgium","code":"BEL","region":"SGP","license":"TBSG"},{"name":"Bulgaria","code":"BGR","region":"SGP","license":"TBSG"},{"name":"Croatia","code":"HRV","region":"SGP","license":"TBSG"},{"name":"Czech Republic","code":"CZE","region":"SGP","license":"TBSG"},{"name":"Denmark","code":"DNK","region":"SGP","license":"TBSG"},{"name":"Estonia","code":"EST","region":"SGP","license":"TBSG"},{"name":"Finland","code":"FIN","region":"SGP","license":"TBSG"},{"name":"France","code":"FRA","region":"SGP","license":"TBSG"},{"name":"Germany","code":"DEU","region":"SGP","license":"TBSG"},{"name":"Gibraltar","code":"GIB","region":"SGP","license":"TBSG"},{"name":"Greece","code":"GRC","region":"SGP","license":"TBSG"},{"name":"Greenland","code":"GRL","region":"SGP","license":"TBSG"},{"name":"Guernsey","code":"GGY","region":"SGP","license":"TBSG"},{"name":"Hungary","code":"HUN","region":"SGP","license":"TBSG"},{"name":"Iceland","code":"ISL","region":"SGP","license":"TBSG"},{"name":"Ireland","code":"IRL","region":"SGP","license":"TBSG"},{"name":"Italy","code":"ITA","region":"SGP","license":"TBSG"},{"name":"Latvia","code":"LVA","region":"SGP","license":"TBSG"},{"name":"Liechtenstein","code":"LIE","region":"SGP","license":"TBSG"},{"name":"Lithuania","code":"LTU","region":"SGP","license":"TBSG"},{"name":"Luxembourg","code":"LUX","region":"SGP","license":"TBSG"},{"name":"Netherlands","code":"NLD","region":"SGP","license":"TBSG"},{"name":"North Macedonia","code":"MKD","region":"SGP","license":"TBSG"},{"name":"Norway","code":"NOR","region":"SGP","license":"TBSG"},{"name":"Poland","code":"POL","region":"SGP","license":"TBSG"},{"name":"Portugal","code":"PRT","region":"SGP","license":"TBSG"},{"name":"Romania","code":"ROU","region":"SGP","license":"TBSG"},{"name":"San Marino","code":"SMR","region":"SGP","license":"TBSG"},{"name":"Serbia","code":"SRB","region":"SGP","license":"TBSG"},{"name":"Slovakia","code":"SVK","region":"SGP","license":"TBSG"},{"name":"Slovenia","code":"SVN","region":"SGP","license":"TBSG"},{"name":"Spain","code":"ESP","region":"SGP","license":"TBSG"},{"name":"Sweden","code":"SWE","region":"SGP","license":"TBSG"},{"name":"Switzerland","code":"CHE","region":"SGP","license":"TBSG"},{"name":"United Kingdom","code":"GBR","region":"SGP","license":"TBSG"}]},{"name":"Oceania","children":[{"name":"Australia","code":"AUS","region":"AUS","license":"TBAU"},{"name":"Fiji","code":"FJI","region":"SGP","license":"TBSG"},{"name":"Kiribati","code":"KIR","region":"SGP","license":"TBSG"},{"name":"Micronesia","code":"FSM","region":"SGP","license":"TBSG"},{"name":"New Zealand","code":"NZL","region":"NZL","license":"TBNZ"},{"name":"Niue","code":"NIU","region":"SGP","license":"TBSG"},{"name":"Solomon Islands","code":"SLB","region":"SGP","license":"TBSG"},{"name":"Tonga","code":"TON","region":"SGP","license":"TBSG"}]},{"name":"Africa","children":[{"name":"Cape Verde","code":"CPV","region":"SGP","license":"TBSG"},{"name":"Comoros","code":"COM","region":"SGP","license":"TBSG"},{"name":"Ethiopia","code":"ETH","region":"SGP","license":"TBSG"},{"name":"Gabon","code":"GAB","region":"SGP","license":"TBSG"},{"name":"Gambia","code":"GMB","region":"SGP","license":"TBSG"},{"name":"Lesotho","code":"LSO","region":"SGP","license":"TBSG"},{"name":"Malawi","code":"MWI","region":"SGP","license":"TBSG"},{"name":"Reunion","code":"REU","region":"SGP","license":"TBSG"},{"name":"Rwanda","code":"RWA","region":"SGP","license":"TBSG"},{"name":"Senegal","code":"SEN","region":"SGP","license":"TBSG"}]},{"name":"North America","children":[{"name":"Aruba","code":"ABW","region":"SGP","license":"TBSG"},{"name":"Barbados","code":"BRB","region":"SGP","license":"TBSG"},{"name":"Canada","code":"CAN","region":"SGP","license":"TBSG"},{"name":"Costa Rica","code":"CRI","region":"SGP","license":"TBSG"},{"name":"Dominica","code":"DMA","region":"SGP","license":"TBSG"},{"name":"El Salvador","code":"SLV","region":"SGP","license":"TBSG"},{"name":"Martinique","code":"MTQ","region":"SGP","license":"TBSG"},{"name":"Montserrat","code":"MSR","region":"SGP","license":"TBSG"},{"name":"Saint Lucia","code":"LCA","region":"SGP","license":"TBSG"}]},{"name":"South America","children":[{"name":"Bolivia","code":"BOL","region":"SGP","license":"TBSG"},{"name":"Chile","code":"CHL","region":"SGP","license":"TBSG"},{"name":"French Guiana","code":"GUF","region":"SGP","license":"TBSG"},{"name":"Suriname","code":"SUR","region":"SGP","license":"TBSG"},{"name":"Uruguay","code":"URY","region":"SGP","license":"TBSG"}]}],
+            lang: ["en_US","zh_CN"]
+        }
+    </script>
+</nav>
+<!-- prettier-ignore -->
+<header class="site-header">
+    <div class="container">
+        <h1 class="site-primary-brand">
+            <a
+                class="navbar-brand site-logo-black"
+                href="/sg"
+                title="Tiger Brokers">
+                Tiger Brokers
+            </a>
+        </h1>
+        <div class="site-primary-navbar-container">        <ul class="site-primary-navbar">
+            <li class="nav-item has-children">
+                <a class="nav-link" href="/quote" title="Markets">Markets</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/quote" title="Quotes" target="_blank">Quotes</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/news/top" title="24/7 News">24/7 News</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-item products">
+                <a class="nav-link" href="/sg/invest/cash-boost" title="Products">Products</a>                 </li>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="/sg/invest/auto-invest" title="Features">Features</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item Remiser, Investment Representatives">
+                <a class="nav-link" href="https://www.itiger.com/sg/marketing/InvestmentReps?lang=en_US" title="Tiger Investment Representatives" target="_blank">Tiger Investment Representatives</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/invest/auto-invest" title="Auto-invest">Auto-invest</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/marketing/investwithCPF-SRS" title="Invest with CPF/SRS">Invest with CPF/SRS</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/learn" title="Learn">Learn</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/invest/us-fractionalshares" title="US Fractional Shares">US Fractional Shares</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sg/market/gpt" title="TigerAI">TigerAI</a>                 </li>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="/sg/commissions" title="Pricing">Pricing</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/commissions/fees" title="Prime">Prime</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/fees/stocks_etf" title="Stocks &amp; ETFs">Stocks &amp; ETFs</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/fees/options_cbbcs" title="Options, Warrants &amp; CBBCs">Options, Warrants &amp; CBBCs</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/fees/futures" title="Futures">Futures</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/fees/bond" title="Bonds">Bonds</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/fees/fund_mall" title="Fund Mall">Fund Mall</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/commissions/cash_boost" title="Cash Boost">Cash Boost</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/cash_boost/stocks_etf" title="Stocks &amp; ETFs">Stocks &amp; ETFs</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/commissions/others_fees/financing_interest_rates" title="Financing Interest Rates">Financing Interest Rates</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-item has-children ttx, ttx 2026">
+                <a class="nav-link" href="https://sg.tigerkickoff.com/activity/market/2026/ttx" title="TTX2026" target="_blank">TTX2026</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item">
+                <a class="nav-link" href="https://sg.tigerkickoff.com/activity/market/2026/ttx" title="TTX 2026 (28-29 Nov)" target="_blank">TTX 2026 (28-29 Nov)</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sg/market/promotion" title="Promotions">Promotions</a>                 </li>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="/sg/help" title="Help">Help</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/account-operations" title="Account Operations">Account Operations</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/account-opening" title="How to Open an Account?">How to Open an Account?</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/account-opening-documents" title="Account Opening Documents">Account Opening Documents</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/account-types" title="Account Types Available">Account Types Available</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/transfer-n-pay" title="Transfer &amp; Pay">Transfer &amp; Pay</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/account-funding" title="Account Funding">Account Funding</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/89960074" title="DDA Fast Deposit">DDA Fast Deposit</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/funds-withdrawal" title="Funds Withdrawal">Funds Withdrawal</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/shares-transfer-in" title="Shares Transfer-in">Shares Transfer-in</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/shares-transfer-out" title="Shares Transfer-out">Shares Transfer-out</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/currency-conversion" title="Currency Conversion">Currency Conversion</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/products-n-trading" title="Products &amp; Trading">Products &amp; Trading</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/products-available" title="Products Available">Products Available</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/order-types" title="Order Types">Order Types</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/trading-rules" title="Trading Rules">Trading Rules</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/declaration" title="Declaration">Declaration</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/margin-trading-n-short-selling" title="Margin Trading &amp; Short Selling">Margin Trading &amp; Short Selling</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/margin-n-leverage" title="Margin &amp; Leverage">Margin &amp; Leverage</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/risk-management" title="Risk Management">Risk Management</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/short-selling-risk" title="Short Selling Risk">Short Selling Risk</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/fund-mall" title="Fund Mall">Fund Mall</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/53925061" title="Open a fund account and transaction">Open a fund account and transaction</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/21825989" title="Cash Boost Account">Cash Boost Account</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/contra-faq" title="Cash Boost Account FAQ">Cash Boost Account FAQ</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/06324754" title="How to Open Cash Boost Account">How to Open Cash Boost Account</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/63375641" title="How to Contra Trade using Cash Boost Account">How to Contra Trade using Cash Boost Account</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/how-to-link-CDP" title="How to link your CDP Securities Account">How to link your CDP Securities Account</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/93284971" title="Tiger Boss Debit Card">Tiger Boss Debit Card</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/86919046" title="Frequently Asked Questions">Frequently Asked Questions</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/24801164" title="Fees of the Debit card">Fees of the Debit card</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/74200178" title="How to Top-up">How to Top-up</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/52687302" title="How to use my Debit card">How to use my Debit card</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/help/detail/statement-n-more" title="Statement">Statement</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/statement" title="Statement">Statement</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/help/detail/dividends" title="Dividends">Dividends</a>                 </li>
+        </ul>
+ </li>
+        </ul>
+ </li>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="/sg/inst" title="Institution">Institution</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-1">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/fund-management" title="Tiger Fund Management">Tiger Fund Management</a>                 </li>
+            <li class="nav-children-item has-children">
+                <a class="nav-link" href="/sg/inst/external-asset" title="Institution Service">Institution Service</a><a class="indicator"><span class="indicator-arrow-right"></span></a>                        <ul class="nav-children nav-children-level-2">
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/inst/external-asset" title="Wealth and asset manager">Wealth and asset manager</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/inst/proprietary-trading-group" title="Proprietary trading institutions">Proprietary trading institutions</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/inst/introducing-brokers" title="Introducing brokers">Introducing brokers</a>                 </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="/sg/inst/thirdparty-service" title="Third-party service provider">Third-party service provider</a>                 </li>
+        </ul>
+ </li>
+            <li class="nav-children-item">
+                <a class="nav-link" href="https://developer.tigerbrokers.com.sg/" title="Tiger Open Platform" target="_blank">Tiger Open Platform</a>                 </li>
+        </ul>
+ </li>
+        </ul>
+ </div>
+        <div class="site-navbar-search"></div>
+
+        <div class="site-navbar-search-toggle" title="Search now">
+            <a class="btn btn-search">
+                <svg viewBox="0 0 1024 1024" class="tigericon tigericon-search icon-search a-fadeIn" width="48" height="48" fill="currentColor" aria-hidden="true" focusable="false"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+            </a>
+        </div>
+
+        <ul class="site-navbar-side">
+            <li class="nav-item">
+                <a
+                    href="/login?next=%2Fnews%2F1160799526"
+                    class="btn btn-navbar btn-ghost position-sticky"
+                    rel="nofollow"
+                    data-sensors-trace='{"type":"导航","name":"登录按钮点击","entrance_type":"Header_login"}'>
+                    LOGIN
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    href="/signup"
+                    rel="nofollow"
+                    class="btn btn-navbar position-sticky dialog-usa-trigger-btn"
+                    data-sensors-trace='{"type":"导航","name":"注册按钮点击","entrance_type":"Header_signup"}'>
+                    SIGN UP
+                </a>
+            </li>
+        </ul>
+
+        <button class="site-mobile-nav-toggle btn">Toggle<span></span></button>
+    </div>
+</header>
+              <div id="container" class="site-container"><div class="fw-medium root__1PrHn"><div class="root__1_QGr container"><div class="content__4cB5H"><div class="head__3KduR"><h1 class="text-bold title__2Hhyl">IPO Preview: Silicon Minds&#x27; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses</h1><div class="media__382_x"><div>Stock News</div><div class="time__3Hazj">Nov 07, 2025</div></div><div class="d-flex justify-content-between"><button type="button" class="share__3TPP2 btn btn-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="icon__qGXh0"><circle cx="16.5" cy="4.5" r="3" stroke="currentColor" stroke-width="2"></circle><circle cx="18.5" cy="19.5" r="3" stroke="currentColor" stroke-width="2"></circle><circle cx="5.5" cy="11.5" r="3" stroke="currentColor" stroke-width="2"></circle><rect x="6.5" y="8.5" width="8" height="2" transform="rotate(-30 6.5 8.5)" fill="currentColor"></rect><rect x="7.5" y="12.5" width="10" height="2" transform="rotate(30 7.5 12.5)" fill="currentColor"></rect></svg><canvas class="water-wave-canvas"></canvas></button></div></div><div class="entry-content root__1-6fT"><p>Silicon Minds Technology Group, China's largest virtual digital human provider, has filed for a Hong Kong IPO. On October 31, the Nanjing-based company submitted its application to the HKEX, with CMBI and DBS Bank as joint sponsors. Founded in 2017, Silicon Minds specializes in "silicon-based labor," offering AI-driven solutions including digital human voice, video, live streaming, interactive systems, and automated content creation.</p>
+<p>According to CIC data, Silicon Minds dominates China's digital human market with a 32.2% revenue share in 2024, ranking second globally. Backed by Tencent, Sequoia China, and CMBI, the company boasts a post-D-round valuation of RMB3.15 billion ($440M) after raising RMB200 million in May 2025. Founder Sima Huapeng controls 26.54%, while Tencent holds 16.59% as the largest institutional investor.</p>
+<p>Despite deploying over 80,000 digital humans across telecom, finance, healthcare, and education sectors—and cultivating a 11M-follower "Sima IP" series—Silicon Minds remains unprofitable. Revenue grew from RMB223M (2022) to RMB655M (2024), yet losses persisted, totaling RMB111M, RMB95.91M, RMB112M, and RMB8.29M in H1 2025. High R&D costs (surging from RMB75.43M to RMB150M) and compute-intensive operations weigh on margins.</p>
+<p>The digital human sector, projected to expand from RMB2B (2024) to RMB15.5B (2030) at a 40.3% CAGR, offers growth potential. However, intensifying competition from tech giants like Baidu and iFlytek has forced Silicon Minds into price wars, slashing gross margins from 45.8% (2023) to 31.6% (H1 2025). Client concentration risks also loom, with top-five customers contributing 87.5% of H1 2025 revenue—up from 16.6% in 2022.</p>
+<p>While H1 2025 saw narrowing losses and an adjusted net profit of RMB5.29M, Silicon Minds must prove its ability to convert market leadership into sustainable profitability amid homogenized competition and escalating compute costs.</p></div><p class="declaration__39dvv">Disclaimer: Investing carries risk. This is not financial advice. The above content should not be regarded as an offer, recommendation, or solicitation on acquiring or disposing of any financial products, any associated discussions, comments, or posts by author or other users should not be considered as such either. It is solely for general information purpose only, which does not consider your own investment objectives, financial situations or needs. TTM assumes no responsibility or warranty for the accuracy and completeness of the information, investors should do their own research and may seek professional advice before investing.</p></div><div class="aside__37JjZ"><div class="root__15gCN"><h4 class="text-bold title__hsbJM">Most Discussed</h4><div><ol class="list-unstyled mb-0"><li class="root__1j2cV"><div class="index__3_7WW first__SyCLb">1</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW second__1vGY1">2</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW thirdly__1s28f">3</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">4</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">5</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">6</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">7</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">8</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">9</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li><li class="root__1j2cV"><div class="index__3_7WW">10</div><div class="info__37Io_"><div class="skeleton-root mb-1" style="width:140px;height:20px"> </div><div class="skeleton-root" style="width:30px;height:20px"> </div></div><div class="right__3nQBF"><div class="skeleton-root ms-auto price__1qP2z" style="width:40px;height:20px"> </div><div class="skeleton-root" style="width:80px;height:20px"> </div></div></li></ol></div></div></div></div></div><footer class="root__1Guqu"><div class="container"><div class="row"><div class="col-lg-6"><div class="text__2zlOu"><div class="item__1y7ix"><div>Company Name：</div><div class="text-white">Tiger Trade Technology Pte. Ltd.</div></div><div class="item__1y7ix"><div>Email Address：</div><a class="text-white" href="mailto:dpo@itiger.com">dpo@itiger.com</a></div><div class="item__1y7ix"><a class="text-white" href="/agreement/UserAgreement-TTT">User Agreement</a><span class="mx-3">|</span><a class="text-white" href="/agreement/PrivacyPolicy-TTT">Privacy Policy</a></div></div><p>Copyright © Tiger Trade Technology Pte. Ltd.</p><p class="mb-lg-0">Product offerings in different jurisdictions may vary. </p></div><div class="col-lg-6"><p>Information contained on this website is general in nature and does not take into account of your investment objectives, financial situation and specific needs. It should not be regarded as an offer to sell, asolicitation to buy, a recommendation or endorsement for any financial product, nor does it constitute an investment forecast, investment return commitments, investment suggestions or other practical operating opinions. Information contained on this website is for reference only and past performance should not be construed as future performance. Investment involves risks. Before you make an investment decision, you should carefully judge and screen whether the information contained on this website is appropriate for your needs, goals and circumstances.</p><p>We strive but cannot guarantee the accuracy, completeness, reliability and timeliness of all information on this website, and we are not responsible for any losses caused by the use of or reliance on relevant information.</p><p class="mb-0">The products and services offered on the website are subject to applicable laws, regulations and relevant agreements. Please carefully read and agree to the agreements before using our products and services.</p></div></div></div></footer></div>
+        </div>
+         <!-- Analytics -->
+         <script>
+            function __loadScripts() {
+            /* Start: Google Global site tag(gtag) */
+(function(i,s,o,g,r,a,m){a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.googletagmanager.com/gtag/js?id=AW-331929667');
+window.dataLayer = window.dataLayer || [];window.gtag = function gtag(){dataLayer.push(arguments);}
+window.__gtagConfig={"autoTrackPageView":true,"AW_id":"AW-331929667","GA_id":"G-LECRLCDT1K","cookieDomain":"auto"};
+gtag('js', new Date());
+gtag('config', 'G-LECRLCDT1K', {"cookie_domain":"auto"});
+gtag('config', 'AW-331929667', {"cookie_domain":"auto"});
+/* End: Google Global site tag (gtag) */
+/* Start: Google Tag Manager */
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5TBBK3');
+    /* End: Google Tag Manager */
+    
+/* Start: Sensors */
+        (function(para) {
+            var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script',x = null,y = null;
+            if(typeof(w['sensorsDataAnalytic201505']) !== 'undefined') {
+                return false;
+            }
+            w['sensorsDataAnalytic201505'] = n;
+            w[n] = w[n] || function(a) {return function() {(w[n]._q = w[n]._q || []).push([a, arguments]);}};
+            var ifs = ['track','quick','register','registerPage','registerOnce','trackSignup', 'trackAbtest', 'setProfile','setOnceProfile','appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify','login','logout','trackLink','clearAllRegister','getAppStatus','setItem','deleteItem','use'];
+            for (var i = 0; i < ifs.length; i++) {
+              w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            if (!w[n]._t) {
+              x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+              x.async = 1;
+              x.src = p;
+              x.setAttribute('charset','UTF-8');
+              w[n].para = para;
+              y.parentNode.insertBefore(x, y);
+            }
+          })({"sdk_url":"https://c1.itigergrowtha.com/libs/sensors/1.26.12/sensorsdata.min.js","name":"sensors","server_url":"https://da.tigerfintech.com/sa?project=production","heatmap":{"clickmap":"default","scroll_notice_map":"default","collect_tags":{"div":true,"section":true,"img":true,"li":true,"p":true,"span":true,"h1":true,"h2":true,"h3":true,"h4":true,"h5":true,"h6":true,"label":true,"svg":true,"td":true,"th":true,"canvas":true,"video":true,"header":true,"footer":true,"aside":true,"article":true}},"is_track_single_page":true,"use_client_time":true,"send_type":"beacon","max_string_length":1000,"app_js_bridge":true});
+        sensors.registerPage({ platform: /tigerbrokers|tradeup/i.test(navigator.userAgent) ? 'h5' : 'web' });
+        sensors.quick('useModulePlugin','SiteLinker', { linker: [{"part_url":"tigersecurities.com","after_hash":false},{"part_url":"skytigris.com","after_hash":false},{"part_url":"tigertcp.cn","after_hash":false},{"part_url":"itigergrowth.com","after_hash":false},{"part_url":"itigerup.com","after_hash":false},{"part_url":"itiger.com","after_hash":false},{"part_url":"hellotigr.com","after_hash":false},{"part_url":"itigerup.net.cn","after_hash":false},{"part_url":"itigerup.com.cn","after_hash":false},{"part_url":"goodtigr.com","after_hash":false},{"part_url":"tigerbrokers.com.sg","after_hash":false},{"part_url":"mydigiuc.com","after_hash":false},{"part_url":"tigerfintech.net","after_hash":false},{"part_url":"tigerstocks.com","after_hash":false},{"part_url":"tigerbrokers.com.au","after_hash":false},{"part_url":"tigerbrokers.nz","after_hash":false},{"part_url":"tigerbrokers.com.hk","after_hash":false},{"part_url":"tigerbrokers.hk","after_hash":false},{"part_url":"tigerhkgo.com","after_hash":false},{"part_url":"gotigerhk.com","after_hash":false},{"part_url":"tigerhello.com","after_hash":false},{"part_url":"imtigers.com","after_hash":false},{"part_url":"heytigers.com","after_hash":false},{"part_url":"thetigerbrokers.com","after_hash":false},{"part_url":"mytigerbrokers.com","after_hash":false},{"part_url":"tigertrade.app","after_hash":false},{"part_url":"itigertrade.app","after_hash":false},{"part_url":"itigertrader.com","after_hash":false},{"part_url":"tigertrader.app","after_hash":false},{"part_url":"tradertiger.com","after_hash":false},{"part_url":"itigertrades.com","after_hash":false},{"part_url":"tradetiger.app","after_hash":false},{"part_url":"igrtrade.app","after_hash":false}] });
+        window.__sensorsConfig = {"showLog":false,"heatmap":{"clickmap":"default","scroll_notice_map":"default","collect_tags":{"div":true,"section":true,"img":true,"li":true,"p":true,"span":true,"h1":true,"h2":true,"h3":true,"h4":true,"h5":true,"h6":true,"label":true,"svg":true,"td":true,"th":true,"canvas":true,"video":true,"header":true,"footer":true,"aside":true,"article":true}},"autoTrack":true,"autoTrackArgs":{},"platform":"webBehavior","pageLeave":true,"linkerDomains":["tigersecurities.com","skytigris.com","tigertcp.cn","itigergrowth.com","itigerup.com","itiger.com","hellotigr.com","itigerup.net.cn","itigerup.com.cn","goodtigr.com","tigerbrokers.com.sg","mydigiuc.com","tigerfintech.net","tigerstocks.com","tigerbrokers.com.au","tigerbrokers.nz","tigerbrokers.com.hk","tigerbrokers.hk","tigerhkgo.com","gotigerhk.com","tigerhello.com","imtigers.com","heytigers.com","thetigerbrokers.com","mytigerbrokers.com","tigertrade.app","itigertrade.app","itigertrader.com","tigertrader.app","tradertiger.com","itigertrades.com","tradetiger.app","igrtrade.app"],"app_js_bridge":true};
+sensors.use('PageLeave', { heartbeat_interval_time: 5 });
+sensors.quick('autoTrack', {});
+/* End: Sensors */
+/* Start: fbq */
+!function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '625055665187138');
+window.__fbqInit = function(appId) {
+	fbq('init', appId);
+};
+fbq('track', 'PageView');
+/* End: fbq */
+/* Start: twq */
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('config', 'odppp');
+/* End: twq */
+/* Start: rdt */
+        !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+        rdt('init', 't2_b9hq2vbh');
+rdt('track', 'PageVisit');
+/* End: rdt */
+/* Start: bing */
+        (function(w,d,t,r,u)
+        {var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:'355043013'};o.q=w[u],w[u]=w.UET?new UET(o):[],w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+        
+/* End: bing */
+            }
+
+            ;(requestAnimationFrame || setTimeout)(__loadScripts);
+        </script>
+        <!-- End Analytics -->
+<textarea style="display: none" id="__APP_DATA__">{&quot;basename&quot;:&quot;&quot;,&quot;ssrTDKData&quot;:{&quot;titleTemplate&quot;:&quot;%s - Tiger Brokers&quot;,&quot;title&quot;:&quot;Tiger Brokers | Global Stocks, Options &amp; Futures Trading App&quot;,&quot;description&quot;:&quot;Tiger Brokers, one-stop investment in US stocks, SGX stocks, HK stocks, A-shares &amp; other global assets. One of the best stock trading platforms in Singapore.&quot;,&quot;keywords&quot;:&quot;tiger brokers,tiger trade,tiger brokers singapore,broker online,stock trading in singapore,share trading singapore,brokerage firm singapore,trading app,stock broker singapore,stock trading platforms,trading account&quot;,&quot;social&quot;:{&quot;ogDescription&quot;:&quot;Tiger Brokers, one-stop investment in US stocks, SGX stocks, HK stocks, A-shares &amp; other global assets. One of the best stock trading platforms in Singapore.&quot;,&quot;ogImage&quot;:&quot;https://c1.itigergrowtha.com/portal5/static/media/og-logo.0a0bd8dc.png&quot;,&quot;ogUrl&quot;:&quot;https://www.itiger.com/news/1160799526&quot;},&quot;companyName&quot;:&quot;Tiger Brokers&quot;},&quot;pageData&quot;:{&quot;isMobile&quot;:false,&quot;isTiger&quot;:false,&quot;isTTM&quot;:true,&quot;region&quot;:&quot;SGP&quot;,&quot;license&quot;:&quot;TBSG&quot;,&quot;edition&quot;:&quot;fundamental&quot;},&quot;isCrawlerRequest&quot;:false,&quot;__swrFallback__&quot;:{&quot;@#url:\&quot;https://stock-news.skytigris.cn/v3/news\&quot;,params:#id:\&quot;1160799526\&quot;,edition:\&quot;fundamental\&quot;,auth_exemption:1,,,undefined,&quot;:{&quot;share&quot;:&quot;https://ttm.financial/m/news/1160799526?lang=en_US&amp;edition=fundamental&quot;,&quot;thumbnail&quot;:&quot;&quot;,&quot;is_english&quot;:true,&quot;pubTime&quot;:&quot;2025-11-07 10:18&quot;,&quot;share_image_url&quot;:&quot;https://static.laohu8.com/e9f99090a1c2ed51c021029395664489&quot;,&quot;id&quot;:&quot;1160799526&quot;,&quot;market&quot;:&quot;sh&quot;,&quot;top_or_hot&quot;:-1,&quot;title&quot;:&quot;IPO Preview: Silicon Minds&#39; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses&quot;,&quot;media&quot;:&quot;Stock News&quot;,&quot;content&quot;:&quot;&lt;p&gt;Silicon Minds Technology Group, China&#39;s largest virtual digital human provider, has filed for a Hong Kong IPO. On October 31, the Nanjing-based company submitted its application to the HKEX, with CMBI and DBS Bank as joint sponsors. Founded in 2017, Silicon Minds specializes in \&quot;silicon-based labor,\&quot; offering AI-driven solutions including digital human voice, video, live streaming, interactive systems, and automated content creation.&lt;/p&gt;\n&lt;p&gt;According to CIC data, Silicon Minds dominates China&#39;s digital human market with a 32.2% revenue share in 2024, ranking second globally. Backed by Tencent, Sequoia China, and CMBI, the company boasts a post-D-round valuation of RMB3.15 billion ($440M) after raising RMB200 million in May 2025. Founder Sima Huapeng controls 26.54%, while Tencent holds 16.59% as the largest institutional investor.&lt;/p&gt;\n&lt;p&gt;Despite deploying over 80,000 digital humans across telecom, finance, healthcare, and education sectors—and cultivating a 11M-follower \&quot;Sima IP\&quot; series—Silicon Minds remains unprofitable. Revenue grew from RMB223M (2022) to RMB655M (2024), yet losses persisted, totaling RMB111M, RMB95.91M, RMB112M, and RMB8.29M in H1 2025. High R&amp;D costs (surging from RMB75.43M to RMB150M) and compute-intensive operations weigh on margins.&lt;/p&gt;\n&lt;p&gt;The digital human sector, projected to expand from RMB2B (2024) to RMB15.5B (2030) at a 40.3% CAGR, offers growth potential. However, intensifying competition from tech giants like Baidu and iFlytek has forced Silicon Minds into price wars, slashing gross margins from 45.8% (2023) to 31.6% (H1 2025). Client concentration risks also loom, with top-five customers contributing 87.5% of H1 2025 revenue—up from 16.6% in 2022.&lt;/p&gt;\n&lt;p&gt;While H1 2025 saw narrowing losses and an adjusted net profit of RMB5.29M, Silicon Minds must prove its ability to convert market leadership into sustainable profitability amid homogenized competition and escalating compute costs.&lt;/p&gt;&quot;,&quot;source&quot;:null,&quot;html&quot;:&quot;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/html; charset=utf-8\&quot; /&gt;\n&lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\&quot;/&gt;\n&lt;meta name=\&quot;format-detection\&quot; content=\&quot;telephone=no,email=no,address=no\&quot; /&gt;\n&lt;title&gt;IPO Preview: Silicon Minds&#39; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses&lt;/title&gt;\n&lt;style type=\&quot;text/css\&quot;&gt;\na,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,\nem,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,\nobject,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{ font:inherit;margin:0;padding:0;vertical-align:baseline;border:0 }\nbody{ font-size:16px; line-height:1.5; color:#999; background:transparent; }\n.wrapper{ overflow:hidden;word-break:break-all;padding:10px; }\nh1,h2{ font-weight:normal; line-height:1.35; margin-bottom:.6em; }\nh3,h4,h5,h6{ line-height:1.35; margin-bottom:1em; }\nh1{ font-size:24px; }\nh2{ font-size:20px; }\nh3{ font-size:18px; }\nh4{ font-size:16px; }\nh5{ font-size:14px; }\nh6{ font-size:12px; }\np,ul,ol,blockquote,dl,table{ margin:1.2em 0; }\nul,ol{ margin-left:2em; }\nul{ list-style:disc; }\nol{ list-style:decimal; }\nli,li p{ margin:10px 0;}\nimg{ max-width:100%;display:block;margin:0 auto 1em; }\nblockquote{ color:#B5B2B1; border-left:3px solid #aaa; padding:1em; }\nstrong,b{font-weight:bold;}\nem,i{font-style:italic;}\ntable{ width:100%;border-collapse:collapse;border-spacing:1px;margin:1em 0;font-size:.9em; }\nth,td{ padding:5px;text-align:left;border:1px solid #aaa; }\nth{ font-weight:bold;background:#5d5d5d; }\n.symbol-link{font-weight:bold;}\n/* header{ border-bottom:1px solid #494756; } */\n.title{ margin:0 0 8px;line-height:1.3;color:#ddd; }\n.meta {color:#5e5c6d;font-size:13px;margin:0 0 .5em; }\na{text-decoration:none; color:#2a4b87;}\n.meta .head { display: inline-block; overflow: hidden}\n.head .h-thumb { width: 30px; height: 30px; margin: 0; padding: 0; border-radius: 50%; float: left;}\n.head .h-content { margin: 0; padding: 0 0 0 9px; float: left;}\n.head .h-name {font-size: 13px; color: #eee; margin: 0;}\n.head .h-time {font-size: 11px; color: #7E829C; margin: 0;line-height: 11px;}\n.small {font-size: 12.5px; display: inline-block; transform: scale(0.9); -webkit-transform: scale(0.9); transform-origin: left; -webkit-transform-origin: left;}\n.smaller {font-size: 12.5px; display: inline-block; transform: scale(0.8); -webkit-transform: scale(0.8); transform-origin: left; -webkit-transform-origin: left;}\n.bt-text {font-size: 12px;margin: 1.5em 0 0 0}\n.bt-text p {margin: 0}\n&lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;div class=\&quot;wrapper\&quot;&gt;\n&lt;header&gt;\n&lt;h2 class=\&quot;title\&quot;&gt;\nIPO Preview: Silicon Minds&#39; Profitability Puzzle—Over 80K Digital Humans Sold vs. Strategic Losses\n&lt;/h2&gt;\n\n&lt;h4 class=\&quot;meta\&quot;&gt;\n\n\n&lt;a class=\&quot;head\&quot; href=\&quot;https://laohu8.com/wemedia/1036600163\&quot;&gt;\n\n\n&lt;div class=\&quot;h-thumb\&quot; style=\&quot;background-image:url(https://community-static.tradeup.com/news/b3bf6d02ad1a6e9e7377eebbb162346a);background-size:cover;\&quot;&gt;&lt;/div&gt;\n\n&lt;div class=\&quot;h-content\&quot;&gt;\n&lt;p class=\&quot;h-name\&quot;&gt;Stock News &lt;/p&gt;\n&lt;p class=\&quot;h-time\&quot;&gt;2025-11-07 10:18&lt;/p&gt;\n&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;/h4&gt;\n\n&lt;/header&gt;\n&lt;article&gt;\n&lt;p&gt;Silicon Minds Technology Group, China&#39;s largest virtual digital human provider, has filed for a Hong Kong IPO. On October 31, the Nanjing-based company submitted its application to the HKEX, with CMBI and DBS Bank as joint sponsors. Founded in 2017, Silicon Minds specializes in \&quot;silicon-based labor,\&quot; offering AI-driven solutions including digital human voice, video, live streaming, interactive systems, and automated content creation.&lt;/p&gt;\n&lt;p&gt;According to CIC data, Silicon Minds dominates China&#39;s digital human market with a 32.2% revenue share in 2024, ranking second globally. Backed by Tencent, Sequoia China, and CMBI, the company boasts a post-D-round valuation of RMB3.15 billion ($440M) after raising RMB200 million in May 2025. Founder Sima Huapeng controls 26.54%, while Tencent holds 16.59% as the largest institutional investor.&lt;/p&gt;\n&lt;p&gt;Despite deploying over 80,000 digital humans across telecom, finance, healthcare, and education sectors—and cultivating a 11M-follower \&quot;Sima IP\&quot; series—Silicon Minds remains unprofitable. Revenue grew from RMB223M (2022) to RMB655M (2024), yet losses persisted, totaling RMB111M, RMB95.91M, RMB112M, and RMB8.29M in H1 2025. High R&amp;D costs (surging from RMB75.43M to RMB150M) and compute-intensive operations weigh on margins.&lt;/p&gt;\n&lt;p&gt;The digital human sector, projected to expand from RMB2B (2024) to RMB15.5B (2030) at a 40.3% CAGR, offers growth potential. However, intensifying competition from tech giants like Baidu and iFlytek has forced Silicon Minds into price wars, slashing gross margins from 45.8% (2023) to 31.6% (H1 2025). Client concentration risks also loom, with top-five customers contributing 87.5% of H1 2025 revenue—up from 16.6% in 2022.&lt;/p&gt;\n&lt;p&gt;While H1 2025 saw narrowing losses and an adjusted net profit of RMB5.29M, Silicon Minds must prove its ability to convert market leadership into sustainable profitability amid homogenized competition and escalating compute costs.&lt;/p&gt;\n\n&lt;/article&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;,&quot;isBrief&quot;:false,&quot;type&quot;:0,&quot;news_type&quot;:1,&quot;symbol&quot;:&quot;VS&quot;,&quot;symbol_name&quot;:&quot;Versus Systems Inc.&quot;,&quot;start_time&quot;:0,&quot;source_url&quot;:&quot;&quot;,&quot;article_id&quot;:&quot;1160799526&quot;,&quot;we_media_id&quot;:&quot;1036600163&quot;,&quot;thumbnails&quot;:[],&quot;rights&quot;:null,&quot;url&quot;:&quot;https://stock-news.laohu8.com/highlight/detail?id=1160799526&quot;,&quot;pubTimestamp&quot;:1762481913,&quot;columns&quot;:[],&quot;sourceInfo&quot;:null,&quot;weMediaInfo&quot;:{&quot;media_name&quot;:&quot;Stock News&quot;,&quot;introduction&quot;:&quot;Global Stock News First-Time Broadcast&quot;,&quot;home_visible&quot;:1,&quot;id&quot;:&quot;1036600163&quot;,&quot;head_image&quot;:&quot;https://community-static.tradeup.com/news/b3bf6d02ad1a6e9e7377eebbb162346a&quot;},&quot;summary&quot;:&quot;Silicon Minds Technology Group, China&#39;s largest virtual digital human provider, has filed for a Hong Kong IPO. On October 31, the Nanjing-based company submitted its application to the HKEX, with...&quot;,&quot;collect&quot;:0,&quot;end_time&quot;:0,&quot;defaultTopTitle&quot;:&quot;&quot;,&quot;property&quot;:[],&quot;viewcount&quot;:null,&quot;language&quot;:&quot;en&quot;,&quot;relate_stocks&quot;:{&quot;VS&quot;:&quot;Versus Systems Inc.&quot;,&quot;BK4085&quot;:&quot;互动家庭娱乐&quot;},&quot;translate_title&quot;:&quot;IPO预览：Silicon Minds的盈利难题——售出超过8万个数字人与战略亏损&quot;,&quot;themeId&quot;:null,&quot;isJumpTheme&quot;:false,&quot;ttsUrl&quot;:null,&quot;symbols_score_info&quot;:{&quot;VS&quot;:1},&quot;content_text&quot;:&quot;Silicon Minds Technology Group, China&#39;s largest virtual digital human provider, has filed for a Hong Kong IPO. On October 31, the Nanjing-based company submitted its application to the HKEX, with CMBI and DBS Bank as joint sponsors. Founded in 2017, Silicon Minds specializes in \&quot;silicon-based labor,\&quot; offering AI-driven solutions including digital human voice, video, live streaming, interactive systems, and automated content creation.\nAccording to CIC data, Silicon Minds dominates China&#39;s digital human market with a 32.2% revenue share in 2024, ranking second globally. Backed by Tencent, Sequoia China, and CMBI, the company boasts a post-D-round valuation of RMB3.15 billion ($440M) after raising RMB200 million in May 2025. Founder Sima Huapeng controls 26.54%, while Tencent holds 16.59% as the largest institutional investor.\nDespite deploying over 80,000 digital humans across telecom, finance, healthcare, and education sectors—and cultivating a 11M-follower \&quot;Sima IP\&quot; series—Silicon Minds remains unprofitable. Revenue grew from RMB223M (2022) to RMB655M (2024), yet losses persisted, totaling RMB111M, RMB95.91M, RMB112M, and RMB8.29M in H1 2025. High R&amp;D costs (surging from RMB75.43M to RMB150M) and compute-intensive operations weigh on margins.\nThe digital human sector, projected to expand from RMB2B (2024) to RMB15.5B (2030) at a 40.3% CAGR, offers growth potential. However, intensifying competition from tech giants like Baidu and iFlytek has forced Silicon Minds into price wars, slashing gross margins from 45.8% (2023) to 31.6% (H1 2025). Client concentration risks also loom, with top-five customers contributing 87.5% of H1 2025 revenue—up from 16.6% in 2022.\nWhile H1 2025 saw narrowing losses and an adjusted net profit of RMB5.29M, Silicon Minds must prove its ability to convert market leadership into sustainable profitability amid homogenized competition and escalating compute costs.&quot;,&quot;kind&quot;:&quot;news&quot;,&quot;is_publish_news&quot;:true,&quot;is_publish_highlight&quot;:false,&quot;is_publish_live&quot;:false,&quot;is_publish_wemedia&quot;:true,&quot;editions&quot;:null,&quot;column&quot;:&quot;&quot;,&quot;sentiment&quot;:&quot;0&quot;,&quot;news_tag&quot;:&quot;preview&quot;,&quot;news_rank&quot;:0,&quot;isVideo&quot;:false,&quot;video&quot;:null,&quot;symbols&quot;:[],&quot;gpt_button&quot;:0,&quot;need_auth&quot;:false,&quot;need_login_tip&quot;:false,&quot;code&quot;:&quot;91000000&quot;,&quot;status&quot;:&quot;200&quot;}}}</textarea>
+<script>
+var __APP_DATA__ = JSON.parse(document.getElementById('__APP_DATA__').value);</script>
+<script crossorigin="anonymous" src="https://c1.itigergrowtha.com/portal5/static/js/runtime.3204b96f.js" type="text/javascript"></script>
+<script crossorigin="anonymous" src="https://c1.itigergrowtha.com/portal5/static/js/i18n.4ef1aa92.js" type="text/javascript"></script>
+<script crossorigin="anonymous" src="https://c1.itigergrowtha.com/portal5/static/js/vendor.f0736bf9.js" type="text/javascript"></script>
+<script crossorigin="anonymous" src="https://c1.itigergrowtha.com/portal5/static/js/common.725557f0.js" type="text/javascript"></script>
+<script crossorigin="anonymous" src="https://c1.itigergrowtha.com/portal5/static/js/financial-centre.3f34b8c2.js" type="text/javascript"></script>
+ <script>
+    !(function (c, b, d, a) {
+        c[a] || (c[a] = {});
+        c[a] = {
+            pid: 'eczp7ijd7o@364c965242ebd91',
+            endpoint: 'https://eczp7ijd7o-default-sea.rum.aliyuncs.com',
+            env: 'prod',
+            version: '7.77.13',
+            spaMode: 'history',
+            properties: {
+                region: 'SGP',
+                userAgent: navigator.userAgent,
+                referrer: document.referrer
+            },
+            filters: {
+                resource: function (url) {
+                    return new RegExp([
+                        'adsrvr.org',
+                        'linkedin.com',
+                        'stackadapt.com',
+                        'yimg.com',
+                        'licdn.com',
+                        'adsrvr.org',
+                        'gstatic.com',
+                        'redditstatic.com',
+                        'bugsnag.com',
+                        'googleadservices.com',
+                        'reddit.com',
+                        'go-mpulse.net',
+                        'facebook.com',
+                        'facebook.net',
+                        'akamaihd.net',
+                        'spotify.com',
+                        'doubleclick.net',
+                        'googletagmanager.com'
+                    ].join('|'), 'i').test(url);
+                }
+            },
+            collectors: {
+                perf: true,
+                webVitals: true,
+                api: true,
+                staticResource: true,
+                jsError: true,
+                consoleError: true,
+                action: true
+            },
+            tracing: true
+        };
+        with (b)
+            with (body)
+                with (insertBefore(createElement('script'), firstChild)) setAttribute('crossorigin', '', (src = d));
+    })(window, document, 'https://sdk.rum.aliyuncs.com/v2/browser-sdk.js', '__rum');
+</script>
+    </body>
+</html>

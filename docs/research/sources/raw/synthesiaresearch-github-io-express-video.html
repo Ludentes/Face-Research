@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+  <!-- HEAD -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synthesia - Express&#8209;2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/symbol.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/symbol.png"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/symbol.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://unpkg.com/three@0.112.0/build/three.js"></script>
+    <script src="https://unpkg.com/three@0.112.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://unpkg.com/three@0.112.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+  </head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar dark">
+    <div class="navbar-container">
+      <!-- Logo  -->
+      <a href="https://www.synthesia.io/">
+        <div class="logo"></div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="desktop-menu">
+        <div class="navbar-end">
+          <a href="#introduction" class="navbar-item nav-link">Introduction</a>
+          <a href="#how-it-works" class="navbar-item nav-link">How it works</a>
+          <a href="#results" class="navbar-item nav-link">Results</a>
+          <a href="#ood" class="navbar-item nav-link">Out-of-distribution</a>
+          <a href="#motion" class="navbar-item nav-link">Motion Control</a>
+          <a href="#conclusion" class="navbar-item nav-link">Conclusion</a>
+          <a href="#responsible-ai" class="navbar-item nav-link">Responsible AI</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Links -->
+      <div class="mobile-menu">
+        <div class="mobile-menu-container">
+          <button id="mobile-nav-menu">≡</button>
+          <div class="mobile-menu-options" id="mobile-menu-options">
+            <a href="#introduction" class="navbar-item nav-link">Introduction</a>
+            <a href="#how-it-works" class="navbar-item nav-link">How it works</a>
+            <a href="#results" class="navbar-item nav-link">Results</a>
+            <a href="#ood" class="navbar-item nav-link">Out-of-distribution</a>
+            <a href="#motion" class="navbar-item nav-link">Motion Control</a>
+            <a href="#conclusion" class="navbar-item nav-link">Conclusion</a>
+            <a href="#responsible-ai" class="navbar-item nav-link">Responsible AI</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="section shadow dark first-section" id="header">
+    <div class="container">
+      <h1 class="title dark title-with-top-margin">
+        <strong>Express&#8209;2:</strong> Animatable, hyper-realistic,
+        high-resolution full-body avatars supporting arbitrarily long videos.
+      </h1>
+      <p class="subtitle custom-subtitle">
+        Developed by the Video Research Team at Synthesia, Express&#8209;2 is a
+        state-of-the-art video model for avatar generation. It generates 1080p
+        videos of arbitrary duration at 30fps – perfect for enterprise use cases.
+      </p>
+
+      <!-- video -->
+      <video controls class="video-player main-video" playsinline preload="metadata" poster="static/posters/Intro.jpg">
+        <source src="static/videos/Intro.mp4" type="video/mp4" />
+    </section>
+    </div>
+  </section>
+
+    <!-- ───────────────────────── Overview ───────────────────────── -->
+    <section class="section section-extra-margin" id="introduction">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Introduction</h2>
+        <p class="has-text-justified">
+          We are excited to unveil Express&#8209;2, Synthesia's
+          next-generation system for creating
+          <strong>hyper-realistic, full-body avatars</strong>. Express&#8209;2
+          marks a major leap forward in human AI video generation, pushing the
+          boundaries of what's possible in long-form, controllable, and
+          authentic avatar video content.
+        </p>
+        <br />
+        <p class="has-text-justified">
+          Express&#8209;2 avatars are now available for all paying Synthesia users.
+        </p>
+
+        <!-- ------------------- Ada comparison ------------------- -->
+        <br />
+        <h3 class="title has-text-centered section-subtitle mt-2">Synthesia's progression</h3>
+        <p class="has-text-justified">
+          Synthesia continues to lead innovation in AI-driven human video creation. With Express&#8209;2, the evolution
+          is striking – these avatars exhibit greater emotional depth, realistic movements, and offer unprecedented
+          control for creators, setting a new standard in the industry. The following video shows the remarkable
+          improvements made to Synthesia avatars in just three years. Below, we compare three generations of avatars:
+          V3, Express&#8209;1, and Express&#8209;2.
+        </p>
+        <br />
+        <video controls class="video-player" playsinline preload="metadata" style="border-radius: 16px;" poster="static/posters/synthesia_progress.jpg">
+        <source src="static/videos/synthesia_progress.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── How it works ───────────────────────── -->
+
+    <section class="section" id="how-it-works">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">How it works</h2>
+        <p class="has-text-justified">
+          At the core of Express&#8209;2 is a tightly-coupled architecture
+          built from three advanced models:
+        </p>
+        <br />
+        <ol class="ml-5 has-text-justified">
+          <li>
+            <strong>Express&#8209;Animate</strong>: a frontier foundation model
+            for generating co-speech human gestures. Its core capability lies in
+            producing anatomically accurate and temporally coherent motions
+            driven purely by audio input.
+          </li>
+          <li>
+            <strong>Express&#8209;Eval</strong>: a CLIP-like model that plays a
+            crucial role in evaluating the alignment between input audio and the
+            corresponding generated human motion.
+          </li>
+          <li>
+            <strong>Express&#8209;Render</strong>: a Diffusion Transformer (DiT)
+            that translates the motion cues from Express&#8209;Animate into
+            photorealistic video-frames of the avatar.
+          </li>
+        </ol>
+        <p class="has-text-justified">
+          This modular design enables Express&#8209;2 to generate avatars with
+          remarkably life-like motion, precise lip sync, expressive body
+          language, and robust visual fidelity across extended video sequences,
+          addressing core challenges that enterprises have in
+          <strong>long-form, controllable, and authentic avatar video generation</strong>.
+        </p>
+        <p class="has-text-justified">
+          Below is a system overview of Express&#8209;2. Given an input audio, Express&#8209;Animate generates
+          multiple candidates for human motion that match the audio. Express&#8209;Eval evaluates the quality of the
+          motion and selects the best one. Express&#8209;Render generates the avatar with the selected motion.
+        </p>
+      </div>
+
+    <!-- ───────────────────────── System Schematic ───────────────────────── -->
+      <div class="container is-max-desktop has-text-centered">
+        <br />
+        <img src="static/schemas/EXPRESS2_SCHEMA.png" alt="EXPRES&#8209;2 system overview" class="responsive-img" />
+      </div>
+<!-- ───────────────────────── PUT EXTRA INFO HERE IF LONG SITE ───────────────────────── -->
+  <div class="container is-max-desktop">
+    <br />
+    <h3 class="title has-text-centered">Express&#8209;Animate</h3>
+    <p class="has-text-justified">
+      We developed Express&#8209;Animate, a frontier foundation model for generating co-speech human gestures. Its core capability lies in producing anatomically accurate and temporally coherent motions driven purely by audio input.
+    </p>
+    <br />
+    <p class="has-text-justified">
+      While recent end-to-end approaches have demonstrated strong potential, they often come with substantial demands on data, compute, and training time.
+      To address this, we intentionally decoupled motion generation from avatar appearance – splitting the problem into two more manageable parts. This design choice enables faster convergence and more targeted improvements within each submodel. Early in development, we also discovered that training a specialized model focused solely on human motion resulted in richer, more realistic gestures.
+    </p>
+    <p class="has-text-justified">
+      Without Express&#8209;Animate, our avatars would lack the subtle, audio-synchronized body and facial expressions that make animations feel truly alive.
+    </p>
+  </div>
+
+<!-- put three videos side by side -->
+  <div class="container is-max-desktop">
+    <br />
+    <div class="columns">
+      <div class="column">
+        <video controls class="video-player" playsinline preload="metadata" poster="static/posters/famm_0.jpg">
+          <source src="static/videos/famm_0.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column">
+        <video controls class="video-player" playsinline preload="metadata" poster="static/posters/famm_1.jpg">
+          <source src="static/videos/famm_1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <br />
+    <h3 class="title has-text-centered">Express&#8209;Eval</h3>
+    <p class="has-text-justified">
+      Express&#8209;Eval is a <a href="https://openai.com/index/clip/" target="_blank">CLIP</a>-like model that plays a crucial role in evaluating the alignment between input audio and the corresponding generated human motion. It serves two primary purposes:
+      </p>
+      <br />
+      <p class="has-text-justified"></p>
+        <li><strong>Model evaluation:</strong> To benchmark and compare different versions of Express&#8209;Animate throughout development.</li>
+        <li><strong>Inference-time selection:</strong> To scale Express&#8209;Animate at inference by selecting the best output from a pool of generated candidates.</li>
+      </p>
+      <br />
+      <p class="has-text-justified">
+      Express&#8209;Eval is trained on a large, proprietary dataset of paired audio and motion sequences using a contrastive learning approach inspired by CLIP. The model learns joint audio-motion embeddings, and we compute alignment scores using cosine similarity between these representations.
+      To ensure Express&#8209;Eval can assess not just temporal alignment but also the expressive quality of the motion relative to the audio, we invested heavily in curating datasets that emphasize both accurate synchronization and performance diversity.
+    </p>
+    <p class="has-text-justified">
+      In the images below, we show a schematic illustration of Express&#8209;Eval's architecture (left) and an example of training-time alignment scores between audio and motion (right).
+    </p>
+  </div>
+
+  <div class="container is-max-desktop has-text-centered">
+    <br />
+    <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+      <div>
+        <img src="static/schemas/mega_schema.png" alt="Express&#8209;2 system overview"/>
+      </div>
+      <div>
+        <img src="static/images/training_mega.png" alt="Express&#8209;2 system overview"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <br />
+    <p class="has-text-justified">
+      Next, we give an example of three generations from the same audio sorted from left (best) to right (worst) by Express&#8209;Eval.
+    </p>
+  </div>
+
+
+  <div class="container is-max-desktop">
+    <br />
+    <div class="has-text-centered">
+      <video controls class="video-player" playsinline preload="metadata" poster="static/posters/the_mask_trimmed.jpg">
+        <source src="static/videos/the_mask_trimmed.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <br />
+    <h3 class="title has-text-centered">Express&#8209;Render</h3>
+    <p class="has-text-justified">
+      Express&#8209;Render is a Diffusion Transformer (DiT) that translates the motion cues from Express&#8209;Animate into photorealistic video-frames of the avatar.
+      It synthesizes realistic facial expressions, head movements, and visual details that align precisely with the generated motion and input audio, ensuring that the avatar's appearance remains consistent and believable across extended sequences.
+      We inject identity into the model by using tokenised reference images concatenated with the input visual tokens to be denoised.
+    </p>
+    <br />
+    <p class="has-text-justified">
+      Express&#8209;Render generates videos at 1080p and 30fps, an important requirement for adoption of AI video generation in enterprise.
+      Furthermore, Express&#8209;Render generates arbitrarily long videos without identity drift. To the best of our knowledge, we are the first to demonstrate this at such high quality.
+    </p>
+    <br />
+    <p class="has-text-justified">
+      Due to these characteristics, the vanilla version of Express&#8209;Render is slow and not practical for customer use. We therefore trained a distilled model that creates compelling
+      results with just two diffusion steps, significantly reducing generation time.
+    </p>
+    <p class="has-text-justified">
+      Overall, Express&#8209;Render can generate one minute of video at 1080p and 30fps in our production infrastructure in around 8 minutes.
+      We will soon release Express&#8209;Render-Turbo, which will be able to generate videos at 1080p and 30fps at a much faster rate.
+    </p>
+  </div>
+</section>
+
+    <!-- ───────────────────────── NEW FEATURE CAROUSELS ───────────────────────── -->
+
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Results</h2>
+
+        <!-- Normal Speech Section -->
+        <h3 class="title has-text-centered section-subtitle mt-2">Normal Speech</h3>
+        <p class="has-text-justified">
+          One of the core use cases of the Synthesia platform is enabling users to create compelling video content by
+          simply writing scripts. Our text-to-speech model,
+          <a href="https://synthesiaresearch.github.io/express-voice/" target="_blank">Express&#8209;Voice</a>,
+          generates realistic audio which is then used to drive our avatars. Below are some examples of this.
+        </p>
+        <div class="columns is-multiline is-variable is-1">
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_6_2.jpg">
+              <source src="static/videos/short_6_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_6_3.jpg">
+              <source src="static/videos/short_6_3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_7.jpg">
+              <source src="static/videos/short_7.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_3.jpg">
+              <source src="static/videos/short_3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_2.jpg">
+              <source src="static/videos/short_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_1.jpg">
+              <source src="static/videos/short_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_4_3.jpg">
+              <source src="static/videos/short_4_3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_4_2.jpg">
+              <source src="static/videos/short_4_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_4_1.jpg">
+              <source src="static/videos/short_4_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_5_1.jpg">
+              <source src="static/videos/short_5_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_5_2.jpg">
+              <source src="static/videos/short_5_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/short_6_1.jpg">
+              <source src="static/videos/short_6_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Long Video Generation Section -->
+        <h3 class="title has-text-centered section-subtitle mt-3">Long Video Generation</h3>
+        <p class="has-text-justified">
+          As shown below, Express&#8209;2 can generate videos of arbitrary length.
+        </p>
+        <div class="columns is-multiline is-variable is-1">
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_1.jpg">
+              <source src="static/videos/long_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_2_1.jpg">
+              <source src="static/videos/long_2_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_2_2.jpg">
+              <source src="static/videos/long_2_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_3_1.jpg">
+              <source src="static/videos/long_3_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_3_2.jpg">
+              <source src="static/videos/long_3_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/long_4_1.jpg">
+              <source src="static/videos/long_4_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Multicam section -->
+        <h3 class="title has-text-centered section-subtitle mt-3">Multicamera Generation</h3>
+        <p class="has-text-justified">
+          Express&#8209;2 avatars come with multiple framings and camera angles. We show results of varying the camera angle while keeping the audio fixed.
+        </p>
+        <br />
+        <div class="has-text-centered">
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/multicam_1.jpg">
+            <source src="static/videos/multicam_1.mp4" type="video/mp4">
+          </video>
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/multicam_2.jpg">
+            <source src="static/videos/multicam_2.mp4" type="video/mp4">
+          </video>
+          <br />
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/multicam_3.jpg">
+            <source src="static/videos/multicam_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ood">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Out of Distribution Results</h2>
+        <p class="has-text-justified">
+          Express&#8209;2 shows good generalisation and can be used outside of its training domain. The following
+          audio excerpts of speech and singing were not used for training, they were only used as a driving signal at
+          inference time.
+        </p>
+        <br />
+        <!-- Speech in the Wild Section -->
+        <h3 class="title has-text-centered section-subtitle mt-2">Speeches in the Wild</h3>
+        <div class="columns is-multiline is-variable is-1">
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/male_wild_1.jpg">
+              <source src="static/videos/male_wild_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/female_wild_3.jpg">
+              <source src="static/videos/female_wild_3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/male_wild_2.jpg">
+              <source src="static/videos/male_wild_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/emotional_4.jpg">
+              <source src="static/videos/emotional_4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/female_wild_2.jpg">
+              <source src="static/videos/female_wild_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/female_wild_1.jpg">
+              <source src="static/videos/female_wild_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Singing Section -->
+        <h3 class="title has-text-centered section-subtitle mt-3">Singing</h3>
+        <div class="columns is-multiline is-variable is-1">
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/singing_1.jpg">
+              <source src="static/videos/singing_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/singing_2.jpg">
+              <source src="static/videos/singing_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <video controls class="video-player" playsinline preload="metadata" poster="static/posters/singing_3.jpg">
+              <source src="static/videos/singing_3.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="motion">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Motion diversity and control</h2>
+        <p class="has-text-justified">
+          Through Express&#8209;Animate and Express&#8209;Eval, we have control over generated performances. We can
+          simply modify the seed for varied results, but we can also control temporal diversity, and performance
+          intensity.
+        </p>
+        <br />
+        <div class="has-text-centered">
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/seed_hstack.jpg">
+            <source src="static/videos/seed_hstack.mp4" type="video/mp4">
+          </video>
+          <p class="mt-3 has-text-centered"><strong>Seed – </strong>By altering the seed of Express&#8209;Animate, we can get varied results.</p>
+          <br />
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/vsg_02_04_06_hstack.jpg">
+            <source src="static/videos/vsg_02_04_06_hstack.mp4" type="video/mp4">
+          </video>
+          <p class="mt-3 has-text-centered"><strong>Temporal diversity – </strong>We can use Express&#8209;Animate to control how temporally diverse the motion is. Here, the motion gets more diverse temporally from left to right.</p>
+          <br />
+          <video controls class="video-player" playsinline preload="metadata" poster="static/posters/cfg_2_3_4_hstack.jpg">
+            <source src="static/videos/cfg_2_3_4_hstack.mp4" type="video/mp4">
+          </video>
+          <p class="mt-3 has-text-centered"><strong>Intensity – </strong>We can use Express&#8209;Animate to control the intensity of the motion generated. Here, the motion is faster and more pronounced from left to right.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── CONCLUSION ───────────────────────── -->
+    <section class="section" id="conclusion">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Conclusion</h2>
+        <p class="has-text-justified">
+          With Express&#8209;2, Synthesia has unlocked full-body, expressive avatars for human AI video. This exciting
+          new functionality is now available for all paying Synthesia users.
+        </p>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── RESPONSIBLE AI ───────────────────────── -->
+    <section class="section" id="responsible-ai">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered">Our approach to responsible AI</h2>
+        <p class="has-text-justified">
+        When Synthesia started in 2017, we recognized generative AI is a powerful technology that, when placed in the
+        hands of people with bad intentions, will be misused. So we made two important decisions on day one.
+        </p>
+        <br />
+        <p class="has-text-justified">
+        First, we will not create a clone of a real person without their consent. That means our platform has biometric
+        controls in place to prevent someone from making non-consensual deepfakes.
+        </p>
+        <br />
+        <p class="has-text-justified">
+        Secondly, we have implemented content moderation at the point of creation and <a href="https://help.synthesia.io/en/collections/9622447-platform-policies" target="_blank">defined strict content policies</a>
+        that would limit the spread of harmful AI-generated content. By checking content before it is generated, we
+        keep the platform safe and allow everyone to create video and audio clips that adhere to the highest possible
+        ethical standards. We constantly update our policies and <a href="https://www.synthesia.io/post/nist-red-team-test-content-deepfakes" target="_blank">red team our security processes</a> to ensure we keep up
+        with the latest adversarial attack methods.
+        </p>
+        <br />
+        <p class="has-text-justified">
+        To learn more about our approach to responsible AI, <a href="https://www.synthesia.io/ai-governance" target="_blank">visit our AI Governance portal</a>.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ───────────────────────── Footer ───────────────────────── -->
+    <footer class="section">
+      <div class="container has-text-centered">
+        <p>© 2025 Synthesia Ltd. – All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JS assets loaded at end -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="assets/scripts.js"></script>
+  </body>
+</html>
+
+<!-- Tracking with GoatCounter -->
+<script data-goatcounter="https://express-video.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js">
+</script>

@@ -1,0 +1,177 @@
+Synthesia - Express‑2
+
+Express‑2:
+Animatable, hyper-realistic,
+high-resolution full-body avatars supporting arbitrarily long videos.
+
+Developed by the Video Research Team at Synthesia, Express‑2 is a
+state-of-the-art video model for avatar generation. It generates 1080p
+videos of arbitrary duration at 30fps – perfect for enterprise use cases.
+
+Introduction
+
+We are excited to unveil Express‑2, Synthesia's
+next-generation system for creating
+
+hyper-realistic, full-body avatars
+. Express‑2
+marks a major leap forward in human AI video generation, pushing the
+boundaries of what's possible in long-form, controllable, and
+authentic avatar video content.
+
+Express‑2 avatars are now available for all paying Synthesia users.
+
+Synthesia's progression
+
+Synthesia continues to lead innovation in AI-driven human video creation. With Express‑2, the evolution
+is striking – these avatars exhibit greater emotional depth, realistic movements, and offer unprecedented
+control for creators, setting a new standard in the industry. The following video shows the remarkable
+improvements made to Synthesia avatars in just three years. Below, we compare three generations of avatars:
+V3, Express‑1, and Express‑2.
+
+How it works
+
+At the core of Express‑2 is a tightly-coupled architecture
+built from three advanced models:
+
+Express‑Animate
+: a frontier foundation model
+for generating co-speech human gestures. Its core capability lies in
+producing anatomically accurate and temporally coherent motions
+driven purely by audio input.
+
+Express‑Eval
+: a CLIP-like model that plays a
+crucial role in evaluating the alignment between input audio and the
+corresponding generated human motion.
+
+Express‑Render
+: a Diffusion Transformer (DiT)
+that translates the motion cues from Express‑Animate into
+photorealistic video-frames of the avatar.
+
+This modular design enables Express‑2 to generate avatars with
+remarkably life-like motion, precise lip sync, expressive body
+language, and robust visual fidelity across extended video sequences,
+addressing core challenges that enterprises have in
+
+long-form, controllable, and authentic avatar video generation
+.
+
+Below is a system overview of Express‑2. Given an input audio, Express‑Animate generates
+multiple candidates for human motion that match the audio. Express‑Eval evaluates the quality of the
+motion and selects the best one. Express‑Render generates the avatar with the selected motion.
+
+Express‑Animate
+
+We developed Express‑Animate, a frontier foundation model for generating co-speech human gestures. Its core capability lies in producing anatomically accurate and temporally coherent motions driven purely by audio input.
+
+While recent end-to-end approaches have demonstrated strong potential, they often come with substantial demands on data, compute, and training time.
+To address this, we intentionally decoupled motion generation from avatar appearance – splitting the problem into two more manageable parts. This design choice enables faster convergence and more targeted improvements within each submodel. Early in development, we also discovered that training a specialized model focused solely on human motion resulted in richer, more realistic gestures.
+
+Without Express‑Animate, our avatars would lack the subtle, audio-synchronized body and facial expressions that make animations feel truly alive.
+
+Express‑Eval
+
+Express‑Eval is a
+CLIP
+-like model that plays a crucial role in evaluating the alignment between input audio and the corresponding generated human motion. It serves two primary purposes:
+
+Model evaluation:
+To benchmark and compare different versions of Express‑Animate throughout development.
+
+Inference-time selection:
+To scale Express‑Animate at inference by selecting the best output from a pool of generated candidates.
+
+Express‑Eval is trained on a large, proprietary dataset of paired audio and motion sequences using a contrastive learning approach inspired by CLIP. The model learns joint audio-motion embeddings, and we compute alignment scores using cosine similarity between these representations.
+To ensure Express‑Eval can assess not just temporal alignment but also the expressive quality of the motion relative to the audio, we invested heavily in curating datasets that emphasize both accurate synchronization and performance diversity.
+
+In the images below, we show a schematic illustration of Express‑Eval's architecture (left) and an example of training-time alignment scores between audio and motion (right).
+
+Next, we give an example of three generations from the same audio sorted from left (best) to right (worst) by Express‑Eval.
+
+Express‑Render
+
+Express‑Render is a Diffusion Transformer (DiT) that translates the motion cues from Express‑Animate into photorealistic video-frames of the avatar.
+It synthesizes realistic facial expressions, head movements, and visual details that align precisely with the generated motion and input audio, ensuring that the avatar's appearance remains consistent and believable across extended sequences.
+We inject identity into the model by using tokenised reference images concatenated with the input visual tokens to be denoised.
+
+Express‑Render generates videos at 1080p and 30fps, an important requirement for adoption of AI video generation in enterprise.
+Furthermore, Express‑Render generates arbitrarily long videos without identity drift. To the best of our knowledge, we are the first to demonstrate this at such high quality.
+
+Due to these characteristics, the vanilla version of Express‑Render is slow and not practical for customer use. We therefore trained a distilled model that creates compelling
+results with just two diffusion steps, significantly reducing generation time.
+
+Overall, Express‑Render can generate one minute of video at 1080p and 30fps in our production infrastructure in around 8 minutes.
+We will soon release Express‑Render-Turbo, which will be able to generate videos at 1080p and 30fps at a much faster rate.
+
+Results
+
+Normal Speech
+
+One of the core use cases of the Synthesia platform is enabling users to create compelling video content by
+simply writing scripts. Our text-to-speech model,
+
+Express‑Voice
+,
+generates realistic audio which is then used to drive our avatars. Below are some examples of this.
+
+Long Video Generation
+
+As shown below, Express‑2 can generate videos of arbitrary length.
+
+Multicamera Generation
+
+Express‑2 avatars come with multiple framings and camera angles. We show results of varying the camera angle while keeping the audio fixed.
+
+Out of Distribution Results
+
+Express‑2 shows good generalisation and can be used outside of its training domain. The following
+audio excerpts of speech and singing were not used for training, they were only used as a driving signal at
+inference time.
+
+Speeches in the Wild
+
+Singing
+
+Motion diversity and control
+
+Through Express‑Animate and Express‑Eval, we have control over generated performances. We can
+simply modify the seed for varied results, but we can also control temporal diversity, and performance
+intensity.
+
+Seed –
+By altering the seed of Express‑Animate, we can get varied results.
+
+Temporal diversity –
+We can use Express‑Animate to control how temporally diverse the motion is. Here, the motion gets more diverse temporally from left to right.
+
+Intensity –
+We can use Express‑Animate to control the intensity of the motion generated. Here, the motion is faster and more pronounced from left to right.
+
+Conclusion
+
+With Express‑2, Synthesia has unlocked full-body, expressive avatars for human AI video. This exciting
+new functionality is now available for all paying Synthesia users.
+
+Our approach to responsible AI
+
+When Synthesia started in 2017, we recognized generative AI is a powerful technology that, when placed in the
+hands of people with bad intentions, will be misused. So we made two important decisions on day one.
+
+First, we will not create a clone of a real person without their consent. That means our platform has biometric
+controls in place to prevent someone from making non-consensual deepfakes.
+
+Secondly, we have implemented content moderation at the point of creation and
+defined strict content policies
+
+that would limit the spread of harmful AI-generated content. By checking content before it is generated, we
+keep the platform safe and allow everyone to create video and audio clips that adhere to the highest possible
+ethical standards. We constantly update our policies and
+red team our security processes
+to ensure we keep up
+with the latest adversarial attack methods.
+
+To learn more about our approach to responsible AI,
+visit our AI Governance portal
+.

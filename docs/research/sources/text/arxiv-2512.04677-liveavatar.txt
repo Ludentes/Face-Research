@@ -1,0 +1,325 @@
+[2512.04677] Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2512.04677
+(cs)
+
+[Submitted on 4 Dec 2025 (
+v1
+), last revised 31 Jul 2026 (this version, v6)]
+
+Title:
+Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length
+
+Authors:
+Yubo Huang
+,
+Hailong Guo
+,
+Fangtai Wu
+,
+Weiqiang Wang
+,
+Shifeng Zhang
+,
+Shijie Huang
+,
+Qijun Gan
+,
+Lin Liu
+,
+Sirui Zhao
+,
+Enhong Chen
+,
+Jiaming Liu
+,
+Steven Hoi
+
+View a PDF of the paper titled Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length, by Yubo Huang and 11 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Audio-driven avatar interaction demands real-time, streaming, and infinite-length generation -- capabilities fundamentally at odds with the sequential denoising and long-horizon drift of current diffusion models. We present Live Avatar, an algorithm-system co-designed framework that addresses both challenges for a 14-billion-parameter diffusion model. On the algorithm side, a two-stage pipeline distills a pretrained bidirectional model into a causal, few-step streaming one, while a set of complementary long-horizon strategies eliminate identity drift and visual artifacts, enabling stable autoregressive generation exceeding 10000 seconds. On the system side, Timestep-forcing Pipeline Parallelism (TPP) assigns each GPU a fixed denoising timestep, converting the sequential diffusion chain into an asynchronous spatial pipeline that simultaneously boosts throughput and improves temporal consistency. Live Avatar achieves 45 FPS with a TTFF of 1.21\,s on 5 H800 GPUs, and to our knowledge is the first to enable practical real-time streaming of a 14B diffusion model for infinite-length avatar generation. We further introduce GenBench, a standardized long-form benchmark, to facilitate reproducible evaluation. Our project page is at
+this https URL
+.
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2512.04677
+[cs.CV]
+
+(or
+
+arXiv:2512.04677v6
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2512.04677
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Yubo Huang [
+view email
+]
+
+[v1]
+
+Thu, 4 Dec 2025 11:11:24 UTC (37,030 KB)
+
+[v2]
+
+Fri, 5 Dec 2025 06:32:30 UTC (37,030 KB)
+
+[v3]
+
+Thu, 18 Dec 2025 13:02:34 UTC (37,030 KB)
+
+[v4]
+
+Mon, 16 Mar 2026 10:34:13 UTC (41,641 KB)
+
+[v5]
+
+Mon, 20 Apr 2026 05:52:31 UTC (41,641 KB)
+
+[v6]
+
+Fri, 31 Jul 2026 10:43:50 UTC (37,150 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length, by Yubo Huang and 11 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2025-12
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+NASA ADS
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

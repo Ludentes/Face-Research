@@ -1,0 +1,125 @@
+Avatar V: Scaling Video-Reference Avatar Generation
+Skip to main content
+HeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT
+Install HeyGen Plugin for ChatGPT
+Technical reports
+Avatar V: Scaling Video-Reference Avatar Generation
+Avatar V is built on a Diffusion Transformer with flow matching that conditions directly on the full token sequence of a user’s reference video—no bottleneck embeddings. Sparse Reference Attention keeps cost almost linear with reference length. A five-stage training curriculum progresses from general video pre-training through identity-preserving fine-tuning, distillation, and RLHF alignment.
+By
+HeyGen Research
+Apr 8, 2026
+Read the report
+Avatar V is the latest version of HeyGen’s avatar video generation system. It produces high-resolution avatar videos of arbitrary length from a single reference video and a driving audio signal. This post covers the model architecture and the five-stage training pipeline we built to get there.
+Model Design
+We frame avatar generation as conditional video synthesis. Given a reference clip and an audio track, the model generates a talking-head video that preserves the speaker’s identity while following the rhythm and content of the audio. The core idea is
+video-reference conditioning
+: rather than compressing identity into low-dimensional embeddings or fixed-size feature vectors, the model conditions on the full token sequence of the user’s reference video at every transformer layer. This scales naturally with reference length—more context yields richer identity information—and requires no identity-specific fine-tuning at inference time.
+Static and Dynamic Identity
+What distinguishes Avatar V from existing systems is its ability to model both
+static
+and
+dynamic
+aspects of personal identity. Static features include fine-grained, time-invariant characteristics: dental structure, skin texture, facial geometry, hair, and accessories. Dynamic features encompass behavioral patterns: talking rhythm, habitual micro-expressions, and gestural tendencies during speech. Short references provide basic appearance information; longer references let the model observe and internalize the individual’s talking cadence and expression dynamics. The result is that generated videos are not merely facially similar to the target but are behaviorally recognizable.
+Figure 1: Avatar V Architecture. Multi-modal inputs are patchified into a unified token sequence and processed through L transformer blocks with Sparse Reference Self-Attention, cross-attention modules, and motion injection.
+Sparse Reference Attention
+Standard approaches either compress references into low-dimensional bottlenecks that lose fine-grained identity details, or concatenate all reference tokens with generation tokens at prohibitive quadratic cost. Sparse Reference Attention addresses this through a structured sparsity pattern that preserves full access to identity information while eliminating redundant computation among tokens that do not require mutual interaction. The resulting complexity scales almost linearly with reference length, enabling the model to condition on minutes-long reference footage.
+Talking Style via Motion Representation
+Talking style—the characteristic temporal pattern of facial movements, mouth shapes, and head gestures during speech—is captured through a dedicated motion representation that serves as both a learning objective and a conditioning signal. Through joint optimization of these two roles, the model develops a unified understanding of the target speaker’s motion dynamics, producing generated videos that are behaviorally consistent with the reference speaker even for unseen speech content.
+Identity-Preserving Image Engine
+Before video generation begins, the Image Engine constructs a high-fidelity scene image of the speaker. Rather than relying on a single reference frame, the pipeline automatically selects a diverse set of frames spanning multiple viewpoints and expressions from the user’s input video. This multi-view sampling ensures robust identity representation, reproducing subtle cues like smile asymmetry and nasolabial fold characteristics across novel scenes.
+LLM-Based Audio Engine
+Voice cloning runs on a separate Audio Engine built around an LLM backbone. Given as little as 10 seconds of audio, the engine generates natural speech with matched timbre, prosody, and accent through discrete audio token prediction, supporting multilingual output and emotion control. The audio output feeds directly into the motion encoder, closing the loop between voice and movement.
+Identity-Aware Super-Resolution
+The base DiT generates video at low resolution, then a dedicated super-resolution refiner upscales to the final output. The refiner shares the same DiT backbone and inherits the full identity modeling apparatus—video reference conditioning, audio features, and motion representations—so facial identity is preserved through upsampling. Sparse temporal attention restricts each frame’s receptive field to a local neighborhood, and multi-stage distillation enables high-quality upsampling in very few denoising steps.
+Training Strategy
+We train Avatar V in five progressive stages, each building on the last. Early stages use large, loosely-curated data to learn general video priors. Later stages use small, high-quality data to specialize the model for avatar generation and align it with human preferences.
+Figure 2: Avatar V Training Pipeline. The five-stage curriculum progressively builds capabilities from general video generation through audio-driven synthesis and identity-preserving personality embedding to distillation and human feedback alignment.
+Stage 1: Text-to-Video Pretraining
+The backbone starts as a general text-to-video model trained on internet-scale video data with progressive resolution and duration scaling. This stage jointly trains on text-to-video and image-to-video tasks, teaching the model coherent motion, camera handling, and temporal consistency before any avatar-specific data is introduced.
+Stage 2: Audio-to-Video Pretraining
+Starting from the T2V checkpoint, the model is adapted to accept a conditioning image and a driving audio track. This stage introduces audio cross-attention modules trained jointly with the visual backbone on a broad corpus of talking-head video spanning diverse speakers, languages, and speaking styles.
+Stage 3: Personality SFT
+Supervised fine-tuning on curated same-identity-different-scene pairs. The model receives reference videos through Sparse Reference Attention and learns to extract identity-invariant features rather than copying scene-specific details. Motion representation pathways are activated for talking style transfer, and the human-aware auxiliary loss suite is progressively enabled to provide dense semantic supervision beyond raw pixels.
+Stage 4: Distillation
+A two-phase distillation pipeline enables practical deployment. First, CFG distillation collapses multiple classifier-free guidance streams into a single forward pass. Then, Distribution Matching Distillation (DMD) further reduces the number of denoising steps using a three-model architecture (student, fake teacher, frozen real teacher). The combined pipeline reduces inference cost by over an order of magnitude.
+Stage 5: RLHF Alignment
+The final stage aligns the model with human perceptual preferences using multiple reward signals covering identity fidelity, motion naturalness, and visual quality. We use Group Relative Policy Optimization (GRPO) with a flow-matching-compatible formulation as the primary algorithm, complemented by Direct Preference Optimization (DPO) trained on human-annotated preference pairs. KL regularization against the pre-RLHF model prevents degradation on previously learned capabilities.
+Demo Videos
+Avatar V generates high-resolution talking avatar videos from a single reference video and a driving audio track.
+Reference Video
+Avatar V Generated
+Reference Video
+Avatar V Generated
+Reference Video
+Avatar V Generated
+Reference Video
+Avatar V Generated
+Reference Video
+Avatar V Generated
+Demo 1: Same-scene avatar generation driven by new audio. Given a reference video (left), Avatar V generates a new talking video (right) with different speech content while preserving the speaker’s identity, talking style, and facial micro-expressions.
+Reference Video
+Target Scene
+→
+Avatar V Generated
+Reference Video
+Target Scene
+→
+Avatar V Generated
+Reference Video
+Target Scene
+→
+Avatar V Generated
+Reference Video
+Target Scene
+→
+Avatar V Generated
+Reference Video
+Target Scene
+→
+Avatar V Generated
+Demo 2: Cross-scene avatar generation. Given a reference video (top-left) providing identity and talking style, plus a target scene image (bottom-left), Avatar V generates the speaker in the new environment while preserving their appearance and behavioral characteristics.
+Comparison
+Side-by-side comparisons with existing methods on identity preservation, lip-sync accuracy, and motion naturalness.
+Comparison:
+Avatar V significantly outperforms existing methods across all key dimensions. It produces substantially higher
+identity fidelity
+—preserving fine-grained facial features like dental structure, skin texture, and accessories that competing models lose or distort.
+Lip-sync accuracy
+is markedly better, with precise mouth shapes tracking the driving audio frame-by-frame.
+Motion naturalness
+is a clear differentiator: Avatar V reproduces the speaker’s characteristic head movements, gestural rhythm, and micro-expressions, while other methods tend toward static or generic motion. Even in
+cross-scene scenarios
+where the reference environment differs from the generated one, Avatar V maintains identity coherence that competitors struggle to achieve.
+Can You Tell Which Is Real?
+One video in each pair is the original footage. The other is generated by Avatar V from a reference video and driving audio. Watch both, make your guess, then click to reveal the answer.
+This is real
+This is real
+This is real
+This is real
+This is real
+This is real
+This is real
+This is real
+This is real
+This is real
+Objective Evaluation
+We evaluate Avatar V against four state-of-the-art systems on a cross-scene benchmark of 70 test cases sourced from publicly available talking-head videos. Each case pairs two clips of the same individual in different scenes—one as identity reference, the other providing driving audio. Objective metrics are reported on the 36 matched cases where all five methods produced valid outputs. Per-frame metrics are computed as 10% trimmed means for robustness.
+Objective metrics comparison. Avatar V achieves the highest lip-sync scores and face similarity, while tying for second on perceptual quality.
+Avatar V achieves the highest LSE-C (8.97) and lowest LSE-D (6.75), surpassing even ground truth recordings. On identity preservation, Avatar V achieves the highest Face Similarity (0.840), substantially outperforming Veo 3.1 (0.714). Veo 3.1 achieves the highest Q-Align but at the cost of severely degraded identity.
+Human Evaluation (MOS)
+Each video is rated on a 5-point Likert scale across six dimensions by trained annotators. Avatar V achieves the highest score on
+all six dimensions
+.
+MOS comparison (5-point Likert scale). Avatar V ranks first on all six perceptual dimensions.
+MOS radar chart. Avatar V (cyan) achieves the highest human ratings across all six dimensions.
+Pairwise Win Rate
+Pairwise win rate by majority vote. Avatar V is consistently preferred (68.9%–85.7%).
+Why This Matters
+The model architecture and training pipeline described here are the core of Avatar V, but they do not operate in isolation. The Sparse Reference Attention mechanism places stringent requirements on training data—same-identity video pairs across diverse scenes—which are met by the data curation pipeline. The distilled model feeds into the inference system, where caching, sequence parallelism, and custom compilation make production-scale deployment possible. The full picture is in the report.
+Ethics and Safety
+Consent & Moderation
+— All videos shown on this page are for research demonstration purposes only. HeyGen’s production platform enforces consent verification for all digital twin creation.
+Avatar generation raises important considerations around consent and content safety. Our production platform addresses these through two mechanisms. First, creating a custom avatar requires explicit verification from the individual being represented; the depicted individual retains the right to request removal of their likeness at any time. Second, all content uploaded to or generated by the platform passes through a two-stage moderation pipeline combining automated review powered by machine learning with manual review by human moderators, covering categories including but not limited to fraud, harassment, child safety, misinformation, and intellectual property infringement. Violations may result in content removal, account suspension, or reporting to legal authorities. The full policy is available at
+heygen.com/moderation-policy
+.
+Contact sales

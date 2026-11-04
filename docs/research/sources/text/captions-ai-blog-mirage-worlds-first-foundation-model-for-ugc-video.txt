@@ -1,0 +1,51 @@
+Mirage: The World's First Foundation Model for UGC Video | Captions Blog
+
+Today, we’re introducing
+Mirage
+, the world’s first video foundation model designed for generating UGC-style ads and talking content,
+built entirely in-house
+.
+
+To date, AI-generated talking videos have been dominated by lip-sync models applied on footage of licensed actors. You’ve seen these videos everywhere: clips where a voice is dubbed over an existing video, but something always feels a bit off. The lips move correctly, but the rest of the face? The body language? It doesn’t match. It’s like watching a bad actor deliver a great script. As AI lip-syncing gains traction, a major limitation has become clear. Half of visual communication comes from facial expressions, micro-reactions, and body language—not just lip movement.
+
+That’s why we’ve built the Mirage model, which generates hyper-realistic talking videos featuring people, objects, and background environments that don’t exist. With Mirage’s AI, you can generate any scripted video you can imagine with a full display of emotion and body language. All you need to create content is an optional text prompt to guide the actor’s look and environment, and then either an audio file, video file, or script to direct their dialogue. Alternatively, Mirage can also generate an actor from an audio file on its own, without any prompting on the visual direction.
+
+We were among the first to commercialize AI lip-sync models back in 2022,
+launching the original “lip dub”
+, also known as “AI dubbing.” The Mirage model takes this technology even further, generating not just lip-sync but full facial and upper-body motion that feels completely natural.
+
+“Capturing the subtlety of human expression has always been a challenge in AI-generated video,” says
+Drew Jaegle
+, Head of AI at Mirage. “With Mirage, we’ve made breakthroughs that produce talking videos with striking realism.”
+
+With Mirage, you can:
+
+Upload an audio or video file (like from a top-performing ad) to generate a realistic video.
+
+Generate new audio in Captions and have Mirage bring it to life.
+
+Type a prompt and define the look of the speaker: age, gender, clothing, background, products and more.
+
+How Mirage changes AI video for creators & brands
+
+Mirage introduces new creative possibilities while solving long-standing challenges in AI-generated content.
+
+Key benefits of Mirage’s AI model:
+
+No licensing or contract requirements
+
+: Cut down months of outreach, negotiating, contracting, and iterating into minutes.
+
+Localized content in any language
+
+: Generate videos in 29+ languages that feel authentic across different markets.
+
+Unlimited creative flexibility
+
+: Quickly experiment with messaging by tweaking and adjusting instantly as needed.
+
+By eliminating the need for pre-recorded footage and offering more realistic and natural motion, Mirage removes creative barriers and dramatically expands the possibilities for marketers and creatives. You can quickly repurpose high-performing ads, generate fresh creative and iterate with your favorite AI actors. To see Mirage for yourself, start using the Captions app or Captions on web.
+
+Try Captions now
+Sign up
+Get the app

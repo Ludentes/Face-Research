@@ -1,0 +1,331 @@
+AppDirect adds AI avatars to its technology commerce platform | Channel Dive
+
+Skip to main content
+
+Informa TechTarget
+
+|
+
+CIO Dive
+
+Cybersecurity Dive
+
+InformationWeek
+
+MicroScope
+
+Explore our brands
+
+An Informa TechTarget Publication
+
+Search
+
+People also ask
+
+Loading questions...
+
+An article from
+
+Dive Brief
+
+AppDirect adds AI avatars to its technology commerce platform
+
+The company acquired Soul Machines to upgrade AI interfaces across B2B sales and support.
+
+Published Sept. 29, 2026
+
+By
+
+Nidhi Sharma
+
+Senior Reporter
+
+Share
+
+Copy link
+
+Email
+
+LinkedIn
+
+X/Twitter
+
+Facebook
+
+Print
+
+License
+
+Add us on Google
+
+Getty Images
+
+Dive Brief:
+
+AppDirect acquired Soul Machines
+, a venture-backed startup that creates hyper-realistic AI avatars, on Monday. The B2B commerce platform provider aims to help channel partners, consultants and businesses deploy more interactive AI experiences across sales, service, support and commerce, according to an announcement.
+
+Soul Machine’s technology has applications in AI-based software user and customer experience interfaces, as well as in self-service, training and onboarding platforms. It will be integrated with AppDirect’s Devs.ai platform, which offers vibe-coding tools and access to multiple large language models.
+
+“The value of this technology is that it represents the next step in making AI more intuitive,” Chris Herd, general manager at Soul Machines, said in an email. “Instead of relying only on prompts or text-based workflows, businesses can now interact with AI in more natural, conversational ways through text, voice and virtual human interfaces. For partners and advisors, this creates a new way to differentiate in the AI market.”
+
+Dive Insight:
+
+Soul Machines was co-founded in 2016 by director and producer Mark Sagar, who previously worked as a facial technology and visual effects engineer on blockbusters such as “Avatar” and “King Kong.” Sagar’s startup uses patented autonomous animation to “humanize AI” and create animated digital teammates that can see, hear and respond to prompts in real time, Herd said.
+
+“Until recently, compute costs and latency kept lifelike, real-time AI out of reach for broad commercial adoption,” Sagar said. “Those barriers are now collapsing and with the integration to Devs.ai, this technology is now available through the channel.”
+
+For partners, lifelike AI is a potential business opportunity, though the credibility of AI avatars remains unclear. A recent study of AI avatars in the classroom found
+no significant differences in short-term learning gains
+, and that students preferred human teachers. Users have also reported a phenomenon known as the “uncanny valley,” the unsettling experience of interacting with not-quite-human avatars.
+
+Soul Machines is AppDirect’s third major acquisition in recent months. Last week, the company bought
+telecoms provider CCI Network Services
+. In April, AppDirect added
+relationship management platform PartnerStack
+to its portfolio.
+
+As AI adoption moves from experimentation to implementation, AppDirect is one of many companies seeking to build trustworthy AI interfaces for customers and partners.
+
+Devs.ai provides access to over 100 LLMs, AI software and applications and secure workspaces to build and manage business AI tools. Channel partners will soon be able to access Soul Machines technology through the platform, according to the announcement.
+
+Add us on Google
+
+Share
+
+Copy link
+
+Email
+
+LinkedIn
+
+X/Twitter
+
+Facebook
+
+Print
+
+License
+
+Filed Under:
+
+AI & Automation
+,
+
+Money Matters
+
+Channel Dive news delivered to your inbox
+
+Get the free daily newsletter read by industry experts
+
+Email:
+
+Select user consent:
+
+By signing up to receive our newsletter, you agree to our
+
+Terms of Use
+and
+
+Privacy Policy
+. You can unsubscribe at anytime.
+
+Sign up
+
+A valid email address is required.
+
+Please select at least one newsletter.
+
+Editors' pick
+
+Leon Neal via Getty Images
+
+Which MSPs do ChatGPT and Gemini recommend? A new study names names
+
+Dataprise and Ntiva led a one-day test of five AI engines, but 103 of 152 MSPs surfaced only once. Ntiva’s marketing chief says the rules keep shifting.
+
+By James Anderson •
+
+Oct. 23, 2026
+
+Get the free newsletter
+
+Subscribe to Channel Dive for top news, trends & analysis
+
+Email:
+
+Select user consent:
+
+By signing up to receive our newsletter, you agree to our
+
+Terms of Use
+and
+
+Privacy Policy
+. You can unsubscribe at anytime.
+
+Sign up
+
+A valid email address is required.
+
+Please select at least one newsletter.
+
+Take your
+knowledge further with
+
+Sign up for the free
+newsletter.
+
+Interested? Explore more of what
+has to offer.
+
+One-click newsletter signup
+
+You're all set
+
+Thanks for signing up!
+Please keep an eye out for a confirmation email from
+
+[email protected]
+
+To ensure we make it into your inbox regularly,
+add us to your allow list, mark us as a safe sender, or add us to your address book.
+Check out more from
+
+Most Popular
+
+Tech distribution channel cashes in on AI infrastructure boom
+
+Midmarket organizations struggle to plug security gaps
+
+Sandler Partners AI-ifies its sales engineers
+
+AI readiness remains scarce, blocking returns on investments
+
+Company Announcements
+
+View all
+
+|
+Post a press release
+
+What We're Reading
+
+Fierce Network
+
+Fiber operator Brightspeed faces potential bankruptcy
+
+Trefis
+
+Why Is Intel Stock Falling?
+
+The Register
+
+Anthropic’s IPO prospectus is big on promises, short on answers to tough questions
+
+View all
+
+Events
+
+View all
+
+|
+Promote an event
+
+Channel Dive news delivered to your inbox
+
+Get the free daily newsletter read by industry experts
+
+Email:
+
+Select user consent:
+
+By signing up to receive our newsletter, you agree to our
+
+Terms of Use
+and
+
+Privacy Policy
+. You can unsubscribe at anytime.
+
+Sign up
+
+A valid email address is required.
+
+Please select at least one newsletter.
+
+Company Announcements
+
+View all
+
+|
+Post a press release
+
+AI adoption is accelerating, but is it delivering better channel performance?
+
+From Motivforce
+
+November 02, 2026
+
+Informa TechTarget to Integrate its Proprietary ‘Buyer Intelligence’ with Demandbase
+
+From Informa TechTarget
+
+October 23, 2026
+
+Capchase Launches Mila, an AI Agent That Runs a Vendor Financing Deal Desk 24/7
+
+From Capchase
+
+October 20, 2026
+
+Research finds almost 75% of Microsoft partners dependent on funding, but few prioritize maxim…
+
+From Resultful
+
+October 14, 2026
+
+Read next
+
+Leon Neal via Getty Images
+
+Which MSPs do ChatGPT and Gemini recommend? A new study names names
+
+Dataprise and Ntiva led a one-day test of five AI engines, but 103 of 152 MSPs surfaced only once. Ntiva’s marketing chief says the rules keep shifting.
+
+By James Anderson •
+
+Oct. 23, 2026
+
+Latest in AI & Automation
+
+TD Synnex gives partners an AI playbook for the midmarket
+
+By Phil Harvey
+
+Midmarket organizations struggle to plug security gaps
+
+By Nidhi Sharma
+
+Tech distribution channel cashes in on AI infrastructure boom
+
+By Matt Ashare
+
+This website is owned and operated by
+
+Informa TechTarget
+,
+a global network that informs, influences and connects the world's technology buyers and sellers.
+
+© 2026 TechTarget, Inc. or its subsidiaries. All rights reserved. An Informa PLC company.
+
+Privacy policy
+
+|
+Terms of use
+
+|
+Take down policy
+
+|
+Cookie Preferences / Do Not Sell

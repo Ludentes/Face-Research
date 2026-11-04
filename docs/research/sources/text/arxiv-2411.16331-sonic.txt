@@ -1,0 +1,336 @@
+[2411.16331] Sonic: Shifting Focus to Global Audio Perception in Portrait Animation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Multimedia
+
+arXiv:2411.16331
+(cs)
+
+[Submitted on 25 Nov 2024 (
+v1
+), last revised 5 Jun 2025 (this version, v3)]
+
+Title:
+Sonic: Shifting Focus to Global Audio Perception in Portrait Animation
+
+Authors:
+Xiaozhong Ji
+,
+Xiaobin Hu
+,
+Zhihong Xu
+,
+Junwei Zhu
+,
+Chuming Lin
+,
+Qingdong He
+,
+Jiangning Zhang
+,
+Donghao Luo
+,
+Yi Chen
+,
+Qin Lin
+,
+Qinglin Lu
+,
+Chengjie Wang
+
+View a PDF of the paper titled Sonic: Shifting Focus to Global Audio Perception in Portrait Animation, by Xiaozhong Ji and 11 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+The study of talking face generation mainly explores the intricacies of synchronizing facial movements and crafting visually appealing, temporally-coherent animations. However, due to the limited exploration of global audio perception, current approaches predominantly employ auxiliary visual and spatial knowledge to stabilize the movements, which often results in the deterioration of the naturalness and temporal
+this http URL
+the essence of audio-driven animation, the audio signal serves as the ideal and unique priors to adjust facial expressions and lip movements, without resorting to interference of any visual signals. Based on this motivation, we propose a novel paradigm, dubbed as Sonic, to {s}hift f{o}cus on the exploration of global audio per{c}ept{i}o{n}.To effectively leverage global audio knowledge, we disentangle it into intra- and inter-clip audio perception and collaborate with both aspects to enhance overall
+this http URL
+the intra-clip audio perception, 1). \textbf{Context-enhanced audio learning}, in which long-range intra-clip temporal audio knowledge is extracted to provide facial expression and lip motion priors implicitly expressed as the tone and speed of speech. 2). \textbf{Motion-decoupled controller}, in which the motion of the head and expression movement are disentangled and independently controlled by intra-audio clips. Most importantly, for inter-clip audio perception, as a bridge to connect the intra-clips to achieve the global perception, \textbf{Time-aware position shift fusion}, in which the global inter-clip audio information is considered and fused for long-audio inference via through consecutively time-aware shifted windows. Extensive experiments demonstrate that the novel audio-driven paradigm outperform existing SOTA methodologies in terms of video quality, temporally consistency, lip synchronization precision, and motion diversity.
+
+Comments:
+
+refer to our main-page \url{
+this https URL
+}
+
+Subjects:
+
+Multimedia (cs.MM)
+; Computer Vision and Pattern Recognition (cs.CV); Graphics (cs.GR); Sound (cs.SD); Audio and Speech Processing (eess.AS)
+
+Cite as:
+
+arXiv:2411.16331
+[cs.MM]
+
+(or
+
+arXiv:2411.16331v3
+[cs.MM]
+for this version)
+
+https://doi.org/10.48550/arXiv.2411.16331
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Xiaobin Hu [
+view email
+]
+
+[v1]
+
+Mon, 25 Nov 2024 12:24:52 UTC (5,325 KB)
+
+[v2]
+
+Wed, 4 Jun 2025 07:50:44 UTC (5,329 KB)
+
+[v3]
+
+Thu, 5 Jun 2025 11:49:59 UTC (5,329 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Sonic: Shifting Focus to Global Audio Perception in Portrait Animation, by Xiaozhong Ji and 11 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.MM
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2024-11
+
+Change to browse by:
+
+cs
+
+cs.CV
+
+cs.GR
+
+cs.SD
+
+eess
+
+eess.AS
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

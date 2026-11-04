@@ -1,0 +1,258 @@
+Lemon Slice launches with $10.5M seed round to scale real-time interactive AI avatars - SiliconANGLE
+
+Skip to content
+
+SHARE
+
+UPDATED 17:33 EST / DECEMBER 23 2025
+
+AI
+
+Lemon Slice launches with $10.5M seed round to scale real-time interactive AI avatars
+
+by
+Duncan Riley
+
+Frontier artificial intelligence research and product startup
+Lemon Slice
+launched today and announced that it had raised $10.5 million in funding.
+
+The money will be used to scale up its real-time interactive avatar technology and drive broader commercial adoption of its application programming interface and embedded avatar products.
+
+Founded in 2024 and a graduate of the Y Combinator Winter 2024 batch, Lemon Slice is building foundational technology for interactive video experiences that respond in real time to users rather than passively playing back prerecorded content.
+
+Lemon Slice offers advanced AI video avatar technology that can transform a single still image into a fully interactive, conversational video character. The company’s flagship model, called Lemon Slice-2, allows users to upload a photo, whether a corporate headshot, a cartoon, or even a painting and then immediately engage in a live video call with that character.
+
+What sets Lemon Slice apart from its competitors is that the characters are created in real time, rather than requiring extensive training data or video clips, or imposing restrictive style limitations.
+
+The company’s technology is powered by a large-scale video diffusion transformer that’s engineered to generate every pixel of animation on the fly, including facial expressions, gestures and full-body motion. Lemon Slice claims that the tech allows it to deliver expressive and emotionally engaging avatars that feel more natural and interactive than typical static or limited avatars.
+
+“The primary complaint about AI avatars is that they lack realism and detract value,”
+explained
+co-founder and Chief Executive Lina Colucci. “Our avatar models are charismatic and fun to interact with. In the future, all video will be interactive and personalized to whoever is watching. We’re building the technology that makes that possible.”
+
+Lemon Slice’s tech can be accessed and used by developers via an API and website owners can embed interactive avatar widgets with minimal coding effort.
+
+The seed funding came from Matrix Partners LP, Y Combinator Management, Arash Ferdowsi, who’s chief technology officer of Dropbox Inc., Emmett Shear, CEO of Twitch, and the music band The Chainsmokers.
+
+“People connect with faces, not text boxes,” said Ilya Sukhar, general partner at Matrix Partners. “Lemon Slice is building charismatic, interactive avatars that give every chatbot a face. It’s the natural evolution of conversational AI.”
+
+Image: Lemon Slice
+
+A message from John Furrier, co-founder of SiliconANGLE:
+
+Support our mission to keep content open and free by engaging with theCUBE community.
+Join theCUBE’s Alumni Trust Network
+, where technology leaders connect, share intelligence and create opportunities.
+
+15M+ viewers of theCUBE videos
+, powering conversations across AI, cloud, cybersecurity and more
+
+11.4k+ theCUBE alumni
+— Connect with more than 11,400 tech and business leaders shaping the future through a unique trusted-based network
+
+Are you an AWS customer?
+Support SiliconANGLE financially by buying your AWS services from our
+Marketplace portal page and links:
+https://siliconangle.com/aws-marketplace/
+
+About SiliconANGLE Media
+
+SiliconANGLE Media is a recognized leader in digital media innovation, uniting breakthrough technology, strategic insights and real-time audience engagement. As the parent company of
+SiliconANGLE
+,
+theCUBE Network
+,
+theCUBE Research
+,
+CUBE365
+,
+theCUBE AI
+and theCUBE SuperStudios — with flagship locations in Silicon Valley and the New York Stock Exchange — SiliconANGLE Media operates at the intersection of media, technology and AI.
+
+Founded by tech visionaries John Furrier and Dave Vellante, SiliconANGLE Media has built a dynamic ecosystem of industry-leading digital media brands that reach 15+ million elite tech professionals. Our new proprietary theCUBE AI Video Cloud is breaking ground in audience interaction, leveraging theCUBEai.com neural network to help technology companies make data-driven decisions and stay at the forefront of industry conversations.
+
+LATEST STORIES
+Autonomous site reliability engineering startup Traversal bags $120M in funding at a $1B valuation
+Supermicro and Arista Networks crush expectations as AI infrastructure wins again
+AMD beats expectations as agentic AI sparks its data center revenue growth engines
+Google offers tepid response to accusations it would hold Search hostage if schools restrict AI tools
+AI cloud startup Applied Compute raises $350M after reaching key revenue milestone
+CrowdStrike to acquire cybersecurity startups Fiddler AI, Dreadnode for reported $495M
+LATEST STORIES
+Autonomous site reliability engineering startup Traversal bags $120M in funding at a $1B valuation
+CLOUD
+- BY
+MIKE WHEATLEY
+.
+3 HOURS AGO
+Supermicro and Arista Networks crush expectations as AI infrastructure wins again
+INFRA
+- BY
+MIKE WHEATLEY
+.
+5 HOURS AGO
+AMD beats expectations as agentic AI sparks its data center revenue growth engines
+INFRA
+- BY
+MIKE WHEATLEY
+.
+5 HOURS AGO
+Google offers tepid response to accusations it would hold Search hostage if schools restrict AI tools
+POLICY
+- BY
+JAMES FARRELL
+.
+6 HOURS AGO
+AI cloud startup Applied Compute raises $350M after reaching key revenue milestone
+INFRA
+- BY
+MARIA DEUTSCHER
+.
+6 HOURS AGO
+CrowdStrike to acquire cybersecurity startups Fiddler AI, Dreadnode for reported $495M
+SECURITY
+- BY
+MARIA DEUTSCHER
+.
+7 HOURS AGO
+
+CUBE EVENT COVERAGE
+
+help_outline
+
+LATEST FROM THECUBE
+IBM puts agentic workloads at the heart of its AI operating model
+Enterprise architecture: Dell and Microsoft integrate hybrid AI
+Rack-scale AI: How Dell and AMD are building infrastructure
+On theCUBE Pod: Stock market gets the jitters and Anthropic files IPO
+Enterprises bring AI to their data as privacy rules tighten and costs climb
+
+DIVE INTO DAVE VELLANTE’S BREAKING ANALYSIS SERIES
+help_outline
+Can enterprise AI pay for the boom?
+Micron’s memory boom: Is the industry's cyclicality really ending?
+ServiceNow AI Control Tower: Selling a penthouse while building the frame
+The AI control gap: Who gets to say ‘It’s safe'?
+Nvidia’s scale-in play: Controlling agents is the next infrastructure priority
+
+Sign Up for Our Weekly Newsletter
+SUBSCRIBE
+
+UPCOMING CUBE EVENTS
+SEE MORE
+
+RECENT CUBE EVENTS
+monday.com Elevate 2026
+Intuit Connect 2026
+EVOLVE26
+AI Cybersecurity & Resilience Summit 2026
+IBM's AI Operating Model 2026
+
+×
+
+Send us a news tip
+
+Send us a News Tip
+
+Email
+This field is for validation purposes and should be left unchanged.
+Name
+*
+
+First
+
+Last
+
+Type of Pitch
+*
+Consumer or Enterprise?
+Enterprise
+Startup News
+Emerging Technology
+Email
+*
+
+What's your story?
+*
+File
+Max. file size: 244 MB.
+
+CAPTCHA
+
+×
+
+Sign in
+
+SIGN IN
+...
+Remember me
+LOGIN
+Forgot Password?
+
+×
+
+Bio
+
+Ethics statement
+
+×
+
+Extract the signal from the noise
+
+Get SiliconANGLE updates and analysis.
+
+×
+
+Contact us
+
+Inquire about guest posts
+All other inquiries
+
+×
+Partner with us
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+
+COMMENTS
+*
+
+×
+Contact us
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+
+COMMENTS
+*
+CAPTCHA
+
+×
+Guest inquiry
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+COMMENTS
+*
+CAPTCHA
+
+We use cookies for analytics and measurement. You can accept or reject tracking cookies. See our
+Privacy Policy
+.
+
+Accept
+
+Reject

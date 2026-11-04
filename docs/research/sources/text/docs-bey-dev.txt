@@ -1,0 +1,66 @@
+Introduction - Beyond Presence
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+​
+What is Beyond Presence?
+
+Beyond Presence is a developer platform for
+Conversational Video Agents
+that look and feel like real people.
+
+​
+Why Beyond Presence?
+
+Traditional chatbots feel robotic. Video calls require human availability. Beyond Presence bridges this gap with AI that maintains human connection at machine scale.
+
+Our proprietary real-time avatar models deliver hyper-realistic, multilingual, low-latency interactions. Built in Europe, for Enterprise scale.
+
+​
+Key Features
+
+Ultra-realistic avatars
+Powered by our proprietary AI research in computer vision and generative modeling. Our avatars deliver lifelike facial expressions, natural lip-sync, and human-like micro-movements that create genuine emotional connections with users.
+Lightning speed
+Industry-leading performance with 250 ms speech-to-video latency and 1-second end-to-end response times. Real-time conversations feel natural and fluid, eliminating the awkward delays that plague traditional video chat solutions.
+Enterprise scale
+Handle hundreds of simultaneous video calls without performance degradation. Our distributed infrastructure automatically scales to meet demand, ensuring consistent quality whether you’re serving one user or thousands.
+Visit our
+Enterprise page
+for more information on Enterprise support.
+Flexible integration
+Choose your level of control: from fully managed Studio solutions to custom API components. Whether you need plug-and-play widgets or granular programmatic control, our platform adapts to your technical requirements and timeline.
+Developer-focused platform
+Built by ML engineers who understand your workflow. Clean APIs, comprehensive documentation, and thoughtful abstractions that let you focus on your product instead of wrestling with infrastructure complexity.
+We also have a
+Discord community
+where you can ask questions and get help from our team and other developers.
+
+​
+Get Started
+
+Choose Path
+Learn about our integration options and find the right path for you.
+Quickstart
+Jump right into our Python Speech-to-Video Quickstart with LiveKit Agents.
+
+​
+Learn More
+
+Agents
+LLM-powered AI assistants that can operate across text, voice, or video modalities. They understand context, maintain dialogue flow, and tailor responses to your use case and knowledge base.
+Avatars
+Digital human models that transform text or voice agents into video agents, complete with natural expressions, lip-sync, and human-like gestures.
+Studio
+Web-based management interface for creating, configuring, and monitoring your video agents - upload knowledge bases, test conversations, and deploy without code.
+API
+Direct programmatic access to our platform. Embed video agents into your applications and control agent behavior dynamically via our REST API.
+Was this page helpful?
+Yes
+No

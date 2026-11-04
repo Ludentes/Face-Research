@@ -1,0 +1,315 @@
+[2602.07449] SoulX-FlashHead: Oracle-guided Generation of Infinite Real-time Streaming Talking Heads
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2602.07449
+(cs)
+
+[Submitted on 7 Feb 2026 (
+v1
+), last revised 11 Feb 2026 (this version, v3)]
+
+Title:
+SoulX-FlashHead: Oracle-guided Generation of Infinite Real-time Streaming Talking Heads
+
+Authors:
+Tan Yu
+,
+Qian Qiao
+,
+Le Shen
+,
+Ke Zhou
+,
+Jincheng Hu
+,
+Dian Sheng
+,
+Bo Hu
+,
+Haoming Qin
+,
+Jun Gao
+,
+Changhai Zhou
+,
+Shunshun Yin
+,
+Siyuan Liu
+
+View a PDF of the paper titled SoulX-FlashHead: Oracle-guided Generation of Infinite Real-time Streaming Talking Heads, by Tan Yu and 11 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+Achieving a balance between high-fidelity visual quality and low-latency streaming remains a formidable challenge in audio-driven portrait generation. Existing large-scale models often suffer from prohibitive computational costs, while lightweight alternatives typically compromise on holistic facial representations and temporal stability. In this paper, we propose SoulX-FlashHead, a unified 1.3B-parameter framework designed for real-time, infinite-length, and high-fidelity streaming video generation. To address the instability of audio features in streaming scenarios, we introduce Streaming-Aware Spatiotemporal Pre-training equipped with a Temporal Audio Context Cache mechanism, which ensures robust feature extraction from short audio fragments. Furthermore, to mitigate the error accumulation and identity drift inherent in long-sequence autoregressive generation, we propose Oracle-Guided Bidirectional Distillation, leveraging ground-truth motion priors to provide precise physical guidance. We also present VividHead, a large-scale, high-quality dataset containing 782 hours of strictly aligned footage to support robust training. Extensive experiments demonstrate that SoulX-FlashHead achieves state-of-the-art performance on HDTF and VFHQ benchmarks. Notably, our Lite variant achieves an inference speed of 96 FPS on a single NVIDIA RTX 4090, facilitating ultra-fast interaction without sacrificing visual coherence.
+
+Comments:
+
+11 pages, 3 figures
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2602.07449
+[cs.CV]
+
+(or
+
+arXiv:2602.07449v3
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2602.07449
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Qian Qiao [
+view email
+]
+
+[v1]
+
+Sat, 7 Feb 2026 08:58:16 UTC (2,102 KB)
+
+[v2]
+
+Tue, 10 Feb 2026 06:02:47 UTC (2,086 KB)
+
+[v3]
+
+Wed, 11 Feb 2026 12:34:52 UTC (2,085 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled SoulX-FlashHead: Oracle-guided Generation of Infinite Real-time Streaming Talking Heads, by Tan Yu and 11 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2026-02
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+NASA ADS
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

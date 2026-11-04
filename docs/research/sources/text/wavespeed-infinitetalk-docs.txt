@@ -1,0 +1,453 @@
+Infinitetalk Video To Video API Documentation - WaveSpeedAI
+Introduction
+Getting Started
+Overview
+Get Started with Web
+Get Started with API
+API Authentication
+Browse Models
+Ways to Use
+Web Interface
+Image Generator
+Video Generator
+Desktop App
+WaveSpeed CLI
+MCP Server
+Python SDK
+JavaScript SDK
+ComfyUI Integration
+N8N Integration
+REST API
+Core Concepts
+How WaveSpeedAI Works
+What are Models
+What are Predictions
+How to Use Webhooks
+How to Use Streaming
+Advanced Features
+How to Upload Files
+Synchronous Mode
+Base64 Output
+LoRA Training & Usage
+Examples
+How to Generate an Image
+How to Create Video from Image
+How to Generate Audio
+How to Create a Digital Human
+Complete Workflow Tutorial
+LLM Service
+Overview
+Quick Start
+Prompt Caching
+Connect Coding Agents
+Supported LLM Models
+Best Practices
+How to Choose the Right Model
+How to Write Better Prompts
+How to Reduce Costs
+Pricing & Billing
+How Pricing Works
+Payment Methods
+Monthly Auto-Recharge Limit
+Account Levels & Rate Limits
+Refund Policy
+API Reference
+Submit Task
+Get Result
+Delete Task
+Upload Files API
+List Models
+Check Balance
+Check Usage
+Check Billings
+Pricing
+Predictions
+Streaming Endpoints
+Verify Webhooks
+Error Codes
+Errors, Retries and Timeouts
+Policies
+Content Policy
+Data Retention Policy
+Commercial Use Policy
+Terms of Service
+Privacy Policy
+Help
+FAQ
+Troubleshooting Guide
+Contact Support
+Light
+
+Infinitetalk Video To Video API Documentation
+
+Infinitetalk Video To Video API Documentation
+
+Playground
+
+Try it on WaveSpeedAI!
+
+Audio-driven InfiniteTalk turns one video plus audio into realistic talking or singing videos with lip-sync in 480p or 720p. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.
+
+Features
+
+What is InfiniteTalk?
+
+InfiniteTalk creates new videos by combining an input
+silent video
+and an
+audio track
+. It ensures precise lip synchronization while aligning head, face, and body movements with the audio. With optional masking and prompting, you can control which areas move and how the scene appears. The model also maintains visual identity for natural and consistent results.
+
+Why it looks great
+
+Accurate lip synchronization:
+matches lip motion precisely to the audio.
+
+Full-body coherence:
+aligns head pose, facial expressions, and posture with speech.
+
+Mask control:
+optional mask images let you define which regions can move.
+
+Instruction following:
+prompts can guide style, pose, or behavior.
+
+Identity preservation:
+ensures consistent visual identity across all frames.
+
+Pricing
+
+>
+Billing duration:
+Input media duration is rounded up to whole seconds. The minimum billed duration is
+3 seconds
+; shorter inputs are billed as 3 seconds. Existing per-5-second rate tables remain unchanged.
+
+Output Resolution
+Cost per 5 seconds
+Max Length
+480p
+$0.15
+10 minutes
+720p
+$0.30
+10 minutes
+
+Billing Rules
+
+Standard Rate:
+$0.03 per second
+
+HD (720p) Rate:
+$0.06 per second
+(Double the Standard Rate)
+
+Minimum Charge:
+All videos are billed for a minimum of 3 seconds
+(costing at least $0.09)
+.
+
+Billing Cap:
+To keep your costs predictable, billing is capped at
+600 seconds (10 minutes)
+.
+
+How to Use
+
+Upload the
+audio file
+.
+
+Upload a video as the base.
+
+(Optional) Upload a
+mask image
+to control which regions can move.
+
+(Optional) Write a
+prompt
+to guide the style, pose, or expressions.
+
+Select the
+output resolution (480p or 720p)
+.
+
+Set the
+seed
+if you want reproducibility.
+
+Submit the job and download the generated video.
+
+Note
+
+Max clip length per job:
+10 minutes
+
+Processing speed: ~
+10–30 seconds
+of wall time per 1 second of video (varies by resolution and queue load)
+
+Mask safety tip:
+Do not upload the full image as mask_image. The mask should only cover the regions you want to animate—otherwise the result may render as
+fully black.
+
+More Versions
+
+Single-character version
+
+Multi-character version
+
+Fast-version
+
+Video-to-video multi-character version
+
+Authentication
+
+For authentication details, please refer to the
+Authentication Guide
+.
+
+API Endpoints
+
+Submit Task & Query Result
+
+cURL / HTTP
+Node.js
+Python
+Copy
+set -euo pipefail
+
+export WAVESPEED_API_KEY="your-api-key"
+
+REQUEST_BODY=$(cat <<'JSON'
+{
+"audio": "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3",
+"video": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+"resolution": "480p"
+}
+JSON
+)
+
+# 1. Submit the prediction once. Never retry this request automatically:
+# a retry after an unclear failure can create a second, billed task.
+CHECK='The task may already exist. Check History or the predictions list before submitting again.'
+if ! SUBMIT_RESPONSE=$(curl --silent --show-error --fail-with-body \
+--connect-timeout 10 --max-time 60 \
+-X POST "https://api.wavespeed.ai/api/v3/wavespeed-ai/infinitetalk/video-to-video" \
+-H "Authorization: Bearer ${WAVESPEED_API_KEY}" \
+-H "Content-Type: application/json" \
+-d "${REQUEST_BODY}"); then
+printf 'Submit failed. %s\n' "${CHECK}" >&2
+exit 1
+fi
+
+TASK=$(printf '%s' "${SUBMIT_RESPONSE}" | jq 'if type == "object" and has("data") then .data else . end')
+PREDICTION_ID=$(printf '%s' "${TASK}" | jq -r '.id // empty')
+if [ -z "${PREDICTION_ID}" ]; then
+printf 'Submission response did not contain a prediction id. %s\n' "${CHECK}" >&2
+exit 1
+fi
+RESULT_URL="https://api.wavespeed.ai/api/v3/predictions/${PREDICTION_ID}/result"
+
+# 2. Poll until the prediction reaches a final status.
+BODY_FILE=$(mktemp)
+trap 'rm -f "${BODY_FILE}"' EXIT
+while true; do
+# Transient errors (429, 5xx) are retried, honoring Retry-After.
+HTTP_CODE=$(curl --silent --show-error --fail-with-body \
+--connect-timeout 10 --max-time 60 --retry 5 --retry-delay 2 \
+--output "${BODY_FILE}" --write-out '%{http_code}' \
+"${RESULT_URL}" \
+-H "Authorization: Bearer ${WAVESPEED_API_KEY}" || true)
+case "${HTTP_CODE}" in
+2??) ;;
+000|429|5??) # dropped connection or temporary error: keep polling
+printf 'Task %s: HTTP %s, polling again in 10s\n' "${PREDICTION_ID}" "${HTTP_CODE}" >&2
+sleep 10; continue ;;
+*) printf 'Task %s: HTTP %s\n' "${PREDICTION_ID}" "${HTTP_CODE}" >&2
+cat "${BODY_FILE}" >&2; exit 1 ;;
+esac
+RESULT=$(jq 'if type == "object" and has("data") then .data else . end' "${BODY_FILE}")
+STATUS=$(printf '%s' "${RESULT}" | jq -r '.status // empty')
+
+case "${STATUS}" in
+completed) printf '%s\n' "${RESULT}" | jq '.outputs'; break ;;
+failed|cancelled|timeout|deleted)
+printf 'Task %s ended with status %s\n' "${PREDICTION_ID}" "${STATUS}" >&2
+printf '%s\n' "${RESULT}" | jq . >&2; exit 1 ;;
+*) sleep 2 ;;
+esac
+done
+Retry temporary errors only while polling, never the submit request.
+
+Errors, retries and timeouts
+
+Parameters
+
+Task Submission Parameters
+
+Request Parameters
+
+Parameter
+Type
+Required
+Default
+Range
+Description
+audio
+string
+Yes
+-
+-
+The audio for generating the output.
+video
+string
+Yes
+-
+The video for generating the output.
+mask_image
+string
+No
+-
+Optional mask image to specify the person in the video to animate.
+prompt
+string
+No
+-
+The positive prompt for the generation.
+resolution
+string
+No
+480p
+480p,
+720p
+The resolution of the output video.
+seed
+integer
+No
+-
+-
+The random seed to use for the generation. -1 means a random seed will be used.
+
+Every model also accepts the global request options
+enable_sync_mode
+and
+enable_base64_output
+; see their pages for details.
+
+Response Parameters
+
+Parameter
+Type
+Description
+code
+integer
+HTTP status code (e.g., 200 for success)
+message
+string
+Status message (e.g., “success”)
+data.id
+string
+Unique identifier for the prediction, Task Id
+data.model
+string
+Model ID used for the prediction
+data.outputs
+array
+Output values, usually URL strings; some models return text strings or structured result objects (empty when status is not
+completed
+)
+data.urls
+object
+Object containing related API endpoints
+data.status
+string
+Task status.
+completed
+is successful;
+failed
+,
+cancelled
+,
+timeout
+, and
+deleted
+are failure terminal statuses.
+data.created_at
+string
+ISO timestamp of when the request was created (e.g., “2023-04-01T12:34:56.789Z”)
+data.error
+string
+Error message (empty if no error occurred)
+data.timings
+object
+Object containing timing details
+data.timings.inference
+integer
+Inference time in milliseconds
+
+Result Request Parameters
+
+Parameter
+Type
+Required
+Default
+Description
+id
+string
+Yes
+-
+Task ID
+
+Result Response Parameters
+
+Parameter
+Type
+Description
+code
+integer
+HTTP status code (e.g., 200 for success)
+message
+string
+Status message (e.g., “success”)
+data
+object
+The prediction data object containing all details
+data.id
+string
+Unique identifier for the prediction
+data.model
+string
+Model ID used for the prediction
+data.outputs
+array<string | object>
+Array of generated outputs (empty when status is not completed). Items are usually URL strings, but may be text strings or structured result objects, depending on the model.
+data.urls
+object
+Object containing related API endpoints
+data.status
+string
+Status:
+completed
+is successful;
+failed
+,
+cancelled
+,
+timeout
+, and
+deleted
+are failure terminal statuses
+data.created_at
+string
+ISO timestamp of when the request was created
+data.error
+string
+Error message (empty if no error occurred)
+data.timings
+object
+Object containing timing details
+data.timings.inference
+integer
+Inference time in milliseconds
+Overview

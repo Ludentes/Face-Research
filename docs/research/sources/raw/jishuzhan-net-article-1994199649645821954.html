@@ -1,0 +1,1238 @@
+<!DOCTYPE html><html  lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目 - 技术栈</title><script src="https://hm.baidu.com/hm.js?bdad7bacea40563ec1b98d3971acab81" async></script><style>:root{--jsz-font-1:#252933;--jsz-font-2:#515767;--jsz-font-3:#8a919f;--jsz-font-4:#c2c8d1;--jsz-font-size-1:2vmin;--jsz-font-size-2:1.5vmin;--jsz-header-height:6vh;--jsz-card-title-font-size:2vh}body{margin:0;background:#f5f5f5}.app-container{display:flex;flex-direction:column;gap:1vh}a{text-decoration:none;color:#000}@media(max-width:1000px){:root{--jsz-font-size-1:2vh;--jsz-font-size-2:1.6vh;--jsz-header-height:6vh}}</style><style>.my-header[data-v-366511c9]{--jsz-header-column:24;background:#fff;height:var(--jsz-header-height);display:grid;grid-template-columns:repeat(var(--jsz-header-column),1fr)}.header-left[data-v-366511c9]{grid-column:span 6;gap:2vw;padding-left:1vw}.header-left[data-v-366511c9],.logo[data-v-366511c9]{display:flex;flex-direction:row;align-items:center}.logo[data-v-366511c9]{gap:.5vw}.logo-icon[data-v-366511c9]{height:4vh;width:4vh}.header-right[data-v-366511c9]{grid-column:span 12;display:flex;flex-direction:row;align-items:center;gap:1vmin}.name[data-v-366511c9]{font-size:2.5vh}.search-wrapper[data-v-366511c9]{height:4vh}@media(max-width:1000px){.logo-icon[data-v-366511c9]{width:3.5vh}.logo-icon[data-v-366511c9],.search-wrapper[data-v-366511c9]{height:3.5vh}.name[data-v-366511c9]{font-size:2.5vh}.my-header[data-v-366511c9]{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.header-right[data-v-366511c9]{padding-right:1vw}}</style><style>.hot-article-rank[data-v-08dc960f]{display:flex;flex-direction:column;background-color:#fff;padding:1vmin}.title[data-v-08dc960f]{font-size:var(--jsz-card-title-font-size)}.article-list[data-v-08dc960f]{display:flex;flex-direction:column;gap:1vh}.article[data-v-08dc960f]{display:flex;gap:.5vw}.article-title[data-v-08dc960f]{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;word-break:break-all}.article:hover .article-title[data-v-08dc960f]{color:#409eff}.article:first-child .article-index[data-v-08dc960f]{color:#ff5f00}.article:nth-child(2) .article-index[data-v-08dc960f]{color:#00754a}.article:nth-child(3) .article-index[data-v-08dc960f]{color:#d6a562}</style><style>.md-editor .md-editor-preview{--md-theme-color:var(--md-color);--md-theme-color-reverse:#eee;--md-theme-color-hover:#eee;--md-theme-color-hover-inset:#ddd;--md-theme-link-color:#2d8cf0;--md-theme-link-hover-color:#73d13d;--md-theme-border-color:#e6e6e6;--md-theme-border-color-reverse:#bebebe;--md-theme-border-color-inset:#d6d6d6;--md-theme-bg-color:#fff;--md-theme-bg-color-inset:#ececec;--md-theme-code-copy-tips-color:inherit;--md-theme-code-copy-tips-bg-color:#fff;--md-theme-code-active-color:#61aeee;--md-theme-radius-s:2px;--md-theme-radius-m:5px}.md-editor-dark .md-editor-preview{--md-theme-color:var(--md-color);--md-theme-color-reverse:#222;--md-theme-color-hover:#191919;--md-theme-color-hover-inset:#444;--md-theme-link-color:#2d8cf0;--md-theme-link-hover-color:#73d13d;--md-theme-border-color:#2d2d2d;--md-theme-border-color-reverse:#e6e6e6;--md-theme-border-color-inset:#5a5a5a;--md-theme-bg-color:#000;--md-theme-bg-color-inset:#111;--md-theme-code-copy-tips-color:inherit;--md-theme-code-copy-tips-bg-color:#3a3a3a;--md-theme-code-active-color:#e6c07b;--md-theme-radius-s:2px;--md-theme-radius-m:5px}.md-editor .md-editor-admonition-note{--md-admonition-color:#212121;--md-admonition-bg-color:#fff;--md-admonition-border-color:#a6a6a6}.md-editor .md-editor-admonition-tip{--md-admonition-color:#616161;--md-admonition-bg-color:#f5f5f5;--md-admonition-border-color:#bababa}.md-editor .md-editor-admonition-info{--md-admonition-color:#424242;--md-admonition-bg-color:#f0f0f0;--md-admonition-border-color:#aaa}.md-editor .md-editor-admonition-quote{--md-admonition-color:#455a64;--md-admonition-bg-color:#eceff1;--md-admonition-border-color:#a9b3b9}.md-editor .md-editor-admonition-abstract{--md-admonition-color:#0288d1;--md-admonition-bg-color:#e1f5fe;--md-admonition-border-color:#88c9ec}.md-editor .md-editor-admonition-attention{--md-admonition-color:#1e88e5;--md-admonition-bg-color:#e3f2fd;--md-admonition-border-color:#94c8f3}.md-editor .md-editor-admonition-example{--md-admonition-color:#5e35b1;--md-admonition-bg-color:#ede7f6;--md-admonition-border-color:#b4a0da}.md-editor .md-editor-admonition-hint{--md-admonition-color:#00897b;--md-admonition-bg-color:#e0f2f1;--md-admonition-border-color:#86c8c2}.md-editor .md-editor-admonition-success{--md-admonition-color:#388e3c;--md-admonition-bg-color:#e8f5e9;--md-admonition-border-color:#a2cca4}.md-editor .md-editor-admonition-question{--md-admonition-color:#f9a825;--md-admonition-bg-color:#fffde7;--md-admonition-border-color:#fddb99}.md-editor .md-editor-admonition-caution{--md-admonition-color:#fb8c00;--md-admonition-bg-color:#fff8e1;--md-admonition-border-color:#fdcd87}.md-editor .md-editor-admonition-warning{--md-admonition-color:#f57c00;--md-admonition-bg-color:#fff3e0;--md-admonition-border-color:#fbc386}.md-editor .md-editor-admonition-danger{--md-admonition-color:#d84315;--md-admonition-bg-color:#ffebee;--md-admonition-border-color:#efa897}.md-editor .md-editor-admonition-failure{--md-admonition-color:#d32f2f;--md-admonition-bg-color:#fee2e6;--md-admonition-border-color:#ed9a9d}.md-editor .md-editor-admonition-bug{--md-admonition-color:#c31a1a;--md-admonition-bg-color:#fddadd;--md-admonition-border-color:#e68d8f}.md-editor .md-editor-admonition-error{--md-admonition-color:#b71c1c;--md-admonition-bg-color:#fdd2d6;--md-admonition-border-color:#e1898c}.md-editor-dark .md-editor-admonition-note{--md-admonition-color:#e0e0e0;--md-admonition-bg-color:#1e1e1e;--md-admonition-border-color:#6c6c6c}.md-editor-dark .md-editor-admonition-tip{--md-admonition-color:#b0b0b0;--md-admonition-bg-color:#262626;--md-admonition-border-color:#5d5d5d}.md-editor-dark .md-editor-admonition-info{--md-admonition-color:#b3b3b3;--md-admonition-bg-color:#2b2b2b;--md-admonition-border-color:#616161}.md-editor-dark .md-editor-admonition-quote{--md-admonition-color:#b0bec5;--md-admonition-bg-color:#263238;--md-admonition-border-color:#5d6a70}.md-editor-dark .md-editor-admonition-abstract{--md-admonition-color:#81d4fa;--md-admonition-bg-color:#012f45;--md-admonition-border-color:#34718d}.md-editor-dark .md-editor-admonition-attention{--md-admonition-color:#64b5f6;--md-admonition-bg-color:#102a4c;--md-admonition-border-color:#326290}.md-editor-dark .md-editor-admonition-example{--md-admonition-color:#9575cd;--md-admonition-bg-color:#271b52;--md-admonition-border-color:#533f83}.md-editor-dark .md-editor-admonition-hint{--md-admonition-color:#4db6ac;--md-admonition-bg-color:#003d3a;--md-admonition-border-color:#1f6d68}.md-editor-dark .md-editor-admonition-success{--md-admonition-color:#81c784;--md-admonition-bg-color:#1b5e20;--md-admonition-border-color:#448848}.md-editor-dark .md-editor-admonition-question{--md-admonition-color:#ffd54f;--md-admonition-bg-color:#3e2f00;--md-admonition-border-color:#8b7120}.md-editor-dark .md-editor-admonition-caution{--md-admonition-color:#ffcc80;--md-admonition-bg-color:#3e2600;--md-admonition-border-color:#8b6833}.md-editor-dark .md-editor-admonition-warning{--md-admonition-color:#ffb74d;--md-admonition-bg-color:#3d2600;--md-admonition-border-color:#8b601f}.md-editor-dark .md-editor-admonition-danger{--md-admonition-color:#ef9a9a;--md-admonition-bg-color:#3c0000;--md-admonition-border-color:#843e3e}.md-editor-dark .md-editor-admonition-failure{--md-admonition-color:#ef9a9a;--md-admonition-bg-color:#3c0900;--md-admonition-border-color:#84433e}.md-editor-dark .md-editor-admonition-bug{--md-admonition-color:#e68381;--md-admonition-bg-color:#300000;--md-admonition-border-color:#793434}.md-editor-dark .md-editor-admonition-error{--md-admonition-color:#ef5350;--md-admonition-bg-color:#300000;--md-admonition-border-color:#7c2120}.md-editor-preview .md-editor-admonition{background-color:var(--md-admonition-bg-color);border:1px solid var(--md-admonition-border-color);border-radius:var(--md-theme-radius-m);color:var(--md-admonition-color);display:flow-root;font-size:14px;font-weight:400;margin:1rem 0;padding:1em 1em .5em;page-break-inside:avoid}.md-editor-preview .md-editor-admonition-title{margin:0;padding:0;position:relative;font-weight:700}.md-editor-preview .md-editor-admonition p{margin:.5em 0;padding:0}.md-editor-preview .md-editor-admonition p:first-of-type{margin-block-start:0}.md-editor-preview .md-editor-admonition+p:empty,.md-editor-preview .md-editor-admonition+p:empty+p:empty{display:none}.md-editor-preview .md-editor-mermaid{overflow:hidden;line-height:normal}.md-editor-preview .md-editor-mermaid p{line-height:normal}.md-editor-preview .md-editor-mermaid:not([data-processed]){white-space:pre}.md-editor-preview [class=md-editor-mermaid][data-grab]{cursor:grab}.md-editor-preview [class=md-editor-mermaid][data-grab]:active{cursor:grabbing}.md-editor-preview [class=md-editor-mermaid][data-processed]{position:relative;display:flex;justify-content:center;align-items:center}.md-editor-preview [class=md-editor-mermaid][data-processed] svg{transform-origin:top left}.md-editor-preview [class=md-editor-mermaid][data-processed] .md-editor-mermaid-action{position:absolute;inset-block-start:10px;inset-inline-end:10px;z-index:1;opacity:0;transition:opacity .3s;cursor:pointer;display:flex;gap:8px}.md-editor-preview [class=md-editor-mermaid][data-processed] .md-editor-mermaid-action svg{padding:6px;border-radius:4px;background-color:var(--md-bk-color-outstand)}.md-editor-preview [class=md-editor-mermaid][data-processed]:hover .md-editor-mermaid-action{opacity:1}.md-editor-katex-block{text-align:center;margin:20px}.md-editor-katex-block,.md-editor-katex-inline{display:none;direction:ltr}.md-editor-katex-inline[data-processed]{display:initial}.md-editor-katex-block[data-processed]{display:block}.md-editor .md-editor-preview{--md-theme-code-inline-color:#3594f7;--md-theme-code-inline-bg-color:rgba(59,170,250,.1);--md-theme-code-inline-radius:var(--md-theme-radius-s);--md-theme-code-block-color:#a9b7c6;--md-theme-code-block-bg-color:#282c34;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:var(--md-theme-radius-m)}.md-editor-dark .md-editor-preview{--md-theme-code-inline-color:#3594f7;--md-theme-code-inline-bg-color:rgba(59,170,250,.1);--md-theme-code-inline-radius:var(--md-theme-radius-s);--md-theme-code-block-color:#a9b7c6;--md-theme-code-block-bg-color:#1a1a1a;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:var(--md-theme-radius-m)}.md-editor-preview code{direction:ltr;color:var(--md-theme-code-inline-color);background-color:var(--md-theme-code-inline-bg-color);border-radius:var(--md-theme-code-inline-radius);padding:2px 4px;line-height:22px}.md-editor-preview .md-editor-code{color:var(--md-theme-code-block-color);font-size:12px;line-height:1;margin:20px 0;position:relative}.md-editor-preview .md-editor-code input[type=radio],.md-editor-preview .md-editor-code input[type=radio]+pre,.md-editor-preview .md-editor-code input[type=radio]+span.md-editor-code-lang{display:none}.md-editor-preview .md-editor-code input:checked+pre,.md-editor-preview .md-editor-code input:checked+span.md-editor-code-lang{display:block}.md-editor-preview .md-editor-code input:checked+label{border-block-end:1px solid;color:var(--md-theme-code-active-color)}.md-editor-preview .md-editor-code .md-editor-code-head{display:grid;grid-template:"1fr 1fr";justify-content:space-between;height:32px;width:100%;font-size:12px;background-color:var(--md-theme-code-before-bg-color);margin-block-end:0;border-start-start-radius:var(--md-theme-code-block-radius);border-start-end-radius:var(--md-theme-code-block-radius);-webkit-tap-highlight-color:rgba(0,0,0,0);list-style:none;position:sticky;top:0;z-index:10000}.md-editor-preview .md-editor-code .md-editor-code-head::-webkit-details-marker{display:none}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag{margin-inline-start:12px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag span{display:inline-block;width:10px;height:10px;border-radius:50%;margin-block-start:11px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag span:first-of-type{background-color:#ec6a5e}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag span:nth-of-type(2){background-color:#f4bf4f}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag span:nth-of-type(3){background-color:#61c554}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag span+span{margin-inline-start:4px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag ul.md-editor-codetab-label{box-sizing:border-box;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;user-select:none;background-color:var(--md-theme-code-block-bg-color);margin-block-start:8px;padding:0}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag ul.md-editor-codetab-label li{line-height:1;list-style:none;display:inline-block;position:relative;vertical-align:super;margin:0}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag ul.md-editor-codetab-label li label{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;display:inline-block;font-size:14px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-flag ul.md-editor-codetab-label li+li{margin-inline-start:12px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-action{display:flex;align-items:center}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-action>*{margin-inline-end:10px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-code-lang{line-height:32px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button:not(data-is-icon){cursor:pointer;line-height:32px;position:static}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button:not(data-is-icon) .md-editor-icon{width:15px;height:15px;display:inline-block;vertical-align:sub}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]{cursor:pointer;line-height:1;position:relative}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon] .md-editor-icon{width:15px;height:15px;display:inline-block;vertical-align:sub}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:before{content:attr(data-tips);color:var(--md-theme-code-copy-tips-color);background-color:var(--md-theme-code-copy-tips-bg-color);position:absolute;font-size:12px;font-family:sans-serif;width:-moz-max-content;width:max-content;text-align:center;padding:4px;border-radius:var(--md-theme-radius-s);box-shadow:0 0 2px #0003;inset-inline-start:-10px;inset-block-start:50%;transform:translate(-100%,-50%)}[dir=rtl] .md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:before{transform:translate(100%,-50%)}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:after{content:"";color:var(--md-theme-code-copy-tips-bg-color);position:absolute;width:0;height:0;border:5px solid transparent;border-inline-end-width:0;border-inline-start-color:currentColor;inset-inline-start:-10px;inset-block-start:50%;transform:translateY(-50%);filter:drop-shadow(4px 0 2px rgba(0,0,0,.2))}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:after,.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:before{visibility:hidden;transition:.3s}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:hover:after,.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-copy-button[data-is-icon]:hover:before{visibility:visible}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-collapse-tips{margin-inline-end:12px}.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-collapse-tips .md-editor-icon,.md-editor-preview .md-editor-code .md-editor-code-head .md-editor-collapse-tips .md-editor-iconfont{width:16px;height:16px;font-size:16px;display:inline-block;vertical-align:sub;transition:transform .1s;transform:rotate(0)}[dir=rtl] .md-editor-preview .md-editor-code .md-editor-code-head .md-editor-collapse-tips .md-editor-icon,[dir=rtl] .md-editor-preview .md-editor-code .md-editor-code-head .md-editor-collapse-tips .md-editor-iconfont{transform:rotate(180deg)}.md-editor-preview .md-editor-code pre{position:relative;margin:0}.md-editor-preview .md-editor-code pre code{font-family:source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;font-size:14px;color:var(--md-theme-code-block-color);background-color:var(--md-theme-code-before-bg-color);display:block;line-height:1.6;overflow:auto;padding:1em;position:relative;border-start-start-radius:0;border-start-end-radius:0;border-end-start-radius:var(--md-theme-code-block-radius);border-end-end-radius:var(--md-theme-code-block-radius)}.md-editor-preview .md-editor-code pre code .md-editor-code-block{display:inline-block;width:100%;overflow:auto;vertical-align:bottom;color:var(--md-theme-code-block-color)}.md-editor-preview details.md-editor-code .md-editor-code-head{cursor:pointer}.md-editor-preview details.md-editor-code:not(open) .md-editor-code-head{border-end-start-radius:var(--md-theme-code-block-radius);border-end-end-radius:var(--md-theme-code-block-radius)}.md-editor-preview details.md-editor-code[open] .md-editor-code-head{border-end-start-radius:0;border-end-end-radius:0}.md-editor-preview details.md-editor-code[open] .md-editor-code-head .md-editor-collapse-tips .md-editor-icon,.md-editor-preview details.md-editor-code[open] .md-editor-code-head .md-editor-collapse-tips .md-editor-iconfont{transform:rotate(-90deg)}[dir=rtl] .md-editor-preview details.md-editor-code[open] .md-editor-code-head .md-editor-collapse-tips .md-editor-icon,[dir=rtl] .md-editor-preview details.md-editor-code[open] .md-editor-code-head .md-editor-collapse-tips .md-editor-iconfont{transform:rotate(270deg)}.md-editor-scrn span[rn-wrapper]{position:absolute;pointer-events:none;font-size:100%;inset-block-start:1em;inset-inline-start:0;width:3em;letter-spacing:-1px;-webkit-user-select:none;-moz-user-select:none;user-select:none;counter-reset:linenumber}.md-editor-scrn span[rn-wrapper]>span{display:block;pointer-events:none;counter-increment:linenumber}.md-editor-scrn span[rn-wrapper]>span:before{color:#999;display:block;padding-inline-end:.5em;text-align:right;content:counter(linenumber)}.md-editor-scrn pre code{padding-inline-start:3.5em!important}.md-editor-preview figure{margin:0 0 1em;display:inline-flex;flex-direction:column;text-align:center}.md-editor-preview figure figcaption{color:var(--md-theme-color);font-size:.875em;margin-block-start:5px}.md-editor .md-editor-preview{--md-theme-heading-color:var(--md-theme-color);--md-theme-heading-border:none;--md-theme-heading-1-color:var(--md-theme-heading-color);--md-theme-heading-1-border:var(--md-theme-heading-border);--md-theme-heading-2-color:var(--md-theme-heading-color);--md-theme-heading-2-border:var(--md-theme-heading-border);--md-theme-heading-3-color:var(--md-theme-heading-color);--md-theme-heading-3-border:var(--md-theme-heading-border);--md-theme-heading-4-color:var(--md-theme-heading-color);--md-theme-heading-4-border:var(--md-theme-heading-border);--md-theme-heading-5-color:var(--md-theme-heading-color);--md-theme-heading-5-border:var(--md-theme-heading-border);--md-theme-heading-6-color:var(--md-theme-heading-color);--md-theme-heading-6-border:var(--md-theme-heading-border)}.md-editor-preview h1,.md-editor-preview h2,.md-editor-preview h3,.md-editor-preview h4,.md-editor-preview h5,.md-editor-preview h6{position:relative;word-break:break-all;margin:1.4em 0 .8em;font-weight:700}.md-editor-preview h1 a,.md-editor-preview h1 a:hover,.md-editor-preview h2 a,.md-editor-preview h2 a:hover,.md-editor-preview h3 a,.md-editor-preview h3 a:hover,.md-editor-preview h4 a,.md-editor-preview h4 a:hover,.md-editor-preview h5 a,.md-editor-preview h5 a:hover,.md-editor-preview h6 a,.md-editor-preview h6 a:hover{color:inherit}.md-editor-preview h1{color:var(--md-theme-heading-1-color);border-block-end:var(--md-theme-heading-1-border)}.md-editor-preview h2{color:var(--md-theme-heading-2-color);border-block-end:var(--md-theme-heading-2-border)}.md-editor-preview h3{color:var(--md-theme-heading-3-color);border-block-end:var(--md-theme-heading-3-border)}.md-editor-preview h4{color:var(--md-theme-heading-4-color);border-block-end:var(--md-theme-heading-4-border)}.md-editor-preview h5{color:var(--md-theme-heading-5-color);border-block-end:var(--md-theme-heading-5-border)}.md-editor-preview h6{color:var(--md-theme-heading-6-color);border-block-end:var(--md-theme-heading-6-border)}.md-editor-preview h1{font-size:2em}.md-editor-preview h2{font-size:1.5em}.md-editor-preview h3{font-size:1.25em}.md-editor-preview h4{font-size:1em}.md-editor-preview h5{font-size:.875em}.md-editor-preview h6{font-size:.85em}.md-editor-preview hr{height:1px;margin:10px 0;border:none;border-block-start:1px solid var(--md-theme-border-color)}.md-editor-preview a{color:var(--md-theme-link-color);text-decoration:none;transition:color .1s}.md-editor-preview a:hover{color:var(--md-theme-link-hover-color)}.md-editor-preview a:empty:before{content:attr(href)}.md-editor-preview ol,.md-editor-preview ul{padding-inline-start:2em}.md-editor-preview ol .task-list-item,.md-editor-preview ul .task-list-item{list-style-type:none}.md-editor-preview ol .task-list-item input,.md-editor-preview ul .task-list-item input{margin-inline-start:-1.5em;margin-inline-end:.1em}.md-editor-preview img{max-width:100%}.md-editor-preview p:empty{display:none}.md-editor .md-editor-preview{--md-theme-quote-color:var(--md-theme-color);--md-theme-quote-border:none;--md-theme-quote-bg-color:inherit}.md-editor-preview blockquote{padding:0 1em;color:var(--md-theme-quote-color);border-inline-start:var(--md-theme-quote-border);background-color:var(--md-theme-quote-bg-color)}.md-editor .md-editor-preview{--md-theme-table-stripe-color:#fafafa;--md-theme-table-tr-bg-color:inherit;--md-theme-table-td-border-color:var(--md-theme-border-color)}.md-editor-dark .md-editor-preview{--md-theme-table-stripe-color:#0c0c0c;--md-theme-table-tr-bg-color:inherit;--md-theme-table-td-border-color:var(--md-theme-border-color)}.md-editor-preview table tr{background-color:var(--md-theme-table-tr-bg-color)}.md-editor-preview table tr td,.md-editor-preview table tr th{border:1px solid var(--md-theme-table-td-border-color)}.md-editor-preview table tr:nth-child(2n){background-color:var(--md-theme-table-stripe-color)}.md-editor-preview{color:var(--md-theme-color)}.md-editor-preview ::-webkit-scrollbar{width:6px;height:6px}.md-editor-preview ::-webkit-scrollbar-button:vertical{display:none}.md-editor-preview ::-webkit-scrollbar-corner,.md-editor-preview ::-webkit-scrollbar-thumb,.md-editor-preview ::-webkit-scrollbar-track{border-radius:2px}.md-editor .md-editor-preview ::-webkit-scrollbar-corner,.md-editor .md-editor-preview ::-webkit-scrollbar-track{background-color:#e2e2e2}.md-editor .md-editor-preview ::-webkit-scrollbar-thumb{background-color:#0000004d}.md-editor .md-editor-preview ::-webkit-scrollbar-thumb:vertical:hover{background-color:#00000059}.md-editor .md-editor-preview ::-webkit-scrollbar-thumb:vertical:active{background-color:#00000061}.md-editor-dark .md-editor-preview ::-webkit-scrollbar-corner,.md-editor-dark .md-editor-preview ::-webkit-scrollbar-track{background-color:#0f0f0f}.md-editor-dark .md-editor-preview ::-webkit-scrollbar-thumb{background-color:#2d2d2d}.md-editor-dark .md-editor-preview ::-webkit-scrollbar-thumb:vertical:hover{background-color:#3a3a3a}.md-editor-dark .md-editor-preview ::-webkit-scrollbar-thumb:vertical:active{background-color:#3a3a3a}.md-editor div.default-theme{--md-theme-code-copy-tips-color:#141414}.md-editor-dark div.default-theme{--md-theme-code-copy-tips-color:inherit}div.default-theme img{margin:0 auto;box-sizing:border-box}div.default-theme a{display:inline-flex;line-height:1;border-block-end:none}div.default-theme a:hover{border-block-end:1px solid}div.default-theme a[target=_blank]{align-items:center}div.default-theme a[target=_blank]:after{content:"";display:inline-block;width:16px;height:16px;margin-inline-start:2px;background-color:currentColor;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>');-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}div.default-theme ol,div.default-theme ul{margin:.6em 0}div.default-theme ol li,div.default-theme ul li{line-height:1.6;margin:.5em 0}div.default-theme p{line-height:1.6;margin:.5rem 0}.md-editor div.default-theme{--md-theme-quote-border:5px solid #35b378;--md-theme-quote-bg-color:var(--md-theme-bg-color-inset)}div.default-theme blockquote{margin:20px 0;padding:0 1.2em;line-height:2em;display:flow-root}.md-editor default-theme{--md-theme-table-stripe-color:#fafafa}.md-editor-dark default-theme{--md-theme-table-stripe-color:#0c0c0c}div.default-theme table{overflow:auto;border-spacing:0;border-collapse:collapse;margin-block-end:1em;margin-block-start:1em}div.default-theme table tr td,div.default-theme table tr th{word-wrap:break-word;padding:8px 14px}div.default-theme table tbody tr:hover{background-color:var(--md-theme-color-hover)}div.default-theme blockquote table{line-height:normal}div.default-theme blockquote table tr td,div.default-theme blockquote table tr th{border-color:var(--md-theme-border-color-inset)}div.default-theme blockquote table tbody tr:nth-child(n){background-color:inherit}div.default-theme blockquote table tbody tr:hover{background-color:var(--md-theme-color-hover-inset)}.md-editor div.vuepress-theme{--md-theme-code-inline-color:#d63200;--md-theme-code-inline-bg-color:#f8f8f8;--md-theme-code-block-color:#747384;--md-theme-code-block-bg-color:#f8f8f8;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:2px}.md-editor-dark div.vuepress-theme{--md-theme-code-inline-color:#e06c75;--md-theme-code-inline-bg-color:#1a1a1a;--md-theme-code-block-color:#999;--md-theme-code-block-bg-color:#1a1a1a;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:2px}div.vuepress-theme code{padding:3px 5px;margin:0 2px}div.vuepress-theme .md-editor-code pre{font-size:.875em;margin:0 0 1em}div.vuepress-theme .md-editor-code pre code{white-space:pre;padding:22px 1em;margin:0}div.vuepress-theme .md-editor-code pre code span[rn-wrapper]{top:22px}.md-editor div.vuepress-theme{--md-theme-heading-color:#273849;--md-theme-heading-2-border:1px solid var(--md-theme-border-color)}.md-editor-dark div.vuepress-theme{--md-theme-heading-color:#999;--md-theme-heading-2-border:1px solid var(--md-theme-border-color)}div.vuepress-theme h1,div.vuepress-theme h2,div.vuepress-theme h3,div.vuepress-theme h4,div.vuepress-theme h5,div.vuepress-theme h6{font-weight:600;line-height:1.45;position:relative;margin-block-start:1em}div.vuepress-theme h1{font-size:2.2em;margin:1em 0}div.vuepress-theme h2{font-size:1.65em;padding-block-end:.3em}div.vuepress-theme h3{line-height:1.35em}.md-editor div.vuepress-theme{--md-theme-link-color:#42b983}div.vuepress-theme a{font-weight:600}div.vuepress-theme ol,div.vuepress-theme ul{position:relative;line-height:1.4em;margin:1.2em 0;z-index:1}div.vuepress-theme ol li,div.vuepress-theme ul li{margin:1.2em 0}div.vuepress-theme p{word-spacing:.05em;line-height:1.6em;margin:1.2em 0;position:relative}.md-editor div.vuepress-theme{--md-theme-quote-border:4px solid #42b983}div.vuepress-theme blockquote{margin:2em 0;padding-inline-start:20px}div.vuepress-theme blockquote p{margin-inline-start:0;margin-block-start:1.2em;margin-block-end:0;padding:0}.md-editor div.vuepress-theme{--md-theme-table-td-border-color:#dfe2e5;--md-theme-table-stripe-color:#f6f8fa}.md-editor-dark div.vuepress-theme{--md-theme-table-td-border-color:#2d2d2d;--md-theme-table-stripe-color:#0c0c0c}div.vuepress-theme table{border-collapse:collapse;margin:1rem 0;display:block;overflow-x:auto}div.vuepress-theme table tr td,div.vuepress-theme table tr th{padding:.6em 1em}.md-editor div.vuepress-theme{--md-theme-color:#304455}.md-editor-dark div.vuepress-theme{--md-theme-color:#999}div.vuepress-theme{font-size:16px;color:var(--md-theme-color)}div.vuepress-theme em{color:#4f5959;padding:0 6px 0 4px}.md-editor div.github-theme{--md-theme-code-inline-color:inherit;--md-theme-code-inline-bg-color:#eff1f2;--md-theme-code-inline-radius:6px;--md-theme-code-block-color:inherit;--md-theme-code-block-bg-color:#f6f8fa;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:6px}.md-editor-dark div.github-theme{--md-theme-code-inline-color:#c9d1d9;--md-theme-code-inline-bg-color:#2d3339;--md-theme-code-inline-radius:6px;--md-theme-code-block-color:#a9b7c6;--md-theme-code-block-bg-color:#161b22;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:6px}div.github-theme code{padding:.2em .4em;margin:0}div.github-theme pre code{padding:22px 1em;margin-block-end:0;word-break:normal;letter-spacing:1px}.md-editor div.github-theme{--md-theme-heading-color:inherit;--md-theme-heading-6-color:#2d3339;--md-theme-heading-1-border:1px solid #d9dee4;--md-theme-heading-2-border:1px solid #d9dee4}.md-editor-dark div.github-theme{--md-theme-heading-color:#c9d1d9;--md-theme-heading-6-color:#768390;--md-theme-heading-1-border:1px solid #373e47;--md-theme-heading-2-border:1px solid #373e47}div.github-theme h1,div.github-theme h2,div.github-theme h3,div.github-theme h4,div.github-theme h5,div.github-theme h6{margin-block-start:24px;margin-block-end:16px;font-weight:600;line-height:1.25}div.github-theme h1{padding-block-end:.3em;font-size:2em}div.github-theme h2{padding-block-end:.3em;font-size:1.5em}div.github-theme h3{font-size:1.25em}div.github-theme h4{font-size:1em}div.github-theme h5{font-size:.875em}div.github-theme h6{font-size:.85em}.md-editor div.github-theme{--md-theme-heading-bg-color:#fff}.md-editor-dark div.github-theme{--md-theme-heading-bg-color:#22272e}div.github-theme img{background-color:var(--md-theme-heading-bg-color)}.md-editor div.github-theme{--md-theme-link-color:#539bf5;--md-theme-link-hover-color:#539bf5}div.github-theme a:hover{text-decoration:underline}div.github-theme ol li+li,div.github-theme ul li+li{margin-block-start:.25em}.md-editor div.github-theme{--md-theme-quote-color:#57606a;--md-theme-quote-border:.25em solid #d0d7de}.md-editor-dark div.github-theme{--md-theme-quote-color:#8b949e;--md-theme-quote-border:.25em solid #444c56}div.github-theme blockquote{margin:0;padding:0 1em}.md-editor div.github-theme{--md-theme-table-stripe-color:#f7f8fa;--md-theme-table-tr-bg-color:#fff;--md-theme-table-td-border-color:#d0d7de}.md-editor-dark div.github-theme{--md-theme-table-stripe-color:#161b22;--md-theme-table-tr-bg-color:transparent;--md-theme-table-td-border-color:#30363d}div.github-theme table{display:block;max-width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}div.github-theme table tr td,div.github-theme table tr th{padding:6px 13px}.md-editor div.github-theme{--md-theme-color:#222}.md-editor-dark div.github-theme{--md-theme-color:#c9d1d9}div.github-theme{line-height:1.5;color:var(--md-theme-color)}div.github-theme blockquote,div.github-theme details,div.github-theme dl,div.github-theme ol,div.github-theme p,div.github-theme pre,div.github-theme table,div.github-theme ul{margin-block-start:0;margin-block-end:16px}.md-editor div.cyanosis-theme,.md-editor-dark div.cyanosis-theme{--md-theme-code-inline-color:var(--md-theme-code-color);--md-theme-code-inline-bg-color:var(--md-theme-code-bg-color);--md-theme-code-block-color:var(--md-theme-base-color);--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color)}div.cyanosis-theme code{padding:.065em .4em;font-family:Menlo,Monaco,Consolas,Courier New,monospace;overflow-x:auto}div.cyanosis-theme code::-moz-selection{background-color:var(--md-theme-slct-codebg-color)}div.cyanosis-theme code::selection{background-color:var(--md-theme-slct-codebg-color)}div.cyanosis-theme .md-editor-code pre{font-family:Menlo,Monaco,Consolas,Courier New,monospace}div.cyanosis-theme .md-editor-code pre code{padding:11px 12px 22px;margin:0;word-break:normal;line-height:1.75}div.cyanosis-theme .md-editor-code pre code span[rn-wrapper]{top:11px}.md-editor div.cyanosis-theme{--md-theme-heading-color:var(--md-theme-title-color)}div.cyanosis-theme h1{padding-block-end:4px;font-size:30px}div.cyanosis-theme h1,div.cyanosis-theme h2{margin-block-start:36px;margin-block-end:10px;line-height:1.5;transition:color .35s}div.cyanosis-theme h2{position:relative;padding-inline-start:10px;padding-inline-end:10px;padding-block-end:10px;font-size:24px;border-block-end:1px solid var(--md-theme-border-color-2)}div.cyanosis-theme h2:before{content:"「";position:absolute;inset-block-start:-6px;inset-inline-start:-14px}div.cyanosis-theme h2:after{content:"」";position:relative;inset-block-start:6px;inset-inline-end:auto}div.cyanosis-theme h3{position:relative;padding-block-end:0;margin-block-start:30px;margin-block-end:10px;font-size:20px;line-height:1.5;padding-inline-start:6px;transition:color .35s}div.cyanosis-theme h3:before{content:"»";padding-inline-end:6px;color:var(--md-theme-strong-color)}div.cyanosis-theme h4{margin-block-start:24px;font-size:16px}div.cyanosis-theme h4,div.cyanosis-theme h5{padding-block-end:0;margin-block-end:10px;line-height:1.5;padding-inline-start:6px;transition:color .35s}div.cyanosis-theme h5{margin-block-start:18px;font-size:14px}div.cyanosis-theme h6{padding-block-end:0;margin-block-start:12px;margin-block-end:10px;font-size:12px;line-height:1.5;padding-inline-start:6px;transition:color .35s}div.cyanosis-theme h1::-moz-selection,div.cyanosis-theme h2::-moz-selection,div.cyanosis-theme h3::-moz-selection,div.cyanosis-theme h4::-moz-selection,div.cyanosis-theme h5::-moz-selection,div.cyanosis-theme h6::-moz-selection{color:var(--md-theme-slct-title-color);background-color:var(--md-theme-slct-titlebg-color)}div.cyanosis-theme h1::selection,div.cyanosis-theme h2::selection,div.cyanosis-theme h3::selection,div.cyanosis-theme h4::selection,div.cyanosis-theme h5::selection,div.cyanosis-theme h6::selection{color:var(--md-theme-slct-title-color);background-color:var(--md-theme-slct-titlebg-color)}@media(max-width:720px){div.cyanosis-theme h1{font-size:24px}div.cyanosis-theme h2{font-size:20px}div.cyanosis-theme h3{font-size:18px}}.md-editor div.cyanosis-theme{--md-theme-link-color:var(--md-theme-link-color);--md-theme-link-hover-color:var(--md-theme-linkh-color)}div.cyanosis-theme a{position:relative;display:inline-block;text-decoration:none;border-block-end:1px solid var(--md-theme-border-color)}div.cyanosis-theme a:hover{border-block-end-color:var(--md-theme-linkh-color)}div.cyanosis-theme a:active{color:var(--md-theme-linkh-color)}div.cyanosis-theme a:after{position:absolute;content:"";inset-block-start:100%;inset-inline-start:0;width:100%;opacity:0;border-block-end:1px solid var(--md-theme-border-color);transition:top .3s,opacity .3s;transform:translateZ(0)}div.cyanosis-theme a:hover:after{top:0;opacity:1;border-block-end-color:var(--md-theme-linkh-color)}div.cyanosis-theme ol,div.cyanosis-theme ul{margin:0}div.cyanosis-theme ol li,div.cyanosis-theme ul li{margin-block-end:0;list-style:inherit}div.cyanosis-theme ol li .task-list-item,div.cyanosis-theme ul li .task-list-item{list-style:none}div.cyanosis-theme ol li .task-list-item ol,div.cyanosis-theme ol li .task-list-item ul,div.cyanosis-theme ul li .task-list-item ol,div.cyanosis-theme ul li .task-list-item ul{margin-block-start:0}div.cyanosis-theme ol ol,div.cyanosis-theme ol ul,div.cyanosis-theme ul ol,div.cyanosis-theme ul ul{margin-block-start:4px}div.cyanosis-theme ol li{padding-inline-start:6px}div.cyanosis-theme ol li::-moz-selection,div.cyanosis-theme ul li::-moz-selection{color:var(--md-theme-slct-text-color);background-color:var(--md-theme-slct-bg-color)}div.cyanosis-theme ol li::selection,div.cyanosis-theme ul li::selection{color:var(--md-theme-slct-text-color);background-color:var(--md-theme-slct-bg-color)}div.cyanosis-theme .task-list-item-checkbox{position:relative}div.cyanosis-theme .contains-task-list input[type=checkbox]:before{content:"";position:absolute;inset-block-start:0;inset-inline-start:0;inset-inline-end:0;inset-block-end:0;width:inherit;height:inherit;background:#f0f8ff;border:1px solid #add6ff;border-radius:var(--md-theme-radius-s);box-sizing:border-box;z-index:1}div.cyanosis-theme .contains-task-list input[type=checkbox][checked]:after{content:"✓";position:absolute;inset-block-start:-12px;inset-inline-start:0;inset-inline-end:0;inset-block-end:0;width:0;height:0;color:#f55;font-size:20px;font-weight:700;z-index:2}div.cyanosis-theme p{line-height:inherit;margin-block-start:16px;margin-block-end:16px}div.cyanosis-theme p::-moz-selection{color:var(--md-theme-slct-text-color);background-color:var(--md-theme-slct-bg-color)}div.cyanosis-theme p::selection{color:var(--md-theme-slct-text-color);background-color:var(--md-theme-slct-bg-color)}.md-editor div.cyanosis-theme{--md-theme-quote-color:var(--md-theme-blockquote-color);--md-theme-quote-border:4px solid var(--md-theme-strong-color);--md-theme-quote-bg-color:var(--md-theme-blockquote-bg-color)}div.cyanosis-theme blockquote{padding:1px 20px;margin:22px 0;transition:color .35s}div.cyanosis-theme blockquote:after{display:block;content:""}div.cyanosis-theme blockquote>p{margin:10px 0}div.cyanosis-theme blockquote>b,div.cyanosis-theme blockquote>strong{color:var(--md-theme-strong-color)}div.cyanosis-theme table{display:inline-block!important;width:auto;max-width:100%;overflow:auto;border:1px solid var(--md-theme-table-border-color);border-spacing:0;border-collapse:collapse}div.cyanosis-theme table thead{color:#000;text-align:left;background:#f6f6f6}div.cyanosis-theme table tr:nth-child(2n){background-color:var(--md-theme-table-tr-nc-color)}div.cyanosis-theme table tr:hover{background-color:var(--md-theme-table-trh-color)}div.cyanosis-theme table td,div.cyanosis-theme table th{padding:12px 8px;line-height:24px;border:1px solid var(--md-theme-table-border-color)}div.cyanosis-theme table th{color:var(--md-theme-table-tht-color);background-color:var(--md-theme-table-th-color)}div.cyanosis-theme table td{min-width:120px}div.cyanosis-theme table thead th::-moz-selection{background-color:#0000}div.cyanosis-theme table thead th::selection{background-color:#0000}div.cyanosis-theme table tbody td::-moz-selection{background-color:var(--md-theme-slct-bg-color)}div.cyanosis-theme table tbody td::selection{background-color:var(--md-theme-slct-bg-color)}.md-editor div.cyanosis-theme{--md-theme-base-color:#353535;--md-theme-title-color:#005bb7;--md-theme-strong-color:#2196f3;--md-theme-em-color:#4fc3f7;--md-theme-del-color:#ccc;--md-theme-link-color:#3da8f5;--md-theme-linkh-color:#007fff;--md-theme-border-color:#bedcff;--md-theme-border-color-2:#ececec;--md-theme-bg-color:#fff;--md-theme-blockquote-color:#8c8c8c;--md-theme-blockquote-bg-color:#f0fdff;--md-theme-code-color:#c2185b;--md-theme-code-bg-color:#fff4f4;--md-theme-code-block-bg-color:#f8f8f8;--md-theme-table-border-color:#c3e0fd;--md-theme-table-th-color:#dff0ff;--md-theme-table-tht-color:#005bb7;--md-theme-table-tr-nc-color:#f7fbff;--md-theme-table-trh-color:#e0edf7;--md-theme-slct-title-color:#005bb7;--md-theme-slct-titlebg-color:rgba(175,207,247,.25);--md-theme-slct-text-color:#c80000;--md-theme-slct-bg-color:rgba(175,207,247,.25);--md-theme-slct-del-color:#999;--md-theme-slct-elbg-color:#e8ebec;--md-theme-slct-codebg-color:#ffeaeb;--md-theme-slct-prebg-color:rgba(160,200,255,.25)}.md-editor-dark div.cyanosis-theme{--md-theme-base-color:#cacaca;--md-theme-title-color:#ddd;--md-theme-strong-color:#fe9900;--md-theme-em-color:#ffd28e;--md-theme-del-color:#ccc;--md-theme-link-color:#ffb648;--md-theme-linkh-color:#fe9900;--md-theme-border-color:#ffe3ba;--md-theme-border-color-2:#ffcb7b;--md-theme-bg-color:#2f2f2f;--md-theme-blockquote-color:#c7c7c7;--md-theme-blockquote-bg-color:rgba(255,199,116,.1);--md-theme-code-color:#000;--md-theme-code-bg-color:#ffcb7b;--md-theme-code-block-bg-color:rgba(30,25,18,.5);--md-theme-table-border-color:#fe9900;--md-theme-table-th-color:#ffb648;--md-theme-table-tht-color:#000;--md-theme-table-tr-nc-color:#6d5736;--md-theme-table-trh-color:#947443;--md-theme-slct-title-color:#000;--md-theme-slct-titlebg-color:#fe9900;--md-theme-slct-text-color:#00c888;--md-theme-slct-bg-color:rgba(175,207,247,.25);--md-theme-slct-del-color:#999;--md-theme-slct-elbg-color:#000;--md-theme-slct-codebg-color:#ffcb7b;--md-theme-slct-prebg-color:rgba(160,200,255,.25)}div.cyanosis-theme{word-break:break-word;line-height:1.75;font-weight:400;overflow-x:hidden;color:var(--md-theme-base-color);transition:color .35s}div.cyanosis-theme hr{position:relative;width:98%;height:1px;margin-block-start:32px;margin-block-end:32px;background-image:linear-gradient(90deg,var(--md-theme-link-color),rgba(255,0,0,.3),rgba(37,163,65,.3),rgba(255,0,0,.3),var(--md-theme-link-color));border-width:0;overflow:visible}div.cyanosis-theme b,div.cyanosis-theme strong{color:var(--md-theme-strong-color)}div.cyanosis-theme em,div.cyanosis-theme i{color:var(--md-theme-em-color)}div.cyanosis-theme del{color:var(--md-theme-del-color)}div.cyanosis-theme details>summary{outline:none;color:var(--md-theme-title-color);font-size:20px;font-weight:bolder;border-block-end:1px solid var(--md-theme-border-color);cursor:pointer}div.cyanosis-theme details>p{padding:10px 20px;margin:10px 0 0;color:#666;background-color:var(--md-theme-blockquote-bg-color);border:2px dashed var(--md-theme-strong-color)}div.cyanosis-theme a::-moz-selection,div.cyanosis-theme b::-moz-selection,div.cyanosis-theme em::-moz-selection,div.cyanosis-theme i::-moz-selection,div.cyanosis-theme strong::-moz-selection{background-color:var(--md-theme-slct-elbg-color)}div.cyanosis-theme a::selection,div.cyanosis-theme b::selection,div.cyanosis-theme em::selection,div.cyanosis-theme i::selection,div.cyanosis-theme strong::selection{background-color:var(--md-theme-slct-elbg-color)}div.cyanosis-theme del::-moz-selection{color:var(--md-theme-slct-del-color);background-color:var(--md-theme-slct-elbg-color)}div.cyanosis-theme del::selection{color:var(--md-theme-slct-del-color);background-color:var(--md-theme-slct-elbg-color)}.md-editor div.mk-cute-theme,.md-editor-dark div.mk-cute-theme{--md-theme-code-inline-color:#4ec9b0;--md-theme-code-inline-bg-color:#282c34;--md-theme-code-block-color:#4ec9b0;--md-theme-code-block-bg-color:#282c34;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color);--md-theme-code-block-radius:10px}div.mk-cute-theme code{font-family:Menlo,Monaco,Consolas,Courier New,monospace;overflow-x:auto;padding:.14em .46em;margin:0 4px}div.mk-cute-theme .md-editor-code pre code{font-family:Menlo,Monaco,Consolas,Courier New,monospace;padding:22px;margin:0;word-break:normal;line-height:1.75}div.mk-cute-theme .md-editor-code pre code span[rn-wrapper]{top:22px}.md-editor div.mk-cute-theme{--md-theme-heading-color:#36ace1}div.mk-cute-theme h1:before,div.mk-cute-theme h2:before,div.mk-cute-theme h3:before,div.mk-cute-theme h4:before,div.mk-cute-theme h5:before,div.mk-cute-theme h6:before{content:"";display:block;position:absolute;inset-inline-start:0;inset-block-start:0;inset-block-end:0;margin:auto;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAF8UlEQVRIS71Wa2wUVRT+7r0zu9t2t/RBaSioPCpYbIUfaEIQUogSAwZDAlUSGwgg/CBATExMCJH1D2hIfOEjFEUEhViCgBgIUCH44OkjPAMGBVqhpUCfW3Zn5z7MuQOE0hYxMdxJdmd25s53vnO+851leMCLPWA8/CfA2TsvL8n7q+nTFfNLG+4VqInHOeJLDQMzdz/3r4DGGDb9lxu+aPcE7U61JHDMDePcuv0O21ShugOefqDdtBie3Dk6K/O+Ab+qOjJiz7Ahv6c8hbDDwRiQlgYGDOcaWyEcjg8On+j71IpJndjGt9XO+jM7+pkywNvbazIfercieSdoJ4bE5sWjyZqMpDdeaQNXMNC34ME3LV8B56+1w3AOgk+EXe/Ub6uiLB6XdH/G/mYjeBCcFwnt3zQqWt4t4NjjnhzQ1CGkBhwOCMFAB71U0qsYgRlwBtQ1tiEJAy44OBdQUmFK3aWS06NLT+ukZAQoKCCjsfbDmk6p78RwX3ncWffmIj8U4kh6GpEwh+9rGy23LDU4GBrrm9DsuDYIGMAYIC/EUNQ7Cq1hn+WM2TI8f+jEyCmvjfn1FssuojHx6tDkyZOaCzr8TNpASzDAk8amlRIrEylcSGsYrcGIstIYWhgDDIM2BiGH3ywFkGAC1U9n38bpVqWGdk6r4HMWrZZaG1D5KLn0qYyBEAKnG1otAxLR8L7Z9nfP13CJHQ/ST4vK8sVHe8JsU0U6uO5hlexo8PI7vNDQomwoBRAwpSmtgJAAztS3QLsOsmBQlBtFJMQhlbbPUBBUR7o2hqHVddLbRsfCPQJ+u3TPw8uGl1yklAlHIJZKo3//XEhlLCtifPFyM7xwCI/lZ8IKTTBbS7pPLIggZZsSQ+zXbT4UYSsnet3UMM5HPT5LGbrDGYQroClyT2Jwnyj9aN949e8mDCwuRFoqKxRHUJ21BSDRELuQYGhvbMVV32Dp2RuxcfHSRBfAYTsbU9nJdFj5EiLkglHkRInC1xoxKbH9hQJIaTDvxxTCUddWl4wg0dCCtqSPDmoVx4Eitpxh64ZtsT6b5ie6pPRkfF90TllxOzEwmipMKRRgHODGgCuJkqIcvDdC2BZ5Y+tlHHMzkAKghbAxcQqQDiKrFBxhqg5MHTivS1tQ+sdsvaQl5Yd6yfdRXNQLsQwXnq/AQFLXEIIjzBSuNaaR0SuEtkQKl9IKjAsbJaWfzo1USDsM6zceDJfeVGgnhhN2N7YOyo5kJz1pa2AbgfrO1gRwXW6vSRQNtddR+EhvKGmseskgTtY2Q7kucYWWgToPHzyUyXry0iXfnBtfl5f/PaWPvPNW/zkOAQegJHltFE5dSaCskHqPVEnqpMAMEgkPtR1pKxyh/N0/vTToubtH1G3RmLjhM8ubKXfWB2mRa9ySOaWS2uT8lTZ0cI6I52Ngv7zAbW9mQVm1cpytu441P38XeXTlQu+e46nyh+bjLkMZRU0MCYTCJWZSG1y7cBWNURpxBlxqFBfEwGnGGhaYPSNwhpSv4DK+/vPynBk9MqRIiOWs8a2WJTm9a+cgh6SaMIMz9W1WjYHHMtv0wSmZdWB9gdsya/rcYVg7JoffCdqlD6ceTpiY59tM0PhJp5WNvra+BQkejCMyBarr8KKYDcZi8sDaCDKYFIGRk+FnSVXzyTO9JxBwF8DLc1dlLn65ooNEYN0fBsu21fTvL6PXnhxXlnLIqqhYYBian4lQ2Lk9ogiALsimiLC1QYfhlV1Hnxh7JfcMqxrpd7U2GFa5t9nOd7Kr+kg4uWvnCpromlJeXlq3Os3ZLOlrZBmNQf1ybVqpxhbA7mRIOCy1+esDOWhIyDv/+3Q7LRbsqH+rKRJ+nba+/+WW7II1s9vvVBuNr7KNF1WUM1bSt5f1Vq01jUVkKfnx8uoti3Or5rbd9782M61azJz/rFywYU/OyKqK1p5G2MS1Z18tGFDwTkvIxcK9RwaMP3a9/tbc62lPj/Nw5B9ey9Ehy/MY4oEqelgNleuyCgdXJlmc3fO5Ll56r5f+n/f+AWFf9jvBgaHpAAAAAElFTkSuQmCC);animation:spin 2s linear 0s infinite}div.mk-cute-theme h1{position:relative;font-size:30px;padding:12px 38px;margin:30px 0}div.mk-cute-theme h1:before{width:30px;height:30px;background-size:30px 30px}div.mk-cute-theme h2{position:relative;font-size:24px;padding:12px 36px;margin:28px 0}div.mk-cute-theme h2:before{width:28px;height:28px;background-size:28px 28px}div.mk-cute-theme h3{position:relative;font-size:18px;padding:4px 32px;margin:26px 0}div.mk-cute-theme h3:before{width:24px;height:24px;background-size:24px 24px}div.mk-cute-theme h4{position:relative;padding:4px 28px;font-size:16px;margin:22px 0}div.mk-cute-theme h4:before{width:20px;height:20px;background-size:20px 20px}div.mk-cute-theme h5{position:relative;padding:4px 26px;font-size:15px;margin:20px 0}div.mk-cute-theme h5:before{width:18px;height:18px;background-size:18px 18px}div.mk-cute-theme h6{position:relative;padding:4px 22px;font-size:14px;margin:16px 0}div.mk-cute-theme h6:before{width:16px;height:16px;background-size:16px 16px}@media(max-width:720px){div.mk-cute-theme h1{font-size:24px}div.mk-cute-theme h2{font-size:20px}div.mk-cute-theme h3{font-size:18px}}.md-editor div.mk-cute-theme{--md-theme-link-color:#409eff;--md-theme-link-hover-color:#007bff}div.mk-cute-theme a{display:inline-block;border-block-end:1px solid #409eff}div.mk-cute-theme a:active,div.mk-cute-theme a:hover{border-block-end:1px solid #007bff}div.mk-cute-theme ol li,div.mk-cute-theme ul li{margin-block-end:0;list-style:inherit}div.mk-cute-theme ol li .task-list-item,div.mk-cute-theme ul li .task-list-item{list-style:none}div.mk-cute-theme ol li .task-list-item ol,div.mk-cute-theme ol li .task-list-item ul,div.mk-cute-theme ul li .task-list-item ol,div.mk-cute-theme ul li .task-list-item ul{margin-block-start:0}div.mk-cute-theme ol ol,div.mk-cute-theme ol ul,div.mk-cute-theme ul ol,div.mk-cute-theme ul ul{margin-block-start:3px}div.mk-cute-theme ol li{padding-inline-start:6px}div.mk-cute-theme p{line-height:inherit;margin-block-start:22px;margin-block-end:22px}.md-editor div.mk-cute-theme{--md-theme-quote-color:#fff;--md-theme-quote-border:4px solid #409eff;--md-theme-quote-bg-color:rgba(54,172,225,.75)}.md-editor-dark div.mk-cute-theme{--md-theme-quote-color:inherit;--md-theme-quote-border:4px solid #265d97;--md-theme-quote-bg-color:rgba(18,80,108,.75)}div.mk-cute-theme blockquote{position:relative;padding:8px 26px;margin:16px 0;border-radius:var(--md-theme-radius-m)}div.mk-cute-theme blockquote:before{content:"❝";inset-block-start:10px;inset-inline-start:8px;color:#409eff;font-size:20px;line-height:1;font-weight:700;position:absolute;opacity:.7}div.mk-cute-theme blockquote:after{content:"❞";font-size:20px;position:absolute;inset-inline-end:8px;inset-block-end:0;color:#409eff;opacity:.7}div.mk-cute-theme blockquote ol li,div.mk-cute-theme blockquote ul li,div.mk-cute-theme blockquote>p{color:var(--md-theme-quote-color)}.md-editor div.mk-cute-theme{--md-theme-table-color:#000;--md-theme-table-border-color:#f6f6f6;--md-theme-table-thead-bg-color:#f6f6f6;--md-theme-table-stripe-color:#fcfcfc}.md-editor-dark div.mk-cute-theme{--md-theme-table-color:inherit;--md-theme-table-border-color:#1c1c1c;--md-theme-table-thead-bg-color:rgba(28,28,28,.631);--md-theme-table-stripe-color:rgba(28,28,28,.631)}div.mk-cute-theme table{display:inline-block;width:auto;max-width:100%;overflow:auto;border:1px solid var(--md-theme-table-border-color)}div.mk-cute-theme table thead{background-color:var(--md-theme-table-thead-bg-color);color:var(--md-theme-table-color);text-align:left}div.mk-cute-theme table tr td,div.mk-cute-theme table tr th{padding:12px 7px;line-height:24px;border:none}div.mk-cute-theme table tr td{min-width:120px}div.mk-cute-theme blockquote table tbody{color:var(--md-theme-color)}div.mk-cute-theme blockquote table tr{background-color:var(--md-theme-table-stripe-color)}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(1turn)}}.md-editor div.mk-cute-theme{--md-theme-color:#36ace1;background-image:linear-gradient(90deg,#323a4240 3%,#0000 0),linear-gradient(1turn,#323a4240 3%,#0000 0)}.md-editor-dark div.mk-cute-theme{background-image:linear-gradient(90deg,#d9eafb40 3%,#0000 0),linear-gradient(1turn,#d9eafb40 3%,#0000 0);--md-theme-bg-color-scrollbar-thumb:#4d4d4d}div.mk-cute-theme{word-break:break-word;line-height:1.75;font-weight:400;overflow-x:hidden;background-size:20px 20px;background-position:50%}div.mk-cute-theme hr{position:relative;width:98%;height:1px;border:none;margin-block-start:32px;margin-block-end:32px;background-image:linear-gradient(90deg,#36ace1,#dff0fe,#36ace1);overflow:visible}div.mk-cute-theme del{color:#36ace1}.md-editor div.smart-blue-theme{--md-theme-code-inline-color:#d63200;--md-theme-code-inline-bg-color:#fff5f5;--md-theme-code-block-color:#333;--md-theme-code-block-bg-color:#f8f8f8;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color)}.md-editor-dark div.smart-blue-theme{--md-theme-code-inline-color:#e06c75;--md-theme-code-inline-bg-color:#1a1a1a;--md-theme-code-block-color:#999;--md-theme-code-block-bg-color:#1a1a1a;--md-theme-code-before-bg-color:var(--md-theme-code-block-bg-color)}div.smart-blue-theme code{overflow-x:auto;padding:.065em .4em}div.smart-blue-theme .md-editor-code pre{font-family:Menlo,Monaco,Consolas,Courier New,monospace}div.smart-blue-theme .md-editor-code pre code{padding:22px 12px;margin:0;word-break:normal}div.smart-blue-theme .md-editor-code pre code span[rn-wrapper]{top:22px}.md-editor div.smart-blue-theme{--md-theme-heading-color:#135ce0}div.smart-blue-theme h1,div.smart-blue-theme h2,div.smart-blue-theme h3,div.smart-blue-theme h4,div.smart-blue-theme h5,div.smart-blue-theme h6{padding:30px 0;margin:0}div.smart-blue-theme h1 a,div.smart-blue-theme h2 a,div.smart-blue-theme h3 a,div.smart-blue-theme h4 a,div.smart-blue-theme h5 a,div.smart-blue-theme h6 a{border:none}div.smart-blue-theme h1{position:relative;text-align:center;font-size:22px;margin:50px 0}div.smart-blue-theme h2{position:relative;font-size:20px;border-inline-start:4px solid;padding:0 0 0 10px;margin:30px 0}div.smart-blue-theme h3{font-size:16px}div.smart-blue-theme img{margin:0 auto}.md-editor div.smart-blue-theme{--md-theme-link-color:#036aca}.md-editor-dark div.smart-blue-theme{--md-theme-link-color:#2d7dc7}div.smart-blue-theme a{font-weight:400}div.smart-blue-theme ol,div.smart-blue-theme ul{margin-block-start:1em}div.smart-blue-theme li{line-height:2;margin-block-end:0;list-style:inherit}div.smart-blue-theme p{line-height:2;font-weight:400}div.smart-blue-theme *+p{margin-block-start:16px}.md-editor div.smart-blue-theme{--md-theme-quote-color:#666;--md-theme-quote-bg-color:#fff9f9;--md-theme-quote-border-color:#b2aec5}.md-editor-dark div.smart-blue-theme{--md-theme-quote-color:#999;--md-theme-quote-bg-color:#2a2a2a;--md-theme-quote-border-color:#0063bb}div.smart-blue-theme blockquote{background-color:var(--md-theme-quote-bg-color);margin:2em 0;padding:2px 20px;border-inline-start:4px solid var(--md-theme-quote-border-color)}div.smart-blue-theme blockquote p{color:var(--md-theme-quote-color);line-height:2}.md-editor div.smart-blue-theme{--md-theme-table-td-border-color:#dfe2e5;--md-theme-table-stripe-color:#f6f8fa}.md-editor-dark div.smart-blue-theme{--md-theme-table-td-border-color:#2d2d2d;--md-theme-table-stripe-color:#0c0c0c}div.smart-blue-theme table{border-collapse:collapse;margin:1rem 0;overflow-x:auto}div.smart-blue-theme table tr td,div.smart-blue-theme table tr th{padding:.6em 1em}div.smart-blue-theme blockquote table{line-height:normal}div.smart-blue-theme blockquote table tr td,div.smart-blue-theme blockquote table tr th{border-color:var(--md-theme-border-color-inset)}div.smart-blue-theme blockquote table tbody tr:nth-child(n){background-color:inherit}.md-editor div.smart-blue-theme{--md-theme-color:#595959;background-image:linear-gradient(90deg,#3c0a1e0a 3%,#0000 0),linear-gradient(1turn,#3c0a1e0a 3%,#0000 0)}.md-editor-dark div.smart-blue-theme{--md-theme-color:#999;background-image:linear-gradient(90deg,#cfcfcf0a 3%,#fff0 0),linear-gradient(1turn,#cfcfcf0a 3%,#fff0 0)}div.smart-blue-theme{color:var(--md-theme-color);font-family:-apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;background-size:20px 20px;background-position:50%}div.smart-blue-theme em strong,div.smart-blue-theme strong{color:#036aca}div.smart-blue-theme hr{border-block-start:1px solid #135ce0}[dir=rtl] .md-editor-catalog{direction:rtl}.md-editor-catalog-indicator{height:18px;width:4px;background-color:#73d13d;position:absolute;border-radius:4px;transition:top .3s}.md-editor-catalog>.md-editor-catalog-link{padding-block:5px;padding-inline:8px}.md-editor-catalog-link{padding-block:5px;padding-inline-start:1em;display:flex;flex-direction:column}.md-editor-catalog-link span{display:inline-block;width:100%;position:relative;overflow:hidden;color:var(--md-color);white-space:nowrap;text-overflow:ellipsis;transition:color .3s;cursor:pointer;line-height:18px}.md-editor-catalog-link span:hover{color:#73d13d}.md-editor-catalog-wrapper>.md-editor-catalog-link{padding-block-start:5px;padding-block-end:5px}.md-editor-catalog-wrapper>.md-editor-catalog-link:first-of-type{padding-block-start:10px}.md-editor-catalog-wrapper>.md-editor-catalog-link:last-of-type{padding-block-end:0}.md-editor-catalog-active>span{color:#73d13d}.md-editor-catalog-dark{--md-color:#999;--md-hover-color:#bbb;--md-bk-color:#000;--md-bk-color-outstand:#333;--md-bk-hover-color:#1b1a1a;--md-border-color:#2d2d2d;--md-border-hover-color:#636262;--md-border-active-color:#777;--md-modal-mask:#00000073;--md-modal-shadow:0px 6px 24px 2px #00000066;--md-scrollbar-bg-color:#0f0f0f;--md-scrollbar-thumb-color:#2d2d2d;--md-scrollbar-thumb-hover-color:#3a3a3a;--md-scrollbar-thumb-active-color:#3a3a3a}.md-editor{--md-color:#3f4a54;--md-hover-color:#000;--md-bk-color:#fff;--md-bk-color-outstand:#f2f2f2;--md-bk-hover-color:#f5f7fa;--md-border-color:#e6e6e6;--md-border-hover-color:#b9b9b9;--md-border-active-color:#999;--md-modal-mask:#00000073;--md-modal-shadow:0px 6px 24px 2px #00000019;--md-scrollbar-bg-color:#e2e2e2;--md-scrollbar-thumb-color:#0000004d;--md-scrollbar-thumb-hover-color:#00000059;--md-scrollbar-thumb-active-color:#00000061;color:var(--md-color);font-family:-apple-system,BlinkMacSystemFont,Segoe UI Variable,Segoe UI,system-ui,ui-sans-serif,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;width:100%;height:500px;position:relative;box-sizing:border-box;border:1px solid var(--md-border-color);display:flex;flex-direction:column;overflow:hidden;background-color:var(--md-bk-color)}.md-editor .md-editor-fullscreen{position:fixed!important;inset-block-start:0;inset-inline-end:0;inset-block-end:0;inset-inline-start:0;width:auto!important;height:auto!important;z-index:10000}svg.md-editor-icon{width:16px;height:16px;padding-block:4px;padding-inline:4px;fill:none;overflow:hidden;display:block;box-sizing:content-box}.md-editor .lucide-list-icon,.md-editor .lucide-list-ordered-icon,.md-editor .lucide-list-todo-icon{width:18px;height:18px;padding-block:3px;padding-inline:3px}.md-editor-preview{font-size:16px;word-break:break-all;display:flow-root;padding-block:10px;padding-inline:20px}.md-editor-modal-container{--md-color:#3f4a54;--md-hover-color:#000;--md-bk-color:#fff;--md-bk-color-outstand:#f2f2f2;--md-bk-hover-color:#f5f7fa;--md-border-color:#e6e6e6;--md-border-hover-color:#b9b9b9;--md-border-active-color:#999;--md-modal-mask:#00000073;--md-modal-shadow:0px 6px 24px 2px #00000019;--md-scrollbar-bg-color:#e2e2e2;--md-scrollbar-thumb-color:#0000004d;--md-scrollbar-thumb-hover-color:#00000059;--md-scrollbar-thumb-active-color:#00000061;color:var(--md-color);font-family:-apple-system,BlinkMacSystemFont,Segoe UI Variable,Segoe UI,system-ui,ui-sans-serif,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji}.md-editor-modal-container .lucide-xicon{width:20px;height:20px;padding-block:2px;padding-inline:2px}.md-editor-previewOnly{border:none;height:auto;overflow:visible}.md-editor-previewOnly .md-editor-content{height:100%}.md-editor-previewOnly .md-editor-preview{padding-block:0;padding-inline:0}.md-editor-previewOnly .md-editor-preview-wrapper{overflow:visible}.md-editor-dark,.md-editor-modal-container[data-theme=dark]{--md-color:#999;--md-hover-color:#bbb;--md-bk-color:#000;--md-bk-color-outstand:#333;--md-bk-hover-color:#1b1a1a;--md-border-color:#2d2d2d;--md-border-hover-color:#636262;--md-border-active-color:#777;--md-modal-mask:#00000073;--md-modal-shadow:0px 6px 24px 2px #00000066;--md-scrollbar-bg-color:#0f0f0f;--md-scrollbar-thumb-color:#2d2d2d;--md-scrollbar-thumb-hover-color:#3a3a3a;--md-scrollbar-thumb-active-color:#3a3a3a}.medium-zoom-image--opened,.medium-zoom-overlay{z-index:100001}</style><style>.article-container[data-v-88a210bf]{--jsz-article-detail-column:24;--jsz-card-padding:1.5vmin;--jsz-card-bg-color:#fff;display:grid;grid-template-columns:repeat(var(--jsz-article-detail-column),1fr);gap:1vmin}.left[data-v-88a210bf]{grid-column:3/span 4}.left-body[data-v-88a210bf]{position:sticky;top:1vh}.left-body[data-v-88a210bf],.main[data-v-88a210bf]{display:flex;flex-direction:column;gap:1vh}.main[data-v-88a210bf]{grid-column:7/span 12}.article[data-v-88a210bf]{display:flex;flex-direction:column;gap:1vh;background-color:var(--jsz-card-bg-color);padding:var(--jsz-card-padding)}.article-title[data-v-88a210bf]{text-align:center}[data-v-88a210bf] .md-editor-preview-wrapper{padding:0}.article-ownerName[data-v-88a210bf]{color:var(--jsz-font-2)}.article-tag-list[data-v-88a210bf]{display:flex;flex-direction:row;overflow:hidden;flex-wrap:wrap;gap:1vw}.right[data-v-88a210bf]{grid-column:span 4}.right-body[data-v-88a210bf]{gap:1vh;position:sticky;top:1vh}.dir[data-v-88a210bf],.right-body[data-v-88a210bf]{display:flex;flex-direction:column}.dir[data-v-88a210bf]{background:#fff;padding:1vmin}[data-v-88a210bf] .el-divider--horizontal{margin:.5vh 0}.article-info[data-v-88a210bf]{display:flex;flex-direction:column;gap:1vh}.article-info-base[data-v-88a210bf]{display:flex;flex-direction:row;gap:1vmin;color:var(--jsz-font-3);align-items:center;white-space:nowrap}.article-recommend-card[data-v-88a210bf]{display:flex;flex-direction:column;background-color:var(--jsz-card-bg-color)}.article-recommend-card-title[data-v-88a210bf]{padding:1vmin 2.5vmin;font-weight:bolder;font-size:1.5vmin;color:var(--jsz-font-1)}.article-recommend-list[data-v-88a210bf]{display:flex;flex-direction:column;padding:0 var(--jsz-card-padding) var(--jsz-card-padding) var(--jsz-card-padding)}.article-recommend-list-item[data-v-88a210bf]{display:flex;flex-direction:column;border-bottom:1px var(--el-border-color) var(--el-border-style);padding:1vmin;gap:1vh;overflow:hidden}.article-recommend-list-item[data-v-88a210bf]:last-child{border-bottom:none}.article-recommend-list-item[data-v-88a210bf]:hover{background-color:#f7f8fa}.article-recommend-list-item-info[data-v-88a210bf]{display:flex;flex-direction:row;align-items:center;font-size:var(--jsz-font-size-2);color:var(--jsz-font-3);white-space:nowrap}.article-recommend-list-item-title[data-v-88a210bf]{font-weight:bolder;font-size:var(--jsz-font-size-1);color:var(--jsz-font-1);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;word-break:break-all}.article-recommend-list-item-tag-list[data-v-88a210bf]{display:flex;flex-direction:row;align-items:center;font-size:var(--jsz-font-size-2);color:var(--jsz-font-3);white-space:nowrap}.article-recommend-list-item-tag-list-divider[data-v-88a210bf]{font-size:var(--jsz-font-size-2);color:var(--jsz-font-3);white-space:nowrap;font-weight:bolder;margin-left:.5vmin;margin-right:.5vmin}.no-article[data-v-88a210bf]{background-color:#fff}.source-info-card[data-v-88a210bf]{display:flex;flex-direction:column;background-color:var(--jsz-card-bg-color);font-size:var(--jsz-font-size-2);color:var(--jsz-font-3)}.click-text[data-v-88a210bf]{color:#2d8cf0;cursor:pointer}.dir-title[data-v-88a210bf]{font-size:var(--jsz-card-title-font-size)}.article-pre-next[data-v-88a210bf]{display:flex;flex-direction:row;justify-content:space-between;gap:1vw}.article-pre-next-item-title[data-v-88a210bf]{color:#409eff}.ads-column[data-v-88a210bf]{display:flex;flex-direction:column;gap:1vh}@media(max-width:1000px){.left[data-v-88a210bf]{display:none}.main[data-v-88a210bf]{grid-column:span var(--jsz-article-detail-column);gap:1.5vh}.right[data-v-88a210bf]{display:none}.article-recommend-card-title[data-v-88a210bf]{font-size:2vh}.article-pre-next[data-v-88a210bf]{display:flex;flex-direction:column;gap:1vh}}</style><style>.my-advertisement[data-v-d2e063da],.my-advertisement-main[data-v-d2e063da]{display:flex;flex-direction:column}</style><link rel="stylesheet" href="/_nuxt/entry.DZmbdorR.css" crossorigin><link rel="stylesheet" href="/_nuxt/advertisementApi.B8qpZYRh.css" crossorigin><link rel="modulepreload" as="script" crossorigin href="/_nuxt/DCN48t7k.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/D6zO_skW.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Vi6isxf6.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/4trvUMx-.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BMFrlhfT.js"><script type="module" src="/_nuxt/DCN48t7k.js" crossorigin></script><meta name="description" content="写在前面： 这是一个深度依赖 NVIDIA 显卡和 Linux 环境的 AI 项目。在 Windows 上使用 Podman 部署需要对源码进行“外科手术式”的修改。请务必严格按照步骤执行，不要跳过任何一步。 本篇是上一篇记录博客《【笔记】Podman Desktop 部署 开源数字人 HeyGem.ai》的内容完善进阶和补充篇，请结合着一起查看。"><meta name="keywords" content="人工智能,windows,笔记,python,数字人,podman,duix-avatar,技术栈"></head><body><div id="__nuxt"><div class="app-container"><div class="my-header" data-v-366511c9><div class="header-left" data-v-366511c9><a href="/" class="logo" data-v-366511c9><div class="el-image logo-icon" data-v-366511c9><!--[--><!--v-if--><div class="el-image__wrapper"><!--[--><div class="el-image__placeholder"></div><!--]--></div><!--]--><!--v-if--></div><span class="name" data-v-366511c9>技术栈</span></a></div><div class="header-right" data-v-366511c9><div class="el-input el-input--default el-input-group input-with-select el-input-group--append" style="" data-v-366511c9><!-- input --><!--[--><!-- prepend slot --><!--v-if--><div class="el-input__wrapper"><!-- prefix slot --><!--v-if--><input class="el-input__inner" type="text" autocomplete="off" tabindex="0" placeholder="探索技术栈" style=""><!-- suffix slot --><!--v-if--></div><!-- append slot --><div class="el-input-group__append"><!--[--><button ariadisabled="false" type="button" class="el-button el-button--default search-wrapper" style="" data-v-366511c9><i class="el-icon" style=""><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704"></path></svg><!--]--></i><!--v-if--></button><!--]--></div><!--]--></div></div></div><div class="article-container" data-v-88a210bf><div class="left" data-v-88a210bf><div class="left-body" data-v-88a210bf><!----><!----></div></div><div class="main" data-v-88a210bf><div class="article" data-v-88a210bf><h1 class="article-title" data-v-88a210bf>【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目</h1><div class="article-info" data-v-88a210bf><div class="article-info-base" data-v-88a210bf><span class="article-ownerName" data-v-88a210bf>love530love</span><span data-v-88a210bf>2025-11-28 8:20</span></div></div><div class="el-divider el-divider--horizontal" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><div class="article-content" data-v-88a210bf><div id="preview-only" class="md-editor md-editor-previewOnly" style="" data-v-88a210bf><!--[--><div id="preview-only-preview" class="md-editor-preview default-theme md-editor-scrn"><hr data-line="0">
+<h2 data-line="2" id="【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目">【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目</h2>
+<blockquote data-line="4">
+<p data-line="4"><strong>写在前面</strong> ：</p>
+<p data-line="6">这是一个深度依赖 NVIDIA 显卡和 Linux 环境的 AI 项目。在 Windows 上使用 Podman 部署需要对源码进行&quot;外科手术式&quot;的修改。请务必严格按照步骤执行，不要跳过任何一步。</p>
+<p data-line="8">本篇是上一篇记录博客《【笔记】Podman Desktop 部署 开源数字人 <a href="http://HeyGem.ai" target="_blank">HeyGem.ai</a>》的内容完善进阶和补充篇，请结合着一起查看。</p>
+</blockquote>
+<hr data-line="10">
+<h3 data-line="12" id="第一篇：环境准备 (地基)">第一篇：环境准备 (地基)</h3>
+<p data-line="14">在开始任何代码操作前，新电脑必须具备以下环境。</p>
+<h4 data-line="16" id="1. 硬件检查">1. 硬件检查</h4>
+<ul data-line="18">
+<li data-line="18"><strong>显卡</strong>：必须是 NVIDIA 显卡（显存建议 8GB 以上）。</li>
+<li data-line="19"><strong>驱动</strong> ：去 NVIDIA 官网下载并安装最新的 <strong>Game Ready</strong> 或 <strong>Studio</strong> 驱动。</li>
+</ul>
+<h4 data-line="21" id="2. 基础软件安装 (必装)">2. 基础软件安装 (必装)</h4>
+<p data-line="23">请依次下载并安装，建议全部安装在默认路径：</p>
+<ol data-line="25">
+<li data-line="25"><strong>Git</strong> ：<a href="https://www.google.com/search?q=https://git-scm.com/downloads" target="_blank">下载地址</a> (安装后打开 CMD 输入 <code>git --version</code> 验证)。</li>
+<li data-line="26"><strong>Node.js</strong> (v18+)：<a href="https://nodejs.org/en" target="_blank">下载地址</a> (安装后输入 <code>node -v</code> 验证) 。</li>
+<li data-line="27"><strong>VS Code</strong> ：<a href="https://code.visualstudio.com/" target="_blank">下载地址</a> 或 <strong>PyCharm</strong> (推荐，建议通过JetBrains Toolbox 管理安装)<a href="https://apps.microsoft.com/detail/xpfppn5plh3bfv?launch=true&amp;mode=full&amp;hl=zh-cn&amp;gl=us&amp;ocid=bingwebsearch" target="_blank">下载地址</a> (用于编辑代码)。</li>
+<li data-line="28"><strong>Podman Desktop</strong> ：<a href="https://podman-desktop.io/" target="_blank">下载地址</a> (安装时勾选安装 WSL2 （基于Fedora Linux 42），安装后重启电脑)。</li>
+</ol>
+<blockquote data-line="30">
+<p data-line="30"><a href="https://aicity.blog.csdn.net/article/details/151084611?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">【收藏级】Windows AI 本地开发「完全体」环境搭建清单</a></p>
+</blockquote>
+<h4 data-line="32" id="3. FFmpeg 安装 (关键)">3. FFmpeg 安装 (关键)</h4>
+<p data-line="34">这是音频处理的核心，手动配置或命令行方式配置（推荐）。</p>
+<p data-line="36">手动配置方式举例：</p>
+<ol data-line="38">
+<li data-line="38">下载 Windows 版 FFmpeg：<a href="https://www.google.com/search?q=https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z" target="_blank">下载链接</a></li>
+<li data-line="39">解压压缩包，将文件夹重命名为 <code>ffmpeg</code>，移动到 <code>C:\</code> 根目录（即路径为 <code>C:\ffmpeg</code>）。</li>
+<li data-line="40"><strong>配置环境变量</strong> ：
+<ul data-line="41">
+<li data-line="41">搜索&quot;编辑系统环境变量&quot; -&gt; &quot;环境变量&quot; -&gt; &quot;系统变量&quot; -&gt; 找到 <code>Path</code> -&gt; &quot;编辑&quot; -&gt; &quot;新建&quot;。</li>
+<li data-line="42">输入：<code>C:\ffmpeg\bin</code></li>
+<li data-line="43">点击确定保存。</li>
+</ul>
+</li>
+<li data-line="44"><strong>验证</strong> ：打开 CMD，输入 <code>ffmpeg -version</code>，有输出即成功。</li>
+</ol>
+<p data-line="46">命令配置方式举例（推荐，可免去手动配置环境变量）</p>
+<blockquote data-line="47">
+<p data-line="47"><a href="https://aicity.blog.csdn.net/article/details/151728052?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">Windows 上安装 FFmpeg 8.0（2025 版）------从&quot;手动解压&quot;到&quot;一条命令&quot;的进化之路</a></p>
+</blockquote>
+
+        <details  data-line="49" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">bash</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-bash" language=bash><span class="md-editor-code-block">scoop install ffmpeg</span><span rn-wrapper aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <hr data-line="53">
+<h3 data-line="55" id="第二篇：Podman 核心配置 (打通任督二脉)">第二篇：Podman 核心配置 (打通任督二脉)</h3>
+<p data-line="57">Podman 默认配置无法运行此项目，必须进行权限和显卡配置。</p>
+<h4 data-line="59" id="1. 初始化并开启最高权限">1. 初始化并开启最高权限</h4>
+<p data-line="61">打开 <strong>PowerShell (管理员身份)</strong>，依次执行：</p>
+
+        <details  data-line="63" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">powershell</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-powershell" language=powershell><span class="md-editor-code-block"># 1. 初始化 Podman
+podman machine init
+
+# 2. 开启 Rootful 模式 (解决网络报错的核心)
+podman machine set --rootful
+
+# 3. 启动虚拟机
+podman machine start</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <p data-line="74">​</p>
+<p data-line="76">​</p>
+<h4 data-line="78" id="2. 配置显卡穿透 (CDI)">2. 配置显卡穿透 (CDI)</h4>
+<p data-line="80">在 PowerShell 中执行以下命令进入虚拟机：</p>
+
+        <details  data-line="82" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">powershell</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-powershell" language=powershell><span class="md-editor-code-block">podman machine ssh</span><span rn-wrapper aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="86">进入虚拟机终端（显示 <code>[root@... ~]#</code>）后，复制执行以下命令：</p>
+
+        <details  data-line="88" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">bash</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-bash" language=bash><span class="md-editor-code-block"># 安装 NVIDIA 工具包
+sudo dnf install -y nvidia-container-toolkit
+
+# 创建配置目录
+sudo mkdir -p /etc/cdi
+
+# 生成显卡配置文件 (关键)
+sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
+
+# 退出虚拟机
+exit</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <figure data-line="102"><img src="https://i-blog.csdnimg.cn/direct/351e3af511184ccd8e69c24c93de1bd7.png" alt="" class="md-zoom" referrerPolicy="no-referrer"></figure>
+<p data-line="104">​</p>
+<p data-line="106">验证 GPU： 在 Windows 终端运行：</p>
+<p data-line="108">PowerShell</p>
+
+        <details  data-line="110" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang"></span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-" language=><span class="md-editor-code-block">podman run --rm --device=nvidia.com/gpu=all ubuntu nvidia-smi</span><span rn-wrapper aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="112">如果看到了显卡信息表格，说明 GPU 穿透成功！</p>
+<p data-line="114">​<img src="https://i-blog.csdnimg.cn/direct/f71f12ad396749778f6de9ce096119d0.png" alt="" referrerPolicy="no-referrer"></p>
+<hr data-line="116">
+<h3 data-line="118" id="第三篇：获取代码与&quot;魔改&quot; (核心)">第三篇：获取代码与&quot;魔改&quot; (核心)</h3>
+<blockquote data-line="120">
+<p data-line="120"><a href="https://aicity.blog.csdn.net/article/details/154025452?spm=1011.2415.3001.5331" target="_blank">初始准备请参考：【笔记】Podman Desktop 部署 开源数字人 HeyGem.ai</a></p>
+</blockquote>
+<h4 data-line="122" id="1. 获取项目源码">1. 获取项目源码</h4>
+<blockquote data-line="124">
+<p data-line="124"><a href="https://github.com/duixcom/Duix-Avatar" target="_blank">Duix-Avatar</a></p>
+</blockquote>
+<p data-line="126">在 PowerShell 中执行：</p>
+
+        <details  data-line="128" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">powershell</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-powershell" language=powershell><span class="md-editor-code-block"># 进入你想要存放项目的盘符（例如 F 盘）
+F:
+# 克隆项目
+git clone https://github.com/duixcom/Duix-Avatar.git F:\PythonProjects\HeyGem.ai
+# 进入目录
+cd F:\PythonProjects\HeyGem.ai
+# 安装依赖 或 创建虚拟环境
+npm install</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="139" id="在Windows中创建虚拟环境（推荐）">在Windows中创建虚拟环境（推荐）</h5>
+
+        <details  data-line="141" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang"></span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-" language=><span class="md-editor-code-block">python -m venv .venv
+.venv\Scripts\activate.bat</span><span rn-wrapper aria-hidden="true"><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="144" id="安装或升级必要的Python工具">安装或升级必要的Python工具</h5>
+
+        <details  data-line="146" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang"></span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-" language=><span class="md-editor-code-block">python -m pip install -U pip setuptools wheel</span><span rn-wrapper aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="148" id="安装podman-compose">安装podman-compose</h5>
+
+        <details  data-line="150" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang"></span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-" language=><span class="md-editor-code-block">pip install podman-compose</span><span rn-wrapper aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <h4 data-line="152" id="2. 植入&quot;修复补丁&quot; (请按顺序修改文件)">2. 植入&quot;修复补丁&quot; (请按顺序修改文件)</h4>
+<p data-line="154">我们需要修改 <strong>7</strong> 个文件来适配 Windows + Podman 环境。请用 VS Code 打开项目文件夹。</p>
+<h5 data-line="156" id="【修改 1】 创建 Podman 编排文件">【修改 1】 创建 Podman 编排文件</h5>
+<ul data-line="158">
+<li data-line="158"><strong>位置</strong> ：在项目根目录下的 <code>podman</code> 文件夹中，<strong>新建文件</strong> <code>podman-compose_fixed_final.yml</code>。</li>
+<li data-line="159"><strong>内容</strong> ：<em>(请填入下方代码，这是解决了 Host 网络和 Windows 挂载 Bug 的最终版本)</em></li>
+</ul>
+
+        <details  data-line="161" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">yaml</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-yaml" language=yaml><span class="md-editor-code-block"># ---------------------------
+# 在此处填入我们最终修复好的 podman-compose.yml 内容
+# 重点检查：network_mode: host, extra_hosts, 以及 volumes 的长格式写法
+# ---------------------------
+version: '3.8'
+
+services:
+  duix-avatar-tts:
+    image: guiji2025/fish-speech-ziming
+    container_name: duix-avatar-tts
+    restart: always
+    network_mode: host
+    extra_hosts:
+      - &quot;duix-avatar-asr:127.0.0.1&quot;
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display
+      - ASR_PORT=10095
+      - FUNASR_PORT=10095
+      - ASR_URL=ws://127.0.0.1:10095
+    volumes:
+      - type: bind
+        source: D:/duix_avatar_data/voice/data
+        target: /code/data
+      - type: bind
+        source: D:/duix_avatar_data/voice/sessions
+        target: /code/sessions
+      # 挂载本地修复后的 config.py
+      - type: bind
+        source: F:/PythonProjects/HeyGem.ai/podman/config/config.py
+        target: /code/config/config.py
+    command: /bin/bash -c &quot;/opt/conda/envs/python310/bin/python3 tools/api_server.py --listen 0.0.0.0:18180&quot;
+    devices:
+      - nvidia.com/gpu=all
+
+  duix-avatar-asr:
+    image: guiji2025/fun-asr
+    container_name: duix-avatar-asr
+    restart: always
+    privileged: true
+    network_mode: host
+    working_dir: /workspace/FunASR/runtime
+    command: sh /run.sh
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display
+    devices:
+      - nvidia.com/gpu=all
+
+  duix-avatar-gen-video:
+    image: guiji2025/duix.avatar
+    container_name: duix-avatar-gen-video
+    restart: always
+    privileged: true
+    network_mode: host
+    volumes:
+      - type: bind
+        source: D:/duix_avatar_data/face2face
+        target: /code/data
+    environment:
+      - PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display
+    shm_size: &quot;8g&quot;
+    command: python /code/app_local.py
+    devices:
+      - nvidia.com/gpu=all</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="231" id="【修改 2】 创建后端配置文件">【修改 2】 创建后端配置文件</h5>
+<ul data-line="233">
+<li data-line="233"><strong>位置</strong> ：在 <code>podman</code> 文件夹下新建文件夹 <code>config</code>，在里面新建文件 <code>config.py</code>。</li>
+<li data-line="234"><strong>内容</strong> ：<em>(请填入下方代码，核心是修复 IP 为 127.0.0.1 和端口 10095)</em></li>
+</ul>
+
+        <details  data-line="236" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">python</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-python" language=python><span class="md-editor-code-block"># ---------------------------
+# 在此处填入我们修改后的 Python config.py 内容
+# 重点：import os, fun_asr_host = '127.0.0.1', fun_asr_port = '10095'
+# ---------------------------
+import os
+
+# 是否本地离线版本
+is_local = True
+
+download_path = os.path.join(os.getcwd(), &quot;sessions&quot;)
+# enum 状态
+task_start = 1
+task_running = 2
+task_complete = 3
+task_fail = -1
+
+down_load_time_out = 1200
+cache_interval = 7200
+
+# 最小音频长度, 单位是秒
+min_wav_time = 10
+# 最大音频长度, 单位是秒
+max_wav_time = 40
+
+# 待训练录音的保存路径
+media_path = '/code/data'
+
+# 是否开启compile加速,30系列显卡使用有问题 建议4090开启
+is_compile = True
+base_reference_text = &quot;无论你是寻找舒适的驾驶体验，还是享受环保的出行方式，吉利银河E8都是你的不二之选。&quot;
+base_reference_audio = &quot;https://digital-public-dev.obs.myhuaweicloud.com/TTS_MODELS/20240715/slice_remove.wav&quot;
+
+# obs
+obs_end_point = 'http://obs.cn-east-3.myhuaweicloud.com'
+obs_access_key = 'A0MGG9DH'
+obs_secret = 'JplniUNAiu'
+obs_bucket_name = 'digital-public-dev'
+obs_path_prefix = 'vcm_server/'
+obs_http_url_prefix = 'https://d.obs.myhuaweicloud.com/'
+
+# 阿里asr
+access_key_id = 'access_key_data'
+access_key_secret = 'access_key_secret'
+appKey_cn = 'ZL6BdNok'
+appKey_en = 'IN2DNTDme'
+
+
+# 本地funasr相关信息
+fun_asr_host = os.getenv('FUN_ASR_HOST', '127.0.0.1')
+fun_asr_port = os.getenv('FUN_ASR_PORT', '10095')
+
+# 字符串分割
+split_len = 100
+split_symbols = [&quot;。&quot;, &quot;?&quot;, &quot;？&quot;, &quot;！&quot;, &quot;!&quot;, &quot;;&quot;, &quot;；&quot;, &quot;,&quot;, &quot;，&quot;, &quot;、&quot;]
+
+# 参数中chunk_length被强行写为200，避免单句过长，导致强行断句
+max_chunk_length = 200</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="296" id="【修改 3】 修复 FFmpeg 路径">【修改 3】 修复 FFmpeg 路径</h5>
+<ul data-line="298">
+<li data-line="298"><strong>文件</strong> ：<code>src/main/util/ffmpeg.js</code></li>
+<li data-line="299"><strong>操作</strong>：全选覆盖。</li>
+<li data-line="300"><strong>注意</strong> ：代码中 <code>const systemFfmpegPath</code> 的路径必须修改为新电脑的实际安装路径（如 <code>C:\\ffmpeg\\bin\\ffmpeg.exe</code>）。</li>
+<li data-line="301"><strong>内容</strong> ：<em>(请填入修复了 initFFmpeg 函数的代码)</em></li>
+</ul>
+
+        <details  data-line="303" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">javascript</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-javascript" language=javascript><span class="md-editor-code-block">// ---------------------------
+// 在此处填入修复后的 ffmpeg.js 代码
+// ---------------------------
+import ffmpeg from 'fluent-ffmpeg'
+import path from 'path'
+import fs from 'fs'
+import log from '../logger.js'
+
+function initFFmpeg() {
+  // --- 修改开始：优先使用系统 FFmpeg ---
+  
+  // 1. 定义您电脑上已知的正确路径
+  const systemFfmpegPath = 'C:\\ffmpeg\\bin\\ffmpeg.exe';
+  const systemFfprobePath = 'C:\\ffmpeg\\bin\\ffprobe.exe';
+
+  // 2. 检查系统路径是否存在，如果存在直接用，不再去项目里找
+  if (fs.existsSync(systemFfmpegPath)) {
+    log.info('&gt;&gt;&gt; [FFmpeg] 检测到系统 FFmpeg，使用路径:', systemFfmpegPath);
+    ffmpeg.setFfmpegPath(systemFfmpegPath);
+    ffmpeg.setFfprobePath(systemFfprobePath);
+    return;
+  }
+
+  // --- 如果系统路径不对，再走原来的逻辑作为备用 (旧代码) ---
+  const ffmpegPath = {
+    'development-win32': path.join(__dirname, '../../resources/ffmpeg/win-amd64/bin/ffmpeg.exe'),
+    'development-linux': path.join(__dirname, '../../resources/ffmpeg/linux-amd64/ffmpeg'),
+    'production-win32': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'win-amd64', 'bin', 'ffmpeg.exe'),
+    'production-linux': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'linux-amd64', 'ffmpeg')
+  }
+
+  if(process.env.NODE_ENV === undefined){
+    process.env.NODE_ENV = 'production'
+  }
+
+  const envKey = `${process.env.NODE_ENV}-${process.platform}`;
+  const ffmpegPathValue = ffmpegPath[envKey];
+  
+  log.info('&gt;&gt;&gt; [FFmpeg] 尝试使用内置路径:', ffmpegPathValue);
+  if (ffmpegPathValue &amp;&amp; fs.existsSync(ffmpegPathValue)) {
+      ffmpeg.setFfmpegPath(ffmpegPathValue);
+  } else {
+      log.warn('&gt;&gt;&gt; [FFmpeg] 内置路径不存在，将尝试使用系统默认 PATH 变量');
+      // 不设置 setFfmpegPath，让它自动去环境变量里找
+  }
+
+  // 设置 FFprobe (类似逻辑)
+  const ffprobePath = {
+    'development-win32': path.join(__dirname, '../../resources/ffmpeg/win-amd64/bin/ffprobe.exe'),
+    'development-linux': path.join(__dirname, '../../resources/ffmpeg/linux-amd64/ffprobe'),
+    'production-win32': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'win-amd64', 'bin', 'ffprobe.exe'),
+    'production-linux': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'linux-amd64', 'ffprobe')
+  }
+  const ffprobePathValue = ffprobePath[envKey];
+  if (ffprobePathValue &amp;&amp; fs.existsSync(ffprobePathValue)) {
+      ffmpeg.setFfprobePath(ffprobePathValue);
+  }
+}
+
+initFFmpeg()
+
+export function extractAudio(videoPath, audioPath) {
+  console.log('[FFmpeg] 开始提取音频:', videoPath, '-&gt;', audioPath);
+  return new Promise((resolve, reject) =&gt; {
+    ffmpeg(videoPath)
+      .noVideo()
+      .save(audioPath)
+      .on('start', (commandLine) =&gt; {
+        console.log('[FFmpeg] 执行命令:', commandLine);
+      })
+      .on('end', () =&gt; {
+        console.log('[FFmpeg] 音频提取成功!');
+        log.info('audio split done')
+        resolve(true)
+      })
+      .on('error', (err) =&gt; {
+        console.error('[FFmpeg] 音频提取失败:', err);
+        reject(err)
+      })
+  })
+}
+
+export async function toH264(videoPath, outputPath) {
+  console.log('[FFmpeg] 开始转码视频:', videoPath, '-&gt;', outputPath);
+  // const hasNvidia = await detectNvidia()
+  return new Promise((resolve, reject) =&gt; {
+    ffmpeg(videoPath)
+      .videoCodec('libx264')
+      .outputOptions('-pix_fmt yuv420p')
+      .save(outputPath)
+      .on('start', (commandLine) =&gt; {
+        console.log('[FFmpeg] 执行命令:', commandLine);
+      })
+      .on('end', () =&gt; {
+        console.log('[FFmpeg] 视频转码成功!');
+        log.info('video convert to h264 done')
+        resolve(true)
+      })
+      .on('error', (err) =&gt; {
+        console.error('[FFmpeg] 视频转码失败:', err);
+        reject(err)
+      })
+  })
+}
+
+function detectNvidia() {
+  return new Promise((resolve) =&gt; {
+    const exec = require('child_process').exec;
+    exec('nvidia-smi', (error, stdout, stderr) =&gt; {
+      if (error || stderr) {
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    });
+  });
+}
+
+export function getVideoDuration(videoPath) {
+  return new Promise((resolve, reject) =&gt; {
+    ffmpeg(videoPath).ffprobe((err, data) =&gt; {
+      if (err) {
+        log.error(&quot;🚀 ~ ffmpeg ~ err:&quot;, err)
+        reject(err)
+      } else if (data &amp;&amp; data.streams &amp;&amp; data.streams.length &gt; 0) {
+        resolve(data.streams[0].duration) // 单位秒
+      } else {
+        log.error('No streams found')
+        reject(new Error('No streams found'))
+      }
+    })
+  })
+}</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="439" id="【修改 4】 修复数据库报错">【修改 4】 修复数据库报错</h5>
+<ul data-line="441">
+<li data-line="441"><strong>文件</strong> ：<code>src/main/dao/f2f-model.js</code></li>
+<li data-line="442"><strong>操作</strong>：全选覆盖。</li>
+<li data-line="443"><strong>内容</strong> ：<em>(请填入加入了 safe() 函数的代码)</em></li>
+</ul>
+
+        <details  data-line="445" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">javascript</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-javascript" language=javascript><span class="md-editor-code-block">// ---------------------------
+// 在此处填入 f2f-model.js 代码，包含 safe() 函数
+// ---------------------------
+import { connect } from '../db/index.js'
+
+// --- 数据清洗函数 ---
+function safe(val) {
+  // 如果是 undefined 或 null，转为 null
+  if (val === undefined || val === null) {
+    return null
+  }
+  // 如果是对象（比如报错信息 {code: -1...}），转为 JSON 字符串
+  if (typeof val === 'object') {
+    return JSON.stringify(val)
+  }
+  // 其他情况（数字、字符串）直接返回
+  return val
+}
+
+export function insert({ modelName, videoPath, audioPath, voiceId }) {
+  const db = connect()
+  
+  // --- 调试日志：看看最终写入了什么 ---
+  console.log('[DAO] 准备写入数据库:', { 
+    modelName: safe(modelName), 
+    voiceId_raw: voiceId, 
+    voiceId_safe: safe(voiceId) 
+  });
+
+  const stmt = db.prepare(
+    'INSERT INTO f2f_model (name, video_path, audio_path, voice_id, created_at) VALUES (?, ?, ?, ?, ?)'
+  )
+  
+  // 使用 safe() 包裹所有可能出问题的字段
+  const info = stmt.run(
+    safe(modelName), 
+    safe(videoPath), 
+    safe(audioPath), 
+    safe(voiceId), 
+    Date.now()
+  )
+  return info.lastInsertRowid
+}
+
+export function selectPage({ page, pageSize, name = '' }) {
+  const db = connect()
+  const offset = (page - 1) * pageSize
+  const rows = db
+    .prepare(
+      `SELECT * FROM f2f_model WHERE name like '%${name}%' ORDER BY created_at DESC LIMIT ${pageSize} OFFSET ${offset}`
+    )
+    .all()
+  return rows
+}
+
+export function count(name = '') {
+  const db = connect()
+  const rows = db
+    .prepare(`SELECT COUNT(*) as total FROM f2f_model WHERE name like '%${name}%'`)
+    .get()
+  return rows.total
+}
+
+export function selectByID(id) {
+  const db = connect()
+  const stmt = db.prepare('SELECT * FROM f2f_model WHERE id = ?')
+  const row = stmt.get(id)
+  return row
+}
+
+export function remove(id) {
+  const db = connect()
+  db.prepare(`DELETE FROM f2f_model WHERE id = ?`).run(id)
+}</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="522" id="【修改 5 &amp; 6】 移除写死的调试逻辑">【修改 5 &amp; 6】 移除写死的调试逻辑</h5>
+<ul data-line="524">
+<li data-line="524"><strong>文件 1</strong> ：<code>src/main/service/model.js</code></li>
+<li data-line="525"><strong>文件 2</strong> ：<code>src/main/service/video.js</code></li>
+<li data-line="526"><strong>操作</strong>：全选覆盖。</li>
+<li data-line="527"><strong>内容</strong> ：<em>(请填入删除了 <code>test.wav</code> 逻辑的 model.js 和 video.js 代码)</em></li>
+</ul>
+<p data-line="529"><strong>model.js 代码:</strong></p>
+
+        <details  data-line="531" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">javascript</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-javascript" language=javascript><span class="md-editor-code-block">import { ipcMain } from 'electron'
+import fs from 'fs'
+import path from 'path'
+import dayjs from 'dayjs'
+import { isEmpty } from 'lodash'
+import { insert, selectPage, count, selectByID, remove as deleteModel } from '../dao/f2f-model.js'
+import { train as trainVoice } from './voice.js'
+import { assetPath } from '../config/config.js'
+import log from '../logger.js'
+import { extractAudio, toH264 } from '../util/ffmpeg.js'
+const MODEL_NAME = 'model'
+
+/**
+ * 辅助函数：清洗数据，确保符合 SQLite 要求
+ * SQLite 报错 &quot;can only bind numbers, strings... and null&quot; 通常是因为传入了 undefined 或 Object
+ */
+function safeValue(val) {
+  if (val === undefined || val === null) {
+    return null; // 强制转为 null
+  }
+  if (typeof val === 'object') {
+    return JSON.stringify(val); // 强制转为字符串
+  }
+  return String(val); // 其他情况（如数字）转为字符串
+}
+
+/**
+ * 新增模特
+ * @param {string} modelName 模特名称
+ * @param {string} videoPath 模特视频路径
+ * @returns
+ */
+async function addModel(modelName, videoPath) {
+  console.log('[ModelService] 开始添加模特:', modelName, videoPath);
+
+  if (!fs.existsSync(assetPath.model)) {
+    fs.mkdirSync(assetPath.model, {
+      recursive: true
+    })
+  }
+  // copy video to model video path
+  const extname = path.extname(videoPath)
+  const modelFileName = dayjs().format('YYYYMMDDHHmmssSSS') + extname
+  const modelPath = path.join(assetPath.model, modelFileName)
+
+  await toH264(videoPath, modelPath)
+
+  // 用ffmpeg分离音频
+  if (!fs.existsSync(assetPath.ttsTrain)) {
+    fs.mkdirSync(assetPath.ttsTrain, {
+      recursive: true
+    })
+  }
+  const audioPath = path.join(assetPath.ttsTrain, modelFileName.replace(extname, '.wav'))
+
+  return extractAudio(modelPath, audioPath).then(() =&gt; {
+    // 训练语音模型
+    const relativeAudioPath = path.relative(assetPath.ttsRoot, audioPath)
+    
+    // --- [关键修改点] ---
+    // 移除原本的 if (process.env.NODE_ENV === 'development') 判断
+    // 无论开发环境还是生产环境，都强制使用刚刚生成的真实音频文件
+    console.log('[ModelService] 开始训练语音，使用文件:', relativeAudioPath);
+    return trainVoice(relativeAudioPath, 'zh')
+    // -------------------
+
+  }).then((trainResult) =&gt; {
+    // --- [修复逻辑] 深度清洗 ---
+    console.log('[ModelService] trainVoice 返回:', JSON.stringify(trainResult));
+
+    let voiceId = null;
+    if (trainResult &amp;&amp; typeof trainResult === 'object') {
+      // 尝试获取真正的 ID，如果获取不到，则转字符串存入
+      voiceId = trainResult.data || trainResult.voiceId || trainResult.id || JSON.stringify(trainResult);
+    } else {
+      voiceId = trainResult;
+    }
+
+    // 准备插入的数据
+    const relativeModelPath = path.relative(assetPath.model, modelPath);
+    const relativeAudioPath = path.relative(assetPath.ttsRoot, audioPath);
+
+    const dbPayload = {
+      modelName: safeValue(modelName),
+      videoPath: safeValue(relativeModelPath),
+      audioPath: safeValue(relativeAudioPath),
+      voiceId: safeValue(voiceId)
+    };
+
+    console.log('[ModelService] 正在写入数据库:', dbPayload);
+
+    // insert model info to db
+    const id = insert(dbPayload);
+    return id;
+  }).catch(err =&gt; {
+    console.error('[ModelService] addModel 发生错误:', err);
+    throw err; // 继续抛出让前端捕获
+  })
+}
+
+function page({ page, pageSize, name = '' }) {
+  const total = count(name)
+  return {
+    total,
+    list: selectPage({ page, pageSize, name }).map((model) =&gt; ({
+      ...model,
+      video_path: path.join(assetPath.model, model.video_path),
+      audio_path: path.join(assetPath.ttsRoot, model.audio_path)
+    }))
+  }
+}
+
+function findModel(modelId) {
+  const model = selectByID(modelId)
+  return {
+    ...model,
+    video_path: path.join(assetPath.model, model.video_path),
+    audio_path: path.join(assetPath.ttsRoot, model.audio_path)
+  }
+}
+
+function removeModel(modelId) {
+  const model = selectByID(modelId)
+  log.debug('~ removeModel ~ modelId:', modelId)
+
+  // 删除视频
+  const videoPath = path.join(assetPath.model, model.video_path || '')
+  if (!isEmpty(model.video_path) &amp;&amp; fs.existsSync(videoPath)) {
+    fs.unlinkSync(videoPath)
+  }
+
+  // 删除音频
+  const audioPath = path.join(assetPath.ttsRoot, model.audio_path || '')
+  if (!isEmpty(model.audio_path) &amp;&amp; fs.existsSync(audioPath)) {
+    fs.unlinkSync(audioPath)
+  }
+
+  deleteModel(modelId)
+}
+
+function countModel(name = '') {
+  return count(name)
+}
+
+export function init() {
+  ipcMain.handle(MODEL_NAME + '/addModel', (event, ...args) =&gt; {
+    return addModel(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/page', (event, ...args) =&gt; {
+    return page(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/find', (event, ...args) =&gt; {
+    return findModel(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/count', (event, ...args) =&gt; {
+    return countModel(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/remove', (event, ...args) =&gt; {
+    return removeModel(...args)
+  })
+}</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <p data-line="695"><strong>video.js 代码:</strong></p>
+
+        <details  data-line="697" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">javascript</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-javascript" language=javascript><span class="md-editor-code-block">import { ipcMain } from 'electron'
+import crypto from 'crypto'
+import path from 'path'
+import fs from 'fs'
+import { isEmpty } from 'lodash'
+import { assetPath } from '../config/config.js'
+import { selectPage,selectByStatus, updateStatus, remove as deleteVideo, findFirstByStatus } from '../dao/video.js'
+import { selectByID as selectF2FModelByID } from '../dao/f2f-model.js'
+import { selectByID as selectVoiceByID } from '../dao/voice.js'
+import {
+  insert as insertVideo,
+  count,
+  update,
+  selectByID as selectVideoByID
+} from '../dao/video.js'
+import { makeAudio4Video, copyAudio4Video } from './voice.js'
+import { makeVideo as makeVideoApi,getVideoStatus } from '../api/f2f.js'
+import log from '../logger.js'
+import { getVideoDuration } from '../util/ffmpeg.js'
+
+const MODEL_NAME = 'video'
+
+/**
+ * 分页查询合成结果
+ * @param {number} page
+ * @param {number} pageSize
+ * @returns
+ */
+function page({ page, pageSize, name = '' }) {
+  // 查询的有waiting状态的视频
+  const waitingVideos = selectByStatus('waiting').map((v) =&gt; v.id)
+  const total = count(name)
+  const list = selectPage({ page, pageSize, name }).map((video) =&gt; {
+    video = {
+      ...video,
+      file_path: video.file_path ? path.join(assetPath.model, video.file_path) : video.file_path
+    }
+
+    if(video.status === 'waiting'){
+      video.progress = `${waitingVideos.indexOf(video.id) + 1} / ${waitingVideos.length}`
+    }
+    return video
+  })
+
+  return {
+    total,
+    list
+  }
+}
+
+function findVideo(videoId) {
+  const video = selectVideoByID(videoId)
+  return {
+    ...video,
+    file_path: video.file_path ? path.join(assetPath.model, video.file_path) : video.file_path
+  }
+}
+
+function countVideo(name = '') {
+  return count(name)
+}
+
+function saveVideo({ id, model_id, name, text_content, voice_id, audio_path }) {
+  const video = selectVideoByID(id)
+  if(audio_path){
+    audio_path = copyAudio4Video(audio_path)
+  }
+
+  if (video) {
+    return update({ id, model_id, name, text_content, voice_id, audio_path })
+  }
+  return insertVideo({ model_id, name, status: 'draft', text_content, voice_id, audio_path })
+}
+
+/**
+ * 合成视频
+ * 更新视频状态为waiting
+ * @param {number} videoId
+ * @returns
+ */
+function makeVideo(videoId) {
+  update({ id: videoId, status: 'waiting' })
+  return videoId
+}
+
+export async function synthesisVideo(videoId) {
+  try{
+    update({
+      id: videoId,
+      file_path: null,
+      status: 'pending',
+      message: '正在提交任务',
+    })
+
+    // 查询Video
+    const video = selectVideoByID(videoId)
+    log.debug('~ makeVideo ~ video:', video)
+
+    // 根据modelId获取model信息
+    const model = selectF2FModelByID(video.model_id)
+    log.debug('~ makeVideo ~ model:', model)
+
+    let audioPath
+    if(video.audio_path){
+      // 将audio_path复制到ttsProduct目录下
+      audioPath = video.audio_path
+    }else{
+      // 根据model信息中的voiceId获取voice信息
+      const voice = selectVoiceByID(video.voice_id || model.voice_id)
+      log.debug('~ makeVideo ~ voice:', voice)
+
+      // 调用tts接口生成音频
+      audioPath = await makeAudio4Video({
+        voiceId: voice.id,
+        text: video.text_content
+      })
+      log.debug('~ makeVideo ~ audioPath:', audioPath)
+    }
+
+    // 调用视频生成接口生成视频
+    let result, param
+    
+    // [FIX] 无论开发环境还是生产环境，都强制使用真实路径，禁止使用 test.wav
+    log.info('~ makeVideo ~ Starting F2F with:', audioPath, model.video_path)
+    ;({ result, param } = await makeVideoByF2F(audioPath, model.video_path))
+
+    log.debug('~ makeVideo ~ result, param:', result, param)
+
+    // 插入视频表
+    if(10000 === result.code){ // 成功
+      update({
+        id: videoId,
+        file_path: null,
+        status: 'pending',
+        message: result,
+        audio_path: audioPath,
+        param,
+        code: param.code
+      })
+    }else{ // 失败
+      update({
+        id: videoId,
+        file_path: null,
+        status: 'failed',
+        message: result.msg,
+        audio_path: audioPath,
+        param,
+        code: param.code
+      })
+    }
+  } catch (error) {
+    log.error('~ synthesisVideo ~ error:', error.message)
+    updateStatus(videoId, 'failed', error.message)
+  }
+
+  // 6. 返回视频id
+  return videoId
+}
+
+export async function loopPending() {
+  const video = findFirstByStatus('pending')
+  if (!video) {
+    synthesisNext()
+
+    setTimeout(() =&gt; {
+      loopPending()
+    }, 2000)
+    return
+  }
+
+  const statusRes = await getVideoStatus(video.code)
+
+  if ([9999, 10002, 10003].includes(statusRes.code)) {
+    updateStatus(video.id, 'failed', statusRes.msg)
+  } else if (statusRes.code === 10000) {
+    if (statusRes.data.status === 1) {
+      updateStatus(
+        video.id,
+        'pending',
+        statusRes.data.msg,
+        statusRes.data.progress,
+      )
+    }else if (statusRes.data.status === 2) { // 合成成功
+      // ffmpeg 获取视频时长
+      // [FIX] 总是使用真实计算，不使用写死的 88 秒
+      const resultPath = path.join(assetPath.model, statusRes.data.result)
+      let duration = 0
+      try {
+        duration = await getVideoDuration(resultPath)
+      } catch (e) {
+        log.warn('Failed to get video duration, using default 0', e)
+      }
+
+      update({
+        id: video.id,
+        status: 'success',
+        message: statusRes.data.msg,
+        progress: statusRes.data.progress,
+        file_path: statusRes.data.result,
+        duration
+      })
+
+    } else if (statusRes.data.status === 3) {
+      updateStatus(video.id, 'failed', statusRes.data.msg)
+    }
+  }
+
+  setTimeout(() =&gt; {
+    loopPending()
+  }, 2000)
+  return video
+}
+
+/**
+ * 合成下一个视频
+ */
+function synthesisNext() {
+  // 查询所有未完成的视频任务
+  const video = findFirstByStatus('waiting')
+  if (video) {
+    synthesisVideo(video.id)
+  }
+}
+
+function removeVideo(videoId) {
+  // 查询视频
+  const video = selectVideoByID(videoId)
+  log.debug('~ removeVideo ~ videoId:', videoId)
+
+  // 删除视频
+  const videoPath = path.join(assetPath.model, video.file_path ||'')
+  if (!isEmpty(video.file_path) &amp;&amp; fs.existsSync(videoPath)) {
+    fs.unlinkSync(videoPath)
+  }
+
+  // 删除音频
+  const audioPath = path.join(assetPath.model, video.audio_path ||'')
+  if (!isEmpty(video.audio_path) &amp;&amp; fs.existsSync(audioPath)) {
+    fs.unlinkSync(audioPath)
+  }
+
+  // 删除视频表
+  return deleteVideo(videoId)
+}
+
+function exportVideo(videoId, outputPath) {
+  const video = selectVideoByID(videoId)
+  const filePath = path.join(assetPath.model, video.file_path)
+  fs.copyFileSync(filePath, outputPath)
+}
+
+/**
+ * 调用face2face生成视频
+ * @param {string} audioPath
+ * @param {string} videoPath
+ * @returns
+ */
+async function makeVideoByF2F(audioPath, videoPath) {
+  const uuid = crypto.randomUUID()
+  const param = {
+    audio_url: audioPath,
+    video_url: videoPath,
+    code: uuid,
+    chaofen: 0,
+    watermark_switch: 0,
+    pn: 1
+  }
+  const result = await makeVideoApi(param)
+  return { param, result }
+}
+
+function modify(video) {
+  return update(video)
+}
+
+export function init() {
+  ipcMain.handle(MODEL_NAME + '/page', (event, ...args) =&gt; {
+    return page(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/make', (event, ...args) =&gt; {
+    return makeVideo(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/modify', (event, ...args) =&gt; {
+    return modify(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/save', (event, ...args) =&gt; {
+    return saveVideo(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/find', (event, ...args) =&gt; {
+    return findVideo(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/count', (event, ...args) =&gt; {
+    return countVideo(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/export', (event, ...args) =&gt; {
+    return exportVideo(...args)
+  })
+  ipcMain.handle(MODEL_NAME + '/remove', (event, ...args) =&gt; {
+    return removeVideo(...args)
+  })
+}</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h5 data-line="1001" id="【修改 7】 修复前端配置">【修改 7】 修复前端配置</h5>
+<ul data-line="1003">
+<li data-line="1003"><strong>文件</strong> ：<code>src/main/config/config.js</code></li>
+<li data-line="1004"><strong>操作</strong> ：修改 <code>serviceUrl</code> 为本机地址。</li>
+<li data-line="1005"><strong>内容</strong> ：<em>(请填入修改为 127.0.0.1 的代码)</em></li>
+</ul>
+
+        <details  data-line="1007" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">javascript</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-javascript" language=javascript><span class="md-editor-code-block">// ---------------------------
+// 在此处填入 config.js 代码
+// ---------------------------
+import path from 'path'
+import os from 'os'
+
+const isDev = process.env.NODE_ENV === 'development'
+const isWin = process.platform === 'win32'
+
+export const serviceUrl = {
+  // [关键修复] 无论开发还是生产环境，Podman 映射出来的端口都在本机 127.0.0.1
+  // 视频生成服务端口 (日志确认为 8383)
+  face2face: 'http://127.0.0.1:8383/easy', 
+  // TTS 语音服务端口 (之前我们修改配置确认为 18180)
+  tts: 'http://127.0.0.1:18180'
+}
+
+export const assetPath = {
+  model: isWin
+    ? path.join('D:', 'duix_avatar_data', 'face2face', 'temp')
+    : path.join(os.homedir(), 'duix_avatar_data', 'face2face', 'temp'), // 模特视频
+  ttsProduct: isWin
+    ? path.join('D:', 'duix_avatar_data', 'face2face', 'temp')
+    : path.join(os.homedir(), 'duix_avatar_data', 'face2face', 'temp'), // TTS 产物
+  ttsRoot: isWin
+    ? path.join('D:', 'duix_avatar_data', 'voice', 'data')
+    : path.join(os.homedir(), 'duix_avatar_data', 'voice', 'data'), // TTS服务根目录
+  ttsTrain: isWin
+    ? path.join('D:', 'duix_avatar_data', 'voice', 'data', 'origin_audio')
+    : path.join(os.homedir(), 'duix_avatar_data', 'voice', 'data', 'origin_audio') // TTS 训练产物
+}</span><span rn-wrapper aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <hr data-line="1041">
+<h3 data-line="1043" id="第四阶段：启动与见证">第四阶段：启动与见证</h3>
+<h4 data-line="1045" id="1. 启动 Podman 服务">1. 启动 Podman 服务</h4>
+<p data-line="1047">进入 <code>podman</code> 目录：</p>
+
+        <details  data-line="1049" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">powershell</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-powershell" language=powershell><span class="md-editor-code-block">cd F:\PythonProjects\HeyGem.ai\podman
+podman-compose -f podman-compose_fixed_final.yml up -d</span><span rn-wrapper aria-hidden="true"><span></span><span></span></span></code></pre>
+
+        </details>
+      <figure data-line="1054"><img src="https://i-blog.csdnimg.cn/direct/1c421b78792244429af97867d858638f.png" alt="" class="md-zoom" referrerPolicy="no-referrer"></figure>
+<p data-line="1056"><em>等待一段时间，直到拉取镜像完成。</em><br>
+<img src="https://i-blog.csdnimg.cn/direct/200825c368014160b948e84ab9d54c38.png" alt="" referrerPolicy="no-referrer"></p>
+<h4 data-line="1059" id="2. 启动客户端">2. 启动客户端</h4>
+
+        <details  data-line="1061" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">powershell</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"/><path d="m14 16-4-4 4-4"/></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-powershell" language=powershell><span class="md-editor-code-block">cd F:\PythonProjects\HeyGem.ai
+npm run dev</span><span rn-wrapper aria-hidden="true"><span></span><span></span></span></code></pre>
+
+        </details>
+      <figure data-line="1066"><img src="https://i-blog.csdnimg.cn/direct/25396973ab6a4dffb7a7523269f0527e.png" alt="" class="md-zoom" referrerPolicy="no-referrer"></figure>
+<h4 data-line="1068" id="3. 操作流程">3. 操作流程</h4>
+<ol data-line="1070">
+<li data-line="1070">点击上传视频 -&gt; 等待处理完成。</li>
+<li data-line="1071">点击试听 -&gt; 确认有声。</li>
+<li data-line="1072">点击生成视频 -&gt; 成功！</li>
+</ol>
+<figure data-line="1074"><img src="https://i-blog.csdnimg.cn/direct/28f1a2964be44b279aa69a80a8f06c3a.png" alt="" class="md-zoom" referrerPolicy="no-referrer"></figure>
+<h3 data-line="1076" id="参考资料：">参考资料：</h3>
+<blockquote data-line="1078">
+<p data-line="1078"><a href="https://aicity.blog.csdn.net/article/details/147447051?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">Podman Desktop：现代轻量容器管理利器（Podman与Docker）</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/147456502?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">PyCharm 链接 Podman Desktop 的 podman-machine-default Linux 虚拟环境</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/147515560?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">新！在 podman-machine-default 中安装 CUDA、cuDNN、Anaconda、PyTorch 等并验证安装</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/147538234?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">用Podman Desktop创建自用的WSL-Fedora Linux子系统</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/148997254?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">Windows 开发环境部署指南：WSL、Docker Desktop、Podman Desktop 部署顺序与存储路径迁移指南</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/152523061?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">【笔记】 Podman Desktop 中部署 Stable Diffusion WebUI （GPU 支持）</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/152612456?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">【笔记】在 Podman Machine（Fedora 42）中安装 NVIDIA Container Toolkit 使镜像能使用GPU</a><br>
+<a href="https://aicity.blog.csdn.net/article/details/154291230?spm=1011.2415.3001.10575&amp;sharefrom=mp_manage_link" target="_blank">在WSL-podman-machine-default (Fedora Linux 42) 中安装 CUDA 13.0、cuDNN 9.14、Anaconda 2025.06、PyTorch 2.10</a></p>
+</blockquote>
+</div><!----><!--]--></div></div><span data-v-88a210bf></span><div class="article-tag-list" data-v-88a210bf><!--[--><a href="/tag/39" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->人工智能<!--]--></span></button></a><a href="/tag/44" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->windows<!--]--></span></button></a><a href="/tag/50" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->笔记<!--]--></span></button></a><a href="/tag/58" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->python<!--]--></span></button></a><a href="/tag/2152" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->数字人<!--]--></span></button></a><a href="/tag/3985" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->podman<!--]--></span></button></a><a href="/tag/110366" class="" data-v-88a210bf><button ariadisabled="false" type="button" class="el-button el-button--info is-text is-has-bg" style="" data-v-88a210bf><!--v-if--><span class=""><!--[-->duix-avatar<!--]--></span></button></a><!--]--></div><div class="article-pre-next" data-v-88a210bf><div data-v-88a210bf><a href="/article/1994199616124944386" class="" data-v-88a210bf><span data-v-88a210bf>上一篇：</span><span class="article-pre-next-item-title" data-v-88a210bf>C++课后习题训练记录Day33</span></a></div><div data-v-88a210bf><a href="/article/1994200068673568770" class="" data-v-88a210bf><span data-v-88a210bf>下一篇：</span><span class="article-pre-next-item-title" data-v-88a210bf>微信个人号开发中如何高效实现API二次开发</span></a></div></div></div><ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4340231068438843" data-ad-slot="3187524902" data-ad-format="auto" data-full-width-responsive="true" data-v-88a210bf></ins><!----><div class="article-recommend-card" data-v-88a210bf><span class="article-recommend-card-title" data-v-88a210bf>相关推荐</span><div class="el-divider el-divider--horizontal" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><div class="article-recommend-list" data-v-88a210bf><!--[--><a href="/article/2117881838065418241" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>yumengxt</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>几秒前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>「屿梦星途GEO」系列 · 每日AI资讯解读</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>人工智能</span><!--]--><!--]--></div></a><a href="/article/2117881147368407042" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>神仙别闹</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>3 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>基于Python实现英词语自动对齐系统</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>开发语言</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>python</span><!--]--><!--]--></div></a><a href="/article/2117880500724170753" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>Qianxueban</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>6 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>如果卷积核大小固定，步长固定，那经过i次卷积，它一个像素的感受野是多大？</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>人工智能</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>深度学习</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>计算机视觉</span><!--]--><!--]--></div></a><a href="/article/2117879410830082049" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>李长渊哦</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>10 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>Qoder 自定义子智能体（Subagent）学习笔记</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>chrome</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>笔记</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>学习</span><!--]--><!--]--></div></a><a href="/article/2117878663606435842" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>拆房老料</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>13 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>DeepSeek Super-agent 架构解析：从单任务 Agent 到持续运行的任务系统</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>人工智能</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>设计模式</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>系统架构</span><!--]--><!--]--></div></a><a href="/article/2117878409284812802" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>民乐团扒谱机</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>14 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>【一文吃透】机器学习 Embedding 降维打击：从底层空间几何原理到 RAG 向量检索工程实战避坑</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>人工智能</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>机器学习</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>embedding</span><!--]--><!--]--></div></a><a href="/article/2117877151626952706" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>pixelpilot</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>19 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>Deta Surf：把笔记、文件和网页塞进同一个 AI 工作台</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>笔记</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>其他</span><!--]--><!--]--></div></a><a href="/article/2117871135568953345" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>老歌老听老掉牙</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>43 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>圆柱端面四平面交线及其在yoz面投影的几何解析与 Python 实现</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>开发语言</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>python</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>平面</span><!--]--><!--]--></div></a><a href="/article/2117870919088340993" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>超级新零售</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>44 分钟前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>AI 零售软件是什么？从库存提醒到智能调货的系统分工</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>大数据</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>人工智能</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>零售</span><!--]--><!--]--></div></a><a href="/article/2117865986041577473" class="article-recommend-list-item" data-v-88a210bf><div class="article-recommend-list-item-info" data-v-88a210bf><span data-v-88a210bf>天远API</span><div class="el-divider el-divider--vertical" style="--el-border-style:solid;" role="separator" data-v-88a210bf><!--v-if--></div><span data-v-88a210bf>1 小时前</span></div><span class="article-recommend-list-item-title" data-v-88a210bf>零信任架构实战：基于天远租凭分期报告构建自动化智慧租房免押分期履约评估网关</span><div class="article-recommend-list-item-tag-list" data-v-88a210bf><!--[--><!--[--><!----><span data-v-88a210bf>运维</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>人工智能</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>架构</span><!--]--><!--[--><span class="article-recommend-list-item-tag-list-divider" data-v-88a210bf>·</span><span data-v-88a210bf>自动化</span><!--]--><!--]--></div></a><!--]--></div></div><ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4340231068438843" data-ad-slot="3187524902" data-ad-format="auto" data-full-width-responsive="true" data-v-88a210bf></ins><!----></div><div class="right" data-v-88a210bf><div class="right-body" data-v-88a210bf><div class="hot-article-rank hot-article-rank-wrapper" data-v-88a210bf data-v-08dc960f><span class="title" data-v-08dc960f>热门推荐</span><div class="el-divider el-divider--horizontal" style="--el-border-style:solid;" role="separator" data-v-08dc960f><!--v-if--></div><div class="article-list" data-v-08dc960f><!--[--><a href="/article/2061973168230838274" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>01</span><span class="article-title" data-v-08dc960f>国内可直接用、免费额度/永久免费的大模型API清单（含 SiliconFlow、火山、阿里、智谱、百度、Kimi、DeepSeek、DMXAPI 等）</span></a><a href="/article/2056940295786958850" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>02</span><span class="article-title" data-v-08dc960f>历年考研数学一、数学二、数学三真题试卷及答案PDF</span></a><a href="/article/1965957555249266689" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>03</span><span class="article-title" data-v-08dc960f>GitHub 镜像站点</span></a><a href="/article/2001493360398368770" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>04</span><span class="article-title" data-v-08dc960f>几个好用的ip纯净度检测网站</span></a><a href="/article/1795266700313104386" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>05</span><span class="article-title" data-v-08dc960f>蜘蛛磁力 搜索引擎大全，如何使用蜘蛛磁力查找磁力链接</span></a><a href="/article/1789937684341329922" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>06</span><span class="article-title" data-v-08dc960f>苹果iPA游戏软件资源下载网站</span></a><a href="/article/2069227057103597570" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>07</span><span class="article-title" data-v-08dc960f>昇腾910B系列芯片完全指南：四款型号对比、服务器选型与大模型部署实战</span></a><a href="/article/2073594154696953858" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>08</span><span class="article-title" data-v-08dc960f>如何新建文件夹？ 电脑新建文件夹的4种方法</span></a><a href="/article/2015947624365998082" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>09</span><span class="article-title" data-v-08dc960f>Dify：一站式AI应用开发平台全解析与Windows部署指南</span></a><a href="/article/1962500343289921538" class="article" data-v-08dc960f><span class="article-index" data-v-08dc960f>10</span><span class="article-title" data-v-08dc960f>Android 屏幕适配系列开篇：核心概念、官方机制与主流方案</span></a><!--]--></div></div><!----></div></div></div></div></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{env:"prod",apiRootUrl:"https://jishuzhan.net/api"},app:{baseURL:"/",buildId:"8a8d2c04-c9c0-4945-bc5c-688839d327ad",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__">[["ShallowReactive",1],{"data":2,"state":350,"once":353,"_errors":354,"serverRendered":356,"path":357},["ShallowReactive",3],{"wDdEB1REj7eOVA0IINOW8By0h7e6k9_YCMGESItz9sY":4,"glaIx14zzTwMHHGT3VRKOAAT2IWy941uSBVkEtcvnRA":152,"vmUNxzS8E5BemMlUrnhjKnvHDbZF0nplouslZpjdg7Q":154,"CZitZXN6H4K3tn39KXznC4gjoSoBwbLTaDTy_dcYeaM":312},[5,28,44,56,72,85,99,109,122,136],{"description":6,"id":7,"imgUrl":8,"ownerHeadUrl":9,"ownerId":10,"ownerName":11,"tagList":12,"time":25,"title":26,"views":27},"2026.6｜国内可直接用、免费额度\u002F永久免费的大模型API清单（含 SiliconFlow、火山、阿里、智谱、百度、Kimi、DeepSeek、DMXAPI 等） 按“最值得用→一般”排序 标注：地址 + 免费额度 + 代表模型 + 特点。","2061973168230838274","","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1682773449346387969\u002Fhead.png","1682773449346387969","子非鱼@Itfuture",[13,16,19,22],{"id":14,"name":15},151,"百度",{"id":17,"name":18},189,"ai",{"id":20,"name":21},435,"aigc",{"id":23,"name":24},1080,"个人开发",1780447687000,"国内可直接用、免费额度\u002F永久免费的大模型API清单（含 SiliconFlow、火山、阿里、智谱、百度、Kimi、DeepSeek、DMXAPI 等）",30605,{"description":29,"id":30,"imgUrl":8,"ownerHeadUrl":31,"ownerId":32,"ownerName":33,"tagList":34,"time":41,"title":42,"views":43},"整理汇总了完整版历年考研数学一、数学二、数学三真题资料（1987-2026），涵盖多年完整试卷搭配高清详细答案解析，全部为可打印 PDF 格式，分类清晰齐全，方便考研学子日常刷题自测、梳理考点规律、复盘重难点，高效备考省心实用。","2056940295786958850","https:\u002F\u002Fprofile-avatar.csdnimg.cn\u002Fdefault.jpg","2047882922674421761","daanpdf",[35,38],{"id":36,"name":37},94,"考研",{"id":39,"name":40},314,"pdf",1779247757000,"历年考研数学一、数学二、数学三真题试卷及答案PDF",17584,{"description":45,"id":46,"imgUrl":8,"ownerHeadUrl":31,"ownerId":47,"ownerName":48,"tagList":49,"time":53,"title":54,"views":55},"国内访问 GitHub 有时会遇到速度慢或不稳定的情况，这时 GitHub 镜像站点就能帮上忙。它们通过代理或缓存机制，让你更顺畅地浏览仓库、下载资源甚至克隆代码。","1965957555249266689","1851173111697772545","BillKu",[50],{"id":51,"name":52},424,"github",1757555781000,"GitHub 镜像站点",137989,{"description":57,"id":58,"imgUrl":8,"ownerHeadUrl":59,"ownerId":60,"ownerName":61,"tagList":62,"time":69,"title":70,"views":71},"1.最有名的https:\u002F\u002Fping0.cc\u002F，用人最多，较详细2.https:\u002F\u002Fiplark.com\u002Fcheck，界面过于简单，只有纯净度的评分","2001493360398368770","https:\u002F\u002Fprofile-avatar.csdnimg.cn\u002F0fb3b9d7daae4d54b873462e04c336ff_m0_58528895.jpg","1835487712853889025","怣疯knight",[63,66],{"id":64,"name":65},17,"网络",{"id":67,"name":68},1455,"ip",1766028177000,"几个好用的ip纯净度检测网站",17086,{"description":73,"id":74,"imgUrl":8,"ownerHeadUrl":75,"ownerId":76,"ownerName":77,"tagList":78,"time":82,"title":83,"views":84},"蜘蛛磁力，搜索教程大全，如何使用搜索引擎查找磁力链接。磁力链接是一种特殊的下载链接，磁力链接可以理解为一个文件识别码，而并非具体的资源地址，下载软件需要拿着这个识别码去整个互联网(DHT网络)去寻找持有该资源的用户(节点)，如果找到则可以进行传输下载。一般年代越久远的磁力链接下载成功的几率越小，因为持有该资源的节点越少。一般使用网盘下载的成功率最高，因为当第一个人下载该资源的时候一般三方网盘会将该资源存储在自己的服务器上，为以后拿着这个识别码来下载的用户直接提供下载。当然某些下载软件也会将资源存储在服务器","1795266700313104386","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1795266703081345025\u002Fhead.webp","1795266703081345025","zhang5236171",[79],{"id":80,"name":81},146,"搜索引擎",1716859910000,"蜘蛛磁力 搜索引擎大全，如何使用蜘蛛磁力查找磁力链接",19136,{"description":86,"id":87,"imgUrl":88,"ownerHeadUrl":89,"ownerId":90,"ownerName":91,"tagList":92,"time":96,"title":97,"views":98},"苹果iPA游戏软件资源下载网站推荐，这篇文章我以比较公平的方式整理一下目前一些苹果iPA资源下载网站，每个网站的内容可以参考对应的截图，从而快速选择适合自己的资源站点。","1789937684341329922","https:\u002F\u002Ffile.jishuzhan.net\u002Farticle\u002F1789937684341329922\u002F4f280d2c7fe4a2979a0f89a836c6226f.webp","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1789937706977988609\u002Fhead.webp","1789937706977988609","Yremp",[93],{"id":94,"name":95},163,"ios",1715589374000,"苹果iPA游戏软件资源下载网站",9716,{"description":100,"id":101,"imgUrl":8,"ownerHeadUrl":102,"ownerId":103,"ownerName":104,"tagList":105,"time":106,"title":107,"views":108},"在AI大模型时代，算力即生产力。华为昇腾910B系列作为国产AI芯片的旗舰产品，已在国内智算中心、政务云、金融科技等领域实现规模化部署。然而，910B系列并非单一产品，而是包含B1、B2、B3、B4四个版本，不同型号在算力、显存、功耗和适用场景上差异显著。","2069227057103597570","https:\u002F\u002Fi-avatar.csdnimg.cn\u002F5e49bc2fe5d64fad932f1dcdd2fe0df0_qq_23625847.jpg","2038802694168121346","做个文艺程序员",[],1782177149000,"昇腾910B系列芯片完全指南：四款型号对比、服务器选型与大模型部署实战",8026,{"description":110,"id":111,"imgUrl":112,"ownerHeadUrl":31,"ownerId":113,"ownerName":114,"tagList":115,"time":119,"title":120,"views":121},"在Windows操作系统中，创建新文件夹的方法比较简单，一些新手用户，可能还不太清楚怎么新建文件夹。下面将为您详细介绍如何在不同环境下创建新文件夹，并提供一些实用的技巧。","2073594154696953858","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fimg_convert\u002Fe745de9d0d265eb10cc68b1bd70ec9d6.png","2073266129056854017","红糖奶茶",[116],{"id":117,"name":118},152700,"新建文件夹",1783218346000,"如何新建文件夹？ 电脑新建文件夹的4种方法",20067,{"description":123,"id":124,"imgUrl":125,"ownerHeadUrl":126,"ownerId":127,"ownerName":128,"tagList":129,"time":133,"title":134,"views":135},"从零到一，掌握这款让AI应用开发效率提升10倍的开源神器Dify（发音为 \u002Fˈdɪfaɪ\u002F）是一个开源的生成式AI应用开发平台，旨在帮助开发者和企业快速构建并部署生产级的AI应用。它的核心是融合了后端即服务（BaaS）和LLMOps的理念，通过可视化的低代码界面，让大模型应用从创意到投产的过程变得简单高效。","2015947624365998082","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F49aee49d1b9649a5a34b01ddf25b134b.png","https:\u002F\u002Fprofile-avatar.csdnimg.cn\u002Fb2d817f3d2674c2db92908c6fe1a5812_weixin_60180674.jpg","2015947628371558401","张道宁",[130],{"id":131,"name":132},39,"人工智能",1769474342000,"Dify：一站式AI应用开发平台全解析与Windows部署指南",577,{"description":137,"id":138,"imgUrl":8,"ownerHeadUrl":139,"ownerId":140,"ownerName":141,"tagList":142,"time":149,"title":150,"views":151},"屏幕适配的本质，是解决 “相同代码在不同设备上视觉一致性” 的问题，根源在于 Android 设备硬件碎片化 —— 不同设备的像素（硬件基础）、分辨率（像素排列）、dpi（像素密度）天然差异，直接导致 “相同代码” 呈现完全不同的效果。","1962500343289921538","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1786367866820366337\u002Fhead.webp","1786367866820366337","WAsbry",[143,146],{"id":144,"name":145},1,"android",{"id":147,"name":148},211,"面试",1756731517000,"Android 屏幕适配系列开篇：核心概念、官方机制与主流方案",602,{"adMap":153},["Map"],[155,165,181,199,217,235,251,264,279,294],{"description":156,"id":157,"imgUrl":8,"ownerHeadUrl":31,"ownerId":158,"ownerName":159,"tagList":160,"time":162,"title":163,"views":164},"网站声明\"不让 AI 训练\"，我的内容还会被 AI 答案引用吗？ 「屿梦星途GEO」系列 · 每日AI资讯解读 · 2026-11-03 过去几天，一条被多家科技媒体反复解读的消息值得所有做内容、做品牌的企业留意：OpenAI、谷歌、微软、Anthropic 四家罕见地认了同一个 robots.txt 信号——站长写一行 __usage_ai-training，就能一次性向多家 AI 爬虫声明\"我的内容不用于训练\"。消息最早由 Google Search Central 在 10 月 30 日官宣，11 ","2117881838065418241","2116022175879397378","yumengxt",[161],{"id":131,"name":132},1793777353000,"「屿梦星途GEO」系列 · 每日AI资讯解读",0,{"description":166,"id":167,"imgUrl":168,"ownerHeadUrl":169,"ownerId":170,"ownerName":171,"tagList":172,"time":179,"title":180,"views":144},"大小： 57.0MB➡️ 资源下载：https:\u002F\u002Fdownload.csdn.net\u002Fdownload\u002Fs1t16\u002F87490681 https:\u002F\u002Fdownload.csdn.net\u002Fdownload\u002Fs1t16\u002F87490681","2117881147368407042","https:\u002F\u002Fcsdnimg.cn\u002Frelease\u002Fblog_editor_html\u002Frelease2.4.6\u002Fckeditor\u002Fplugins\u002FCsdnLink\u002Ficons\u002Ficon-default.png","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1698652819629805570\u002Fhead.png","1698652819629805570","神仙别闹",[173,176],{"id":174,"name":175},13,"开发语言",{"id":177,"name":178},58,"python",1793777188000,"基于Python实现英词语自动对齐系统",{"description":182,"id":183,"imgUrl":184,"ownerHeadUrl":185,"ownerId":186,"ownerName":187,"tagList":188,"time":196,"title":197,"views":198},"公示： RF就是对应的感受野，Stride：步长，K：卷积核大小。 这个如何去推理呢？ 首先第一步就是正常的：","2117880500724170753","https:\u002F\u002Flatex.csdn.net\u002Feq","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1683007497658437633\u002Fhead.png","1683007497658437633","Qianxueban",[189,190,193],{"id":131,"name":132},{"id":191,"name":192},72,"深度学习",{"id":194,"name":195},150,"计算机视觉",1793777034000,"如果卷积核大小固定，步长固定，那经过i次卷积，它一个像素的感受野是多大？",2,{"description":200,"id":201,"imgUrl":8,"ownerHeadUrl":202,"ownerId":203,"ownerName":204,"tagList":205,"time":215,"title":216,"views":198},"本文记录在本仓库落地 .qoder\u002Fagents\u002F 三只子智能体的完整认知：字段规范、权限设计、验证方法与踩过的坑。面向后续维护者，也用于给团队新人讲清「为什么要拆 agent，以及怎么拆不踩坑」。","2117879410830082049","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1729429322843820034\u002Fhead.webp","1729429322843820034","李长渊哦",[206,209,212],{"id":207,"name":208},43,"chrome",{"id":210,"name":211},50,"笔记",{"id":213,"name":214},84,"学习",1793776774000,"Qoder 自定义子智能体（Subagent）学习笔记",{"description":218,"id":219,"imgUrl":220,"ownerHeadUrl":221,"ownerId":222,"ownerName":223,"tagList":224,"time":232,"title":233,"views":234},"2026 年 10 月 31 日，DeepSeek Harness 团队发布了《Exploring Super-agent Design: Towards a More Autonomous Agent System》，介绍了一套面向长期运行、多任务并发和主动协作的 Super-agent 架构，并公开了 dsh-superagent-prototype 研究原型。这次发布的并不是新的大模型，也不是简单地为 DeepSeek Harness 增加几个 Agent 工具，而是尝试解决现有 Agent 系统在","2117878663606435842","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002Fdda41e340d00480aaf8c20e5202064a0.png","https:\u002F\u002Fprofile-avatar.csdnimg.cn\u002Fce067bff01744c01b8407c277fe0e752_weixin_42258782.jpg","1963925742620295170","拆房老料",[225,226,229],{"id":131,"name":132},{"id":227,"name":228},188,"设计模式",{"id":230,"name":231},291,"系统架构",1793776596000,"DeepSeek Super-agent 架构解析：从单任务 Agent 到持续运行的任务系统",3,{"description":236,"id":237,"imgUrl":8,"ownerHeadUrl":238,"ownerId":239,"ownerName":240,"tagList":241,"time":249,"title":250,"views":198},"在自然语言处理、计算机视觉以及当前爆火的 RAG（检索增强生成）架构中，Embedding（嵌入）是支撑整个智能系统运转的绝对基石。很多开发者初识 Embedding，往往只停留在“把词语变成一串浮点数”的表面认知上，导致在实际开发中遭遇向量维度爆炸、相似度计算选错、跨模态检索失效等各类工程灾难。要真正驾驭这项技术，必须跳出单纯的代码调用，从机器理解人类离散符号的降维转换逻辑切入，理解其在多维空间中的几何意义，并掌握将其大规模落地到生产环境的工程准则。","2117878409284812802","https:\u002F\u002Fi-avatar.csdnimg.cn\u002Fe39ab0ab159b485aade35e0cd7b31e92_Harrytutu_ZuiYue.jpg","1951436068481445889","民乐团扒谱机",[242,243,246],{"id":131,"name":132},{"id":244,"name":245},141,"机器学习",{"id":247,"name":248},992,"embedding",1793776535000,"【一文吃透】机器学习 Embedding 降维打击：从底层空间几何原理到 RAG 向量检索工程实战避坑",{"description":252,"id":253,"imgUrl":254,"ownerHeadUrl":31,"ownerId":255,"ownerName":256,"tagList":257,"time":262,"title":263,"views":198},"Deta Surf 在 GitHub 上已经拿到 3.4K Star。它是一款 AI 笔记本，把本地文件、网页资源、笔记编辑塞到同一个桌面应用里，让搜索、阅读、思考、记录这几件事在一个界面里完成，省掉在多个窗口和标签页之间切换的体力活。","2117877151626952706","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fimg_convert\u002F71eeb7fec1671215408fe71a7d6c137b.jpeg","1974009539675619330","pixelpilot",[258,259],{"id":210,"name":211},{"id":260,"name":261},96,"其他",1793776235000,"Deta Surf：把笔记、文件和网页塞进同一个 AI 工作台",{"description":265,"id":266,"imgUrl":267,"ownerHeadUrl":268,"ownerId":269,"ownerName":270,"tagList":271,"time":277,"title":278,"views":198},"在三维空间几何建模中，过原点的多个平面与圆柱面的交线问题广泛存在于机械设计、计算机图形学以及工程制图等领域。本文围绕一个具体的几何构型展开深入探讨：给定四个均通过坐标原点的平面，其法向量由参数 β\\betaβ、α1\\alpha_1α1 和 α2\\alpha_2α2 共同决定，同时存在一个以原点 ooo 为端面圆心、轴线沿 xxx 轴正方向的圆柱。我们将系统地推导这四个平面的法向量表达式，计算相邻平面两两相交产生的四条交线方向，分析这些交线在 yozyozyoz 投影面上的迹线特征，并最终通过 Python","2117871135568953345","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F411ee37fc5fb4349aa9e5ffc599540ab.png","https:\u002F\u002Ffile.jishuzhan.net\u002Fuser\u002F1697687111206965249\u002Fhead.png","1697687111206965249","老歌老听老掉牙",[272,273,274],{"id":174,"name":175},{"id":177,"name":178},{"id":275,"name":276},158,"平面",1793774801000,"圆柱端面四平面交线及其在yoz面投影的几何解析与 Python 实现",{"description":280,"id":281,"imgUrl":8,"ownerHeadUrl":31,"ownerId":282,"ownerName":283,"tagList":284,"time":292,"title":293,"views":198},"零售系统中，“库存不足提醒”和“帮门店找到调出店”看起来只差一个按钮，背后却是两种不同的软件工作方式。前者把异常呈现给人，后者要读取商品和库存状态、处理门店约束，给出可用的业务选择。","2117870919088340993","2116427487455215618","超级新零售",[285,288,289],{"id":286,"name":287},4,"大数据",{"id":131,"name":132},{"id":290,"name":291},2295,"零售",1793774749000,"AI 零售软件是什么？从库存提醒到智能调货的系统分工",{"description":295,"id":296,"imgUrl":8,"ownerHeadUrl":31,"ownerId":297,"ownerName":298,"tagList":299,"time":310,"title":311,"views":198},"在城市化进程加速与新市民、新青年住房消费观念升级的大背景下，长租公寓、集中式青年社区以及分散式互联网租房平台正经历由传统“重押金、慢审批、线下签约”向“信用赋能、免押入住、租金月付”的数字化敏捷运营转型。传统房屋租赁商业模式普遍采用“押一付三”或高额保证金机制作为履约保障，这虽然在一定程度上缓解了房东或运营方对租客拖欠租金、水电欠缴及房屋设施损毁的担忧，但也显著抬高了年轻租客的初期资金门槛，直接抑制了优质客群的签约转化周期。为了提升房源出租周转率与租客居住体验，推行“免押金入住”或“租金分期代扣”已成为头","2117865986041577473","2097982589416689666","天远API",[300,303,304,307],{"id":301,"name":302},10,"运维",{"id":131,"name":132},{"id":305,"name":306},238,"架构",{"id":308,"name":309},336,"自动化",1793773573000,"零信任架构实战：基于天远租凭分期报告构建自动化智慧租房免押分期履约评估网关",{"articleSourceUrl":313,"content":314,"description":315,"id":316,"imgUrl":317,"nextArticle":318,"ownerHeadUrl":323,"ownerId":324,"ownerName":325,"preArticle":326,"tagList":331,"time":347,"title":348,"views":349},"https:\u002F\u002Fblog.csdn.net\u002Fu014451778\u002Farticle\u002Fdetails\u002F155319339","*** ** * ** ***\n\n## 【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目\n\n> **写在前面** ：  \n>\n> 这是一个深度依赖 NVIDIA 显卡和 Linux 环境的 AI 项目。在 Windows 上使用 Podman 部署需要对源码进行\"外科手术式\"的修改。请务必严格按照步骤执行，不要跳过任何一步。  \n>\n> 本篇是上一篇记录博客《【笔记】Podman Desktop 部署 开源数字人 HeyGem.ai》的内容完善进阶和补充篇，请结合着一起查看。\n\n*** ** * ** ***\n\n### 第一篇：环境准备 (地基)\n\n在开始任何代码操作前，新电脑必须具备以下环境。\n\n#### 1. 硬件检查\n\n* **显卡**：必须是 NVIDIA 显卡（显存建议 8GB 以上）。\n* **驱动** ：去 NVIDIA 官网下载并安装最新的 **Game Ready** 或 **Studio** 驱动。\n\n#### 2. 基础软件安装 (必装)\n\n请依次下载并安装，建议全部安装在默认路径：\n\n1. **Git** ：[下载地址](https:\u002F\u002Fwww.google.com\u002Fsearch?q=https:\u002F\u002Fgit-scm.com\u002Fdownloads) (安装后打开 CMD 输入 `git --version` 验证)。\n2. **Node.js** (v18+)：[下载地址](https:\u002F\u002Fnodejs.org\u002Fen) (安装后输入 `node -v` 验证) 。\n3. **VS Code** ：[下载地址](https:\u002F\u002Fcode.visualstudio.com\u002F) 或 **PyCharm** (推荐，建议通过JetBrains Toolbox 管理安装)[下载地址](https:\u002F\u002Fapps.microsoft.com\u002Fdetail\u002Fxpfppn5plh3bfv?launch=true&mode=full&hl=zh-cn&gl=us&ocid=bingwebsearch) (用于编辑代码)。\n4. **Podman Desktop** ：[下载地址](https:\u002F\u002Fpodman-desktop.io\u002F) (安装时勾选安装 WSL2 （基于Fedora Linux 42），安装后重启电脑)。\n\n> [【收藏级】Windows AI 本地开发「完全体」环境搭建清单](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F151084611?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n\n#### 3. FFmpeg 安装 (关键)\n\n这是音频处理的核心，手动配置或命令行方式配置（推荐）。\n\n手动配置方式举例：\n\n1. 下载 Windows 版 FFmpeg：[下载链接](https:\u002F\u002Fwww.google.com\u002Fsearch?q=https:\u002F\u002Fwww.gyan.dev\u002Fffmpeg\u002Fbuilds\u002Fffmpeg-git-full.7z)\n2. 解压压缩包，将文件夹重命名为 `ffmpeg`，移动到 `C:\\` 根目录（即路径为 `C:\\ffmpeg`）。\n3. **配置环境变量** ：\n   * 搜索\"编辑系统环境变量\" -\\> \"环境变量\" -\\> \"系统变量\" -\\> 找到 `Path` -\\> \"编辑\" -\\> \"新建\"。\n   * 输入：`C:\\ffmpeg\\bin`\n   * 点击确定保存。\n4. **验证** ：打开 CMD，输入 `ffmpeg -version`，有输出即成功。\n\n命令配置方式举例（推荐，可免去手动配置环境变量）\n> [Windows 上安装 FFmpeg 8.0（2025 版）------从\"手动解压\"到\"一条命令\"的进化之路](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F151728052?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n\n```bash\nscoop install ffmpeg\n```\n\n*** ** * ** ***\n\n### 第二篇：Podman 核心配置 (打通任督二脉)\n\nPodman 默认配置无法运行此项目，必须进行权限和显卡配置。\n\n#### 1. 初始化并开启最高权限\n\n打开 **PowerShell (管理员身份)**，依次执行：\n\n```powershell\n# 1. 初始化 Podman\npodman machine init\n\n# 2. 开启 Rootful 模式 (解决网络报错的核心)\npodman machine set --rootful\n\n# 3. 启动虚拟机\npodman machine start\n```\n\n​  \n\n​\n\n#### 2. 配置显卡穿透 (CDI)\n\n在 PowerShell 中执行以下命令进入虚拟机：\n\n```powershell\npodman machine ssh\n```\n\n进入虚拟机终端（显示 `[root@... ~]#`）后，复制执行以下命令：\n\n```bash\n# 安装 NVIDIA 工具包\nsudo dnf install -y nvidia-container-toolkit\n\n# 创建配置目录\nsudo mkdir -p \u002Fetc\u002Fcdi\n\n# 生成显卡配置文件 (关键)\nsudo nvidia-ctk cdi generate --output=\u002Fetc\u002Fcdi\u002Fnvidia.yaml\n\n# 退出虚拟机\nexit\n```\n\n![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F351e3af511184ccd8e69c24c93de1bd7.png)  \n\n​  \n\n验证 GPU： 在 Windows 终端运行：\n\nPowerShell\n\n    podman run --rm --device=nvidia.com\u002Fgpu=all ubuntu nvidia-smi\n\n如果看到了显卡信息表格，说明 GPU 穿透成功！\n\n​![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002Ff71f12ad396749778f6de9ce096119d0.png)\n\n*** ** * ** ***\n\n### 第三篇：获取代码与\"魔改\" (核心)\n\n> [初始准备请参考：【笔记】Podman Desktop 部署 开源数字人 HeyGem.ai](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F154025452?spm=1011.2415.3001.5331)\n\n#### 1. 获取项目源码\n\n> [Duix-Avatar](https:\u002F\u002Fgithub.com\u002Fduixcom\u002FDuix-Avatar)\n\n在 PowerShell 中执行：\n\n```powershell\n# 进入你想要存放项目的盘符（例如 F 盘）\nF:\n# 克隆项目\ngit clone https:\u002F\u002Fgithub.com\u002Fduixcom\u002FDuix-Avatar.git F:\\PythonProjects\\HeyGem.ai\n# 进入目录\ncd F:\\PythonProjects\\HeyGem.ai\n# 安装依赖 或 创建虚拟环境\nnpm install\n```\n\n##### 在Windows中创建虚拟环境（推荐）\n\n    python -m venv .venv\n    .venv\\Scripts\\activate.bat\n\n##### 安装或升级必要的Python工具\n\n    python -m pip install -U pip setuptools wheel\n\n##### 安装podman-compose\n\n    pip install podman-compose\n\n#### 2. 植入\"修复补丁\" (请按顺序修改文件)\n\n我们需要修改 **7** 个文件来适配 Windows + Podman 环境。请用 VS Code 打开项目文件夹。\n\n##### 【修改 1】 创建 Podman 编排文件\n\n* **位置** ：在项目根目录下的 `podman` 文件夹中，**新建文件** `podman-compose_fixed_final.yml`。\n* **内容** ：*(请填入下方代码，这是解决了 Host 网络和 Windows 挂载 Bug 的最终版本)*\n\n```yaml\n# ---------------------------\n# 在此处填入我们最终修复好的 podman-compose.yml 内容\n# 重点检查：network_mode: host, extra_hosts, 以及 volumes 的长格式写法\n# ---------------------------\nversion: '3.8'\n\nservices:\n  duix-avatar-tts:\n    image: guiji2025\u002Ffish-speech-ziming\n    container_name: duix-avatar-tts\n    restart: always\n    network_mode: host\n    extra_hosts:\n      - \"duix-avatar-asr:127.0.0.1\"\n    environment:\n      - NVIDIA_VISIBLE_DEVICES=all\n      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display\n      - ASR_PORT=10095\n      - FUNASR_PORT=10095\n      - ASR_URL=ws:\u002F\u002F127.0.0.1:10095\n    volumes:\n      - type: bind\n        source: D:\u002Fduix_avatar_data\u002Fvoice\u002Fdata\n        target: \u002Fcode\u002Fdata\n      - type: bind\n        source: D:\u002Fduix_avatar_data\u002Fvoice\u002Fsessions\n        target: \u002Fcode\u002Fsessions\n      # 挂载本地修复后的 config.py\n      - type: bind\n        source: F:\u002FPythonProjects\u002FHeyGem.ai\u002Fpodman\u002Fconfig\u002Fconfig.py\n        target: \u002Fcode\u002Fconfig\u002Fconfig.py\n    command: \u002Fbin\u002Fbash -c \"\u002Fopt\u002Fconda\u002Fenvs\u002Fpython310\u002Fbin\u002Fpython3 tools\u002Fapi_server.py --listen 0.0.0.0:18180\"\n    devices:\n      - nvidia.com\u002Fgpu=all\n\n  duix-avatar-asr:\n    image: guiji2025\u002Ffun-asr\n    container_name: duix-avatar-asr\n    restart: always\n    privileged: true\n    network_mode: host\n    working_dir: \u002Fworkspace\u002FFunASR\u002Fruntime\n    command: sh \u002Frun.sh\n    environment:\n      - NVIDIA_VISIBLE_DEVICES=all\n      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display\n    devices:\n      - nvidia.com\u002Fgpu=all\n\n  duix-avatar-gen-video:\n    image: guiji2025\u002Fduix.avatar\n    container_name: duix-avatar-gen-video\n    restart: always\n    privileged: true\n    network_mode: host\n    volumes:\n      - type: bind\n        source: D:\u002Fduix_avatar_data\u002Fface2face\n        target: \u002Fcode\u002Fdata\n    environment:\n      - PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512\n      - NVIDIA_VISIBLE_DEVICES=all\n      - NVIDIA_DRIVER_CAPABILITIES=compute,graphics,utility,video,display\n    shm_size: \"8g\"\n    command: python \u002Fcode\u002Fapp_local.py\n    devices:\n      - nvidia.com\u002Fgpu=all\n```\n\n##### 【修改 2】 创建后端配置文件\n\n* **位置** ：在 `podman` 文件夹下新建文件夹 `config`，在里面新建文件 `config.py`。\n* **内容** ：*(请填入下方代码，核心是修复 IP 为 127.0.0.1 和端口 10095)*\n\n```python\n# ---------------------------\n# 在此处填入我们修改后的 Python config.py 内容\n# 重点：import os, fun_asr_host = '127.0.0.1', fun_asr_port = '10095'\n# ---------------------------\nimport os\n\n# 是否本地离线版本\nis_local = True\n\ndownload_path = os.path.join(os.getcwd(), \"sessions\")\n# enum 状态\ntask_start = 1\ntask_running = 2\ntask_complete = 3\ntask_fail = -1\n\ndown_load_time_out = 1200\ncache_interval = 7200\n\n# 最小音频长度, 单位是秒\nmin_wav_time = 10\n# 最大音频长度, 单位是秒\nmax_wav_time = 40\n\n# 待训练录音的保存路径\nmedia_path = '\u002Fcode\u002Fdata'\n\n# 是否开启compile加速,30系列显卡使用有问题 建议4090开启\nis_compile = True\nbase_reference_text = \"无论你是寻找舒适的驾驶体验，还是享受环保的出行方式，吉利银河E8都是你的不二之选。\"\nbase_reference_audio = \"https:\u002F\u002Fdigital-public-dev.obs.myhuaweicloud.com\u002FTTS_MODELS\u002F20240715\u002Fslice_remove.wav\"\n\n# obs\nobs_end_point = 'http:\u002F\u002Fobs.cn-east-3.myhuaweicloud.com'\nobs_access_key = 'A0MGG9DH'\nobs_secret = 'JplniUNAiu'\nobs_bucket_name = 'digital-public-dev'\nobs_path_prefix = 'vcm_server\u002F'\nobs_http_url_prefix = 'https:\u002F\u002Fd.obs.myhuaweicloud.com\u002F'\n\n# 阿里asr\naccess_key_id = 'access_key_data'\naccess_key_secret = 'access_key_secret'\nappKey_cn = 'ZL6BdNok'\nappKey_en = 'IN2DNTDme'\n\n\n# 本地funasr相关信息\nfun_asr_host = os.getenv('FUN_ASR_HOST', '127.0.0.1')\nfun_asr_port = os.getenv('FUN_ASR_PORT', '10095')\n\n# 字符串分割\nsplit_len = 100\nsplit_symbols = [\"。\", \"?\", \"？\", \"！\", \"!\", \";\", \"；\", \",\", \"，\", \"、\"]\n\n# 参数中chunk_length被强行写为200，避免单句过长，导致强行断句\nmax_chunk_length = 200\n```\n\n##### 【修改 3】 修复 FFmpeg 路径\n\n* **文件** ：`src\u002Fmain\u002Futil\u002Fffmpeg.js`\n* **操作**：全选覆盖。\n* **注意** ：代码中 `const systemFfmpegPath` 的路径必须修改为新电脑的实际安装路径（如 `C:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe`）。\n* **内容** ：*(请填入修复了 initFFmpeg 函数的代码)*\n\n```javascript\n\u002F\u002F ---------------------------\n\u002F\u002F 在此处填入修复后的 ffmpeg.js 代码\n\u002F\u002F ---------------------------\nimport ffmpeg from 'fluent-ffmpeg'\nimport path from 'path'\nimport fs from 'fs'\nimport log from '..\u002Flogger.js'\n\nfunction initFFmpeg() {\n  \u002F\u002F --- 修改开始：优先使用系统 FFmpeg ---\n  \n  \u002F\u002F 1. 定义您电脑上已知的正确路径\n  const systemFfmpegPath = 'C:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe';\n  const systemFfprobePath = 'C:\\\\ffmpeg\\\\bin\\\\ffprobe.exe';\n\n  \u002F\u002F 2. 检查系统路径是否存在，如果存在直接用，不再去项目里找\n  if (fs.existsSync(systemFfmpegPath)) {\n    log.info('>>> [FFmpeg] 检测到系统 FFmpeg，使用路径:', systemFfmpegPath);\n    ffmpeg.setFfmpegPath(systemFfmpegPath);\n    ffmpeg.setFfprobePath(systemFfprobePath);\n    return;\n  }\n\n  \u002F\u002F --- 如果系统路径不对，再走原来的逻辑作为备用 (旧代码) ---\n  const ffmpegPath = {\n    'development-win32': path.join(__dirname, '..\u002F..\u002Fresources\u002Fffmpeg\u002Fwin-amd64\u002Fbin\u002Fffmpeg.exe'),\n    'development-linux': path.join(__dirname, '..\u002F..\u002Fresources\u002Fffmpeg\u002Flinux-amd64\u002Fffmpeg'),\n    'production-win32': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'win-amd64', 'bin', 'ffmpeg.exe'),\n    'production-linux': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'linux-amd64', 'ffmpeg')\n  }\n\n  if(process.env.NODE_ENV === undefined){\n    process.env.NODE_ENV = 'production'\n  }\n\n  const envKey = `${process.env.NODE_ENV}-${process.platform}`;\n  const ffmpegPathValue = ffmpegPath[envKey];\n  \n  log.info('>>> [FFmpeg] 尝试使用内置路径:', ffmpegPathValue);\n  if (ffmpegPathValue && fs.existsSync(ffmpegPathValue)) {\n      ffmpeg.setFfmpegPath(ffmpegPathValue);\n  } else {\n      log.warn('>>> [FFmpeg] 内置路径不存在，将尝试使用系统默认 PATH 变量');\n      \u002F\u002F 不设置 setFfmpegPath，让它自动去环境变量里找\n  }\n\n  \u002F\u002F 设置 FFprobe (类似逻辑)\n  const ffprobePath = {\n    'development-win32': path.join(__dirname, '..\u002F..\u002Fresources\u002Fffmpeg\u002Fwin-amd64\u002Fbin\u002Fffprobe.exe'),\n    'development-linux': path.join(__dirname, '..\u002F..\u002Fresources\u002Fffmpeg\u002Flinux-amd64\u002Fffprobe'),\n    'production-win32': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'win-amd64', 'bin', 'ffprobe.exe'),\n    'production-linux': path.join(process.resourcesPath, 'app.asar.unpacked', 'resources', 'ffmpeg', 'linux-amd64', 'ffprobe')\n  }\n  const ffprobePathValue = ffprobePath[envKey];\n  if (ffprobePathValue && fs.existsSync(ffprobePathValue)) {\n      ffmpeg.setFfprobePath(ffprobePathValue);\n  }\n}\n\ninitFFmpeg()\n\nexport function extractAudio(videoPath, audioPath) {\n  console.log('[FFmpeg] 开始提取音频:', videoPath, '->', audioPath);\n  return new Promise((resolve, reject) => {\n    ffmpeg(videoPath)\n      .noVideo()\n      .save(audioPath)\n      .on('start', (commandLine) => {\n        console.log('[FFmpeg] 执行命令:', commandLine);\n      })\n      .on('end', () => {\n        console.log('[FFmpeg] 音频提取成功!');\n        log.info('audio split done')\n        resolve(true)\n      })\n      .on('error', (err) => {\n        console.error('[FFmpeg] 音频提取失败:', err);\n        reject(err)\n      })\n  })\n}\n\nexport async function toH264(videoPath, outputPath) {\n  console.log('[FFmpeg] 开始转码视频:', videoPath, '->', outputPath);\n  \u002F\u002F const hasNvidia = await detectNvidia()\n  return new Promise((resolve, reject) => {\n    ffmpeg(videoPath)\n      .videoCodec('libx264')\n      .outputOptions('-pix_fmt yuv420p')\n      .save(outputPath)\n      .on('start', (commandLine) => {\n        console.log('[FFmpeg] 执行命令:', commandLine);\n      })\n      .on('end', () => {\n        console.log('[FFmpeg] 视频转码成功!');\n        log.info('video convert to h264 done')\n        resolve(true)\n      })\n      .on('error', (err) => {\n        console.error('[FFmpeg] 视频转码失败:', err);\n        reject(err)\n      })\n  })\n}\n\nfunction detectNvidia() {\n  return new Promise((resolve) => {\n    const exec = require('child_process').exec;\n    exec('nvidia-smi', (error, stdout, stderr) => {\n      if (error || stderr) {\n        resolve(false);\n      } else {\n        resolve(true);\n      }\n    });\n  });\n}\n\nexport function getVideoDuration(videoPath) {\n  return new Promise((resolve, reject) => {\n    ffmpeg(videoPath).ffprobe((err, data) => {\n      if (err) {\n        log.error(\"🚀 ~ ffmpeg ~ err:\", err)\n        reject(err)\n      } else if (data && data.streams && data.streams.length > 0) {\n        resolve(data.streams[0].duration) \u002F\u002F 单位秒\n      } else {\n        log.error('No streams found')\n        reject(new Error('No streams found'))\n      }\n    })\n  })\n}\n```\n\n##### 【修改 4】 修复数据库报错\n\n* **文件** ：`src\u002Fmain\u002Fdao\u002Ff2f-model.js`\n* **操作**：全选覆盖。\n* **内容** ：*(请填入加入了 safe() 函数的代码)*\n\n```javascript\n\u002F\u002F ---------------------------\n\u002F\u002F 在此处填入 f2f-model.js 代码，包含 safe() 函数\n\u002F\u002F ---------------------------\nimport { connect } from '..\u002Fdb\u002Findex.js'\n\n\u002F\u002F --- 数据清洗函数 ---\nfunction safe(val) {\n  \u002F\u002F 如果是 undefined 或 null，转为 null\n  if (val === undefined || val === null) {\n    return null\n  }\n  \u002F\u002F 如果是对象（比如报错信息 {code: -1...}），转为 JSON 字符串\n  if (typeof val === 'object') {\n    return JSON.stringify(val)\n  }\n  \u002F\u002F 其他情况（数字、字符串）直接返回\n  return val\n}\n\nexport function insert({ modelName, videoPath, audioPath, voiceId }) {\n  const db = connect()\n  \n  \u002F\u002F --- 调试日志：看看最终写入了什么 ---\n  console.log('[DAO] 准备写入数据库:', { \n    modelName: safe(modelName), \n    voiceId_raw: voiceId, \n    voiceId_safe: safe(voiceId) \n  });\n\n  const stmt = db.prepare(\n    'INSERT INTO f2f_model (name, video_path, audio_path, voice_id, created_at) VALUES (?, ?, ?, ?, ?)'\n  )\n  \n  \u002F\u002F 使用 safe() 包裹所有可能出问题的字段\n  const info = stmt.run(\n    safe(modelName), \n    safe(videoPath), \n    safe(audioPath), \n    safe(voiceId), \n    Date.now()\n  )\n  return info.lastInsertRowid\n}\n\nexport function selectPage({ page, pageSize, name = '' }) {\n  const db = connect()\n  const offset = (page - 1) * pageSize\n  const rows = db\n    .prepare(\n      `SELECT * FROM f2f_model WHERE name like '%${name}%' ORDER BY created_at DESC LIMIT ${pageSize} OFFSET ${offset}`\n    )\n    .all()\n  return rows\n}\n\nexport function count(name = '') {\n  const db = connect()\n  const rows = db\n    .prepare(`SELECT COUNT(*) as total FROM f2f_model WHERE name like '%${name}%'`)\n    .get()\n  return rows.total\n}\n\nexport function selectByID(id) {\n  const db = connect()\n  const stmt = db.prepare('SELECT * FROM f2f_model WHERE id = ?')\n  const row = stmt.get(id)\n  return row\n}\n\nexport function remove(id) {\n  const db = connect()\n  db.prepare(`DELETE FROM f2f_model WHERE id = ?`).run(id)\n}\n```\n\n##### 【修改 5 \\& 6】 移除写死的调试逻辑\n\n* **文件 1** ：`src\u002Fmain\u002Fservice\u002Fmodel.js`\n* **文件 2** ：`src\u002Fmain\u002Fservice\u002Fvideo.js`\n* **操作**：全选覆盖。\n* **内容** ：*(请填入删除了 `test.wav` 逻辑的 model.js 和 video.js 代码)*\n\n**model.js 代码:**\n\n```javascript\nimport { ipcMain } from 'electron'\nimport fs from 'fs'\nimport path from 'path'\nimport dayjs from 'dayjs'\nimport { isEmpty } from 'lodash'\nimport { insert, selectPage, count, selectByID, remove as deleteModel } from '..\u002Fdao\u002Ff2f-model.js'\nimport { train as trainVoice } from '.\u002Fvoice.js'\nimport { assetPath } from '..\u002Fconfig\u002Fconfig.js'\nimport log from '..\u002Flogger.js'\nimport { extractAudio, toH264 } from '..\u002Futil\u002Fffmpeg.js'\nconst MODEL_NAME = 'model'\n\n\u002F**\n * 辅助函数：清洗数据，确保符合 SQLite 要求\n * SQLite 报错 \"can only bind numbers, strings... and null\" 通常是因为传入了 undefined 或 Object\n *\u002F\nfunction safeValue(val) {\n  if (val === undefined || val === null) {\n    return null; \u002F\u002F 强制转为 null\n  }\n  if (typeof val === 'object') {\n    return JSON.stringify(val); \u002F\u002F 强制转为字符串\n  }\n  return String(val); \u002F\u002F 其他情况（如数字）转为字符串\n}\n\n\u002F**\n * 新增模特\n * @param {string} modelName 模特名称\n * @param {string} videoPath 模特视频路径\n * @returns\n *\u002F\nasync function addModel(modelName, videoPath) {\n  console.log('[ModelService] 开始添加模特:', modelName, videoPath);\n\n  if (!fs.existsSync(assetPath.model)) {\n    fs.mkdirSync(assetPath.model, {\n      recursive: true\n    })\n  }\n  \u002F\u002F copy video to model video path\n  const extname = path.extname(videoPath)\n  const modelFileName = dayjs().format('YYYYMMDDHHmmssSSS') + extname\n  const modelPath = path.join(assetPath.model, modelFileName)\n\n  await toH264(videoPath, modelPath)\n\n  \u002F\u002F 用ffmpeg分离音频\n  if (!fs.existsSync(assetPath.ttsTrain)) {\n    fs.mkdirSync(assetPath.ttsTrain, {\n      recursive: true\n    })\n  }\n  const audioPath = path.join(assetPath.ttsTrain, modelFileName.replace(extname, '.wav'))\n\n  return extractAudio(modelPath, audioPath).then(() => {\n    \u002F\u002F 训练语音模型\n    const relativeAudioPath = path.relative(assetPath.ttsRoot, audioPath)\n    \n    \u002F\u002F --- [关键修改点] ---\n    \u002F\u002F 移除原本的 if (process.env.NODE_ENV === 'development') 判断\n    \u002F\u002F 无论开发环境还是生产环境，都强制使用刚刚生成的真实音频文件\n    console.log('[ModelService] 开始训练语音，使用文件:', relativeAudioPath);\n    return trainVoice(relativeAudioPath, 'zh')\n    \u002F\u002F -------------------\n\n  }).then((trainResult) => {\n    \u002F\u002F --- [修复逻辑] 深度清洗 ---\n    console.log('[ModelService] trainVoice 返回:', JSON.stringify(trainResult));\n\n    let voiceId = null;\n    if (trainResult && typeof trainResult === 'object') {\n      \u002F\u002F 尝试获取真正的 ID，如果获取不到，则转字符串存入\n      voiceId = trainResult.data || trainResult.voiceId || trainResult.id || JSON.stringify(trainResult);\n    } else {\n      voiceId = trainResult;\n    }\n\n    \u002F\u002F 准备插入的数据\n    const relativeModelPath = path.relative(assetPath.model, modelPath);\n    const relativeAudioPath = path.relative(assetPath.ttsRoot, audioPath);\n\n    const dbPayload = {\n      modelName: safeValue(modelName),\n      videoPath: safeValue(relativeModelPath),\n      audioPath: safeValue(relativeAudioPath),\n      voiceId: safeValue(voiceId)\n    };\n\n    console.log('[ModelService] 正在写入数据库:', dbPayload);\n\n    \u002F\u002F insert model info to db\n    const id = insert(dbPayload);\n    return id;\n  }).catch(err => {\n    console.error('[ModelService] addModel 发生错误:', err);\n    throw err; \u002F\u002F 继续抛出让前端捕获\n  })\n}\n\nfunction page({ page, pageSize, name = '' }) {\n  const total = count(name)\n  return {\n    total,\n    list: selectPage({ page, pageSize, name }).map((model) => ({\n      ...model,\n      video_path: path.join(assetPath.model, model.video_path),\n      audio_path: path.join(assetPath.ttsRoot, model.audio_path)\n    }))\n  }\n}\n\nfunction findModel(modelId) {\n  const model = selectByID(modelId)\n  return {\n    ...model,\n    video_path: path.join(assetPath.model, model.video_path),\n    audio_path: path.join(assetPath.ttsRoot, model.audio_path)\n  }\n}\n\nfunction removeModel(modelId) {\n  const model = selectByID(modelId)\n  log.debug('~ removeModel ~ modelId:', modelId)\n\n  \u002F\u002F 删除视频\n  const videoPath = path.join(assetPath.model, model.video_path || '')\n  if (!isEmpty(model.video_path) && fs.existsSync(videoPath)) {\n    fs.unlinkSync(videoPath)\n  }\n\n  \u002F\u002F 删除音频\n  const audioPath = path.join(assetPath.ttsRoot, model.audio_path || '')\n  if (!isEmpty(model.audio_path) && fs.existsSync(audioPath)) {\n    fs.unlinkSync(audioPath)\n  }\n\n  deleteModel(modelId)\n}\n\nfunction countModel(name = '') {\n  return count(name)\n}\n\nexport function init() {\n  ipcMain.handle(MODEL_NAME + '\u002FaddModel', (event, ...args) => {\n    return addModel(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fpage', (event, ...args) => {\n    return page(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Ffind', (event, ...args) => {\n    return findModel(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fcount', (event, ...args) => {\n    return countModel(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fremove', (event, ...args) => {\n    return removeModel(...args)\n  })\n}\n```\n\n**video.js 代码:**\n\n```javascript\nimport { ipcMain } from 'electron'\nimport crypto from 'crypto'\nimport path from 'path'\nimport fs from 'fs'\nimport { isEmpty } from 'lodash'\nimport { assetPath } from '..\u002Fconfig\u002Fconfig.js'\nimport { selectPage,selectByStatus, updateStatus, remove as deleteVideo, findFirstByStatus } from '..\u002Fdao\u002Fvideo.js'\nimport { selectByID as selectF2FModelByID } from '..\u002Fdao\u002Ff2f-model.js'\nimport { selectByID as selectVoiceByID } from '..\u002Fdao\u002Fvoice.js'\nimport {\n  insert as insertVideo,\n  count,\n  update,\n  selectByID as selectVideoByID\n} from '..\u002Fdao\u002Fvideo.js'\nimport { makeAudio4Video, copyAudio4Video } from '.\u002Fvoice.js'\nimport { makeVideo as makeVideoApi,getVideoStatus } from '..\u002Fapi\u002Ff2f.js'\nimport log from '..\u002Flogger.js'\nimport { getVideoDuration } from '..\u002Futil\u002Fffmpeg.js'\n\nconst MODEL_NAME = 'video'\n\n\u002F**\n * 分页查询合成结果\n * @param {number} page\n * @param {number} pageSize\n * @returns\n *\u002F\nfunction page({ page, pageSize, name = '' }) {\n  \u002F\u002F 查询的有waiting状态的视频\n  const waitingVideos = selectByStatus('waiting').map((v) => v.id)\n  const total = count(name)\n  const list = selectPage({ page, pageSize, name }).map((video) => {\n    video = {\n      ...video,\n      file_path: video.file_path ? path.join(assetPath.model, video.file_path) : video.file_path\n    }\n\n    if(video.status === 'waiting'){\n      video.progress = `${waitingVideos.indexOf(video.id) + 1} \u002F ${waitingVideos.length}`\n    }\n    return video\n  })\n\n  return {\n    total,\n    list\n  }\n}\n\nfunction findVideo(videoId) {\n  const video = selectVideoByID(videoId)\n  return {\n    ...video,\n    file_path: video.file_path ? path.join(assetPath.model, video.file_path) : video.file_path\n  }\n}\n\nfunction countVideo(name = '') {\n  return count(name)\n}\n\nfunction saveVideo({ id, model_id, name, text_content, voice_id, audio_path }) {\n  const video = selectVideoByID(id)\n  if(audio_path){\n    audio_path = copyAudio4Video(audio_path)\n  }\n\n  if (video) {\n    return update({ id, model_id, name, text_content, voice_id, audio_path })\n  }\n  return insertVideo({ model_id, name, status: 'draft', text_content, voice_id, audio_path })\n}\n\n\u002F**\n * 合成视频\n * 更新视频状态为waiting\n * @param {number} videoId\n * @returns\n *\u002F\nfunction makeVideo(videoId) {\n  update({ id: videoId, status: 'waiting' })\n  return videoId\n}\n\nexport async function synthesisVideo(videoId) {\n  try{\n    update({\n      id: videoId,\n      file_path: null,\n      status: 'pending',\n      message: '正在提交任务',\n    })\n\n    \u002F\u002F 查询Video\n    const video = selectVideoByID(videoId)\n    log.debug('~ makeVideo ~ video:', video)\n\n    \u002F\u002F 根据modelId获取model信息\n    const model = selectF2FModelByID(video.model_id)\n    log.debug('~ makeVideo ~ model:', model)\n\n    let audioPath\n    if(video.audio_path){\n      \u002F\u002F 将audio_path复制到ttsProduct目录下\n      audioPath = video.audio_path\n    }else{\n      \u002F\u002F 根据model信息中的voiceId获取voice信息\n      const voice = selectVoiceByID(video.voice_id || model.voice_id)\n      log.debug('~ makeVideo ~ voice:', voice)\n\n      \u002F\u002F 调用tts接口生成音频\n      audioPath = await makeAudio4Video({\n        voiceId: voice.id,\n        text: video.text_content\n      })\n      log.debug('~ makeVideo ~ audioPath:', audioPath)\n    }\n\n    \u002F\u002F 调用视频生成接口生成视频\n    let result, param\n    \n    \u002F\u002F [FIX] 无论开发环境还是生产环境，都强制使用真实路径，禁止使用 test.wav\n    log.info('~ makeVideo ~ Starting F2F with:', audioPath, model.video_path)\n    ;({ result, param } = await makeVideoByF2F(audioPath, model.video_path))\n\n    log.debug('~ makeVideo ~ result, param:', result, param)\n\n    \u002F\u002F 插入视频表\n    if(10000 === result.code){ \u002F\u002F 成功\n      update({\n        id: videoId,\n        file_path: null,\n        status: 'pending',\n        message: result,\n        audio_path: audioPath,\n        param,\n        code: param.code\n      })\n    }else{ \u002F\u002F 失败\n      update({\n        id: videoId,\n        file_path: null,\n        status: 'failed',\n        message: result.msg,\n        audio_path: audioPath,\n        param,\n        code: param.code\n      })\n    }\n  } catch (error) {\n    log.error('~ synthesisVideo ~ error:', error.message)\n    updateStatus(videoId, 'failed', error.message)\n  }\n\n  \u002F\u002F 6. 返回视频id\n  return videoId\n}\n\nexport async function loopPending() {\n  const video = findFirstByStatus('pending')\n  if (!video) {\n    synthesisNext()\n\n    setTimeout(() => {\n      loopPending()\n    }, 2000)\n    return\n  }\n\n  const statusRes = await getVideoStatus(video.code)\n\n  if ([9999, 10002, 10003].includes(statusRes.code)) {\n    updateStatus(video.id, 'failed', statusRes.msg)\n  } else if (statusRes.code === 10000) {\n    if (statusRes.data.status === 1) {\n      updateStatus(\n        video.id,\n        'pending',\n        statusRes.data.msg,\n        statusRes.data.progress,\n      )\n    }else if (statusRes.data.status === 2) { \u002F\u002F 合成成功\n      \u002F\u002F ffmpeg 获取视频时长\n      \u002F\u002F [FIX] 总是使用真实计算，不使用写死的 88 秒\n      const resultPath = path.join(assetPath.model, statusRes.data.result)\n      let duration = 0\n      try {\n        duration = await getVideoDuration(resultPath)\n      } catch (e) {\n        log.warn('Failed to get video duration, using default 0', e)\n      }\n\n      update({\n        id: video.id,\n        status: 'success',\n        message: statusRes.data.msg,\n        progress: statusRes.data.progress,\n        file_path: statusRes.data.result,\n        duration\n      })\n\n    } else if (statusRes.data.status === 3) {\n      updateStatus(video.id, 'failed', statusRes.data.msg)\n    }\n  }\n\n  setTimeout(() => {\n    loopPending()\n  }, 2000)\n  return video\n}\n\n\u002F**\n * 合成下一个视频\n *\u002F\nfunction synthesisNext() {\n  \u002F\u002F 查询所有未完成的视频任务\n  const video = findFirstByStatus('waiting')\n  if (video) {\n    synthesisVideo(video.id)\n  }\n}\n\nfunction removeVideo(videoId) {\n  \u002F\u002F 查询视频\n  const video = selectVideoByID(videoId)\n  log.debug('~ removeVideo ~ videoId:', videoId)\n\n  \u002F\u002F 删除视频\n  const videoPath = path.join(assetPath.model, video.file_path ||'')\n  if (!isEmpty(video.file_path) && fs.existsSync(videoPath)) {\n    fs.unlinkSync(videoPath)\n  }\n\n  \u002F\u002F 删除音频\n  const audioPath = path.join(assetPath.model, video.audio_path ||'')\n  if (!isEmpty(video.audio_path) && fs.existsSync(audioPath)) {\n    fs.unlinkSync(audioPath)\n  }\n\n  \u002F\u002F 删除视频表\n  return deleteVideo(videoId)\n}\n\nfunction exportVideo(videoId, outputPath) {\n  const video = selectVideoByID(videoId)\n  const filePath = path.join(assetPath.model, video.file_path)\n  fs.copyFileSync(filePath, outputPath)\n}\n\n\u002F**\n * 调用face2face生成视频\n * @param {string} audioPath\n * @param {string} videoPath\n * @returns\n *\u002F\nasync function makeVideoByF2F(audioPath, videoPath) {\n  const uuid = crypto.randomUUID()\n  const param = {\n    audio_url: audioPath,\n    video_url: videoPath,\n    code: uuid,\n    chaofen: 0,\n    watermark_switch: 0,\n    pn: 1\n  }\n  const result = await makeVideoApi(param)\n  return { param, result }\n}\n\nfunction modify(video) {\n  return update(video)\n}\n\nexport function init() {\n  ipcMain.handle(MODEL_NAME + '\u002Fpage', (event, ...args) => {\n    return page(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fmake', (event, ...args) => {\n    return makeVideo(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fmodify', (event, ...args) => {\n    return modify(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fsave', (event, ...args) => {\n    return saveVideo(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Ffind', (event, ...args) => {\n    return findVideo(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fcount', (event, ...args) => {\n    return countVideo(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fexport', (event, ...args) => {\n    return exportVideo(...args)\n  })\n  ipcMain.handle(MODEL_NAME + '\u002Fremove', (event, ...args) => {\n    return removeVideo(...args)\n  })\n}\n```\n\n##### 【修改 7】 修复前端配置\n\n* **文件** ：`src\u002Fmain\u002Fconfig\u002Fconfig.js`\n* **操作** ：修改 `serviceUrl` 为本机地址。\n* **内容** ：*(请填入修改为 127.0.0.1 的代码)*\n\n```javascript\n\u002F\u002F ---------------------------\n\u002F\u002F 在此处填入 config.js 代码\n\u002F\u002F ---------------------------\nimport path from 'path'\nimport os from 'os'\n\nconst isDev = process.env.NODE_ENV === 'development'\nconst isWin = process.platform === 'win32'\n\nexport const serviceUrl = {\n  \u002F\u002F [关键修复] 无论开发还是生产环境，Podman 映射出来的端口都在本机 127.0.0.1\n  \u002F\u002F 视频生成服务端口 (日志确认为 8383)\n  face2face: 'http:\u002F\u002F127.0.0.1:8383\u002Feasy', \n  \u002F\u002F TTS 语音服务端口 (之前我们修改配置确认为 18180)\n  tts: 'http:\u002F\u002F127.0.0.1:18180'\n}\n\nexport const assetPath = {\n  model: isWin\n    ? path.join('D:', 'duix_avatar_data', 'face2face', 'temp')\n    : path.join(os.homedir(), 'duix_avatar_data', 'face2face', 'temp'), \u002F\u002F 模特视频\n  ttsProduct: isWin\n    ? path.join('D:', 'duix_avatar_data', 'face2face', 'temp')\n    : path.join(os.homedir(), 'duix_avatar_data', 'face2face', 'temp'), \u002F\u002F TTS 产物\n  ttsRoot: isWin\n    ? path.join('D:', 'duix_avatar_data', 'voice', 'data')\n    : path.join(os.homedir(), 'duix_avatar_data', 'voice', 'data'), \u002F\u002F TTS服务根目录\n  ttsTrain: isWin\n    ? path.join('D:', 'duix_avatar_data', 'voice', 'data', 'origin_audio')\n    : path.join(os.homedir(), 'duix_avatar_data', 'voice', 'data', 'origin_audio') \u002F\u002F TTS 训练产物\n}\n```\n\n*** ** * ** ***\n\n### 第四阶段：启动与见证\n\n#### 1. 启动 Podman 服务\n\n进入 `podman` 目录：\n\n```powershell\ncd F:\\PythonProjects\\HeyGem.ai\\podman\npodman-compose -f podman-compose_fixed_final.yml up -d\n```\n\n![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F1c421b78792244429af97867d858638f.png)\n\n*等待一段时间，直到拉取镜像完成。*   \n![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F200825c368014160b948e84ab9d54c38.png)\n\n#### 2. 启动客户端\n\n```powershell\ncd F:\\PythonProjects\\HeyGem.ai\nnpm run dev\n```\n\n![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F25396973ab6a4dffb7a7523269f0527e.png)\n\n#### 3. 操作流程\n\n1. 点击上传视频 -\\> 等待处理完成。\n2. 点击试听 -\\> 确认有声。\n3. 点击生成视频 -\\> 成功！\n\n![在这里插入图片描述](https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F28f1a2964be44b279aa69a80a8f06c3a.png)\n\n### 参考资料：\n\n> [Podman Desktop：现代轻量容器管理利器（Podman与Docker）](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F147447051?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [PyCharm 链接 Podman Desktop 的 podman-machine-default Linux 虚拟环境](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F147456502?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [新！在 podman-machine-default 中安装 CUDA、cuDNN、Anaconda、PyTorch 等并验证安装](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F147515560?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [用Podman Desktop创建自用的WSL-Fedora Linux子系统](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F147538234?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [Windows 开发环境部署指南：WSL、Docker Desktop、Podman Desktop 部署顺序与存储路径迁移指南](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F148997254?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [【笔记】 Podman Desktop 中部署 Stable Diffusion WebUI （GPU 支持）](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F152523061?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [【笔记】在 Podman Machine（Fedora 42）中安装 NVIDIA Container Toolkit 使镜像能使用GPU](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F152612456?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n> [在WSL-podman-machine-default (Fedora Linux 42) 中安装 CUDA 13.0、cuDNN 9.14、Anaconda 2025.06、PyTorch 2.10](https:\u002F\u002Faicity.blog.csdn.net\u002Farticle\u002Fdetails\u002F154291230?spm=1011.2415.3001.10575&sharefrom=mp_manage_link)\n","写在前面： 这是一个深度依赖 NVIDIA 显卡和 Linux 环境的 AI 项目。在 Windows 上使用 Podman 部署需要对源码进行“外科手术式”的修改。请务必严格按照步骤执行，不要跳过任何一步。 本篇是上一篇记录博客《【笔记】Podman Desktop 部署 开源数字人 HeyGem.ai》的内容完善进阶和补充篇，请结合着一起查看。","1994199649645821954","https:\u002F\u002Fi-blog.csdnimg.cn\u002Fdirect\u002F351e3af511184ccd8e69c24c93de1bd7.png",{"description":319,"id":320,"imgUrl":8,"title":321,"views":322},"在私域运营与自动化工具开发的浪潮中，许多企业和技术团队都面临着一个核心挑战：如何在不稳定的非官方接口基础上，构建稳定、可靠、合规的高级集成系统？","1994200068673568770","微信个人号开发中如何高效实现API二次开发",26,"https:\u002F\u002Fprofile-avatar.csdnimg.cn\u002Fa71e5cb0b48e4bd28db4738f34c35e67_u014451778.jpg","1846613939052351489","love530love",{"description":327,"id":328,"imgUrl":8,"title":329,"views":330},"1.练习项目：一行读取两个整数 N 和 W（1≤N,W≤2×10的5次方），分别代表月饼篮的承重量和每个月饼的重量。","1994199616124944386","C++课后习题训练记录Day33",11,[332,333,336,337,338,341,344],{"id":131,"name":132},{"id":334,"name":335},44,"windows",{"id":210,"name":211},{"id":177,"name":178},{"id":339,"name":340},2152,"数字人",{"id":342,"name":343},3985,"podman",{"id":345,"name":346},110366,"duix-avatar",1764289221000,"【保姆级教程】Windows + Podman 从零部署 Duix-Avatar 数字人项目",56,["Reactive",351],{"$sisPC2":352},false,["Set"],["ShallowReactive",355],{"vmUNxzS8E5BemMlUrnhjKnvHDbZF0nplouslZpjdg7Q":-1,"wDdEB1REj7eOVA0IINOW8By0h7e6k9_YCMGESItz9sY":-1,"glaIx14zzTwMHHGT3VRKOAAT2IWy941uSBVkEtcvnRA":-1,"CZitZXN6H4K3tn39KXznC4gjoSoBwbLTaDTy_dcYeaM":-1,"t1M_S3XpnmW9XQ4i9_sg7BytrxKN2hznunDVOOzsdNc":-1},true,"\u002Farticle\u002F1994199649645821954"]</script></body></html>

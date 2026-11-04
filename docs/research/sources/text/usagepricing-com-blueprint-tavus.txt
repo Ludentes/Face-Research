@@ -1,0 +1,1401 @@
+Tavus Pricing | UsagePricing
+
+Estimate your Tavus cost
+
+— model your usage, see overages, and find the cheapest plan.
+
+Open calculator →
+
+Quick summary
+
+Pricing model
+
+hybrid
+
+freemium
+
+Billing units
+
+media-minutes
+
+Sales motion
+
+self-serve
+
+plg
+
+sales-led
+
+Segments
+
+developer
+
+individual
+
+smb
+
+enterprise
+
+Use cases
+
+agents
+
+Product segment
+
+developer-tools
+
+Region
+
+global
+
+Product
+
+Conversational Video Interface (CVI) API for real-time AI humans / avatars, plus PALs consumer AI companions
+
+Industry
+
+technology
+
+Commits
+
+None
+
+In this page
+
+Quick summary
+
+Pricing model
+
+hybrid
+
+freemium
+
+Billing units
+
+media-minutes
+
+Sales motion
+
+self-serve
+
+plg
+
+sales-led
+
+Segments
+
+developer
+
+individual
+
+smb
+
+enterprise
+
+Use cases
+
+agents
+
+Product segment
+
+developer-tools
+
+Region
+
+global
+
+Product
+
+Conversational Video Interface (CVI) API for real-time AI humans / avatars, plus PALs consumer AI companions
+
+Industry
+
+technology
+
+Commits
+
+None
+
+Explore in the graph
+→
+
+AI Summary
+
+Facts checked
+Oct 24, 2026
+· each point links to itself for citation
+
+Tavus prices its Conversational Video Interface (CVI) API as a hybrid: a monthly access fee (Free, Starter $22/mo, Builder $59/mo, Growth $397/mo, Business $975/mo, Enterprise custom) bundles included video minutes, then bills uncapped pay-as-you-go beyond the allowance on Builder and above; the Free and $22 Starter plans carry no pay-as-you-go rate at all, so their included minutes act as a hard cap rather than a bucket. Each plan also caps a single conversation, at 5 minutes on Free, 10 on Starter (doubled from 5 in October 2026), 15 on Builder, 60 on Growth and Business, and a custom limit on Enterprise.
+
+Tavus prices its Conversational Video Interface (CVI) API as a hybrid: a monthly access fee (Free, Starter $22/mo, Builder $59/mo, Growth $397/mo, Business $975/mo, Enterprise custom) bundles included video minutes, then bills uncapped pay-as-you-go beyond the allowance on Builder and above; the Free and $22 Starter plans carry no pay-as-you-go rate at all, so their included minutes act as a hard cap rather than a bucket. Each plan also caps a single conversation, at 5 minutes on Free, 10 on Starter (doubled from 5 in October 2026), 15 on Builder, 60 on Growth and Business, and a custom limit on Enterprise.
+
+Conversational-video overage falls with scale — $0.35/min on Builder, $0.31/min on Growth, and $0.26/min on Business — with separate per-minute rates for pre-rendered video generation ($1/min, $0.90/min, $0.80/min) and conversation recordings ($0.03/min). Builder, the tier flagged Most Popular, briefly advertised a discounted $29 first month in July 2026, but the promo was withdrawn by July 29 and no developer tier currently shows an introductory discount.
+
+Conversational-video overage falls with scale — $0.35/min on Builder, $0.31/min on Growth, and $0.26/min on Business — with separate per-minute rates for pre-rendered video generation ($1/min, $0.90/min, $0.80/min) and conversation recordings ($0.03/min). Builder, the tier flagged Most Popular, briefly advertised a discounted $29 first month in July 2026, but the promo was withdrawn by July 29 and no developer tier currently shows an introductory discount.
+
+A second product line, PALs, sells the same underlying conversation technology to consumers as flat subscriptions, but Tavus withdrew its public PALs price list in July 2026 and, by August 2026, removed the standalone tavus.io/pals marketing page entirely (it now returns a branded 404), so consumer plan prices and product details are no longer published anywhere on the site.
+
+A second product line, PALs, sells the same underlying conversation technology to consumers as flat subscriptions, but Tavus withdrew its public PALs price list in July 2026 and, by August 2026, removed the standalone tavus.io/pals marketing page entirely (it now returns a branded 404), so consumer plan prices and product details are no longer published anywhere on the site.
+
+Tavus pivoted its pricing from a flat $275/mo personalized-marketing-video plan in 2023 to usage-based CVI API pricing in 2024, and in 2026 broadened the developer ladder to six tiers, adding a $22 Starter and a $975 Business plan.
+
+Tavus pivoted its pricing from a flat $275/mo personalized-marketing-video plan in 2023 to usage-based CVI API pricing in 2024, and in 2026 broadened the developer ladder to six tiers, adding a $22 Starter and a $975 Business plan.
+
+The headline value metric is the conversation minute, which meters Tavus's full multimodal pipeline — the Raven perception, Sparrow turn-taking, and Phoenix rendering models — inside one billed unit.
+
+The headline value metric is the conversation minute, which meters Tavus's full multimodal pipeline — the Raven perception, Sparrow turn-taking, and Phoenix rendering models — inside one billed unit.
+
+Tavus has raised roughly $64M including a $40M Series B in November 2025 led by CRV, repositioning as a 'human computing' infrastructure company after its YC Summer 2021 start.
+
+Tavus has raised roughly $64M including a $40M Series B in November 2025 led by CRV, repositioning as a 'human computing' infrastructure company after its YC Summer 2021 start.
+
+Pricing summary
+
+Tavus 2026 — developer CVI plans
+
+Hybrid: monthly access fee bundling conversation minutes, plus uncapped pay-as-you-go video minutes above the allowance.
+
+Free
+
+Free
+
+Developers who want to get their feet wet
+
+Starter
+
+$22
+
+/mo
+
+Builders starting to craft human-AI experiences
+
+Builder
+
+$59
+
+/mo
+
+Individuals, startups & businesses that build to test
+
+Growth
+
+$397
+
+/mo
+
+Teams productionizing AI conversation experiences
+
+Business
+
+$975
+
+/mo
+
+Companies starting to scale, or wanting direct support
+
+Enterprise
+
+Custom
+
+Businesses with high volume and enterprise needs
+
+Developer plans bill a monthly access fee plus uncapped pay-as-you-go video minutes; conversation minutes are rounded to 6-second increments with a 30-second minimum per conversation. Builder is marked Most Popular; the 'First month 50% off' promo it carried as of 2026-07-21 was gone by 2026-07-29, and no tier currently shows an introductory discount. Starter's price card reads 'No pay as you go overage'. Tavus's consumer PALs plans no longer have a published price list — tavus.io/pals/pricing now redirects to this developer page.
+
+About
+
+Tavus builds the Conversational Video Interface (CVI) — an end-to-end pipeline for real-time “AI humans”: video avatars (which Tavus now calls “Faces”, formerly “Replicas”) that see, listen, and respond face-to-face with sub-second latency. The platform bundles its own perception model (Raven-1), turn-taking model (Sparrow-2), and rendering model (Phoenix-4.5), and exposes them through a whitelabeled API so developers can embed lifelike conversational video into their own products. Tavus markets itself as “The Human Computing Company.”
+
+Tavus serves two distinct audiences from one technology stack. The primary buyer is the developer or team building conversational-video agents — for interviews, coaching, onboarding, customer service, and healthcare — billed through the developer CVI plans, which are the only publicly listed prices Tavus now publishes. The second is the consumer, served by PALs: AI companions (available through the PALs iOS app and PAL Maker) you can text, call, or video-chat. PALs is still shipping, but as of July 2026 its consumer subscription prices have been withdrawn from the public site —
+tavus.io/pals/pricing
+301-redirects to the developer pricing page, and the PALs product page carries no list price.
+
+Tavus came out of Y Combinator’s Summer 2021 batch and has raised roughly $64M across four rounds — a $6.1M Sequoia-led seed, an $18M Series A led by Scale Venture Partners (announced March 2024, alongside open developer access to its face-and-voice-cloning API), and a $40M Series B led by CRV in November 2025 with Sequoia, Y Combinator, and HubSpot Ventures participating. The Series B reframed the company as “The Human Computing Company.” Tavus does not publish ARR; third-party estimates put 2023 revenue near $1M, and the company stays private about user and customer counts. The business has materially repositioned since launch — from a personalized-marketing-video tool for sales teams into a real-time conversational-video infrastructure layer for developers, with the consumer-facing PALs companions layered on top in 2025–2026.
+
+Competitively, Tavus sits at the intersection of two markets. Against avatar-video generators like Synthesia, HeyGen, and D-ID, Tavus differentiates on real-time, sub-second conversational video (face-to-face dialogue) rather than pre-rendered talking-head clips — and prices accordingly, on live conversation minutes instead of rendered-video seats. Against conversational-AI platforms it differentiates on owning the full perception-to-render stack (Raven, Sparrow, Phoenix) as first-party models, which is what lets it meter a whole multimodal pipeline as a single billed minute.
+
+Pricing summary
+: Hybrid CVI access fee plus pay-as-you-go video minutes
+
+Tavus prices one product line in public — the developer
+Conversational Video Interface (CVI)
+— as a hybrid of monthly access fee plus metered minutes. Its consumer product, PALs, no longer carries a published price list.
+
+Monthly access fee (six tiers):
+Free / Starter $22 / Builder $59 / Growth $397 / Business $975 / Enterprise Custom. Each tier bundles a fixed allowance of conversational-video minutes — 20, 60, 175, 1,300, 4,000, and Custom respectively — and sets a concurrency cap (1, 1, 3, 10, 15, Custom) plus a maximum conversation duration (5 min, 10 min, 15 min, 60 min, 60 min, Custom).
+
+Pay-as-you-go conversational-video minutes:
+Beyond the allowance, usage bills at $0.35/min (Builder), $0.31/min (Growth), and $0.26/min (Business), with
+no overage cap
+— “never paused, never throttled.” Enterprise gets “significant scaling discounts”. Free and Starter carry no pay-as-you-go rate at all; Starter’s price card explicitly reads
+“No pay as you go overage.”
+
+Async video-generation minutes (a second meter):
+Included at 5 / 15 / 50 / 250 minutes per month on Starter / Builder / Growth / Business, then billed at $1, $0.90, and $0.80 per minute on Builder, Growth, and Business.
+
+Conversation recordings (a third meter):
+$0.03/min on Growth and Business; scaling discounts on Enterprise.
+
+Custom Face slots (an entitlement, not a meter):
+1 / 3 / 7 / 15 included on Starter → Business, unlimited on Enterprise.
+
+Minutes are rounded to the nearest 6-second increment with a 30-second minimum charge per conversation, billed from API connect to disconnect. Builder remains the “Most Popular” tier, but the
+First month 50% off
+promo it displayed as of 2026-07-21 (a discounted introductory month-one price struck through against $59/mo) has stayed gone since 2026-07-29 — Builder’s card and the Compare Plans matrix header both show a plain $59/mo, and no tier currently advertises an introductory discount.
+
+What makes this different:
+Tavus bills a whole multimodal pipeline (perception, turn-taking, rendering) as a single conversation minute rather than decomposing it into token, speech, and video charges, then stacks three independent meters under one access fee. It is a textbook
+hybrid pricing model
+: a recurring access fee plus
+usage-based billing
+on the metered minute, with the included allowance acting as a prepaid bucket before uncapped overages kick in.
+
+Pricing by product
+
+Developer CVI (API plans)
+
+Tier
+Price
+Included
+Key mechanics
+Free
+Free
+20 free minutes of Conversational Video, access to stock faces (10), 1 concurrent session, whitelabeled APIs + no-code platform, 42+ languages, developer docs + community
+”No upfront payment”; 5-min maximum conversation duration; no pay-as-you-go
+Starter
+$22 / mo
+60 minutes of Conversational Video, 1 custom Face slot, 1 Google Meet/Zoom configuration, full visibility into conversation transcripts, 1 concurrent session, no watermark
+Price card reads
+“No pay as you go overage”
+— the Compare Plans matrix lists no PAYG rate for this tier; 10-min maximum conversation duration (raised from 5 min, first seen 2026-10-24)
+Builder
+$59 / mo
+175 minutes of Conversational Video, 3 custom Face slots, up to 3 concurrent sessions, 3 Google Meet/Zoom configurations, 25 stock faces, pay as you go usage, no watermark
+”Most Popular”; no introductory discount as of 2026-10-24 (the
+“First month 50% off”
+promo shown on 2026-07-21 remains gone); + pay as you go overage; 15-min maximum conversation duration
+Growth
+$397 / mo
+1,300 minutes of Conversational Video, 7 custom Face slots, up to 10 concurrent sessions, 7 Google Meet/Zoom configurations, 100+ Stock Faces, conversation recordings
+Plan card says
+“No conversation duration limit”
+, but the Compare Plans matrix lists a 60-min maximum conversation duration; + pay as you go overage
+Business
+$975 / mo
+4,000 minutes of Conversational Video, 15 custom Face slots, up to 15 concurrent sessions, 15 Google Meet/Zoom configurations, 100+ Stock Faces, priority support and 1:1 onboarding call
+”For companies who are starting to scale, or want direct support”; 60-min maximum conversation duration; + pay as you go overage
+Enterprise
+Custom
+100% whitelabeled experience, dedicated Stock Faces, custom concurrency limits, enterprise-grade security and compliance, SLAs for speed and compute, faster boot times, forward-deployed engineering, dedicated Slack channel
+Sales-led, quoted; “volume discounts” / “significant scaling discounts”; whitelabeled Google Team Domains marked
+coming soon
+
+Developer CVI — per-unit rates and caps (from the Compare Plans matrix)
+
+Metered unit
+Free
+Starter
+Builder
+Growth
+Business
+Enterprise
+Included Conversational Video minutes
+20 min/mo
+60 min/mo
+175 min/mo
+1,300 min/mo
+4,000 min/mo
+Custom
+Pay-as-you-go extra minutes
+—
+—
+$0.35 / min
+$0.31 / min
+$0.26 / min
+Significant scaling discounts
+Included video-generation minutes
+—
+5 min/mo
+15 min/mo
+50 min/mo
+250 min/mo
+Custom
+Video-generation overage
+—
+—
+$1 / min
+$0.90 / min
+$0.80 / min
+Custom
+Conversation recordings
+—
+—
+—
+$0.03 / min
+$0.03 / min
+Scaling discounts
+Maximum concurrent sessions
+1
+1
+3
+10
+15
+Custom
+Maximum conversation duration
+5 min
+10 min
+15 min
+60 min
+60 min
+Custom
+Stock Face library access
+10 Faces
+10 Faces
+25 Faces
+75+ Faces
+75+ Faces
+75+ (incl. custom shoots)
+Included custom Face slots
+—
+1
+3
+7
+15
+Unlimited
+
+Conversation minutes are rounded to the nearest 6-second increment with a 30-second minimum charge per conversation; a conversation is billed from API connect to disconnect, regardless of whether a participant joins (auto-closes after 5 min if none present). Pay-as-you-go overage begins at Builder — Free and Starter list included minutes but no per-minute rate. Note the two surfaces disagree on Growth/Business stock faces: the plan cards say “Access to 100+ Stock Faces” while the Compare Plans matrix says “75+ Faces.” Tavus renamed its avatars from “Replicas” to “Faces” across the page between the 2026-08-28 and 2026-10-24 captures; the matrix section is now “Face API”.
+
+PALs (consumer plans) — marketing page removed; prices withdrawn
+
+PALs, Tavus’s consumer AI-companion product, still has live supporting surfaces —
+tavus.io/pal-maker
+and
+help.tavus.io
+both return HTTP 200, and the developer pricing page itself still references “Spin up your first PAL” and answers “What’s a custom PAL face?” in its FAQ — but the
+dedicated
+/pals
+marketing page is gone
+. As of the 2026-07-29 capture,
+/pals
+was still live with no dollar figure on it; as of the
+2026-08-28 capture (reconfirmed 2026-10-24), both
+tavus.io/pals
+and
+www.tavus.io/pals
+return Tavus’s own branded 404 page
+(“THE PAGE YOU ARE ARE LOOKING FOR DOESN’T EXIST OR HAS BEEN MOVED”), confirmed via capture and manual curl (the bare URL 301-redirects to
+www.tavus.io/pals
+, which itself 404s).
+tavus.io/pals/pricing
+continues to redirect into the developer pricing page rather than resolving on its own. Consumer PALs plan prices remain undisclosed on any Tavus surface — the last-known ladder is recorded under
+Pricing evolution
+for historical reference — and the standalone consumer landing page that once hosted it no longer resolves at all.
+
+Startups & Grants program — page no longer resolves
+
+Since the 2026-07-29 capture,
+tavus.io/startups
+has returned Tavus’s own branded 404 page (“THE PAGE YOU ARE ARE LOOKING FOR DOESN’T EXIST OR HAS BEEN MOVED”), reconfirmed still 404 on 2026-08-28 and 2026-10-24, and the current site nav (Products / Enterprise / API Platform / Research / Vision / Pricing) carries no link to a startups, grants, or equivalent program. As last documented (2026-06/07 captures), the program offered early-stage builders
+free access for 3 months
+— 15,000 minutes, 25 replicas, and full developer-platform access (CVI, Knowledge Base with 30ms RAG, Memories) — plus an academic research grant, at no list price, requested rather than self-serve; SOC 2, HIPAA, GDPR, and BAA compliance were noted on that surface, along with 42 languages and a sub-500ms latency claim. Whether the program was discontinued, folded into another surface, or moved to an unlinked URL is not disclosed on the public site.
+
+Sales motions across products: PLG / self-serve for the developer Free, Starter, Builder, Growth, and Business plans; sales-led for Enterprise (“Contact us”) and the Startups & Grants program; PALs is app-store / in-product self-serve with no published web price list.
+
+Hidden costs
+: What heavy conversational-video usage actually costs
+
+The advertised access fee understates what heavy conversational-video usage actually costs once pay-as-you-go minutes stack up. Because Tavus’s overage is uncapped — “never paused, never throttled” — the marginal minute is the real cost driver, and a single popular product feature can drive the metered line far past the base fee.
+
+Archetype A — a Growth-plan team running ~5,000 conversational-video minutes/month.
+The $397 access fee includes 1,300 CVI minutes, so 3,700 minutes spill to pay-as-you-go at $0.31/min. Add conversation recordings:
+
+Line item
+Monthly cost
+Growth access fee (includes 1,300 CVI min)
+$397
+3,700 CVI overage minutes @ $0.31/min
+$1,147
+2,000 minutes of conversation recordings @ $0.03/min
+$60
+Estimated monthly total
+$1,604
+
+The metered minutes ($1,147) cost roughly 3× the headline access fee ($397) — so at moderate scale the “$397/mo” plan is really a $1,600+/mo bill, and the access fee is a rounding error against usage.
+
+Archetype B — a Builder-plan startup with one viral week (~600 CVI minutes).
+The $59 Builder fee includes only 175 CVI minutes, so 425 minutes overflow at $0.35/min:
+
+Line item
+Monthly cost
+Builder access fee (includes 175 CVI min)
+$59
+425 CVI overage minutes @ $0.35/min
+$149
+Estimated monthly total
+$208
+
+A ~3.4× jump in usage turns a $59 plan into a $208 bill — so the uncapped overage is the line item early-stage teams must forecast, not the sticker price. (The $22 Starter tier lists included minutes but advertises no pay-as-you-go CVI rate, so teams expecting to exceed 60 minutes should plan on Builder, where overage begins.)
+
+Want to estimate your own Tavus bill? Use the Tavus pricing calculator to model your monthly cost based on conversation minutes, video-generation minutes, and custom replicas.
+
+Pricing evolution
+: How Tavus’s CVI and PALs pricing has shifted
+
+Cadence
+
+Quarter
+Price changes
+Product / SKU additions
+Notes
+2023 Q1
+0
+0
+Personalized-video era: flat
+$275/mo Intro
+plan (200 videos) + Business Custom.
+2023 Q3
+1
+0
+Self-serve $275 plan removed; pricing page went
+Enterprise-only / sales-only
+alongside the seed round.
+2024 Q3
+1
+1
+Pivot to usage-based CVI API pricing
+: Free $0 / Starter $39 / Growth $375 / Enterprise Custom; value metric becomes the CVI minute.
+2025 Q1
+1
+0
+Starter $39 → $59, Growth $375 → $397
+(between Feb and Mar 2025); page rebranded “Pricing built to scale”, $12k Enterprise floor.
+2025 Q4
+0
+0
+$40M Series B (CRV); “Human Computing” repositioning — no list-price change to developer tiers.
+2026 Q1
+0
+1
+PALs consumer plans added
+(Free / Plus $20 / Max $50); pricing page splits into PALs
+2026 Q2
+1
+2
+Developer ladder expands 4 → 6 tiers
+: new
+Starter $22
+and
+Business $975
+added; old $59 Starter renamed
+Builder
+(100 → 175 min); CVI overage recut to $0.35 / $0.31 / $0.26 per min.
+2026 Q3
+2
+0
+2026-07-21
+: no list price moves, but the
+50%-off-first-month promo shifts from Starter to Builder
+(first month $29) and Starter is relabelled
+“No pay as you go coverage”
+; separately, the
+public PALs consumer price list is withdrawn
+(
+/pals/pricing
+→ 301 to developer pricing).
+2026-07-29
+: the Builder first-month promo is
+removed again
+(plain $59/mo, no discount on any tier); separately,
+tavus.io/startups
+now returns a branded 404 with no nav replacement.
+2026-08-28
+: the standalone
+/pals
+marketing page — still live with product copy (no price) as of 2026-07-29 — now returns a branded 404 on both the bare and
+www
+domains;
+/pals/pricing
+still redirects to developer pricing rather than resolving on its own.
+2026 Q4
+0
+0
+2026-10-24
+: no price moves;
+per-conversation caps change
+— Starter 5 → 10 min, Growth and Business from “Maximum” to a stated 60 min, Enterprise Custom; Starter’s card now reads
+“No pay as you go overage”
+; Replicas renamed
+Faces
+.
+
+Tracked range: 2023-03–2026-10. Quarters not listed were verified stable (0 price changes, 0 SKU additions).
+
+Notable changes
+
+2023-03
+— Pricing page sells a flat
+$275/mo “Intro”
+plan (1 AI voice/face model, 200 personalized videos/mo) — the per-video marketing-automation model.
+
+2023-09
+— Self-serve plan removed; page shows only an Enterprise “Request Demo” card with no list price.
+
+2024-08
+— Page relaunches as
+“Transparent usage-based pricing”
+: Free $0, Starter $39/mo, Growth $375/mo, Enterprise Custom — all pay-as-you-go on the conversational-video minute.
+
+2025-03
+— Entry prices raised:
+Starter $39 → $59, Growth $375 → $397
+; page rebranded
+“Pricing built to scale”
+with a “$12k annual” Enterprise floor.
+
+2025-11
+—
+$40M Series B
+led by CRV; total funding ~$64M; “The Human Computing Company” positioning (
+VentureBeat
+).
+
+2026-02
+—
+PALs consumer plans
+(Free / Plus $20 / Max $50) appear; pricing page adds a PALs | Developer tab toggle.
+
+2026-06
+—
+Developer ladder expands from four tiers to six
+: a new
+Starter $22/mo
+(60 min, “50% off first month”) and a new
+Business $975/mo
+(4,000 min) are added; the old $59 Starter is renamed
+Builder
+with included minutes raised 100 → 175; CVI overage recut to $0.35 (Builder) / $0.31 (Growth) / $0.26 (Business) per minute and video-generation overage to $1 / $0.90 / $0.80; Free tier shifts to 20 minutes and 42+ languages.
+
+2026-07-21
+—
+The introductory discount moves up a rung
+: Builder ($59/mo, “Most Popular”) now shows a struck-through list price against a
+$29 first month
+, while Starter loses the “50% OFF FIRST MONTH” badge it carried in June and its card is relabelled
+“No pay as you go coverage.”
+No list price and no per-minute rate changed — this is a conversion-path change, aimed at pulling trial traffic to the tier where metered overage actually begins.
+
+2026-07-21
+—
+The public PALs consumer price list is withdrawn
+:
+tavus.io/pals/pricing
+301-redirects to the developer pricing page, the
+/pals
+product page carries no dollar figure, and the top nav is restructured from PALs / Get Access / Developers to Products / Solutions / API Platform. PALs is still shipping; only its published prices are gone.
+
+2026-07-29
+—
+The Builder first-month promo is removed again
+: eight days after moving to Builder, the “First month 50% off” badge and the struck-through $29 price are gone — Builder’s card and the Compare Plans matrix header both show a plain $59/mo, and no tier on the page shows an introductory discount. Separately,
+tavus.io/startups
+now returns Tavus’s own branded 404 page and the nav carries no link to a replacement; whether the Startups & Grants program was discontinued or just moved is undisclosed. No developer list price, included-minute allowance, or per-minute rate changed.
+
+2026-08-28
+—
+The standalone PALs marketing page goes fully 404
+:
+tavus.io/pals
+and
+www.tavus.io/pals
+— which had stayed live with product copy (just no price) through the 2026-07-29 capture — now both return Tavus’s own branded 404 page, confirmed via capture and an independent manual curl (the bare domain 301s to
+www
+, which itself 404s; the 404 response’s
+last-modified
+header reads 2026-08-27).
+tavus.io/pals/pricing
+continues to redirect into the developer pricing page rather than resolving on its own, and
+tavus.io/pal-maker
+plus
+help.tavus.io
+both remain live — so this reads as consolidation of the standalone consumer storefront, not a PALs shutdown. No developer CVI list price, included-minute allowance, or per-minute rate changed.
+
+2026-10-24
+—
+Per-conversation caps move instead of prices
+: the Compare Plans matrix doubles Starter’s maximum conversation duration from 5 to 10 minutes and replaces the open-ended “Maximum” on Growth and Business with a stated
+60-minute
+cap (Enterprise: Custom). For Starter buyers this is a straight gain, since a demo or interview no longer cuts off at minute five. For Growth and Business it turns an unstated ceiling into a number buyers can plan around, though Growth’s plan card still says “No conversation duration limit”. On the same page, Starter’s card now reads
+“No pay as you go overage”
+and drops the “Pay as you go usage” feature line that contradicted it, avatars are renamed from “Replicas” to “Faces”, and the model names move to Phoenix-4.5 and Sparrow-2. No list price, included-minute allowance, or per-minute rate changed.
+
+The PALs price withdrawal in detail
+
+Tavus did not discontinue PALs — the iOS app, PAL Maker, and help centre are all still live — it stopped publishing what PALs costs. Between the 2026-06-24 and 2026-07-21 captures, the dedicated consumer pricing page was collapsed into a 301 redirect to the developer plans, the
+/pals
+product page was left with zero dollar figures, and the navigation entry that led buyers there was removed in a wider Products / Solutions / API Platform restructure.
+
+The result is a company whose price transparency is now
+split by audience
+. A developer can still verify the entire cost model in public, down to the $0.26/min floor. A consumer cannot see a price until they are inside the app or the App Store listing — which is the classic consumer-subscription pattern (price discovery happens at the install/paywall step, where A/B tested prices and store-specific tiers are easier to run), but it is a genuine regression against the February 2026 state, when the same page published both ladders side by side.
+
+For our analysis it also removes the corpus’s cleanest public demonstration of one value metric packaged two opposite ways. Until July 2026 you could read, on a single Tavus page, the conversation minute sold as an uncapped developer overage
+and
+as a flat consumer allowance. That comparison is now only historical, which is why the two-market argument below is stated in the past tense rather than as a live, verifiable claim. Nothing suggests the consumer plans stopped existing; what changed is that a buyer can no longer check them, and a price you cannot check is a price that can move without anyone noticing.
+
+The gap widened again on
+2026-08-28
+. The standalone
+/pals
+page — which had stayed live with product copy and simply no price through the 2026-07-29 capture — now returns Tavus’s own branded 404 on both the bare and
+www
+domains. A visitor who lands on the old URL no longer even gets a priceless product description to read; they get a dead link. The underlying product looks unaffected —
+tavus.io/pal-maker
+and
+help.tavus.io
+both still resolve, and the developer pricing page still invites visitors to “spin up your first PAL” — so this reads as Tavus folding the standalone consumer storefront into the developer site rather than sunsetting PALs itself. But it removes the last public page that named PALs as its own product, leaving the developer CVI plans as the only fully public, fully described pricing surface Tavus operates.
+
+The 2023→2024 repackaging in detail
+
+The most consequential pricing event in Tavus’s history is not a price change but a value-metric change. In early 2023 the company billed per
+personalized video
+— the $275/mo Intro plan bought “200 Tavus-generated videos per month,” a packaging built for marketing and sales teams sending one-to-many personalized clips. By August 2024 the same URL billed per
+conversation minute
+through a usage-based developer API, with a $0 Free tier inviting developers to “get their feet wet.” That is a complete repositioning of what is being sold (a real-time conversational pipeline, not a rendered video) and who is buying it (developers embedding an API, not marketers buying seats). The per-video plan and the per-minute plan are different products that happened to share a domain — which is why no single SKU shows a clean numeric delta across the boundary.
+
+What’s unique
+: The distinctive mechanics of Tavus’s two-sided model
+
+1. One value metric, two opposite packagings — now only half of it public.
+Tavus sells the
+same
+conversation minute to developers as an uncapped pay-as-you-go API overage and to consumers as a flat-rate allowance inside a PALs subscription. Most companies pick one packaging; Tavus runs both off an identical unit, which keeps the metric honest — the thing customers pay for (a minute of real-time AI-human conversation) is the same thing whether you’re a developer or a consumer. Since
+2026-07-21
+only the developer half is verifiable: the consumer ladder (Free / Plus $20 / Max $50 against 15 / 150 / 500 call minutes) was pulled from the site, so the dual-packaging design is still the architecture but is no longer a claim a buyer can audit. By
+2026-08-28
+the erosion went a step further — the standalone
+/pals
+page that once at least described the consumer product (with no price attached) now returns a branded 404, so there is no longer a public page that even names the second packaging, let alone lets a buyer verify it.
+
+2. Overage is a tier privilege, not a plan feature.
+Pay-as-you-go begins at Builder ($59). Free and Starter publish included minutes and no per-minute rate, and Starter’s card says so outright (
+“No pay as you go coverage”
+from 2026-07-21, reworded to
+“No pay as you go overage”
+by 2026-10-24). That inverts the usual freemium shape: the cheap tiers are hard caps and the metered, uncapped model is something you buy your way into. It is also why the discount moved before it disappeared: for about a week in July 2026 the promo sat on the first tier where usage can actually run, subsidizing the plan with revenue upside rather than the one that terminates at 60 minutes — but by
+2026-07-29
+the promo was gone from every tier, so today the tier-privilege structure stands on its own, with no acquisition subsidy attached to either side of it. Since
+2026-10-24
+session length is tiered as well: a single conversation can run 5 minutes on Free, 10 on Starter, 15 on Builder and 60 on Growth and Business. A buyer moving up the ladder therefore gets longer sessions as well as an overage meter, and on every plan with a published cap it bounds what one runaway session can cost.
+
+3. The billed minute is a whole pipeline, not a model call.
+A single conversation minute meters Tavus’s full first-party stack — Raven (perception), Sparrow (turn-taking), and Phoenix (rendering). Because Tavus owns all three models, it can price the
+outcome
+(a lifelike conversational minute) rather than the
+inputs
+(tokens, frames, API calls), which is far easier for buyers to reason about than a decomposed multimodal bill — and it sidesteps the
+value-metric problem
+that traps vendors trying to bill on raw model usage.
+
+4. Uncapped overage as a deliberate reliability promise.
+Tavus markets pay-as-you-go that is “never paused, never throttled.” For a real-time conversational product that’s a feature, not a trap — a hard quota cutoff mid-conversation would break the user experience — but it shifts forecasting risk to the customer, which is why a Growth plan can quietly become a multi-thousand-dollar bill (see Hidden costs).
+
+5. Multiple metered SKUs under one access fee.
+Beyond CVI minutes, Tavus separately bills video-generation minutes ($1 → $0.90 → $0.80/min) and conversation recordings ($0.03/min on Growth and Business), and each tier carries its own included replica slots and concurrency cap — so the access fee is a gateway to several independent meters, each with its own included allowance and per-tier discount. This is closer to a cloud-infra bill than a SaaS seat plan.
+
+Strengths & weaknesses
+
+Strengths
+Weaknesses
+Single, intuitive value metric
+— the conversation minute maps cleanly to delivered value for both API and consumer buyers.
+Uncapped overage = bill-shock risk
+— no spend cap means a viral feature can 3–5× a plan’s headline price overnight.
+Public, self-serve developer pricing
+— six listed tiers (Free / $22 / $59 / $397 / $975) with per-minute overage rates, rare in real-time-AI infra.
+Multiple parallel meters
+— CVI minutes, generation minutes, replica slots, and recordings each bill separately, complicating forecasting.
+Generous Free tier
+— 20 CVI minutes + stock faces + whitelabeled API + 42+ languages lets developers ship a demo at $0.
+Included allowances keep shifting
+— Growth’s included minutes moved (e.g., 1,250 → 1,300), tier names changed (Starter → Builder), and on 2026-10-24 the per-conversation caps moved too (Starter 5 → 10 min; Growth and Business from “Maximum” to 60 min), so “what $X buys” is a moving target. Growth’s own card still says “No conversation duration limit” against the matrix’s 60 minutes.
+Same tech, two markets
+— developer CVI and consumer PALs amortize one model stack across two monetization paths.
+No published ARR / customer counts
+— limited transparency on scale makes the pricing’s commercial traction hard to benchmark.
+Per-minute rates fall as you scale
+— $0.35 → $0.31 → $0.26/min CVI and $1 → $0.90 → $0.80/min generation reward growth without a manual quote.
+Starter is a dead end, not an on-ramp
+— its card reads
+“No pay as you go overage”
+(worded “coverage” from 2026-07-21 until the 2026-10-24 capture), so a team that outgrows 60 minutes a month has no metered path and no discounted entry. The intro promo that briefly moved to Builder was withdrawn entirely by 2026-07-29, so neither tier now offers a discount. Doubling Starter’s per-conversation cap to 10 minutes on 2026-10-24 makes each session more usable, but the 60-minute monthly bucket still ends in a forced upgrade.
+The one price a buyer most needs is still public
+— the developer per-minute overage rate, the line item that actually drives the bill, remains listed on every paid tier.
+Price transparency is now split by audience
+— the July 2026 PALs price withdrawal, followed by the standalone
+/pals
+page itself returning a branded 404 in August 2026, means consumer plan prices (and now the product page describing them) exist only inside the app, so half of Tavus’s monetization can move without any public trace.
+
+Billing UX
+: Self-serve plan selection and uncapped pay-as-you-go
+
+Named self-serve plan CTAs
+— each card carries its own button (“Get Started” on Free, “Choose Starter”, “Choose Builder”, “Choose Growth”, “Choose Business”), so plan selection happens on the pricing page itself rather than behind a quote form.
+
+Compare Plans matrix
+— a full six-column feature grid (General Features · Face API · Usage & Scale · Pipeline & Models · Features · Support and Services · Async Video Generation) publishes every entitlement, cap, and per-minute rate side by side, including the ones the plan cards omit.
+
+Pay-as-you-go with no overage cap
+— once a plan’s included minutes are used, additional usage is billed at the stated per-minute rate and is “never paused, never throttled.” The FAQ states it explicitly: “You’re billed only for what you use beyond your monthly allowance.” Starter is the exception — its card reads “No pay as you go overage.”
+
+No introductory discount currently shown
+— Builder briefly advertised “First month 50% off” (a discounted month-one price against a struck-through $59/mo) as of the 2026-07-21 capture; as of 2026-07-29 the Most Popular card and the Compare Plans header both show a plain $59/mo with no promo badge on any tier.
+
+6-second metering with a 30-second minimum
+— conversation minutes are rounded to the nearest 6-second increment, with a 30-second minimum charge per conversation, billed from API connect to disconnect (a conversation auto-closes after 5 minutes if no participant joins;
+test_mode = 'TRUE'
+runs the creation flow without incurring cost).
+
+Per-conversation duration caps
+— the matrix caps a single live conversation at 5 / 10 / 15 / 60 / 60 minutes from Free to Business, custom on Enterprise.
+
+Concurrency queueing rather than billing failure
+— concurrent-session caps (1 / 1 / 3 / 10 / 15 / Custom) make a surplus session wait for an active one to end, so the limit is enforced as a queue, not an overage charge.
+
+Conversation transcripts & recordings
+— full transcript visibility ships from Starter up; conversation recordings are billed as a separate $0.03/min line item on Growth and Business.
+
+“Contact Us” / Enterprise sales link
+— Enterprise quotes, Startups & Grants credits, and academic-research access are all requested through the Enterprise “Contact Us” link rather than self-serve checkout.
+
+Trust Center & compliance surface
+— SOC 2, HIPAA, GDPR, and BAA compliance status is published via the linked Trust Center; SOC 2 and HIPAA are listed as Enterprise-only rows in the Compare Plans matrix.
+
+Strategic wins
+: Why specific Tavus pricing decisions worked
+
+1. Repricing the unit, not just the number
+
+Tavus’s biggest pricing win was changing
+what
+it sells — from a per-video marketing plan to a per-minute conversational API — when the product itself changed. Rather than bolt API pricing onto the old video-quota plan, it relaunched the page around the conversation minute, the unit that actually tracks the value of real-time AI humans. Teams considering a
+value-metric change
+should study how cleanly Tavus swapped the metric instead of grandfathering an ill-fitting one.
+
+2. Leading with a $0 Free tier that exposes the whole pipeline
+
+The Free plan gives developers 20 real conversation minutes through the full CVI stack — not a watered-down sandbox — so the “aha” moment (a working AI human) happens before any payment. This is classic product-led growth for an infrastructure product: the cost of a free minute is real compute, but it converts because the demo
+is
+the product. The same dynamic — give away the value metric, monetize at scale — drives most
+usage-based AI pricing
+launches.
+
+3. Falling per-minute rates that reward growth automatically
+
+By cutting CVI overage from $0.35 to $0.31 to $0.26/min and generation from $1 to $0.90 to $0.80/min as customers move Builder → Growth → Business, Tavus builds a volume discount into the self-serve ladder. Customers see their marginal cost drop as they scale without negotiating, which reduces the incentive to churn to a competitor at the exact moment usage is climbing.
+
+4. Uncapped overage that protects the core experience
+
+Choosing “never paused, never throttled” over a hard quota is a pricing decision that defends the product. For a live conversational interface, a mid-call cutoff would be a worse outcome than an unexpected charge, so Tavus aligned its billing policy with the reliability its category demands — and turned an operational necessity into a marketing line.
+
+5. Testing the discount on the tier where usage can actually grow
+
+Moving the “50% off first month” promo from Starter to Builder on
+2026-07-21
+put the subsidy on the cheapest plan that has an overage meter attached — a discounted Starter buys a customer capped at 60 minutes forever, while a discounted Builder buys one whose bill can expand. The logic was right, but Tavus didn’t let the experiment run: by
+2026-07-29
+, eight days later, the promo was gone from Builder too, not shifted back to Starter but withdrawn from the page entirely. That reversal doesn’t undo the underlying insight — subsidize the tier with expansion potential, not the one that terminates — but it does mean the specific execution never survived long enough to call it a settled win. Read as a pricing hypothesis, the direction was sound; read as a shipped decision, it’s still in flux, and the two changes inside nine days suggest the promotional layer of Tavus’s pricing page is actively being tuned rather than finalized.
+
+Areas to improve
+: Specific pricing gaps with proposed fixes
+
+1. Add an optional spend cap or budget alert
+
+The uncapped overage is right for reliability but wrong for forecasting — a Growth plan can silently become a $1,700+/mo bill. Tavus should offer an
+opt-in
+monthly spend ceiling with email/Slack alerts at 50/80/100% of budget, so finance teams can adopt without fearing a runaway minute. This preserves the no-throttle promise for those who want it while de-risking adoption for the budget-conscious. See our take on the
+shift from entitlements to credits in LLM billing
+.
+
+2. Publish a stable “what $397 buys” spec
+
+Included allowances have moved between snapshots (Growth’s bundled minutes shifted materially over 2025), which erodes trust in the headline. Tavus should version and date the included-allowance table on the pricing page so buyers can see exactly what each tier includes today — and what changed — rather than discovering shifts only via the dashboard. The 2026-10-24 cap change shows why: the matrix now caps a Growth conversation at 60 minutes while Growth’s plan card still promises “No conversation duration limit”. A buyer designing hour-plus sessions, such as long interviews or therapy-style coaching, cannot tell which surface is binding.
+
+3. Consolidate the four meters into one estimate
+
+CVI minutes, generation minutes, replica trainings, and recordings each bill separately, so no buyer can eyeball their bill. A first-party, interactive estimator on the pricing page (the way we model it in the Tavus pricing calculator) would let prospects price a realistic workload across all four meters before signing up, reducing the “death by a thousand line items” surprise.
+
+4. Give Starter a metered on-ramp
+
+From
+2026-07-21
+the $22 Starter card carried the sub-label
+“No pay as you go coverage”
+while its own included-features list still read “Pay as you go usage”. By
+2026-10-24
+Tavus had fixed the wording: the card now reads
+“No pay as you go overage”
+and the contradicting bullet is gone. It also doubled Starter’s per-conversation cap from 5 to 10 minutes. The structural problem is unchanged. The better fix is to make the sub-label untrue: let Starter overflow at the Builder rate ($0.35/min). Today a team that hits 61 minutes must upgrade tiers — a discontinuity that arrives exactly when the product is working — where a metered overflow would let usage, not a plan-change decision, carry the customer up the ladder.
+
+5. Republish the PALs price list, or at minimum stop the marketing page from disappearing
+
+As of
+2026-08-28
+the problem is worse than a silent redirect:
+tavus.io/pals
+— the one page that at least described PALs as a product — now returns Tavus’s own branded 404 on both the bare and
+www
+domains, while
+tavus.io/pals/pricing
+still 301s into the unrelated developer API tiers. A consumer following an old link, a bookmark, or a search result for “Tavus PALs pricing” now lands on either a dead page or a page priced in per-minute conversational-API overages that have nothing to do with a companion subscription — with no signal either way that anything moved rather than vanished. If consumer prices must live behind the app paywall (a legitimate choice for store-billed subscriptions), the fix is a live
+/pals
+landing page — not a 404 — carrying a one-line “Plans start in the app” note and a link to the App Store listing. A dead branded 404 on a product’s own marketing URL reads as abandonment even when PAL Maker and the help centre confirm PALs is still shipping.
+
+Monetization stack & signals
+
+: how Tavus builds & buys its revenue engine
+
+Buys 2
+
+·
+Builds 1
+
+·
+3 open roles
+
+The read — where the monetization investment is going
+
+Tavus buys the money-movement layer — its terms name Stripe and Orb as its payment-services providers — but meters the product itself: conversation minutes bill on active GPU session runtime through Tavus's own PAL Maker dashboard. Hiring is post-sale implementation, not new monetization machinery.
+
+Stack — build vs buy
+
+Builds in-house
+
+· 1
+
+In-house usage metering (PAL Maker)
+
+Metering
+
+inferred
+
+Docs
+
+Sep 2026
+
+“You can view your current plan, usage, invoice history, and billing history anytime in the PAL Maker billing dashboard.”
+
+Buys (vendor)
+
+· 2
+
+Stripe
+
+Payments
+
+Docs 1
+
+Docs 2
+
+Sep 2026
+
+“Tavus uses Stripe, Inc. and Orb, Inc. as its third-party service providers for payment services (e.g., card acceptance, merchant settlement, and related services)”
+
+Orb
+
+Payments
+
+Docs
+
+Sep 2026
+
+Part of Adyen since July 2026
+
+“Tavus uses Stripe, Inc. and Orb, Inc. as its third-party service providers for payment services (e.g., card acceptance, merchant settlement, and related services)”
+
+Open roles in the revenue & lifecycle org — 3
+
+View open roles
+
+Customer Engineer
+
+Customer success
+
+Sep 11, 2026
+
+Forward Deployed Engineer
+
+Customer success
+
+Sep 11, 2026
+
+Technical Customer Success Manager
+
+Retention
+
+seen Apr 23, 2026
+
+Signals reviewed
+Nov 2026
+· derived from public job posts, product docs
+
+Job postings fill and close over time — once a posting is filled we keep it as a dated
+citation (the quoted evidence remains); use
+View open roles
+for current listings.
+
+Buys from, in the corpus
+
+Orb
+Vendors in the corpus that name Tavus as a customer in their own stories or posts.
+
+Key takeaways
+
+When the product changes, change the unit — not just the price.
+Tavus repriced from per-video to per-minute when it pivoted from marketing video to conversational API. Forcing new value into an old metric (or vice versa) is how pricing pages drift out of sync with what’s actually sold.
+
+A real Free tier that runs the whole pipeline converts better than a sandbox.
+Giving away 20 genuine conversation minutes — not a degraded preview — lets the product sell itself before any payment, which is the PLG engine for an infra company. The same logic explains why Tavus moved its 50%-off-first-month promo from the capped $22 Starter up to the $59 Builder plan on
+2026-07-21
+: put the acquisition subsidy on the cheapest tier whose usage can actually grow, because discounting a plan with no overage path buys volume, not expansion. Tavus then withdrew that same promo entirely just eight days later, on
+2026-07-29
+, before the page had time to demonstrate the idea worked — a reminder that a single pricing-page snapshot can capture a live test, not a finished conclusion.
+
+One value metric can serve two markets — but transparency doesn’t have to travel with it.
+The same conversation minute powers an uncapped developer API and a flat consumer subscription. A clean metric travels across packaging; a packaging-specific metric does not. Tavus’s July 2026 withdrawal of the public PALs prices shows the corollary: a company can keep the unit consistent across audiences while publishing it for only one of them, and buyers should not read developer-side transparency as a company-wide habit.
+
+Uncapped overage is a product decision, not just a billing one.
+For real-time experiences, throttling at a quota is worse than a surprise charge — so the billing policy should defend the core UX, but pair it with opt-in budget controls. On its metered tiers Tavus caps session length instead of monthly volume: since
+2026-10-24
+every plan states a per-conversation maximum (10 minutes on Starter, 60 on Growth and Business). That puts a ceiling on what one idle or runaway session can cost without ever throttling total usage.
+
+Stack multiple meters carefully — and make them estimable.
+Tavus bills four separate usage dimensions under one access fee; without a first-party estimator, buyers can’t predict their bill, which slows adoption even when each rate is fair.
+
+UBP implications
+
+Outcome-shaped metering is viable when you own the stack.
+Because Tavus owns Raven, Sparrow, and Phoenix, it prices the
+outcome
+(a conversation minute) instead of decomposed inputs. Vendors who own their full pipeline can offer simpler, more defensible
+usage metrics
+than those reselling third-party models. It’s the same pattern emerging across
+AI-agent pricing
+, where the billed unit increasingly maps to an outcome rather than a raw API call.
+
+Hybrid access-fee-plus-usage works best when the included bucket sets expectations.
+Tavus’s access fee buys a minute allowance that doubles as a forecasting anchor; the overage then scales without a new contract. This
+hybrid model
+balances predictable revenue with usage upside — but only if the included allowance is stable and clearly published. It also only works where the bucket has an overflow: Tavus’s Free and Starter plans carry no per-minute rate, so the metered model begins at $59, and the July 2026 introductory discount followed it there for about a week before being withdrawn again on
+2026-07-29
+— a sign the acquisition-subsidy placement is still being tuned rather than settled doctrine. Decide deliberately whether an entry plan is a trial or a cap — a cap forces a conscious upgrade at exactly the moment usage is growing, which is a worse expansion mechanic than letting overage carry the customer.
+
+The same metric can bridge developer and consumer monetization — and the two sides will drift apart on disclosure.
+Tavus shows that a well-chosen unit lets a company run PLG/API and flat-subscription consumer pricing in parallel without inventing two value stories — a template for AI companies straddling builder and end-user markets. But the July 2026 PALs withdrawal shows where that template splits: developer pricing has to stay public because integration decisions are made against a rate card, while consumer pricing gravitates to the app paywall where it can be tested and localised. Expect dual-audience AI companies to end up transparent on the API side and opaque on the consumer side, and treat that asymmetry as a structural outcome rather than a lapse.
+
+Sources
+
+Tavus developer pricing page
+(accessed 2026-08-28)
+
+Tavus PALs product page
+— now returns a branded 404 (accessed 2026-08-28); last live with no list prices as of 2026-07-21;
+tavus.io/pals/pricing
+still 301-redirects to the developer pricing page
+
+Tavus Startups & Grants program
+— returns a branded 404 (accessed 2026-08-28)
+
+Tavus developer docs
+(accessed 2026-06-24)
+
+Tavus pricing page — Wayback Machine snapshot, 2026-05-21
+— independent second source (accessed 2026-06-01)
+
+Tavus pricing page — Wayback Machine snapshot, 2026-06-22
+— independent second source for the pre-expansion four-tier ladder (Basic Free / Starter $59 / Growth $397 / Enterprise) and the withdrawn PALs ladder (Free / Plus $20 / Max $50), confirming the six-tier restructure landed after 2026-06-22 (accessed 2026-07-21)
+
+Tavus developer pricing page
+— independent re-fetch confirming all six current developer tier prices, included minutes, and per-minute overage rates (Free/$22/$59/$397/$975/Custom) (accessed 2026-08-28)
+
+Tavus PALs page
+— independent re-fetch confirming
+/pals
+still 404s (accessed 2026-08-28)
+
+Tavus PALs pricing redirect
+— independent re-fetch confirming this URL still redirects into the developer pricing page with no PALs price list published (accessed 2026-08-28)
+
+Tavus developer pricing page
+— independent re-fetch confirming all six developer tier prices, included minutes, per-minute CVI/video-generation/recording rates, and maximum conversation durations (Free/$22/$59/$397/$975/Custom) (accessed 2026-10-25)
+
+Tavus docs — Call Duration and Timeout
+— confirms max conversation length is capped per plan and the 300-second participant-absent timeout; docs publish no dollar prices (accessed 2026-10-25)
+
+Bottom line
+
+Tavus is a case study in repricing the unit, not the number: it walked away from a flat $275/mo personalized-video plan and rebuilt its pricing around the conversation minute — a single metric clean enough to power both an uncapped developer API and a flat consumer subscription. The model is elegant and honest about value, but the uncapped overage and four parallel meters push real forecasting work onto the buyer, so the headline $59 and $397 plans understate what production usage actually costs. July 2026 sharpened rather than changed that verdict: no list price moved, but Tavus pulled its consumer PALs prices off the web, briefly moved its trial discount up to Builder, the cheapest tier where a meter actually runs, and then withdrew that same discount eight days later on
+2026-07-29
+— leaving a rate card that is fully auditable for developers, invisible for consumers, and still visibly being tuned on its promotional edges. By
+2026-08-28
+that invisibility became literal: the standalone
+/pals
+marketing page itself now returns a branded 404, leaving the developer CVI plans as the only page on tavus.io that still describes what Tavus sells. The
+2026-10-24
+update did not change the verdict. No price moved. Tavus tuned the per-session ceilings instead: Starter’s cap doubled to 10 minutes, and Growth and Business went to a stated 60. The price ladder looks settled, and the experimenting has moved to limits and wording. Get the value metric this right, publish it on both sides, settle the intro-pricing experiments, add spend controls, and you have a pricing page that scales as smoothly as the product.
+
+Want to compare Tavus against other conversational-video and avatar pricing? Browse the
+pricing blueprint
+.
+
+Price evidence
+
+Fig. 1
+Starter costs $22 a month
+
+“$22/mo”
+
+tavus.io
+
+tavus.io
+/pricing
+
+Pricing page · captured Oct 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Fig. 2
+Builder, the most popular plan, costs $59 a month
+
+“$59/mo”
+
+tavus.io
+
+tavus.io
+/pricing
+
+Pricing page · captured Oct 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Fig. 3
+Growth costs $397 a month
+
+“$397/mo”
+
+tavus.io
+
+tavus.io
+/pricing
+
+Pricing page · captured Oct 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Fig. 4
+Extra conversation minutes on Builder cost $0.35 each
+
+“$0.35 per minute”
+
+tavus.io
+
+tavus.io
+/pricing
+
+Pricing page · captured Oct 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Every snapshot is our own capture of the source, dated, with the relied-on words boxed over the image.
+How we capture evidence
+.
+
+Pricing timeline
+
+: Major events on a vertical axis
+
+Each milestone below corresponds to a public pricing change, product launch, or material adjustment. Major events use a filled marker; minor adjustments use a faded one.
+
+Per-conversation caps raised and stated; Replicas renamed Faces
+
+Oct 2026
+
+Starter's maximum conversation duration doubled from 5 to 10 minutes, and Growth and Business, previously listed at 'Maximum', now show a stated 60-minute cap per conversation (Enterprise: Custom). The Starter card now reads 'No pay as you go overage' and no longer lists pay-as-you-go usage as a feature. Avatars were renamed from 'Replicas' to 'Faces'. No list price, included-minute allowance or per-minute rate changed.
+
+Dated
+Oct 24, 2026
+
+Evidence & citation →
+
+tavus.io
+/pricing
+
+Pricing page · archived Aug 28, 2026
+
+Snapshot of an archived copy of the page.
+
+Standalone PALs marketing page goes fully 404
+
+Aug 2026
+
+tavus.io/pals and www.tavus.io/pals — still live with product copy but no price as of 2026-07-29 — now both return Tavus's own branded 404 page, while tavus.io/pals/pricing continues to redirect into developer pricing rather than resolving on its own. PAL Maker and help.tavus.io remain live, so this reads as the standalone consumer marketing surface being pulled rather than PALs itself being discontinued. No developer CVI list price or overage rate changed.
+
+Dated
+Aug 28, 2026
+
+Evidence & citation →
+
+tavus.io
+/pals
+
+PALs page · captured Jul 21, 2026
+
+Snapshot of the source page, unmodified.
+
+Builder's first-month discount removed; Startups & Grants page 404s
+
+Jul 2026
+
+The 'First month 50% off' promo Tavus had just moved to Builder on 2026-07-21 is gone eight days later — Builder's card and the Compare Plans matrix both show a plain $59/mo with no discount badge on any tier. Separately, tavus.io/startups now returns Tavus's own branded 404 page and the nav carries no link to a replacement. List prices, included minutes, and per-minute overage rates are unchanged.
+
+Dated
+Jul 29, 2026
+
+Evidence & citation →
+
+captured
+2026-07-29
+
+PALs price list withdrawn; intro discount moves from Starter to Builder
+
+Jul 2026
+
+Tavus stopped publishing consumer PALs prices — tavus.io/pals/pricing now 301-redirects to the developer pricing page and the /pals product page carries no dollar figure — leaving the developer CVI plans as the only listed prices. On the same page, the '50% off first month' promo moved up a rung from the $22 Starter to the $59 Builder tier ($29 first month), and Starter's price card was relabelled 'No pay as you go coverage'. List prices and all per-minute rates are unchanged.
+
+Dated
+Jul 21, 2026
+
+Evidence & citation →
+
+tavus.io
+/pals/pricing
+
+PALs pricing page · captured Jun 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Developer ladder expands to 6 tiers; $22 Starter + $975 Business added
+
+Jun 2026
+
+Tavus restructured developer CVI pricing into six tiers: Free (20 min), Starter $22/mo (60 min, 50% off first month), Builder $59/mo (175 min, Most Popular), Growth $397/mo (1,300 min), Business $975/mo (4,000 min), Enterprise custom. CVI overage recut to $0.35 (Builder) / $0.31 (Growth) / $0.26 (Business) per minute; video generation $1 / $0.90 / $0.80 per minute. PALs unchanged.
+
+Dated
+Jun 24, 2026
+
+Evidence & citation →
+
+tavus.io
+/pricing
+
+Before · archived Jun 22, 2026
+
+Snapshot of an archived copy of the page.
+
+tavus.io
+/pricing
+
+After · captured Jun 24, 2026
+
+Snapshot of the source page, unmodified.
+
+Developer CVI tiers (4-tier ladder) + PALs
+
+Jun 2026
+
+Developer plans: Free (25 min), Starter $59/mo (100 min), Growth $397/mo (1,250 min), Enterprise custom — pay-as-you-go video minutes with no cap ($0.37→$0.32/min CVI; $1→$0.90/min generation). PALs consumer: Free, Plus $20/mo, Max $50/mo.
+
+Dated
+Jun 1, 2026
+
+captured
+2026-06-01
+
+PALs consumer plans added; pricing page splits PALs / Developer
+
+Feb 2026
+
+The pricing page gained a PALs | Developer tab toggle. Developer tiers stayed Basic Free / Starter $59 / Growth $397 / Enterprise Custom; a new consumer ladder (PALs Free / Plus $20 / Max $50) sold the same conversation tech as a flat subscription gated by call minutes (15 / 150 / 500).
+
+Dated
+Feb 1, 2026
+
+captured
+2026-02-01
+
+$40M Series B; 'Human Computing' repositioning
+
+Nov 2025
+
+Tavus raised a $40M Series B led by CRV (Scale, Sequoia, Y Combinator, HubSpot Ventures), bringing total funding to ~$64M and repositioning as 'The Human Computing Company' — the corporate backdrop to the PALs consumer launch.
+
+Dated
+Nov 1, 2025
+
+Entry prices raised; 'Pricing built to scale'
+
+Mar 2025
+
+Between Feb and Mar 2025 Starter rose $39 → $59/mo and Growth $375 → $397/mo; the page rebranded to 'Pricing built to scale' and added an Enterprise floor 'starting at $12k annual'. Pay-as-you-go-with-no-limits messaging stayed.
+
+Dated
+Mar 1, 2025
+
+captured
+2025-03-01
+
+Pivot to usage-based CVI API pricing
+
+Aug 2024
+
+Pricing page relaunched as 'Transparent usage-based pricing' with four developer tiers: Free $0, Starter $39/mo (Most popular), Growth $375/mo, Enterprise Custom — all 'pay as you go usage' on top of the access fee. The value metric became the conversational-video minute (CVI), replacing per-video billing.
+
+Dated
+Aug 1, 2024
+
+captured
+2024-08-01
+
+Pricing page goes sales-only (Enterprise-only)
+
+Sep 2023
+
+By September 2023 the self-serve $275 plan disappeared; the pricing page showed only an Enterprise 'Request Demo' card with no list price, coinciding with the seed round and the shift toward a developer/API platform.
+
+Dated
+Sep 1, 2023
+
+Personalized-video era: flat $275/mo 'Intro' plan
+
+Mar 2023
+
+Tavus's pricing page sold marketing-video automation: an 'Intro' plan at $275/mo (1 AI voice & face model, 200 Tavus-generated videos/mo, unlimited templates) plus a 'Business' Custom plan. Billing was per personalized video, not per minute — the pre-CVI, pre-API model.
+
+Dated
+Mar 1, 2023
+
+captured
+2023-03-01
+
+Trivia
+
+·
+
+Tavus's 2023 pricing page sold a flat $275/mo 'Intro' plan for 200 personalized marketing videos — by August 2024 the same domain advertised 'Transparent usage-based pricing' with a $0 Free tier and pay-as-you-go video minutes, a full repackaging from per-video to per-minute.
+
+·
+
+Tavus ships three of its own foundation models inside one billed minute: Raven (perception), Sparrow (turn-taking), and Phoenix (rendering) — so a single 'conversation minute' meters an entire multimodal pipeline, not one model call.
+
+·
+
+The cheapest paid developer plan rose from $39/mo to $59/mo between February and March 2025 while the page rebranded from 'usage-based pricing' to 'Pricing built to scale' and added a '$12k annual' Enterprise floor.
+
+Questions & answers
+
+How much does Tavus cost?
+
+Tavus's developer CVI plans are Free (20 minutes), Starter $22/mo (60 minutes), Builder $59/mo (175 minutes), Growth $397/mo (1,300 minutes), Business $975/mo (4,000 minutes), and Enterprise (custom). Builder, Growth and Business add uncapped pay-as-you-go video minutes beyond the included allowance; Free and Starter have no pay-as-you-go rate. Builder briefly advertised 50% off the first month at $29 in mid-July 2026, but that promo was pulled by July 29 and no tier currently shows an introductory discount. Tavus's consumer PALs plans no longer have a published price list — tavus.io/pals/pricing redirects to the developer pricing page.
+
+How does Tavus bill conversational-video usage?
+
+Tavus charges a monthly access fee that includes a fixed allowance of conversation minutes, then bills pay-as-you-go for usage beyond it — $0.35/min on Builder, $0.31/min on Growth, and $0.26/min on Business — with no overage cap. Pre-rendered video generation is metered separately at $1/min (Builder), $0.90/min (Growth), and $0.80/min (Business). Minutes are billed in 6-second increments with a 30-second minimum per conversation.
+
+What is a Tavus conversation minute?
+
+A conversation minute is Tavus's core value metric: one minute of live face-to-face AI-human conversation through the full CVI pipeline — perception (Raven), turn-taking (Sparrow), and rendering (Phoenix). It is the unit that both developer overages and PALs allowances are measured in.
+
+What's the difference between Tavus developer plans and PALs?
+
+Developer plans price the CVI API for builders embedding AI humans into their own products, billed hybrid (access fee + pay-as-you-go minutes). PALs are flat consumer subscriptions for chatting with prebuilt AI companions, where call minutes are a hard allowance rather than a metered overage. The two lines also differ in transparency: developer prices are published down to the per-minute rate, while PALs prices have not been listed on tavus.io since July 2026 and are visible only inside the app.
+
+Has Tavus pricing changed over time?
+
+Yes. In 2023 Tavus sold a flat $275/mo personalized-marketing-video plan. It pivoted to usage-based CVI API pricing in August 2024 (Starter $39, Growth $375), raised those to $59 and $397 in March 2025, added PALs consumer plans by early 2026, and in June 2026 expanded the developer ladder to six tiers — adding a $22 Starter and a $975 Business plan. In July 2026 Tavus withdrew the public PALs price list and moved its 50%-off-first-month promotion from Starter up to the $59 Builder tier on July 21, then withdrew that same promotion entirely on July 29 — no list price or per-minute rate changed either time. In October 2026 Tavus doubled Starter's per-conversation cap from 5 to 10 minutes and set a stated 60-minute cap on Growth and Business, again without changing any price.
+
+Does Tavus have a free tier?
+
+Yes. The developer Free plan includes 20 conversation minutes/mo, access to stock faces (the avatars Tavus formerly called replicas), whitelabeled APIs plus the no-code platform, and support for 42+ languages, with no upfront payment. The consumer PALs app has its own free entry point, but Tavus no longer publishes PALs plan prices on its website.
+
+Cite this page
+
+UsagePricing, "Tavus pricing", updated Oct 24, 2026. https://www.usagepricing.com/blueprint/tavus
+
+Copy citation
+
+Copy link
+
+Copy HTML
+
+Embed pricing history
+
+Paste this into your article. The card stays current as we log new price changes.
+
+<iframe src="https://www.usagepricing.com/embed/blueprint/tavus" width="100%" height="360" style="border:0" loading="lazy" title="Tavus pricing history"></iframe>
+<p><a href="https://www.usagepricing.com/blueprint/tavus">Tavus pricing history</a> by UsagePricing</p>
+
+Copy embed code
+
+Quote freely with a link back and the date. Bulk reuse is covered by our
+
+Terms
+;
+vendor screenshots belong to their owners.
+
+How to cite UsagePricing
+
+Copy quote
+
+Copy link to highlight
+
+Share on LinkedIn
+
+Share on X
+
+In this page
+
+Trivia
+
+·
+
+Tavus's 2023 pricing page sold a flat $275/mo 'Intro' plan for 200 personalized marketing videos — by August 2024 the same domain advertised 'Transparent usage-based pricing' with a $0 Free tier and pay-as-you-go video minutes, a full repackaging from per-video to per-minute.
+
+·
+
+Tavus ships three of its own foundation models inside one billed minute: Raven (perception), Sparrow (turn-taking), and Phoenix (rendering) — so a single 'conversation minute' meters an entire multimodal pipeline, not one model call.
+
+·
+
+The cheapest paid developer plan rose from $39/mo to $59/mo between February and March 2025 while the page rebranded from 'usage-based pricing' to 'Pricing built to scale' and added a '$12k annual' Enterprise floor.
+
+Recent activity
+
+Tavus doubles Starter's conversation cap from 5 to 10 minutes
+
+Packaging · Oct 2026
+
+Tavus takes down its standalone PALs page, leaving PALs only on the developer site
+
+Packaging · Aug 2026
+
+Tavus drops the Builder plan's 'first month 50% off' promo eight days after adding it
+
+Price change · Jul 2026
+
+Tavus retires the public PALs consumer price list; /pals/pricing now redirects to developer pricing
+
+Packaging · Jul 2026
+
+All pricing activity →
+
+Back to companies
+
+×

@@ -1,0 +1,125 @@
+Captions rebrands as Mirage, expands beyond creator tools to AI video research | TechCrunch
+
+–:–:–:–
+
+Buy One Founder Summit Ticket, Get a Second for Free.
+Register now.
+
+Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts.
+REGISTER HERE.
+
+Close
+
+Image Credits:
+Mirage (Image has been modified)
+
+AI
+
+Captions rebrands as Mirage, expands beyond creator tools to AI video research
+
+Lauren Forristal
+
+8:39 AM PDT · September 4, 2025
+
+Captions, an AI-powered video creation and editing app for content creators that has secured over $100 million in venture capital to date at a valuation of $500 million, is rebranding to
+Mirage
+, the company announced on Thursday.
+
+The new name reflects the company’s broader ambitions to become an AI research lab focused on multimodal foundational models specifically designed for short-form video content for platforms like TikTok, Reels, and Shorts. The company believes this approach will distinguish it from traditional AI models and competitors such as D-ID, Synthesia, and Hour One.
+
+The rebranding will also unify the company’s offerings under one umbrella, bringing together the flagship creator-focused AI video platform, Captions, and the recently launched Mirage Studio, which caters to brands and ad production.
+
+“The way we see it, the real race for AI video hasn’t begun. Our new identity, Mirage, reflects our expanded vision and commitment to redefining the video category, starting with short-form video, through frontier AI research and models,” CEO Gaurav Misra told TechCrunch.
+
+Image Credits:
+Mirage
+
+The sales pitch behind Mirage Studio, which launched in June, focuses on enabling brands to create short advertisements without relying on human talent or large budgets. By simply submitting an audio file, the AI generates video content from scratch, with an AI-generated background and custom AI avatars. Users can also upload selfies to create an avatar using their likeness.
+
+What sets the platform apart, according to the company, is its ability to produce AI avatars that have natural-looking speech, movements, and facial expressions. Additionally, Mirage says it doesn’t rely on existing stock footage, voice cloning, or lip-syncing.
+
+Mirage Studio is available under the business plan, which costs $399 per month for 8,000 credits. New users receive 50% off the first month.
+
+While these tools will likely benefit brands wanting to streamline video production and save some money, they also spark concerns around the potential impact on the creative workforce. The growing use of AI in advertisements has prompted backlash, as seen in a recent
+Guess ad
+in Vogue’s July print edition that featured an AI-generated model.
+
+Additionally, as this technology becomes more advanced, distinguishing between real and deepfake videos becomes increasingly difficult. It’s a difficult pill to swallow for many people, especially given how quickly misinformation can spread these days.
+
+Mirage recently addressed its role in deepfake technology in a
+blog post
+. The company acknowledged the genuine risks of misinformation while also expressing optimism about the positive potential of AI video. It mentioned that it has put moderation measures in place to limit misuse, such as preventing impersonation and requiring consent for likeness use.
+
+However, the company emphasized that “design isn’t a catch-all” and that the real solution lies in fostering a “new kind of media literacy” where people approach video content with the same critical eye as they do news headlines.
+
+Topics
+
+AI
+,
+AI avatar
+,
+AI video generation
+,
+captions
+,
+Generative AI
+,
+Startups
+
+When you purchase through links in our articles,
+we may earn a small commission
+. This doesn’t affect our editorial independence.
+
+Lauren Forristal
+
+Lauren covers media, streaming, apps and platforms at TechCrunch.
+
+You can contact or verify outreach from Lauren by emailing
+[email protected]
+or via encrypted message at laurenforris22.25 on Signal.
+
+View Bio
+
+November 4
+
+Boston
+
+Buy One Pass, Get a Second Free
+Cover more ground at TechCrunch’s ultimate founder bootcamp of the year by bringing your co-founder or partner for free
+Book before the BOGO deal expires
+
+Register Now
+
+Most Popular
+
+Anthropic warns that it’s very close to RSI capability, aka self-building AI
+
+Julie Bort
+
+New York Times and other outlets sue web browser Brave over alleged content scraping
+
+Rebecca Bellan
+
+Ninja’s first-ever microwave just replaced two of my kitchen appliances at once
+
+Lauren Forristal
+
+Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says
+
+Lucas Ropek
+
+Google’s first data center satellite is online and writing poetry
+
+Tim Fernholz
+
+Binance pauses withdrawals as hackers suspected of stealing billions in crypto
+
+Zack Whittaker
+
+As search traffic dries up, Reddit announces it’s shifting to a logged-in experience
+
+Sarah Perez
+
+Loading the next article
+
+Error loading the next article

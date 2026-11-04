@@ -1,0 +1,76 @@
+Hedra Blog — Research, Engineering, and Product Updates
+Latest
+Optimizing Krea 3 on AMD Instinct MI355X with AI researchers
+Gene Kang, Terrance Wang, Michael Loh
+·
+November 2, 2026
+Read article
+02
+The Hedra Developer API: models, SDKs, MCP and the console in one place
+Avia Haimovich
+·
+October 6, 2026
+03
+Seedance, Kling, Veo and MiniMax API Pricing: What 10 Seconds of AI Video Costs
+Avia Haimovich
+·
+September 25, 2026
+04
+Hedra's MCP and CLI: Bring Hedra inference into your own agents
+Avia Haimovich
+·
+August 31, 2026
+05
+Unomundi's Mission to Unify Children Worldwide with Hedra
+Sandra Nachforg
+·
+August 19, 2026
+06
+Texas Rangers Revolutionize Fan Engagement with Hedra
+Sandra Nachforg
+·
+August 7, 2026
+07
+Best AI Video Generation APIs in 2026: Hedra, WaveSpeed, fal, and Runware
+Sandra Nachforg
+·
+August 4, 2026
+08
+Best AI Image Generation APIs in 2026: Hedra, WaveSpeed, fal, and Runware
+Sandra Nachforg
+·
+August 4, 2026
+09
+Hedra for Developers: Our models, now available through API, SDK, CLI & MCP
+Sandra Nachforg
+·
+August 4, 2026
+10
+Talking heads, cartoons, VSLs: how Finso tests every ad format with Hedra
+Sandra Nachforg
+·
+July 29, 2026
+11
+From brief to New York Subway in 2 weeks
+Sandra Nachforg
+·
+July 6, 2026
+12
+From 5 Months to 15 Days: How Exact Agency Uses Hedra
+Sandra Nachforg
+·
+June 23, 2026
+13
+Benchmarking a Multimodal Agent
+Michael Loh
+·
+March 31, 2026
+14
+Hedra Omnia: A new unified base model for post-training
+Michael Lingelbach
+·
+February 5, 2026
+RSS
+Build with Hedra
+Talk to an engineer
+Read the research

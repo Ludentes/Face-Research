@@ -1,0 +1,51 @@
+Welcome to Simli - Simli
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+
+The Simli speech-to-video API lets developers create lip-synced AI avatar interactions. With visual AI avatars, you can create anything! Mock interviews, sales assistants, language learning, coaching, customer-service training, historical characters, and so much more.
+Ready to make your first one?
+
+Use LiveKit Agents
+Give a LiveKit Agents voice agent a Simli avatar that joins its LiveKit room.
+Use Pipecat
+Pipecat is an open-source Python framework for voice and multimodal agents. Add a Simli avatar to its pipeline.
+
+Use Simli SDKs
+For when you need full control of your tech stack (e.g., custom voice agents).
+
+​
+Choose your pathway
+
+Each pathway needs a Simli API key, from your
+Simli dashboard
+. This is everything else you bring yourself:
+
+Pathway
+Runs
+What you bring
+LiveKit Agents
+A Python agent in your LiveKit room
+Your own LiveKit server, reachable from the internet: LiveKit Cloud, or self-hosted with a public address (not
+localhost
+). A key for your model provider: OpenAI for the starter.
+Pipecat
+A Python agent on your machine
+An OpenAI API key. No other accounts.
+JavaScript SDK
+In the browser
+A backend route that creates session tokens, so your API key never goes in the browser.
+Python SDK
+In your Python program
+Nothing else.
+Raw WebRTC
+In your own client
+Your own WebRTC client.
+
+Talk to us
+Share your projects, get technical help, and stay up-to-date with the latest features.
+Suggest edits

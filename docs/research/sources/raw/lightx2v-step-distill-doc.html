@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Step Distillation &#8212; Lightx2v</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'method_tutorials/step_distill';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Autoregressive Distillation" href="autoregressive_distill.html" />
+    <link rel="prev" title="Variable Resolution Inference" href="changing_resolution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="lightx2v-en" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/method_tutorials/step_distill.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/img_lightx2v.png" class="logo__image only-light" alt="Lightx2v - Home"/>
+    <img src="../_static/img_lightx2v.png" class="logo__image only-dark pst-js-only" alt="Lightx2v - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/model_structure.html">Model Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/benchmark.html">Benchmark</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Method Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Feature Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attention.html">Attention Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offload.html">Offload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changing_resolution.html">Changing Resolution Inference</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step Distill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoregressive_distill.html">Autoregressive Distill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video_frame_interpolation.html">Video Frame Interpolation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deployment Guides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/for_low_latency.html">Low Latency Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/for_low_resource.html">Low Resource Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/lora_deploy.html">Lora Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/deploy_service.html">Service Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/deploy_gradio.html">Gradio Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/deploy_comfyui.html">ComfyUI Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy_guides/deploy_local_windows.html">Local Windows Deployment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ModelTC/lightx2v" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/method_tutorials/step_distill.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Step Distillation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-principle">🔍 Technical Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dmd-distillation">DMD Distillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-forcing">Self-Forcing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lightx2v">LightX2V</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-features">🎯 Technical Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files">🛠️ Configuration Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-configuration-files">Basic Configuration Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-configuration-parameters">Key Configuration Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">📜 Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-preparation">Model Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-scripts">Inference Scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-distillation-lora-inference-scripts">Step Distillation LoRA Inference Scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-deployment">🔧 Service Deployment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-distillation-model-service">Start Distillation Model Service</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-in-gradio-interface">Usage in Gradio Interface</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="step-distillation">
+<h1>Step Distillation<a class="headerlink" href="#step-distillation" title="Permalink to this heading">#</a></h1>
+<p>Step distillation is an important optimization technique in LightX2V. By training distilled models, it significantly reduces inference steps from the original 40-50 steps to <strong>4 steps</strong>, dramatically improving inference speed while maintaining video quality. LightX2V implements step distillation along with CFG distillation to further enhance inference speed.</p>
+<section id="technical-principle">
+<h2>🔍 Technical Principle<a class="headerlink" href="#technical-principle" title="Permalink to this heading">#</a></h2>
+<section id="dmd-distillation">
+<h3>DMD Distillation<a class="headerlink" href="#dmd-distillation" title="Permalink to this heading">#</a></h3>
+<p>The core technology of step distillation is <a class="reference external" href="https://arxiv.org/abs/2311.18828">DMD Distillation</a>. The DMD distillation framework is shown in the following diagram:</p>
+<div align="center">
+<img alt="DMD Distillation Framework" src="https://raw.githubusercontent.com/ModelTC/LightX2V/main/assets/figs/step_distill/fig_01.png" width="75%">
+</div>
+<p>The core idea of DMD distillation is to minimize the KL divergence between the output distributions of the distilled model and the original model:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+D_{KL}\left(p_{\text{fake}} \; \| \; p_{\text{real}} \right) &amp;= \mathbb{E}{x\sim p\text{fake}}\left(\log\left(\frac{p_\text{fake}(x)}{p_\text{real}(x)}\right)\right)\\
+&amp;= \mathbb{E}{\substack{
+z \sim \mathcal{N}(0; \mathbf{I}) \\
+x = G_\theta(z)
+}}-\big(\log~p_\text{real}(x) - \log~p_\text{fake}(x)\big).
+\end{aligned}
+\end{split}\]</div>
+<p>Since directly computing the probability density is nearly impossible, DMD distillation instead computes the gradient of this KL divergence:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\nabla_\theta D_{KL}
+&amp;= \mathbb{E}{\substack{
+z \sim \mathcal{N}(0; \mathbf{I}) \\
+x = G_\theta(z)
+} } \Big[-
+\big(
+s_\text{real}(x) - s_\text{fake}(x)\big)
+\hspace{.5mm} \frac{dG}{d\theta}
+\Big],
+\end{aligned}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_\text{real}(x) =\nabla_{x} \text{log}~p_\text{real}(x)\)</span> and <span class="math notranslate nohighlight">\(s_\text{fake}(x) =\nabla_{x} \text{log}~p_\text{fake}(x)\)</span> are score functions. Score functions can be computed by the model. Therefore, DMD distillation maintains three models in total:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">real_score</span></code>, computes the score of the real distribution; since the real distribution is fixed, DMD distillation uses the original model with fixed weights as its score function;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fake_score</span></code>, computes the score of the fake distribution; since the fake distribution is constantly updated, DMD distillation initializes it with the original model and fine-tunes it to learn the output distribution of the generator;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generator</span></code>, the student model, guided by computing the gradient of the KL divergence between <code class="docutils literal notranslate"><span class="pre">real_score</span></code> and <code class="docutils literal notranslate"><span class="pre">fake_score</span></code>.</p></li>
+</ul>
+<blockquote>
+<div><p>References:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2311.18828">DMD (One-step Diffusion with Distribution Matching Distillation)</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2405.14867">DMD2 (Improved Distribution Matching Distillation for Fast Image Synthesis)</a></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="self-forcing">
+<h3>Self-Forcing<a class="headerlink" href="#self-forcing" title="Permalink to this heading">#</a></h3>
+<p>DMD distillation technology is designed for image generation. The step distillation in LightX2V is implemented based on <a class="reference external" href="https://github.com/guandeh17/Self-Forcing">Self-Forcing</a> technology. The overall implementation of Self-Forcing is similar to DMD, but following DMD2, it removes the regression loss and uses ODE initialization instead. Additionally, Self-Forcing adds an important optimization for video generation tasks:</p>
+<p>Current DMD distillation-based methods struggle to generate videos in one step. Self-Forcing selects one timestep for optimization each time, with the generator computing gradients only at this step. This approach significantly improves Self-Forcing’s training speed and enhances the denoising quality at intermediate timesteps, also improving its effectiveness.</p>
+<blockquote>
+<div><p>References:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2506.08009">Self-Forcing (Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion)</a></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="lightx2v">
+<h3>LightX2V<a class="headerlink" href="#lightx2v" title="Permalink to this heading">#</a></h3>
+<p>Self-Forcing performs step distillation and CFG distillation on 1.3B autoregressive models. LightX2V extends it with a series of enhancements:</p>
+<ol class="arabic simple">
+<li><p><strong>Larger Models</strong>: Supports step distillation training for 14B models;</p></li>
+<li><p><strong>More Model Types</strong>: Supports standard bidirectional models and I2V model step distillation training;</p></li>
+<li><p><strong>Better Results</strong>: LightX2V uses high-quality prompts from approximately 50,000 data entries for training;</p></li>
+</ol>
+<p>For detailed implementation, refer to <a class="reference external" href="https://github.com/GoatWu/Self-Forcing-Plus">Self-Forcing-Plus</a>.</p>
+</section>
+</section>
+<section id="technical-features">
+<h2>🎯 Technical Features<a class="headerlink" href="#technical-features" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Inference Acceleration</strong>: Reduces inference steps from 40-50 to 4 steps without CFG, achieving approximately <strong>20-24x</strong> speedup</p></li>
+<li><p><strong>Quality Preservation</strong>: Maintains original video generation quality through distillation techniques</p></li>
+<li><p><strong>Strong Compatibility</strong>: Supports both T2V and I2V tasks</p></li>
+<li><p><strong>Flexible Usage</strong>: Supports loading complete step distillation models or loading step distillation LoRA on top of native models; compatible with int8/fp8 model quantization</p></li>
+</ul>
+</section>
+<section id="configuration-files">
+<h2>🛠️ Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this heading">#</a></h2>
+<section id="basic-configuration-files">
+<h3>Basic Configuration Files<a class="headerlink" href="#basic-configuration-files" title="Permalink to this heading">#</a></h3>
+<p>Multiple configuration options are provided in the <a class="reference external" href="https://github.com/ModelTC/lightx2v/tree/main/configs/distill">configs/distill/</a> directory:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration File</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Model Address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ModelTC/lightx2v/blob/main/configs/distill/wan_t2v_distill_4step_cfg.json">wan_t2v_distill_4step_cfg.json</a></p></td>
+<td><p>Load T2V 4-step distillation complete model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/lightx2v/Wan2.1-T2V-14B-StepDistill-CfgDistill-Lightx2v/blob/main/distill_models/distill_model.safetensors">hugging-face</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ModelTC/lightx2v/blob/main/configs/distill/wan_i2v_distill_4step_cfg.json">wan_i2v_distill_4step_cfg.json</a></p></td>
+<td><p>Load I2V 4-step distillation complete model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/lightx2v/Wan2.1-I2V-14B-480P-StepDistill-CfgDistill-Lightx2v/blob/main/distill_models/distill_model.safetensors">hugging-face</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ModelTC/lightx2v/blob/main/configs/distill/wan_t2v_distill_4step_cfg_lora.json">wan_t2v_distill_4step_cfg_lora.json</a></p></td>
+<td><p>Load Wan-T2V model and step distillation LoRA</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/lightx2v/Wan2.1-T2V-14B-StepDistill-CfgDistill-Lightx2v/blob/main/loras/Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors">hugging-face</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ModelTC/lightx2v/blob/main/configs/distill/wan_i2v_distill_4step_cfg_lora.json">wan_i2v_distill_4step_cfg_lora.json</a></p></td>
+<td><p>Load Wan-I2V model and step distillation LoRA</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/lightx2v/Wan2.1-I2V-14B-480P-StepDistill-CfgDistill-Lightx2v/blob/main/loras/Wan21_I2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors">hugging-face</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="key-configuration-parameters">
+<h3>Key Configuration Parameters<a class="headerlink" href="#key-configuration-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Since DMD distillation only trains a few fixed timesteps, we recommend using <code class="docutils literal notranslate"><span class="pre">LCM</span> <span class="pre">Scheduler</span></code> for inference. In <a class="reference external" href="https://github.com/ModelTC/LightX2V/blob/main/lightx2v/models/schedulers/wan/step_distill/scheduler.py">WanStepDistillScheduler</a>, <code class="docutils literal notranslate"><span class="pre">LCM</span> <span class="pre">Scheduler</span></code> is already fixed in use, requiring no user configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">infer_steps</span></code>, <code class="docutils literal notranslate"><span class="pre">denoising_step_list</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_shift</span></code> are set to parameters matching those during training, and are generally not recommended for user modification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable_cfg</span></code> must be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> (equivalent to setting <code class="docutils literal notranslate"><span class="pre">sample_guide_scale</span> <span class="pre">=</span> <span class="pre">1</span></code>), otherwise the video may become completely blurred.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lora_configs</span></code> supports merging multiple LoRAs with different strengths. When <code class="docutils literal notranslate"><span class="pre">lora_configs</span></code> is not empty, the original <code class="docutils literal notranslate"><span class="pre">Wan2.1</span></code> model is loaded by default. Therefore, when using <code class="docutils literal notranslate"><span class="pre">lora_config</span></code> and wanting to use step distillation, please set the path and strength of the step distillation LoRA.</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;infer_steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">                              </span><span class="c1">// Inference steps</span>
+<span class="w">  </span><span class="nt">&quot;denoising_step_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">750</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">],</span><span class="w">  </span><span class="c1">// Denoising timestep list</span>
+<span class="w">  </span><span class="nt">&quot;sample_shift&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">                             </span><span class="c1">// Scheduler timestep shift</span>
+<span class="w">  </span><span class="nt">&quot;enable_cfg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">                           </span><span class="c1">// Disable CFG for speed improvement</span>
+<span class="w">  </span><span class="nt">&quot;lora_configs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">                              </span><span class="c1">// LoRA weights path (optional)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path/to/distill_lora.safetensors&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;strength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>📜 Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h2>
+<section id="model-preparation">
+<h3>Model Preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading">#</a></h3>
+<p><strong>Complete Model:</strong>
+Place the downloaded model (<code class="docutils literal notranslate"><span class="pre">distill_model.pt</span></code> or <code class="docutils literal notranslate"><span class="pre">distill_model.safetensors</span></code>) in the <code class="docutils literal notranslate"><span class="pre">distill_models/</span></code> folder under the Wan model root directory:</p>
+<ul class="simple">
+<li><p>For T2V: <code class="docutils literal notranslate"><span class="pre">Wan2.1-T2V-14B/distill_models/</span></code></p></li>
+<li><p>For I2V-480P: <code class="docutils literal notranslate"><span class="pre">Wan2.1-I2V-14B-480P/distill_models/</span></code></p></li>
+</ul>
+<p><strong>LoRA:</strong></p>
+<ol class="arabic simple">
+<li><p>Place the downloaded LoRA in any location</p></li>
+<li><p>Modify the <code class="docutils literal notranslate"><span class="pre">lora_path</span></code> parameter in the configuration file to the LoRA storage path</p></li>
+</ol>
+</section>
+<section id="inference-scripts">
+<h3>Inference Scripts<a class="headerlink" href="#inference-scripts" title="Permalink to this heading">#</a></h3>
+<p><strong>T2V Complete Model:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/wan/run_wan_t2v_distill_4step_cfg.sh
+</pre></div>
+</div>
+<p><strong>I2V Complete Model:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/wan/run_wan_i2v_distill_4step_cfg.sh
+</pre></div>
+</div>
+</section>
+<section id="step-distillation-lora-inference-scripts">
+<h3>Step Distillation LoRA Inference Scripts<a class="headerlink" href="#step-distillation-lora-inference-scripts" title="Permalink to this heading">#</a></h3>
+<p><strong>T2V LoRA:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/wan/run_wan_t2v_distill_4step_cfg_lora.sh
+</pre></div>
+</div>
+<p><strong>I2V LoRA:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/wan/run_wan_i2v_distill_4step_cfg_lora.sh
+</pre></div>
+</div>
+</section>
+</section>
+<section id="service-deployment">
+<h2>🔧 Service Deployment<a class="headerlink" href="#service-deployment" title="Permalink to this heading">#</a></h2>
+<section id="start-distillation-model-service">
+<h3>Start Distillation Model Service<a class="headerlink" href="#start-distillation-model-service" title="Permalink to this heading">#</a></h3>
+<p>Modify the startup command in <a class="reference external" href="https://github.com/ModelTC/lightx2v/blob/main/scripts/server/start_server.sh">scripts/server/start_server.sh</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>lightx2v.api_server<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_cls<span class="w"> </span>wan2.1_distill<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--task<span class="w"> </span>t2v<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model_path<span class="w"> </span><span class="nv">$model_path</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--config_json<span class="w"> </span><span class="si">${</span><span class="nv">lightx2v_path</span><span class="si">}</span>/configs/distill/wan_t2v_distill_4step_cfg.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--nproc_per_node<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Run the service startup script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scripts/server/start_server.sh
+</pre></div>
+</div>
+<p>For more details, see <a class="reference external" href="https://lightx2v-en.readthedocs.io/en/latest/deploy_guides/deploy_service.html">Service Deployment</a>.</p>
+</section>
+<section id="usage-in-gradio-interface">
+<h3>Usage in Gradio Interface<a class="headerlink" href="#usage-in-gradio-interface" title="Permalink to this heading">#</a></h3>
+<p>See <a class="reference external" href="https://lightx2v-en.readthedocs.io/en/latest/deploy_guides/deploy_gradio.html">Gradio Documentation</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="changing_resolution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variable Resolution Inference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="autoregressive_distill.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Autoregressive Distillation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-principle">🔍 Technical Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dmd-distillation">DMD Distillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-forcing">Self-Forcing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lightx2v">LightX2V</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-features">🎯 Technical Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files">🛠️ Configuration Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-configuration-files">Basic Configuration Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-configuration-parameters">Key Configuration Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">📜 Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-preparation">Model Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-scripts">Inference Scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-distillation-lora-inference-scripts">Step Distillation LoRA Inference Scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-deployment">🔧 Service Deployment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-distillation-model-service">Start Distillation Model Service</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-in-gradio-interface">Usage in Gradio Interface</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Lightx2v Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Lightx2v Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+Tavus Research: Pioneering Human Computing
+
+Introducing Griffin:
+48% thought it was a real person, the first model to pass the real-time video Turing test.
+Learn more.
+Login
+Get Started
+Select an Account Type
+Choose how you want to experience Tavus. Whether you’re building with our APIs or meeting a PAL, you can switch anytime.
+Developer Account
+Build real-time, human-like AI experiences using Tavus APIs and tools.
+Best for developers, founders, and teams integrating Tavus into a product.
+NEW DEVELOPER ACCOUNT
+PALs Account
+Meet your personal AI companions who listen, remember, and are always present.
+Best for individuals looking to talk, explore, and connect with a friend.
+NEW PALS ACCOUNT
+PIONEERING HUMAN COMPUTING
+We’re teaching machines the art of being human: bringing together rendering, perception, emotion, and understanding to create AI humans that
+feel natural, intuitive, and alive.
+models
+Frontier models, powering seamless conversation.
+Tavus unifies turn-taking, rendering, perception, and speech in real time, so every interaction feels immediate, aware, and natural.
+Our Research
+Best-in-class TURN-TAKING
+
+Sparrow [2]
+Sparrow is the #1 conversational understanding model on the market, built to understand not just what someone says, but when to listen, wait, speak, and respond. It understands the entire audio scene - including pauses, interruptions, backchannels, multiple speakers, and background noise - to make AI conversations feel more naturally human.
+#1 on TurnBench
+- best conversational turn-taking model on market
+Lowest error rate
+-
+
+fewer missed turns, false interruptions, and awkward conversational mistakes
+Best-in-class rendering
+
+Phoenix [4.5]
+Phoenix is the most natural and realistic human rendering model on the market, designed to generate lifelike faces, expressions, gestures, and upper-body movement in real time. It can render entirely new identities zero-shot from a single image, making photorealistic conversational AI faster and easier to create than ever before.
+134ms latency
+- fastest in market, 25% faster than any other model
+Preferred
+2:1
+- in blind head-to-head testing against nearest competitor
+Best-in-class perception
+
+Raven [1]
+Raven is a new type of multi-modal perception model, giving machines the ability to see, hear and understand in real-time. It translates facial expressions, tone, gaze, emotion, and environmental context into rich conversational signals, helping your AI respond with empathy, awareness, and intent.
+3 simultaneous inputs
+- understands voice, video, and screen context together
+<300ms
+context freshness - not a snapshot, a continuously rolling read of emotional, environmental and attentional state
+Best-in-class interaction
+Griffin [Preview]
+Griffin is the first human interaction model: a video-to-video model that sees, hears, speaks and moves at the same time, like a person. It keeps listening while it talks, responds to what you show it and gestures as it speaks, so for the first time a machine can hold up its end of a face-to-face conversation.
+48%
+thought it was a real person
+- on live video, making it the first model to pass the Turing test face to face
+#1
+on NVIDIA VideoFDB
+- top score on both perception and generation in NVIDIA's benchmark for face-to-face AI
+Research areas
+We study how intelligence perceives context, emotion, and tone to create AI that understands and acts as humans do.
+contextual perception
+Understanding meaning beyond words. Tone, timing, intent, and everything unsaid.
+Audio understanding
+Teaching machines to truly listen. Not just to sounds, but to emotion, cadence, and rhythm.
+Agentic interaction
+Building systems that act with awareness, not automation. Capable of response, reasoning, and restraint.
+human-like speech
+Synthesizing voice that carries emotion, not just words. Warmth, hesitation, humor, humanity.
+Real-time rendering
+Turning intelligence into motion. Seamless, lifelike expression that feels natural and alive.
+Conversational intelligence
+Making dialogue intuitive and human. Conversations that adapt, remember, and build trust over time.
+CVI Terminal
+
+PAL Maker
+Bring PALs into your next AI conversation.
+Get started
+developer api
+Bring human connection to every AI interaction.
+Explore cvi

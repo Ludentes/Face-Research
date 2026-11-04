@@ -1,0 +1,208 @@
+Real-Time AI Avatars at CES 2026: Qualcomm and AKOOL
+
+?
+Free Trial
+Sign In
+Sign Up
+
+×
+
+Connect AI agents
+
+Claude
+Claude Code
+ChatGPT
+Codex
+
+Create with Akool in Claude
+
+Connect to Claude
+
+Create with Akool in Claude Code
+
+claude mcp add --transport http --scope user akool https://openapi.akool.com/mcp/v1
+Copy
+claude mcp login akool
+Copy
+
+Create with Akool in ChatGPT
+
+Connect to ChatGPT
+
+Create with Akool in Codex
+
+Connect to Codex
+
+Setup documentation
+
+Contact Us
+
+Blog
+Real-Time AI Avatars at CES 2026: Qualcomm Powered by AKOOL Live Camera
+What's New
+Real-Time AI Avatars at CES 2026: Qualcomm Powered by AKOOL Live Camera
+At CES 2026, Qualcomm showcased a live, real-time interactive AI avatar powered by AKOOL Live Camera demonstrating a future where AI becomes a human-facing interface at the edge.
+AKOOL Content Team
+Updated:
+October 26, 2026
+Copy link ↗
+AKOOL AI FILM CHALLENGE
+Win Your Share Of $500,000 In Creator Rewards*
++ $100 For Every Qualified Entry*
+Submissions close December 20, 2026.
+Explore the challenge ↗
+See eligibility and official rules.
+Summarize with AI
+ChatGPT ↗
+Claude ↗
+Perplexity ↗
+Opens your chosen AI assistant.
+Table of Contents
+At
+CES 2026
+, Qualcomm invited attendees to step into a future where artificial intelligence is no longer tucked away behind apps, menus, and hidden interfaces—but shows up as a
+live, interactive presence
+you can engage with directly.
+Under the theme
+“Delivering intelligence where it matters most,”
+Qualcomm’s booth explored how AI is increasingly distributed across the
+edge and the cloud
+, reshaping how people interact with technology across personal devices, homes, vehicles, and robotics. The message was forward-looking, but clear:
+The next user interface isn’t an app or a menu, but it’s you, interacting directly with your AI agent.
+To make that vision tangible, Qualcomm didn’t rely on static demos or pre-recorded videos. Instead, visitors experienced a
+live, real-time interactive AI avatar
+powered by
+AKOOL Live Camera
+, running on Qualcomm technology.
+Powered by Qualcomm, brought to life by AKOOL Live Camera
+Real-time AI experiences are only as compelling as they are responsive. When an AI avatar can respond instantly—naturally, fluidly, and reliably—it stops feeling like a “demo” and starts feeling like a new way to interact with technology.
+That’s exactly what the Qualcomm booth showcased.
+Powered by Qualcomm technology, AKOOL’s Live Camera
+brought
+real-time streaming AI avatars
+to life, delivering a seamless experience built around:
+On-device intelligence
+for responsive interaction
+Edge performance
+for immersive, real-time engagement
+A more natural bridge between advanced AI systems and the people using them
+In other words, visitors weren’t just watching AI. They were
+meeting it
+.
+From concept to live experience on the CES show floor
+CES is one of the most crowded, high-energy, and competitive environments in tech. Attention is limited. Expectations are high. And demos have to earn every second of engagement.
+Qualcomm wanted attendees to do more than glance at a screen—they wanted them to
+experience AI interaction in real time
+.
+Using
+AKOOL Live Camera
+, Qualcomm showcased a
+live, streaming AI avatar
+that visitors could interact with directly at the booth. The avatar responded in the moment, enabling
+two-way conversations
+that felt dynamic and human rather than scripted, staged, or pre-generated.
+Demonstrating the next user interface
+The interactive avatar wasn’t just an attention-grabber and it was a practical demonstration of Qualcomm’s broader vision for AI:
+systems that don’t only compute in the background, but engage users directly.
+By using AKOOL Live Camera, Qualcomm demonstrated how AI agents can:
+1) Appear as a visual, conversational interface
+Instead of forcing users to navigate a UI, the AI agent can show up as a
+face-to-face style interaction
+—intuitive, approachable, and instantly engaging.
+2) Respond live to users in physical environments
+The booth experience illustrated something critical: AI isn’t limited to screens. It can be present in real-world spaces like events, retail settings, customer experience zones, and more.
+3) Act as the intelligent layer between advanced AI systems and people
+As AI systems become more capable, the biggest challenge becomes usability:
+How do people actually interact with all that intelligence?
+A real-time avatar becomes a human-facing layer that makes advanced systems feel accessible.
+For attendees, the impact was immediate. Instead of hearing about “AI agents” in theory, they interacted with one.
+Why real-time matters
+One of the most powerful aspects of the booth experience was simple:
+it was live.
+That might sound obvious, but it’s the difference between:
+AI that feels like a polished concept, and
+AI that feels like a usable interface
+In contrast to pre-rendered avatars or delayed responses, the AKOOL-powered avatar reacted
+in the moment
+. Visitors could ask questions, observe answers immediately, and see how real-time interaction changes the way people perceive AI.
+It reinforced an important idea:
+For AI agents to feel useful and trustworthy, they need to operate at human speed.
+When the interaction is immediate, people stop treating the AI like a novelty and start treating it like a tool—something they can actually use, in real contexts, with real expectations.
+Engagement that pulled people in
+On a show floor filled with competing demos and constant motion, the live avatar quickly became a point of interest at the Qualcomm booth.
+Attendees didn’t just watch, and they stopped, interacted, and asked questions:
+about how the demo worked
+about what it could power next
+about where this kind of interface could be deployed in real life
+And that’s where the experience became more than a CES moment. It became a bridge between
+cutting-edge AI
+infrastructure and practical, real-world applications.
+Many visitors could easily imagine this kind of interface being used across:
+Events and exhibitions
+(interactive hosts, guides, explainers)
+Customer engagement and brand experiences
+(conversational product education)
+Smart devices and intelligent environments
+(more natural AI interaction at the edge)
+AI agents embedded into everyday workflows
+(a human-facing interface for complex systems)
+The demo made the future feel less abstract and more actionable.
+A glimpse into the future of AI interaction
+Qualcomm’s CES 2026 booth pointed to a clear direction for AI: intelligence that is
+distributed, responsive, and human-facing
+.
+By live-demoing an interactive avatar using
+AKOOL Live Camera
+, Qualcomm showed how AI agents can move beyond screens and into real conversations serving as intuitive interfaces for systems that span edge and cloud.
+
+✦
+AKOOL MCP
+Your AI assistant.
+Now a creative studio.
+Create images, videos and voiceovers with AKOOL inside your AI assistant.
+Claude
+Codex
+Cursor
+Connect AKOOL ↗
+Explore MCP setup
+PUT IT INTO PRACTICE
+Bring your next idea to life.
+Explore AKOOL’s tools for video, avatars, and creative content.
+Explore AKOOL tools ↗
+See what others are creating ↗
+Frequently asked questions
+Q: Can Akool's custom avatar tool match the realism and customization offered by HeyGen's avatar creation feature?
+A: Yes, Akool's custom avatar tool matches and even surpasses HeyGen's avatar creation feature in realism and customization.
+Q: What video editing tools does Akool integrate with?
+A: Akool seamlessly integrates with popular video editing tools like Adobe Premiere Pro, Final Cut Pro, and more.
+Q: Are there specific industries or use cases where Akool's tools excel compared to HeyGen's tools?
+A: Akool excels in industries like marketing, advertising, and content creation, providing specialized tools for these use cases.
+Q: What distinguishes Akool's pricing structure from HeyGen's, and are there any hidden costs or limitations?
+A: Akool's pricing structure is transparent, with no hidden costs or limitations. It offers competitive pricing tailored to your needs, distinguishing it from HeyGen.
+Keep Up with Us!
+Subscribe to stay informed on new Tips, How-tos, News and more!
+Error message label
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+AKOOL Content Team
+Learn more
+References
+You may also like
+No items found.
+← Back to Blog
+On this page
+✦
+AKOOL MCP
+Your AI assistant.
+Now a creative studio.
+Create images, videos and voiceovers with AKOOL inside your AI assistant.
+Claude
+Codex
+Cursor
+Connect AKOOL ↗
+Explore MCP setup
+Keep Up with Us!
+Subscribe to stay informed on new Tips, How-tos, News and more!
+Please
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.

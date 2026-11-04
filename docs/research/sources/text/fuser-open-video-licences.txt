@@ -1,0 +1,244 @@
+Best Open-Source Video Models (2026): Licenses Compared | Fuser
+One click, whole workflow
+Recipes are here. Package a whole workflow and run it in one click
+Explore recipes
+All guides
+·
+Best image-to-video models
+Quick answer:
+the best open-source video generation model for commercial use is
+Wan 2.2 in Fuser
+: Alibaba's Wan team publishes it under Apache 2.0 with no revenue or territory limits, the A14B models make the best-looking frames, and the 5B model runs on a single consumer GPU.
+MiniMax H3
+is the strongest open-weight model with native sound and dialogue, but its community license does not cover the United States, the European Union, the United Kingdom or South Korea.
+LTX-2.5
+from Lightricks generates video and audio together, followed our camera directions best, and is free for organisations under $10 million in annual revenue. Fuser runs all three as hosted nodes among its 169 video models, so you can compare them on one canvas without downloading weights or owning a GPU. Wan 2.6, Wan 3.0 and FLUX 3 Video are not open weights.
+What "open-source" means for video models
+Only Wan 2.2 comes close to open source in the software sense. The others are open-weight: you can download the trained model and run it yourself, under a license that restricts where, by whom or how commercially it is used. The license is the decision, so read it before you build a product on a model. We quote each one from the license file itself below.
+Wan 2.2:
+"The models in this repository are licensed under the Apache 2.0 License" (
+Wan2.2 model card
+). No field-of-use, revenue or territory limits.
+MiniMax H3:
+the MiniMax H3 Community License Agreement grants rights "Solely within the Applicable Territory", defined as worldwide excluding "the European Union, the United Kingdom, the Republic of Korea and the United States of America". Commercial products above "20 million US dollars" in yearly revenue need separate written authorisation, and commercial products must "prominently display 'MiniMax H3'" in their interface (
+MiniMax H3 license
+).
+LTX-2.5:
+the LTX-2.x Community License, dated 11 August 2026 and applying to "all LTX-2.5 versions", is worldwide and royalty-free, but "Entities with annual revenues of at least $10,000,000" must obtain a paid license (
+LTX-2.x Community License
+).
+Both community licenses also forbid using the model's outputs to train or improve other AI models (for LTX-2.5, in commercial use). This is not legal advice; if your company is near a threshold or in an excluded region, have counsel read the full text.
+Test: the same prompts through four open models
+We ran the prompts from our
+Seedance, Kling and Veo comparison
+through the open models Fuser runs: Wan 2.2 in its A14B and 5B sizes, MiniMax H3 and LTX-2.5. Wan ran through the same endpoints and step, guidance and shift defaults as Fuser's Wan-2.2 Video node, at 720p and 16:9 with 121 frames at 24 fps, prompt expansion on (the node's default) and seed 4242. The MiniMax H3 text-to-video takes are the ones from our
+MiniMax H3 prompt guide
+, made at 768p with the same prompts. LTX-2.5 ran on 29 September through the Fast endpoints that Fuser's LTX 2.5 node calls, at 720p, 6 seconds (its shortest length) and 25 fps with audio switched on (the node's default is off); its potter take is the 1080p Fast clip from our
+LTX-2.5 guide
+.
+Same text prompt, first run of each, shown muted and trimmed to 5 seconds. We ran Wan 2.2 A14B twice more to check whether its missing camera move was a fluke; neither rerun delivered the dolly-in. Generated 28 September 2026 (LTX-2.5 on 29 September).
+The first prompt asks for a slow dolly-in on a terracotta vase on a travertine plinth. Wan 2.2 A14B built the room, the plinth and the late light exactly as written, with the most convincing clay surface of the three, but the camera barely moved. Because a missing camera move can be one unlucky seed, we ran it twice more: a second seed, and the original seed with prompt expansion off. Neither produced a real dolly-in; one drifted in a slight arc, the other held still again. Across our runs, including the image-to-video test below, camera direction was Wan 2.2's weak spot; when the move matters, use LTX-2.5, MiniMax H3 or a closed model such as Kling 3.0. Wan 2.2 5B produced a clean but flatter image and a slow sideways drift. MiniMax H3 delivered a gentle push-in in one take and brightened the vase as the light rose.
+LTX-2.5
+made the strongest dolly-in of the four, steady and without cuts, but it did not keep it slow: by the last second the vase fills the frame and the plinth has gone. Its soundtrack was close to silent (mean level about -54 dB) despite the audio line in the prompt.
+Run this prompt on all three in Fuser
+: start from the LTX 2.5 node, which made the strongest dolly-in, then wire the same prompt to Wan-2.2 Video and MiniMax H3.
+One run each. The sound is MiniMax H3's own audio track; LTX-2.5 also generated the line, and Wan 2.2 returns silent video. Open it full size to hear it.
+The second prompt asks a potter to glance up at the camera and say "Almost there." This is where the gap is widest. Wan 2.2 generates video only, and its prompt expander rewrote our brief into a close-up of the potter smiling down at her vase; she never looks up, and there is no line or sound. MiniMax H3 generates stereo audio with the picture, so she glances up and speaks the line near the end of the clip, over wheel hum and room tone. LTX-2.5 framed her tight, head low beside the vase, then looked up and said "Almost there." at 4.2 seconds (Whisper transcription), with wheel hum under it. If your shot needs dialogue, use
+H3
+or LTX-2.5; for silent B-roll,
+Wan 2.2 A14B
+'s image quality holds up well against both.
+Run this prompt on all three in Fuser
+: start from the MiniMax H3 node for the spoken line, then wire the same prompt to LTX 2.5 and Wan-2.2 Video.
+Image to video from the same 1344×768 start frame and the same motion prompt, one run each, shown for 5 seconds with MiniMax H3's audio. Generated 28 and 29 September 2026.
+For image to video, we gave both models the same start frame and asked for a slow push-in, "one continuous shot, no cuts". Wan 2.2 A14B stayed truest to the source image, keeping the dark clay and the hard light, but moved the camera sideways instead of in. MiniMax H3 made the push-in cleanly and without cuts, but relit the vase to a bright terracotta, and its prompt expander added a background music pad we did not ask for. LTX-2.5 did both things we asked: a clear push-in with no cuts, and the dark clay and hard light of the source kept intact. By the end the front of the plinth has left the frame, and the soundtrack was again near-silent (about -60 dB). On this test it was the take we would keep, but one run per model is a small sample, which is why it pays to run several and keep the best.
+Run this prompt on all three in Fuser
+: connect one start image and the motion prompt to Wan-2.2 Video, which kept the source look best, then to MiniMax H3 and LTX 2.5, and keep the best take.
+Wan 2.2: the Apache 2.0 default
+Wan 2.2 is the latest Wan release with open weights; the
+Wan-Video GitHub
+publishes Wan 2.1 and Wan 2.2 under Apache 2.0, plus character-animation spin-offs such as Wan-Animate-2 and Wan-Dancer, but no general video model newer than Wan 2.2. It comes in two sizes. The A14B text-to-video and image-to-video models use a mixture-of-experts design with 27B parameters in total and 14B active per step, and render at 480p or 720p. The TI2V-5B model is a dense 5B model that does both text and image to video at 720p and 24 fps (
+Wan2.2 model card
+).
+In Fuser, both sizes live in one
+Wan-2.2 Video
+node: choose
+Pro (14B)
+or
+Lite (5B)
+in the Model setting. The node takes a prompt, an optional start image, an end image (Pro only) or an input video for video-to-video edits (Pro only), and generates 81 to 121 frames at up to 720p. It has no audio output, so add sound afterwards with a sound-effects model such as
+MMAudio
+; see
+the best AI music and sound effect generators
+.
+Two settings matter more than the rest.
+Expand Prompt
+is on by default and rewrites your prompt with a language model; in our test it once kept "dolly-in" and once dropped it entirely, and it removed the spoken line from the potter brief. Turning it off sends your prompt word for word, which is what you want when the wording matters, but in our test it did not rescue the missing camera move.
+Turbo Mode
+on the Pro model is faster but ignores frame count, frame rate, steps, guidance, shift and the negative prompt.
+MiniMax H3: open weights with sound, restricted territory
+MiniMax H3 is a 33B dense transformer that generates 4 to 15 seconds of video with native 32 kHz stereo audio, at 768p by default with a separate 2K regeneration stage (
+MiniMax H3 model card
+). The Hugging Face release is two H3 Base checkpoints: one for text and first-or-last-frame to video, and one for reference-to-video with up to 9 images, 3 video clips and 3 audio clips. Its model card's own deployment example runs it across 4 GPUs.
+Fuser's
+MiniMax H3 node
+runs the H3 text, image and reference endpoints at 480p, 768p, 2K or 4K, for 5 to 15 seconds, plus an
+H3 Max
+option. H3 Max is not part of the open-weight release.
+Fuser's
+MiniMax H3 Recast
+node runs on H3 Max and swaps the people in a video you already have for the people in your reference photos, keeping the motion, cuts and sound; see
+how to replace people in a video with AI
+.
+The territorial restriction is in the license for the weights and anything built from them, so if you are in an excluded region, check what applies to you before shipping H3 output commercially. For writing H3 prompts, including how its expander schedules dialogue and cuts, see the
+MiniMax H3 prompt guide
+, and for how it compares with a closed model, see
+MiniMax H3 vs Kling 3.0
+.
+LTX-2.5: joint audio and video, open weights and hosted
+LTX-2.5 is Lightricks' current audio-video model, released on 11 August 2026 (
+LTX changelog
+), and the one its repository recommends: "LTX-2.5 is the recommended model" (
+LTX-2 on GitHub
+). The Hugging Face release is gated behind a sign-in form and includes 22B dev and distilled transformers, a Gemma 4 12B text encoder, separate video and audio VAEs, and spatial and temporal upscalers (
+LTX-2.5 on Hugging Face
+). Lightricks lists native multi-shot scenes, a diffusion video decoder for sharper faces and text, and synchronised audio among its capabilities (
+LTX-2.5 model card
+). For running it yourself, the repository documents FP8 quantisation and CPU or disk offload for smaller GPUs, and points to its own ComfyUI nodes.
+In Fuser, the
+LTX 2.5
+node runs LTX-2.5 through Lightricks' hosted Fast and Pro endpoints (
+LTX API changelog
+), so you don't need the weights or a GPU. Fast goes up to 20 seconds at 720p or 1080p and up to 4K for 10 seconds (
+LTX-2.5 support matrix
+); Pro stops at 1080p and 10 seconds. Switch on
+Generate Audio
+, which is off by default. For prompting, Fast vs Pro and retakes, see the
+LTX-2.5 guide
+, and for a head-to-head with a closed model,
+LTX-2.5 vs Wan 2.6
+. LTX-2.5 replaces LTX-2, whose ltx-2-fast and ltx-2-pro API models Lightricks has removed (
+LTX-2 removal
+).
+Popular models that are not open
+Wan 2.6
+is served through Alibaba Cloud's API and partners; its weights are not published, and the Wan-Video repositories stop at Wan 2.2. It is still worth using hosted: it adds native audio, multi-shot prompts and 1080p (
+Alibaba Cloud: Wan 2.6
+). See the
+Wan 2.6 guide
+or the
+Wan 2.6 model page
+.
+Wan 3.0
+generates single takes of up to 30 seconds with picture and sound (
+Wan 3.0 model page
+), but it is API-only too: neither the
+Wan-AI Hugging Face page
+nor the Wan-Video GitHub lists its weights.
+FLUX 3 Video
+from Black Forest Labs is available through its API and partners. Black Forest Labs has announced an open-weight FLUX 3 Dev backbone, but has not released it (
+Black Forest Labs
+).
+What runs where
+The Wan 2.2 model card puts the A14B models at a minimum of 80 GB of VRAM on a single GPU, with flags to offload parts of the model to save memory, and says the 5B model "can generate a 5-second 720P video in under 9 minutes on a single consumer-grade GPU" and can run on cards "like 4090" (
+Wan2.2 model card
+). MiniMax H3's reference deployment uses four GPUs. LTX-2.5's repository gives no minimum, but documents FP8 quantisation and offloading for "GPU memory constraints". For most creative teams, the Wan 2.2 5B model is the easiest one here to run on a workstation.
+Fuser runs Wan 2.2, MiniMax H3 and LTX-2.5 as hosted nodes, so you get all three without downloading weights or owning a GPU. Connect one prompt node to the Wan-2.2 Video, MiniMax H3 and LTX 2.5 nodes, compare the takes side by side on the canvas, and send the one you keep to an upscaler such as
+SeedVR2
+, a sound model or the Compositor. To lengthen a clip past one generation, see
+how to extend AI video length
+. If you are coming from a local node editor,
+ComfyUI alternatives
+covers how a hosted canvas compares.
+License terms and open-weight status last verified October 23, 2026. Test clips generated September 28 and 29, 2026.
+Model
+License and use
+Best for, and where it runs
+Open weights
+Wan 2.2 A14B
+License and use
+Apache 2.0. Commercial use with no revenue or territory limits.
+Best for, and where it runs
+Silent B-roll and product shots with strong image quality. 720p. 80 GB GPU locally; hosted in Fuser.
+Open Wan 2.2 in Fuser
+Wan 2.2 5B
+License and use
+Apache 2.0.
+Best for, and where it runs
+Drafts and local runs on one consumer GPU (RTX 4090 class). Hosted in Fuser.
+Open Wan 2.2 Lite (5B) in Fuser
+MiniMax H3
+License and use
+MiniMax H3 Community License. Excludes the US, EU, UK and South Korea; authorisation above $20M revenue; must display "MiniMax H3".
+Best for, and where it runs
+Dialogue and native sound, 768p (2K via its regeneration stage), 4 to 15 s. Multi-GPU locally; hosted in Fuser.
+Open MiniMax H3 in Fuser
+LTX-2.5
+License and use
+LTX-2.x Community License. Paid license at $10M+ annual revenue.
+Best for, and where it runs
+Camera moves and native sound; up to 20 s, or 4K for 10 s, hosted. 22B weights locally (FP8 and offload documented); hosted in Fuser.
+Open LTX 2.5 in Fuser
+Not open weights
+Wan 2.6
+License and use
+API only.
+Best for, and where it runs
+Hosted multi-shot video with audio at 1080p; available in Fuser.
+Open Wan 2.6 in Fuser
+Wan 3.0
+License and use
+API only; no published weights.
+Best for, and where it runs
+Single takes up to 30 s with picture and sound; available in Fuser.
+Open Wan 3.0 in Fuser
+FLUX 3 Video
+License and use
+API only; open FLUX 3 Dev announced, not released.
+Best for, and where it runs
+Not covered here.
+Questions, answered.
++
+What is the best open-source video model?
+Wan 2.2 in Fuser
+is the best fully open choice: Apache 2.0, with the A14B models giving the strongest image quality, and Fuser runs it as a hosted node so you need no GPU.
+MiniMax H3
+is stronger for dialogue and sound, but its license excludes the US, EU, UK and South Korea.
++
+Is Wan 2.6 or Wan 3.0 open source?
+No. Wan 2.6 and Wan 3.0 are available through Alibaba Cloud's API and partners only. The latest Wan video model with published weights is Wan 2.2, under Apache 2.0.
++
+Can I use MiniMax H3 commercially?
+Inside its license territory, yes, with conditions: display "MiniMax H3" in commercial products, and get written authorisation if the product makes more than $20 million a year. The license does not cover the US, EU, UK or South Korea.
++
+Which open video model generates audio?
+MiniMax H3 and LTX-2.5 both generate sound with the video, including spoken lines. Wan 2.2 generates silent video; add sound with a separate model.
++
+Can I run open video models without a GPU?
+Yes, on a hosted service. Fuser runs Wan 2.2, MiniMax H3 and LTX-2.5 as canvas nodes, so you do not download weights or need local hardware.
++
+Is LTX-2.5 open source?
+It is open weights: Lightricks publishes the 22B checkpoints on Hugging Face under the LTX-2.x Community License, which is free for organisations under $10 million in annual revenue and requires a paid license above that.
++
+What GPU do I need to run Wan 2.2 locally?
+The Wan 2.2 model card lists 80 GB of VRAM for the A14B models on a single GPU, with offloading options, and says the 5B model makes a 5-second 720p clip in under 9 minutes on a single consumer GPU, naming the RTX 4090 as a card it runs on.
+Run open video models without the GPU.
+Wire one prompt to Wan 2.2, MiniMax H3 and LTX 2.5, compare the takes and finish the clip on one canvas.
+Open Wan 2.2 in Fuser
+
+Explore all guides
+
+More articles
+All articles
+Best AI Upscalers for Images and Video (2026)
+Fuser
+·
+Sep 28, 2026
+Best AI 3D Model Generators (2026)
+Fuser
+·
+Sep 28, 2026
+AI Background Removers Tested: Bria RMBG 2.0 vs Rembg (2026)
+Fuser
+·
+Sep 29, 2026

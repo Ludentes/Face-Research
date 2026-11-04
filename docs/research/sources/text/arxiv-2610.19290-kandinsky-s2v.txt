@@ -1,0 +1,307 @@
+[2610.19290] Kandinsky S2V 1.0: Audio-Driven Avatar Video Generation
+
+Skip to main content
+
+Search arXiv
+
+Press Enter to search ·
+Advanced search
+
+Computer Science > Computer Vision and Pattern Recognition
+
+arXiv:2610.19290
+(cs)
+
+[Submitted on 13 Oct 2026]
+
+Title:
+Kandinsky S2V 1.0: Audio-Driven Avatar Video Generation
+
+Authors:
+Nikolay Semenov
+,
+Artem Riabinin
+,
+Sergey Bassenko
+,
+Anna Averchenkova
+,
+Julia Agafonova
+,
+Anastasia Aliaskina
+,
+Kirill Kozlov
+,
+Lev Novitskiy
+,
+Nikita Samsonov
+,
+Nikolai Gerasimenko
+,
+Denis Dimitrov
+
+View a PDF of the paper titled Kandinsky S2V 1.0: Audio-Driven Avatar Video Generation, by Nikolay Semenov and 10 other authors
+
+View PDF
+
+HTML (experimental)
+
+Abstract:
+We present Kandinsky S2V 1.0, an open family of speech-to-video models for controllable audio-driven human animation, comprising Kandinsky S2V 1.0 Lite (2B parameters) and Kandinsky S2V 1.0 Pro (21B parameters). From a single reference image, a speech waveform, and a text prompt, the models generate long-form 25 FPS video in which lip motion, expression, pose, and gesture follow the speech. The architecture draws text and audio conditioning from one Qwen2.5-Omni model and adds a reference-aware three-scale visual memory. Training starts from the Kandinsky 5.0 Video foundation models [1] and combines mixed reference-memory layouts with an area-adaptive face loss. The training corpus contains 1.17M single-speaker clips selected by active-speaker detection, with captions generated directly in English and Russian. A side-by-side human evaluation against the strongest open-source baseline and two proprietary commercial models shows that Kandinsky S2V 1.0 Pro performs comparably to or better than these models on average and is also preferred for lip synchronization. On common speech to video benchmarks, Kandinsky S2V 1.0 Lite and Kandinsky S2V 1.0 Pro rank among the top performing models according to mean rank over five reported metrics. Beyond the base models, we provide {\pi}-Flow distilled variants of both Kandinsky S2V 1.0 Lite and Kandinsky S2V 1.0 Pro. The distilled Kandinsky S2V 1.0 Pro model generates video in 16 sampling steps without classifier-free guidance, achieving a 5.4 times end-to-end speedup over the base model, while matching or exceeding it on nearly all reported benchmark metrics. To accelerate open research and deployment in speech-to-video generation, we release the code, model checkpoints, and diffusers integration under the MIT license.
+
+Comments:
+
+Technical report on the open-source S2V model
+
+Subjects:
+
+Computer Vision and Pattern Recognition (cs.CV)
+
+Cite as:
+
+arXiv:2610.19290
+[cs.CV]
+
+(or
+
+arXiv:2610.19290v1
+[cs.CV]
+for this version)
+
+https://doi.org/10.48550/arXiv.2610.19290
+
+Focus to learn more
+
+arXiv-issued DOI via DataCite
+
+Submission history
+From: Nikita Samsonov [
+view email
+]
+
+[v1]
+
+Tue, 13 Oct 2026 23:11:39 UTC (268 KB)
+
+Full-text links:
+
+Access Paper:
+
+View a PDF of the paper titled Kandinsky S2V 1.0: Audio-Driven Avatar Video Generation, by Nikolay Semenov and 10 other authors
+View PDF
+HTML (experimental)
+TeX Source
+
+view license
+
+Additional Features
+
+Audio Summary
+
+Current browse context:
+
+cs.CV
+
+< prev
+
+|
+
+next >
+
+new
+
+|
+
+recent
+
+|
+2026-10
+
+Change to browse by:
+
+cs
+
+References & Citations
+
+SciX
+Google Scholar
+
+Semantic Scholar
+
+export BibTeX citation
+
+Loading...
+
+BibTeX formatted citation
+
+×
+
+loading...
+
+Data provided by:
+
+Bookmark
+
+Bibliographic Tools
+
+Bibliographic and Citation Tools
+
+Bibliographic Explorer Toggle
+
+Bibliographic Explorer
+
+(
+What is the Explorer?
+)
+
+Connected Papers Toggle
+
+Connected Papers
+
+(
+What is Connected Papers?
+)
+
+Litmaps Toggle
+
+Litmaps
+
+(
+What is Litmaps?
+)
+
+scite.ai Toggle
+
+scite Smart Citations
+
+(
+What are Smart Citations?
+)
+
+Code, Data, Media
+
+Code, Data and Media Associated with this Article
+
+alphaXiv Toggle
+
+alphaXiv
+
+(
+What is alphaXiv?
+)
+
+Links to Code Toggle
+
+CatalyzeX Code Finder for Papers
+
+(
+What is CatalyzeX?
+)
+
+DagsHub Toggle
+
+DagsHub
+
+(
+What is DagsHub?
+)
+
+GotitPub Toggle
+
+Gotit.pub
+
+(
+What is GotitPub?
+)
+
+Huggingface Toggle
+
+Hugging Face
+
+(
+What is Huggingface?
+)
+
+ScienceCast Toggle
+
+ScienceCast
+
+(
+What is ScienceCast?
+)
+
+Demos
+
+Demos
+
+Replicate Toggle
+
+Replicate
+
+(
+What is Replicate?
+)
+
+Spaces Toggle
+
+Hugging Face Spaces
+
+(
+What is Spaces?
+)
+
+Spaces Toggle
+
+TXYZ.AI
+
+(
+What is TXYZ.AI?
+)
+
+Related Papers
+
+Recommenders and Search Tools
+
+Link to Influence Flower
+
+Influence Flower
+
+(
+What are Influence Flowers?
+)
+
+Core recommender toggle
+
+CORE Recommender
+
+(
+What is CORE?
+)
+
+Author
+
+Venue
+
+Institution
+
+Topic
+
+About arXivLabs
+
+arXivLabs: experimental projects with community collaborators
+
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+
+Have an idea for a project that will add value for arXiv's community?
+Learn more about arXivLabs
+.
+
+Which authors of this paper are endorsers?
+|
+
+Disable MathJax
+(
+What is MathJax?
+)

@@ -1,0 +1,120 @@
+Core Customers Contribute 60% of Revenue: Digital Humans Aimed at Making Money
+
+English
+中文
+Deutsch
+Home
+Article
+Core customers contribute 60% of the revenue, and digital humans aim to make money.
+宋婉心
+2025-11-21 11:44
+The company's accounts receivable have soared.
+Author | Song Wanxin
+
+Editor |
+Zhang Fan
+
+Silicon Intelligence, the largest provider of digital human agents in China, is gearing up for a Hong Kong stock market listing. This startup, which launched its AI digital humans in 2019 and has grown since the early days of the market, now holds the top position in the Chinese digital human agent market.
+
+According to data from CIC, in terms of 2024 revenue, Silicon Intelligence boasts a staggering 32.2% market share in China, firmly securing the first place. Globally, it ranks second.
+
+With the development of large models, digital humans have become one of the most mature application scenarios.
+However, Silicon Intelligence's prospectus also reveals another side - soaring accounts receivable, a highly concentrated customer structure, and a persistent profitability dilemma.
+
+Since its establishment, the company has received eight rounds of investment. After securing a Series D investment from Jiaxing High - tech in May this year, Silicon Intelligence is valued at approximately 3.15 billion yuan, more than 20 times its post - Series Pre - A valuation.
+
+(Source: Silicon Intelligence's prospectus)
+
+01 Turning Losses into Profits
+
+Upon its founding in 2017, Silicon Intelligence launched the Silicon Intelligence Voice Platform, which allows for customized dialing strategies and scripts. It can also automatically track and record call content for analysis and compliance reviews.
+
+In 2022, the company introduced Silicon Digital Human Live Streaming. Meanwhile, the emergence of large models propelled the application of digital humans to new heights. Silicon Intelligence's digital humans quickly started to "take up positions" in large numbers and penetrated multiple industries such as telecommunications, finance, healthcare, and education.
+
+The latest news is that on June 30 this year, the company ventured into the field of fully automated content production, marking the advancement of its Silicon Labor Force Solution from AI Copilot to Autopilot.
+
+Compared with the auxiliary tool nature of Copilot, Autopilot can achieve autonomous end - to - end production. For example, when users input prompts, the system can generate complete results including multi - modal content such as videos, music, scripts, and characters.
+
+To date, Silicon Intelligence's Silicon Labor Force Solution encompasses Silicon Intelligence Voice, Silicon Digital Human Video, Silicon Digital Human Live Streaming, Silicon Digital Human Intelligent Interaction, and the emerging Silicon Fully Automated Content Production.
+
+From an industry perspective, in the application scenarios of AI, the digital human scenario has a relatively high degree of commercialization certainty.
+
+According to relevant data disclosed by CIC, the market size of the Chinese digital human agent market increased from 500 million yuan in 2021 to 2 billion yuan in 2024, with a compound annual growth rate of 55.8%.
+
+With technological drive and capability evolution, and the further deepening of enterprise digital transformation, the market size of the Chinese digital human agent market is expected to reach 15.5 billion yuan in 2030, with a compound annual growth rate of 40.3% from 2024 to 2030.
+
+Notably, Silicon Intelligence recognized the reform of the labor force by AI early on.
+In 2017, Silicon Intelligence defined various types of digital human solutions produced by the company as "Silicon Labor Force".
+
+(Source: Silicon Intelligence's prospectus)
+
+However, the financial data disclosed in Silicon Intelligence's prospectus presents a starkly divided picture. From 2022 to 2024, the revenue soared from 223 million yuan to 655 million yuan, with a compound annual growth rate of 71.3%. In the first half of 2025, the revenue was 326 million yuan, a year - on - year increase of 11.15%.
+
+But at the same time, the company is facing the dilemma of increasing revenue without increasing profits. From 2022 to 2024, the company's losses during the period were 111 million yuan, 95.91 million yuan, and 112 million yuan respectively.
+
+The profit situation began to improve in the first half of this year. Although the net loss during the reporting period was still 8.29 million yuan, after deducting various adjustments, the company achieved an adjusted net profit of 5.29 million yuan, with an adjusted net profit margin of 1.6%.
+
+02 Late to the Party Despite an Early Start
+
+One reason behind the losses is closely related to the persistently high AI R & D costs. From 2022 to 2024, the company's R & D expenses soared from 75.43 million yuan to 150 million yuan. Silicon Intelligence has been in a stage of "rapid expansion and strategic losses" in recent years.
+
+More importantly,
+with the rapid iteration of large - model technologies, the technological threshold in the digital human track has been rapidly lowered. Domestic Internet giants have all made deployments, which means that in the face of intensified competition, Silicon Intelligence needs to adjust its pricing strategy, resulting in temporary pressure on its gross profit margin.
+
+The prospectus shows that Silicon Intelligence's gross profit margin dropped rapidly from 45.8% in 2023 to 31.6% in the first half of 2025.
+
+To maintain large customers, Silicon Intelligence also adopted a direct sales model, which is also a major source of costs.
+
+From 2022 to 2024, the proportion of direct sales revenue has always remained above 96%, and even reached 98.3% in the first half of 2025. Although this model is beneficial for maintaining relationships with large customers, it also means high service input and a steady market expansion speed. There may be challenges in further large - scale growth in the future.
+
+It can be said that Silicon Intelligence has finally caught up with the trend, but the trend is fleeting.
+
+However, in the prospectus, Silicon Intelligence explained its latest business barriers to avoid getting caught in a price war. The company stated that it has iterated its digital human agent business model, that is, directly delivering results to customers.
+
+"Silicon Intelligence's Silicon Labor Force Solution has transformed from providing basic product services to delivering quantifiable business results. The company has shifted from AI Copilot services (supporting customers' video production and live - streaming needs with fixed fees) to pioneering the AI Autopilot model."
+
+At the same time, Silicon Intelligence is exploring the combination of AI solutions with IP value by launching twin digital humans and collaborating with well - known IPs.
+
+(Source: Silicon Intelligence's prospectus)
+
+However, the company is currently facing more severe customer - related problems.
+
+Silicon Intelligence is highly dependent on large customers. The prospectus shows that during the reporting period, the total number of Silicon Intelligence's customers was adjusted from 573 to 289. The revenue proportion of Silicon Intelligence's largest customer soared from 16.6% in 2022 to 64.4% in the first half of 2025.
+
+This largest customer contributed 35 million yuan in revenue in 2022, and the contribution increased significantly to 193 million yuan in the first half of this year.
+It can be seen that while Silicon Intelligence deepens its cooperation with core large customers, the business rhythm of other customer groups has been adjusted.
+
+This poses many potential risks to the company's operations. First and foremost, it exacerbates the company's accounts receivable. The prospectus shows that the company's accounts receivable soared from 57 million yuan in 2022 to 233 million yuan in 2024.
+
+In addition, Silicon Intelligence's bad debt impairment also increased from 5 million yuan to 37.6 million yuan, and the payment collection cycle was extended from 70 days to 124 days.
+
+All these reflect the temporary characteristics of the company during the customer structure adjustment period.
+
+The application of digital humans seems to be booming, but it is facing the dilemma of misaligned goals between the supply side and the demand side. From the perspective of merchants, in order to reduce costs, they have a strong demand for using digital humans.
+Based on a rough calculation of "selling 80,000 digital humans with an annual revenue of 600 million yuan" by Silicon Intelligence, the unit price of a digital human is about 7,500 yuan, which is even lower than the monthly salary of a new anchor.
+
+However, the experience feedback from users and platforms regarding digital humans is not positive. Li Mingtao, the chief e - commerce expert at the China International Electronic Commerce Center, once said: "Digital human live - streaming has outstanding advantages such as low cost, professionalism, and fast iteration. However, digital human anchors can hardly achieve the same level of appeal to fan groups as real - human anchors in terms of emotions. Live - streaming platforms have started to limit the application duration of digital human live - streaming to ensure user experience."
+
+Si Ma Huapeng, the founder of Silicon Intelligence, once said: "By 2025, we will provide 100 million silicon labor forces globally." However, the prospectus shows that as of the end of October this year, the company has only delivered a total of 80,000 "silicon labor forces".
+
+Follow for more information
+This article is originally produced by
+「
+宋婉心
+」
+，
+
+For reprint or content cooperation, please click
+
+Reprint Instructions
+；
+Unauthorized reprint will be held accountable.
+The pictures in this article are from
+：
+视觉中国
+For media inquiries, interview requests, business collaboration and Recruit global ecological partners, please contact business@36kr.com.
+Partner：startuprad.io
+Friendly Links:
+ai.36kr.com
+36kr Europe (eu.36kr.com) delivers global business and markets news, data, analysis, and video to the world, dedicated to building value and providing business service for companies’ global expansion.
+© 2024 36kr.com. All rights reserved.

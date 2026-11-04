@@ -1,0 +1,536 @@
+Akool Pricing | Plans for Creators, Teams, and Enterprises
+Select the right plan to boost your marketing productivity
+Need additional credits, faster generation or higher concurrency?
+Explore add-ons
+API Pricing
+Yearly
+Monthly
+Starter
+For first-time AI content creators
+200
+
+Credits
+$
+12
+/seat /mo
+$
+0.060
+/credit,
+billed
+
+yearly
+
+as
+
+$144
+Upgrade
+VIDEO
+Resolution: up to 1080P
+Access to selected video and image models
+Video Length: up to 15 mins
+Access to all Face Swap models
+Access to Video Agent & Agentic Canvas
+Concurrent generations: 2 videos and 4 images
+License: personal
+Medium processing speed
+No watermark
+SEEDANCE 2.5🔥
+No Access
+SEEDANCE 2.0
+Limited Access
+200
+Credits/mo
+= 100 Nano 🍌 Pro images
+= 20 Kling 3.0 videos
+Pro
+For professional creators looking to level up their creative output.
+30% OFF
+600
+Credits
+1200
+Credits
+2400
+Credits
+$
+21
+$
+30
+/seat /mo
+$
+0.035
+/credit,
+billed
+
+yearly
+
+as
+
+$252
+Upgrade
+VIDEO
+Access to all SOTA video models
+Resolution: up to 4K
+Video Length: up to 30 mins
+Video translation proofread access
+Templates: Pro templates
+IMAGE
+Access to all SOTA image models
+Access to Video Agent & Agentic Canvas
+Access to 6 Face Swap models
+Concurrent generations: 6 videos and 8 images
+Pay as you go
+Buy credit packs and additional concurrent generations
+License: personal
+Fast processing speed
+No watermark
+SEEDANCE 2.5🔥
+No Access
+SEEDANCE 2.0
+Full Access
+600
+Credits/mo
+= Up to 600 images
+= 300 Nano 🍌 Pro images
+= Up to 150 videos
+= 60 Kling 3.0 videos
+Most Popular
+Pro Max
+For power creators who need more speed, scale, and flexibility
+30% OFF
+1200
+Credits
+2400
+Credits
+4800
+Credits
+9600
+Credits
+$
+41
+.
+30
+$
+59
+/seat /mo
+$
+0.034
+/credit,
+billed
+
+yearly
+
+as
+
+$495.60
+Upgrade
+VIDEO
+Resolution: up to 8K
+Video Length: up to 45 mins
+Templates: Pro Max templates
+Everything in Pro
+Access to Video Agent & Agentic Canvas
+Studio Voice for brand terminology
+Access to API
+Workspace collaboration
+Concurrent generations: 8 videos and 8 images
+License: personal
+Faster processing speed
+SEEDANCE 2.5🔥
+Full Access
+SEEDANCE 2.0
+Full Access
+1200
+Credits/mo
+= Up to 1200 images
+= 600 Nano 🍌 Pro images
+= Up to 300 videos
+= 120 Kling 3.0 videos
+Best Value
+Business
+Designed for agencies and small businesses to maximize ROI.
+30% OFF
+6000
+Credits
+12000
+Credits
+25000
+Credits
+80000
+Credits
+$
+174
+.
+30
+$
+249
+/seat /mo
+$
+0.029
+/credit,
+billed
+
+yearly
+
+as
+
+$2091.60
+Upgrade
+VIDEO
+Resolution: up to 16K
+Video Length: up to 60 mins
+Templates: Business templates
+Everything in Pro Max
+1 Fine-tuned Studio Avatar
+Concurrent generations: 20 videos and 24 images
+Lowest cost per credit
+Fastest processing speed
+License: business
+SEEDANCE 2.5🔥
+Full Access
+SEEDANCE 2.0
+Full Access
+6000
+Credits/mo
+= Up to 6000 images
+= 3000 Nano 🍌 Pro images
+= Up to 1500 videos
+= 600 Kling 3.0 videos
+Enterprise
+Customized yearly plans for your organization
+Let's Talk
+Contact Sales
+Everything in Business
+Credits do not expire
+Ultra Avatar supported
+Enterprise-grade security & privacy
+Enterprise-grade customized solutions
+SSO Log-in
+VIP processing with dedicated server resources
+Concurrent generations: Customized.
+Dedicated customer success manager
+Private account manager
+License: enterprise
+SEEDANCE 2.5🔥
+Full Access
+SEEDANCE 2.0
+Full Access
+How do different products consume credits?
+Full Comparison
+AKOOL's plans & pricing are designed to meet your needs as you grow
+Free
+$0
+Enterprise
+Let's Talk
+Contact Sales
+General
+Watermarks
+Full Screen
+Removal
+Removal
+Removal
+Removal
+Removal
+Processing Speed
+Slow
+Medium
+Fast
+Faster
+Fastest
+VIP
+Storage Space
+5 GB
+25 GB
+50 GB
+500 GB
+1 T
+Customized
+License
+—
+Personal
+Personal
+Personal
+Business
+Enterprise
+API
+—
+—
+—
+Streaming Avatar
+Public Streaming Avatar
+All
+All
+All
+All
+All
+All
+Custom Instant Avatar
+1
+1
+3
+5
+10
+Customized
+Custom Studio Avatar
+0
+0
+0
+0
+1
+Customized
+Streaming Session time
+5 mins free time
+Up to 15 mins
+Up to 15 mins
+Up to 30 mins
+Up to 60 mins
+Customized
+Knowledge Base
+All
+All
+All
+All
+All
+All
+Avatar
+Public Avatar
+All
+All
+All
+All
+All
+All
+Photo Avatar
+Instant Avatar
+1
+2
+3
+5
+10
+Customized
+Studio Avatar
+—
+—
+—
+—
+1
+Customized
+Ultra Avatar
+—
+—
+—
+—
+—
+Customized
+Add-on Avatar Purchase
+—
+Avatar Video
+Video Resolution
+Up to 720P
+Up to 1080P
+Up to 4K
+Up to 4K
+Up to 4K
+4K
+Max Video Length
+10 mins
+15 mins
+30 mins
+45 mins
+60 mins
+Customized
+Public Avatar
+All
+All
+All
+All
+All
+All
+Public AI Voice
+All
+All
+All
+All
+All
+All
+Public Video Template
+All
+All
+All
+All
+All
+All
+PPT/PDF Upload
+Voice Clone
+Background Remove for Avatar
+Upload/Record Audio
+4K Video
+—
+—
+Video Translation
+Languages supported
+155+
+155+
+155+
+155+
+155+
+155+
+Upload Quality
+4K
+4K
+4K
+4K
+8K
+Customized
+Upload Video Length
+5mins
+5mins
+30mins
+60mins
+120mins
+Customized
+Lip-Sync
+Remove BGM
+AI Voice Selection
+Upload Local Voice File
+Proofread Editor
+—
+Captions/Subtitles
+Upload SRT/ASS
+—
+—
+—
+Download SRT/ASS
+—
+—
+—
+Keep Video Specs Unchanged
+—
+Voice Dictionary
+—
+Face Swap
+Upload Quality
+720P
+Up to 1080P
+16K
+16K
+16K
+Customized
+Upload Video Size
+150MB and 30s
+300MB and 5mins
+300MB and 5mins
+500MB and 10mins
+1GB and 15mins
+Customized
+Multi-Face Detection
+Re-age
+Face Enhance
+—
+Live Face Swap
+5 mins free time
+Up to 5mins
+Up to 60 mins
+Up to 90 mins
+Up to 120 mins
+Customized
+Voice Generator
+Voice Clone
+—
+5 voices
+30 voices
+180 voices
+500 voices
+Customized
+TTS
+5 uses total, up to 1000 chars each time
+Up to 2000 chars each time
+Up to 5000 chars each time
+Doubao: 3,000 chars/use
+Up to 10000 chars each time
+Doubao: 3,000 chars/use
+Up to 50000 chars each time
+Doubao: 3,000 chars/use
+Customized
+Doubao: 3,000 chars/use
+Voice Changer
+—
+Unlimited
+Unlimited
+Unlimited
+Unlimited
+Unlimited
+Video Campaign
+Max Variable per video
+0
+1
+1
+3
+5
+Customized
+Integration (Coming soon)
+—
+Zapier
+Zapier
+Zapier
+Zapier
+Zapier
+Support
+Email
+Dedicated Customer Success Manager
+—
+—
+—
+—
+—
+Workspace Membership & Access Rules
+Members
+Workspace members can be invited by clicking Invite Members in the top-right workspace module, or heading to Workspace Settings and selecting Members.
+Invites are sent via email with a secure link for the user to accept the invitation.
+Invitation charges
+All added admins and editors are subject to an additional charge upon invitation. The charge is equivalent to the rate paid by the initial workspace owner.
+For instance, if the owner pays $30 a month for a PRO Plan, any added admins or editors will also be charged $30/month (per added member) upon invitation.
+Removing an invited user will add the remaining balance of their plan as an invoice credit to the owner's account. Invoice credits are a monetary balance that will be spent on future transactions before charging the account owner's payment method.
+Roles
+Workspace roles can be adjusted under Workspace Settings > Members by using the dropdown menus in the Role column. Permissions are as follows:
+Owner
+Owner is only assigned to you in your original, default workspace. Owners cannot be removed from their workspace. This role cannot be assigned in newly created workspaces.
+Admin
+Admins can adjust workspace roles, and edit and view results and assets.
+Editor
+Editors can generate results and upload assets, but cannot adjust workspace settings.
+Viewer
+Viewers can view and download results and assets.
+Task
+Viewer
+Editor
+Admin
+Owner
+View results and assets
+Download results and assets
+Use AI tools that do not require credits
+Generate Video
+—
+Generate Audio
+—
+Create and use Video Projects
+—
+Export Video Projects
+—
+Create, share and delete custom elements
+—
+Add/Remove users to workspace
+—
+—
+Change user role
+—
+—
+View credit spend table
+—
+—
+Change Workspace Name/Logo
+—
+—
+Change billing information
+—
+—
+—

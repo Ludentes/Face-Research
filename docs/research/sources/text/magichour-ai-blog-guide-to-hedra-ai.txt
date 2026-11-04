@@ -1,0 +1,203 @@
+Hedra AI guide: current focus and earlier Character 3 workflow
+Back to Blog
+Hedra AI guide: current focus and earlier Character 3 workflow
+Aastha Kochar
+·
+Content Manager
+·
+Jul 09, 2025
+·
+9
+min read
+AI Summary:
+Create with Magic Hour
+Make videos and images with AI.
+Try Magic Hour
+You found an earlier Hedra Character 3 tutorial and want to know which parts still apply. Hedra now leads with training and production inference, while older avatar instructions and plan screenshots describe a different point in its product history.
+Following them as current buying advice can leave you budgeting around the wrong entitlement. This guide separates that positioning change from the retained Character 3 workflow. Use the older material to understand the process, then check the current Studio and model route before purchasing or building, without assuming the creative products have closed or the earlier prices still apply.
+Quick answer
+Hedra now leads with multimodal training and production inference, while its public site still lists Creative Studio and Character 3.
+That does not establish a creative-product shutdown. The older workflow and pricing snapshot are historical references, not confirmation of current Studio entitlements.
+What is Hedra Character 3?
+Character 3
+is Hedra's audio-driven character-video model. Its current model page lists a start image and required audio, with 540p, 720p, and 1080p output options. The older statement that Character 3 is limited to 720p is no longer consistent with that page.
+Use it for a speaking or singing character when the source is a still image. Confirm the settings available in your account rather than assuming that every model on the platform has the same input, duration, or output limits.
+Character 3 versus Hedra Omnia
+Character 3
+is Hedra's long-form audio-driven portrait model. It requires a start frame and audio, supports 540p, 720p and 1080p, and accepts up to 600 seconds of audio on the current API route. Start here when the deliverable is a presenter, singer, podcast clip or other speech-driven character performance.
+Hedra Omnia
+launched in February 2026 as Hedra's more advanced model for character dialogue in dynamic environments with camera control. Evaluate it when the scene needs more than a largely portrait-led performance. Hedra currently presents Omnia and Character 3 as separate choices, so record the selected model instead of calling every Hedra output “Character 3.”
+Earlier Studio plan snapshot: monthly prices
+Positioning update, October 31, 2026: Hedra’s homepage now emphasizes model training, inference optimization and infrastructure. Its Studio page and Character 3 model reference remain public. The workflow, plan table and pricing screenshot below describe our September–October 2026 documentation snapshot, not a fresh endorsement or confirmation of current Studio entitlements. Check the live pricing and exact model route before using those figures.
+Current company positioning
+·
+Studio page
+·
+Current pricing
+Plan
+Monthly USD price
+Included monthly credits
+Basic
+$20
+2,000
+Pro
+$50
+7,200
+Ultra
+$100
+18,000
+Teams
+$75
+14,400
+Enterprise
+Custom
+Custom
+Checked October 10, 2026: Hedra's
+pricing page
+lists the monthly plans above and commercial use on paid tiers. Ultra starts with 18,000 credits; its advertised higher allowance is not the base allocation. The
+video-generator overview
+explains supported workflows, but does not establish the current free-plan watermark or commercial-use conditions. Confirm those conditions and the selected model's charge in your account before client work.
+Hedra Basic with monthly billing, captured October 10, 2026: $20 per month and 2,000 credits. This image shows Basic only; use the table for the other plans and confirm the selected model’s charge before buying.
+View official source
+Do not turn plan credits into a promised number of videos without the selected model's current quote. Duration, output settings, and repeated attempts affect the amount of work your balance can cover.
+Do Hedra credits roll over after renewal or cancellation?
+Subscription credits reset each billing cycle; separately purchased credit packs do not expire.
+Hedra’s
+pricing FAQ
+says the monthly allowance is spent before pack credits. Size a recurring plan around work you expect to complete that cycle, rather than treating unused monthly credits as savings for a later project.
+An unexpired balance does not guarantee continued access after cancelling. The same FAQ says most functionality becomes unavailable apart from limited watermarked generation, and you must resubscribe to spend remaining non-expiring credits. Before buying a large pack for occasional projects, account for the subscription needed when you return.
+Character 3 API cost per finished attempt
+The current
+Character 3 API page
+lists $0.025 per second at 540p, $0.05 at 720p, and $0.0625 at 1080p. A 60-second attempt is therefore $1.50, $3.00, or $3.75 before retries. A ten-minute 1080p attempt is $37.50 before retries. These are API rates for this model, not a conversion from Hedra subscription credits.
+Budget by accepted output. If three one-minute 720p attempts are needed to approve one clip, the generation cost is $9 before any voice, editing, storage or review work. Save the model, resolution, audio duration, attempt count and actual charge with each result.
+How to create the first talking video
+1. Open Hedra and check the selected workflow
+Sign in through
+Hedra
+, open Creative Studio, and choose the talking-character workflow and model. Interface labels can change; the required assets are the useful anchor: a starting image and an approved audio track.
+2. Prepare one clear portrait
+Use a well-lit face with unobstructed eyes and mouth. Leave room for movement around the head and chin. If you create a character image first, save the approved image instead of repeatedly prompting for an approximate replacement.
+3. Approve the audio before animation
+Record your line or generate speech, then listen to it by itself. Correct pronunciation, pauses, and the message before using it as an input. Hedra's
+photo-to-video guide
+describes this image-and-audio workflow.
+Check the Character 3 API input limits
+For the
+current Character 3 API route
+, the starting image must be no larger than 10.4 MB. Each audio file must run between 0.5 and 600 seconds and stay within 104.8 MB. These are API limits; check Studio separately.
+For a thirteen-minute narration, plan separate clips of ten minutes and three minutes or shorter editorial segments. Reuse the approved portrait, cut at complete sentences, and assemble the returned clips in an editor. Do not truncate the audio merely to fit one request. This is a planning workflow, not a tested Hedra output.
+4. Check the model, resolution, and charge
+Choose settings appropriate to the deliverable and review the quoted credit use. Begin with a short segment that contains the expressions and pacing you need. A low-cost preview can screen the inputs, but it does not establish the quality of a different final mode.
+5. Generate, review, and download
+Watch the whole output at normal speed. Inspect the mouth at pauses, the eyes during movement, and the face shape through the sentence. Confirm the downloaded file's dimensions and export conditions before making a series.
+Control which character speaks and how long the clip runs
+For API projects with multiple people in the image, map each audio track to the intended speaker. The
+Character 3 API reference
+accepts up to four audio files. A single [x, y] point selects the speaker when one voice is supplied; multiple voices require one point per audio file, in the same order. These are API controls, not a promise that every Studio screen exposes them.
+The optional duration uses milliseconds. Leave it unset to follow the supplied audio; setting it trims the audio or adds silence to reach that length. For example, an 18-second recording with duration 20,000 adds two seconds of silence; duration 12,000 cuts six seconds. These illustrate the documented rule, not tested outputs. Omit the override when you want the complete recording unchanged.
+A sample brief for a product explainer
+Use a licensed or original presenter image and a short line such as: “Here's how the cap opens. Turn it once, then lift.” Time the actual recording and make the instruction match the real product.
+Pair the presenter with footage of the action. The talking character introduces the demonstration; it should not invent evidence that the product works. Do not present a generated actor as a real customer describing a purchase they never made.
+Keep these three assets together: the approved image, the final voice recording, and the visible demonstration. When the instructions change, update the relevant asset and review the combined video. For longer structures, use the
+product video script templates
+.
+Estimate the cost of a series
+Suppose you need ten clips and each attempt receives a quote of Q credits. One attempt per clip costs 10Q; two attempts per clip cost 20Q. If only eight of those clips are usable, the cost per usable clip is the total spent divided by eight.
+This is planning arithmetic, not a Hedra rate or an observed success rate. Record actual charges and usable outputs in your project. A subscription price alone does not show the cost of a finished campaign.
+Troubleshoot before repeating a generation
+Problem
+First revision to try
+Unclear mouth or facial distortion
+A sharper, less obstructed portrait
+Awkward pronunciation
+Correct the voice recording before animating again
+Too much head movement
+A calmer delivery and simpler starting pose; review available motion controls
+The face changes between clips
+Reuse the exact approved source image and compare every output
+Missing final words
+Check the chosen audio segment and output duration
+The result looks fine but cannot be delivered
+Recheck the export resolution, watermark, and account entitlement
+Do not keep repeating an unchanged setup after the same failure. Isolate the image, audio, or setting responsible, or choose a different workflow.
+Hedra vs Magic Hour vs HeyGen
+Your task
+Useful starting comparison
+Animate a portrait from audio
+Hedra Character 3 and
+Magic Hour Talking Photo
+both fit this input
+Replace speech in an existing face video
+Start with
+Magic Hour Lip Sync
+or a dedicated video-lip-sync workflow
+Create a presenter and translated versions
+Compare
+HeyGen's documented avatar and translation features
+Generate a scene without an existing photo or video
+Compare the selected text-to-video models, not the talking-photo tools
+Choose on your actual input, export, and workflow requirements. This guide does not establish that one provider has the most accurate lips, fastest processing, or lowest cost for every project. For a broader shortlist, see
+best AI talking-photo tools
+.
+Choose a workflow for the job you need to finish
+Hedra now leads with multimodal training and production inference. Its public site still lists Creative Studio and Character 3, so this change does not establish that creative products have closed. For a new talking-photo project, compare current input, export and billing requirements rather than relying on an older avatar comparison. The earlier Character 3 workflow below is retained as historical reference; recheck the linked official pages before buying or building.
+Magic Hour publishes this guide and offers a separate talking-photo workflow. Hedra product, model, duration, resolution, and API claims are based on the linked official Hedra sources checked September 13, 2026; this is a documentation review rather than a retained output-quality benchmark.
+Magic Hour publishes this guide and includes its own product in the comparison. Treat the recommendations as editorial guidance from a vendor, and verify the linked first-party product details and your own output requirements before choosing a tool.
+Direct answer:
+For a new project, start from your required inputs and finished output. Compare current talking-photo and video workflows when you need generation, editing, multiple models or production handoffs; the historical Character 3 details above are not a current buying recommendation.
+Test.
+Use one portrait and 15-second script with pauses, emphasis and a mild head turn. Record model version, voice source, resolution, duration, queue and retries.
+Review.
+Check identity, lips, teeth, blinking, head motion, framing and whether performance matches the audio. Longer clips reveal drift that a short showcase can hide.
+Decision rule.
+Choose a specialist when character performance is the whole job. Choose a broader workspace when talking-photo generation is one step in a larger image, video and audio workflow.
+Make a short portrait-and-audio clip with
+Magic Hour Talking Photo
+. Use an approved recording and check lip timing, blinking and head movement before extending the script.
+Frequently asked questions
+Is Hedra free, and do free videos have a watermark?
+Hedra advertises a free start, but its public pricing page does not promise one fixed recurring free-credit allowance. Check your trial balance, eligible model, watermark, download and commercial-use conditions in the account. Paid pricing cards list commercial use; do not assume that establishes the same conditions for the free route.
+Does Character 3 support 1080p?
+Yes, the current Character 3 model page lists 1080p alongside 540p and 720p. Check availability for the selected workflow and account; this does not establish the same limit for every Hedra model.
+Is a generated avatar clip the same as a live avatar?
+No. A rendered clip is a finished video. An interactive avatar also needs a streaming, voice, and response system. Confirm the current developer product and its billing separately; do not use an old streaming rate to budget ordinary video generations.
+Can Magic Hour make a talking video from a photo?
+Yes.
+Magic Hour Talking Photo
+takes an image and audio directly. Magic Hour also offers text-to-video, image-to-video, and editing workflows. It is inaccurate to describe the platform as only transforming existing footage.
+Should I pay before trying my character?
+Evaluate the available sample first. Choose a paid tier when the result fits your project and you need its credits or export conditions. Confirm that your image, voice, and script can be used for the intended purpose.
+Aastha Kochar
+Content Manager
+Aastha Kochar has spent 5+ years creating content for B2B and B2C SaaS brands in the AI and MarTech space. She writes comparisons of AI-powered content tools, focusing on documented features, creator workflows and practical selection criteria.
+
+Her work has helped companies increase organic traffic, earn AI citations, and most importantly — turn readers into users.
+
+With a bachelor's and master's degree in Journalism and Mass Communication, she brings strong research skills, authentic storytelling, and a deep understanding of what makes audiences actually care about what they're reading.
+View author →
+Continue Reading
+Content Creation
+6 best AI lip sync video tools (2027 comparison)
+Jul 06, 2025
+6 best AI lip sync video tools (2027 comparison)
+Images
+Best AI talking photo tools (2027): 4 portrait workflows
+May 16, 2026
+Best AI talking photo tools (2027): 4 portrait workflows
+Videos
+Best free AI lip sync tools (2027): limits & watermarks
+May 25, 2026
+Best free AI lip sync tools (2027): limits & watermarks
+Videos
+How to lip sync a video with Magic Hour: 5 steps
+Jun 24, 2026
+How to lip sync a video with Magic Hour: 5 steps
+Images
+5 best talking-photo APIs and endpoints for developers (2027)
+Dec 27, 2025
+5 best talking-photo APIs and endpoints for developers (2027)
+Videos
+Product video script templates: 12 formats you can adapt
+Apr 14, 2026
+Product video script templates: 12 formats you can adapt

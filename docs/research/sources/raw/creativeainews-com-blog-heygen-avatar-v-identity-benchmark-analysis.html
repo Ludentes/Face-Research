@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HeyGen Avatar V: AI Avatars Cross the Uncanny Valley</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg?v=hxIE9LlHgdUldyad">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png?v=wXR9uJYODKFSMJUT">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png?v=9gG0Js7rMF4bDFJh">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png?v=c_IYpwgXtRaXvjPV">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest?v=O_XrDUGZYsJJAlGJ">
+    <meta name="theme-color" content="#C44C14">
+    <link rel="preload" href="/assets/fonts/inter-latin.woff2?v=Lc02EgOamqomYMDJ" as="font" type="font/woff2" crossorigin>
+    <style>@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('/assets/fonts/inter-latin.woff2?v=Lc02EgOamqomYMDJ') format('woff2')}*{margin:0;padding:0;box-sizing:border-box}:root{--bg-cream:#FAF9F6;--bg-white:#FFFFFF;--bg-dark:#1A1A1A;--primary:#C44C14;--primary-dark:#A33D0F;--text-dark:#1A1A1A;--text-muted:#6B7280;--text-light:#9CA3AF;--border:#E5E7EB;--card-shadow:0 4px 20px rgba(0,0,0,0.04)}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background-color:var(--bg-cream);color:var(--text-dark);line-height:1.6}a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-0.02em}h1{font-size:clamp(2.25rem,5vw,3.5rem)}h2{font-size:clamp(1.5rem,3vw,2.25rem)}h3{font-size:1.125rem}h4{font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.05em;font-weight:600}p{color:var(--text-muted);font-size:0.9375rem;line-height:1.6}.container{max-width:1200px;margin:0 auto;padding:0 2rem}.section{padding:2rem 0}.section-alt{background:var(--bg-white)}.section-dark{background:var(--bg-dark);color:white;padding:1.75rem 0}.section-dark p{color:var(--text-light)}.section-header{text-align:center;margin-bottom:1.25rem}.section-header p{font-size:0.9375rem;max-width:600px;margin:0.25rem auto 0}.grid{display:grid;gap:1rem}.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.nav{position:fixed;top:0;left:0;right:0;padding:0.75rem 0;z-index:100;background:rgba(250,249,246,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;font-size:1.125rem;letter-spacing:-0.02em}.logo span{color:var(--primary)}.nav-links{display:flex;gap:2rem}.nav-links a{font-weight:500;font-size:0.875rem}.btn{display:inline-flex;align-items:center;justify-content:center;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;font-size:0.875rem;font-family:inherit;border:none;cursor:pointer}.btn-primary{background:var(--primary);color:white}.hero{min-height:auto;display:flex;align-items:center;padding:5.5rem 0 2rem;text-align:center}.hero .container{max-width:900px}.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:white;padding:0.35rem 0.75rem;border-radius:100px;font-size:0.8125rem;font-weight:500;margin-bottom:1.25rem;box-shadow:var(--card-shadow)}.hero-badge .dot{width:8px;height:8px;background:#22C55E;border-radius:50%}.hero h1{margin-bottom:1rem}.hero h1 .highlight{color:var(--primary)}.hero-subtitle{font-size:0.9375rem;max-width:560px;margin:0 auto 1.25rem;line-height:1.6}.email-form{display:flex;gap:0.5rem;max-width:440px;margin:0 auto 0.75rem}.email-form input[type="email"]{flex:1;min-width:0;padding:0.6rem 1rem;border:2px solid var(--border);border-radius:6px;font-size:0.9rem;font-family:inherit;background:white}.form-note{font-size:0.8125rem;color:var(--text-muted);text-align:center}.card{background:var(--bg-cream);padding:1rem;border-radius:10px}.section-alt .card{background:var(--bg-cream)}.card-icon{width:36px;height:36px;background:var(--primary);color:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;margin-bottom:0.75rem}.card h3{font-size:1.05rem;margin-bottom:0.5rem}.card p{font-size:0.85rem;line-height:1.5}.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;line-height:1}.nav-toggle svg{width:24px;height:24px;stroke:var(--text-dark);stroke-width:2;fill:none}@media(max-width:768px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(250,249,246,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);flex-direction:column;padding:0.5rem 2rem 1rem;gap:0}.nav-links.open{display:flex}.nav-links a{padding:0.75rem 0;border-bottom:1px solid var(--border);font-size:1rem}.email-form{flex-direction:column}.email-form button{width:100%}.btn{padding:0.75rem 1.5rem;font-size:1rem}p{font-size:1rem}}@media(max-width:640px){.container,.container-narrow{padding:0 1rem}.nav-container{padding:0 1rem}.grid-2,.grid-3{grid-template-columns:1fr}}</style>
+    <link rel="stylesheet" href="/assets/css/screen.css?v=fYH-vvytFb4otNKh" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/css/screen.css?v=fYH-vvytFb4otNKh"></noscript>
+    <script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "NewsMediaOrganization",
+        "@id": "https://www.creativeainews.com/#organization",
+        "name": "Creative AI News",
+        "alternateName": "CreativeAINews",
+        "url": "https://www.creativeainews.com",
+        "description": "Creative AI News is an independent publication covering AI tools, workflows, and analysis for creative professionals: image, video, audio, 3D, and coding.",
+        "slogan": "Creative AI tools, workflows, and news for working creators",
+        "foundingDate": "2026-02-01",
+        "email": "contact@creativeainews.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.creativeainews.com/content/images/2026/02/creative-ai-news-logo.png",
+            "width": "512",
+            "height": "512"
+        },
+        "knowsAbout": [
+            "AI image generation", "AI video generation", "AI music generation",
+            "AI 3D modeling", "AI coding tools", "ComfyUI workflows",
+            "Midjourney", "Stable Diffusion", "Runway", "Suno",
+            "Claude", "ChatGPT", "creative AI workflows"
+        ],
+        "publishingPrinciples": "https://www.creativeainews.com/editorial-standards/",
+        "ethicsPolicy": "https://www.creativeainews.com/editorial-standards/",
+        "diversityPolicy": "https://www.creativeainews.com/editorial-standards/",
+        "actionableFeedbackPolicy": "https://www.creativeainews.com/editorial-standards/",
+        "correctionsPolicy": "https://www.creativeainews.com/editorial-standards/",
+        "founder": {"@id": "https://www.creativeainews.com/author/vanh/#person"},
+        "sameAs": [
+            "https://www.youtube.com/@CreativeDesignTools",
+            "https://github.com/VanhDc",
+            "https://www.linkedin.com/in/vannarot-roeung-868679341/",
+            "https://x.com/VanhDesign"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@creativeainews.com",
+            "contactType": "editorial",
+            "availableLanguage": ["English"]
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.creativeainews.com/author/vanh/#person",
+        "name": "Vannarot Roeung",
+        "alternateName": "Vanh",
+        "url": "https://www.creativeainews.com/author/vanh/",
+        "jobTitle": "Editor",
+        "worksFor": {"@id": "https://www.creativeainews.com/#organization"},
+        "knowsAbout": [
+            "AI image generation", "AI video generation", "AI music",
+            "ComfyUI", "creative AI workflows", "AI tools for designers",
+            "AI for video editors", "AI for podcasters", "AI for game developers"
+        ],
+        "sameAs": [
+            "https://x.com/VanhDesign",
+            "https://www.linkedin.com/in/vannarot-roeung-868679341/",
+            "https://github.com/VanhDc",
+            "https://www.youtube.com/@CreativeDesignTools"
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.creativeainews.com/#website",
+        "name": "Creative AI News",
+        "url": "https://www.creativeainews.com",
+        "publisher": {"@id": "https://www.creativeainews.com/#organization"},
+        "inLanguage": "en-US",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.creativeainews.com/blog/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }]
+    </script>
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <link rel="alternate" type="application/rss+xml" title="Creative AI News" href="https://www.creativeainews.com/rss/">
+    <meta name="description" content="HeyGen Avatar V scores 0.840 Face Similarity from a 15-second clip, beating Veo 3.1. Analysis of architecture, benchmarks, and creator impact.">
+    <link rel="icon" href="https://www.creativeainews.com/content/images/size/w256h256/2026/03/android-chrome-512x512.png" type="image/png">
+    <link rel="canonical" href="https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Creative AI News">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="HeyGen Avatar V: AI Avatars Cross the Uncanny Valley">
+    <meta property="og:description" content="HeyGen Avatar V scores 0.840 Face Similarity from a 15-second webcam clip, beating Google Veo 3.1 by 17.6%. Full analysis of the video-reference architecture and creator impact.">
+    <meta property="og:url" content="https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/">
+    <meta property="og:image" content="https://www.creativeainews.com/content/images/size/w1200/2026/04/heygen-avatar-v-identity-benchmark-analysis-0001.jpg">
+    <meta property="article:published_time" content="2026-04-08T12:00:00.000Z">
+    <meta property="article:modified_time" content="2026-04-28T04:34:04.000Z">
+    <meta property="article:tag" content="Deep Dive">
+    <meta property="article:tag" content="AI Video">
+    <meta property="article:tag" content="AI">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeyGen Avatar V: AI Avatars Cross the Uncanny Valley">
+    <meta name="twitter:description" content="HeyGen Avatar V scores 0.840 Face Similarity from a 15-second webcam clip, beating Google Veo 3.1 by 17.6%. Full analysis of the video-reference architecture and creator impact.">
+    <meta name="twitter:url" content="https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/">
+    <meta name="twitter:image" content="https://www.creativeainews.com/content/images/size/w1200/2026/04/heygen-avatar-v-identity-benchmark-analysis-0001.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Vannarot Roeung">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Deep Dive, AI Video, AI">
+    <meta name="twitter:site" content="@VanhDesign">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="670">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Creative AI News",
+        "url": "https://www.creativeainews.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.creativeainews.com/content/images/size/w256h256/2026/03/android-chrome-512x512.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Vannarot Roeung",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.creativeainews.com/content/images/size/w1200/2026/04/img_reduced.jpg",
+            "width": 1200,
+            "height": 1339
+        },
+        "url": "https://www.creativeainews.com/author/vanh/",
+        "sameAs": []
+    },
+    "headline": "HeyGen Avatar V: AI Avatars Cross the Uncanny Valley",
+    "url": "https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/",
+    "datePublished": "2026-04-08T12:00:00.000Z",
+    "dateModified": "2026-04-28T04:34:04.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.creativeainews.com/content/images/size/w1200/2026/04/heygen-avatar-v-identity-benchmark-analysis-0001.jpg",
+        "width": 1200,
+        "height": 670
+    },
+    "keywords": "Deep Dive, AI Video, AI",
+    "description": "HeyGen Avatar V scores 0.840 Face Similarity from a 15-second webcam clip, beating Google Veo 3.1 by 17.6%. Full analysis of the video-reference architecture and creator impact.",
+    "mainEntityOfPage": "https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.67">
+    <link rel="alternate" type="application/rss+xml" title="Creative AI News" href="https://www.creativeainews.com/articles/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="488e37bb664e0a35a536511568" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://www.creativeainews.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://www.creativeainews.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=ShRHxgy4po8zN-Wf"></script><style>:root {--ghost-accent-color: #FF6B35;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=WwnU9jw5ancNC8Gc">
+    <!-- Google Search Console -->
+<meta name="google-site-verification" content="2Yw9IH4E-DnK8PR5tbGgl6bBcrRjmZ08Rce7ucM794s" />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M58124V8C"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0M58124V8C');
+      gtag('config', 'AW-18026499912');
+</script>
+
+<!-- Pinterest Rich Pins -->
+<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</head>
+<body class="post-template tag-deep-dive tag-ai-video tag-ai">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <nav class="nav">
+    <div class="nav-container">
+        <a href="https://www.creativeainews.com" class="logo">Creative<span>AI</span>News</a>
+        <div class="nav-links" id="nav-links">
+            <a href="https://www.creativeainews.com/blog/">Blog</a>
+            <a href="https://www.creativeainews.com/articles/">Articles</a>
+            <a href="https://www.creativeainews.com/projects/">Projects</a>
+            <a href="https://www.creativeainews.com/advertise/">Advertise</a>
+            <a href="https://www.creativeainews.com/about/">About</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="https://www.creativeainews.com/" class="btn btn-primary">Subscribe</a>
+    </div>
+</nav>
+<script>
+(function(){
+    var t=document.getElementById('nav-toggle'),n=document.getElementById('nav-links');
+    if(t&&n){t.addEventListener('click',function(){n.classList.toggle('open')});}
+})();
+</script>
+
+    <main id="main">
+        
+<aside class="share-sticky" data-share-sticky>
+    <a class="share-btn share-btn-x" data-share-x href="https://twitter.com/intent/tweet?url=https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/&text=HeyGen%20Avatar%20V%3A%20AI%20Avatars%20Cross%20the%20Uncanny%20Valley&via=VanhDesign" target="_blank" rel="noopener" aria-label="Share on X">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="share-btn share-btn-threads" data-share-threads href="https://www.threads.net/intent/post?text=HeyGen%20Avatar%20V%3A%20AI%20Avatars%20Cross%20the%20Uncanny%20Valley%20https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/" target="_blank" rel="noopener" aria-label="Share on Threads">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.781 3.632 2.695 6.54 2.717 2.155-.02 3.986-.548 5.44-1.608 1.55-1.131 2.322-2.635 2.322-4.503 0-1.27-.395-2.283-1.175-3.012-.728-.68-1.742-1.07-2.936-1.152.1.567.145 1.15.127 1.73-.045 1.485-.503 2.659-1.36 3.488-.87.84-2.048 1.266-3.502 1.266-1.07 0-2.02-.288-2.748-.834-.84-.63-1.303-1.544-1.303-2.573 0-1.263.574-2.27 1.66-2.913.948-.562 2.206-.876 3.638-.912.69-.016 1.37.024 2.027.118-.078-.525-.244-.956-.501-1.279-.37-.465-.958-.711-1.7-.711-.595 0-1.108.134-1.527.398-.332.21-.575.49-.73.829l-1.858-.726c.28-.716.755-1.313 1.416-1.778.824-.58 1.865-.873 3.093-.873 1.405 0 2.526.44 3.331 1.308.736.794 1.136 1.885 1.19 3.238.017.07.025.225.025.225.002.042.002.084.002.126 0 2.467-1.037 4.468-3.083 5.952C17.007 23.22 14.816 23.975 12.186 24zm.089-7.853c-.66.016-1.272.065-1.83.182-.9.188-1.592.503-1.992.838-.312.261-.47.585-.47.962 0 .468.2.828.612 1.1.43.283.986.427 1.654.427.958 0 1.748-.27 2.35-.805.498-.443.76-1.103.793-1.955.013-.379-.01-.754-.068-1.118-.333-.058-.68-.1-1.049-.118v-.513z"/></svg>
+    </a>
+    <a class="share-btn share-btn-facebook" data-share-facebook href="https://www.facebook.com/sharer/sharer.php?u=https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/" target="_blank" rel="noopener" aria-label="Share on Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a class="share-btn share-btn-linkedin" data-share-linkedin href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.creativeainews.com/articles/heygen-avatar-v-identity-benchmark-analysis/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <button class="share-btn share-btn-copy" data-share-copy aria-label="Copy link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+</aside>
+
+<article class="post-full post tag-deep-dive tag-ai-video tag-ai">
+    <header class="post-header">
+        <div class="container">
+            <span class="post-tag">Deep Dive</span>
+            <h1 class="post-title">HeyGen Avatar V: AI Avatars Cross the Uncanny Valley</h1>
+            <p class="post-excerpt">HeyGen Avatar V scores 0.840 Face Similarity from a 15-second webcam clip, beating Google Veo 3.1 by 17.6%. Full analysis of the video-reference architecture and creator impact.</p>
+            <div class="post-meta">
+                <time datetime="2026-04-08">April 8, 2026</time>
+                <span class="post-reading-time">7 min read</span>
+            </div>
+        </div>
+    </header>
+
+
+    <figure class="post-feature-image">
+        <img src="/content/images/size/w2000/2026/04/heygen-avatar-v-identity-benchmark-analysis-0001.jpg" alt="HeyGen Avatar V: AI Avatars Cross the Uncanny Valley">
+    </figure>
+
+    <div class="house-ad-slot" data-slot="top" data-post="heygen-avatar-v-identity-benchmark-analysis"></div>
+
+    <section class="post-content gh-content container-narrow">
+        
+<!--kg-card-begin: html-->
+<p>HeyGen's Avatar V, launched April 8, 2026, creates a realistic AI video clone from a single 15-second webcam recording. The model scores 0.840 on Face Similarity, the highest published benchmark in avatar AI, outperforming Google Veo 3.1 (0.714) by a significant margin. The system supports 175 languages with phoneme-level lip sync, generates videos up to 30 minutes long, and separates identity from appearance so creators can swap outfits and backgrounds without re-filming. For creators who have spent years paying for studio-quality video production, that 15-second capture window changes the math entirely.</p>
+<p><em>For the broader landscape, see our <a href="https://www.creativeainews.com/articles/ai-video-generation-2026-complete-guide/">complete guide to AI video generation in 2026</a>.</em></p>
+
+<h2>Background</h2>
+
+<p>AI avatar technology has progressed through three distinct phases. First-generation systems like D-ID animated still photos with basic lip movements. Second-generation tools like Synthesia introduced multi-language support and enterprise-grade avatar studios but required controlled recording environments and lengthy capture sessions. Avatar V represents the third generation: a system where a brief phone recording contains enough identity signal to produce studio-quality output.</p>
+
+<p>HeyGen has positioned itself at the intersection of avatar AI and video production tools. The company previously offered avatar creation through guided studio sessions, similar to competitors. Avatar V collapses that entire setup into 15 seconds of uncontrolled webcam footage, a technical leap that required rethinking how identity information is extracted and preserved across long video sequences.</p>
+
+<p>The launch comes at a time when the <a href="https://www.creativeainews.com/articles/ai-video-generation-benchmark-2026-comparison/">AI video generation landscape</a> is consolidating around identity preservation as the primary differentiator. Raw video quality has plateaued across major players; the question now is whether the output looks like the specific person it was meant to represent.</p>
+
+<h2>Deep Analysis</h2>
+
+<h3>Video-Reference Architecture Breaks the Embedding Bottleneck</h3>
+
+<p>Previous avatar systems compressed a person's identity into a low-dimensional embedding, a fixed-size vector meant to capture everything from lip geometry to skin texture. This approach works for short clips but degrades over longer sequences as the system loses subtle identity signals that the embedding could not encode.</p>
+
+<p>Avatar V takes a fundamentally different approach. According to <a href="https://www.heygen.com/research/avatar-v-model?ref=creativeainews.com">HeyGen's research page</a>, the model conditions on the full token sequence of the reference video at every transformer layer. The 15-second clip is patchified into a unified token sequence alongside audio and text inputs, then processed through transformer blocks with what HeyGen calls Sparse Reference Self-Attention. This means the model continuously references the original recording rather than working from a compressed summary.</p>
+
+<p>The architecture scales naturally with reference length. A longer or higher-quality input recording produces richer identity context, not a different or larger embedding. This design choice eliminates the ceiling that plagued earlier systems where additional recording time offered diminishing returns after the embedding was saturated.</p>
+
+<figure>
+<img src="https://www.creativeainews.com/content/images/2026/04/heygen-sub1-architecture-0001.jpg" alt="Diagram showing Avatar V video-reference conditioning architecture with full token sequence processing" />
+<figcaption>Avatar V processes the full reference video token sequence at every transformer layer, replacing traditional identity embeddings.</figcaption>
+</figure>
+
+<h3>Benchmark Breakaway: 0.840 Face Similarity Sets a New Standard</h3>
+
+<p>The numbers tell a clear story. Avatar V posts a Face Similarity score of 0.840, compared to Google Veo 3.1 at 0.714. On lip-sync metrics, Avatar V achieves LSE-C of 8.97 (highest confidence) and LSE-D of 6.75 (lowest distance, surpassing even ground truth recordings). In blind human preference tests, Avatar V was chosen between 68.9% and 85.7% of the time in pairwise comparisons.</p>
+
+<p>These are not marginal improvements. The 0.126-point gap between Avatar V and <a href="https://www.creativeainews.com/blog/google-veo-3-1-lite-video-generation-api/">Veo 3.1</a> on Face Similarity is substantial in a metric space where differences of 0.05 are perceptible to viewers. The LSE-D score beating ground truth recordings suggests the model has learned to produce lip movements that are more temporally consistent than actual human speech patterns, likely because the model smooths out the micro-jitters present in real recordings.</p>
+
+<p>The five-stage training pipeline behind these results is worth noting. HeyGen starts with general video generation on internet-scale data, adds audio-driven synthesis, then identity-preserving embedding, followed by distillation to reduce inference cost, and finally human feedback alignment using GRPO and DPO. That final RLHF stage appears to be the differentiator: the model is not just technically accurate but perceptually preferred by human evaluators.</p>
+
+<figure>
+<img src="https://www.creativeainews.com/content/images/2026/04/heygen-sub2-benchmark-0001.jpg" alt="Comparison chart showing Avatar V Face Similarity 0.840 versus Veo 3.1 at 0.714" />
+<figcaption>Avatar V's 0.840 Face Similarity score represents a 17.6% improvement over Google Veo 3.1's 0.714.</figcaption>
+</figure>
+
+<h3>15-Second Capture Rewrites Production Economics</h3>
+
+<p>The production cost implications are stark. A traditional avatar video setup requires studio rental ($500-2,000/day), lighting equipment, multiple camera angles, and a recording session of 30 minutes to several hours. Even previous AI avatar services required 5-10 minutes of guided recording in controlled conditions.</p>
+
+<p>Avatar V reduces input requirements to 15 seconds on a phone camera. HeyGen recommends stable lighting and a neutral background but does not require them. The voice clone component needs just 10 seconds of separate audio. A creator can generate their avatar during a coffee break.</p>
+
+<p>At $29/month for the Creator plan, a solo content producer can now generate localized video content in 175 languages from a single recording session. The previous cost structure for multilingual video production involved hiring voice talent ($100-500 per language), lip-sync post-production ($50-200 per minute), and additional studio time. Avatar V collapses these line items to a single subscription.</p>
+
+<p>The outfit and background separation feature adds another economic multiplier. One recording session yields unlimited wardrobe and setting combinations. A creator filming a product review, a tutorial, and a social media clip no longer needs three separate recording sessions with three wardrobe changes.</p>
+
+<figure>
+<img src="https://www.creativeainews.com/content/images/2026/04/heygen-sub3-economics-0001.jpg" alt="Production cost comparison showing traditional studio setup versus Avatar V 15-second capture" />
+<figcaption>Avatar V compresses multi-hour studio sessions into a 15-second phone recording at a fraction of the cost.</figcaption>
+</figure>
+
+<h3>Identity Preservation as the New Competitive Frontier</h3>
+
+<p>The avatar AI market has quietly shifted its competitive axis. Two years ago, the differentiator was whether the output looked "real enough." Today, every major player produces photorealistic video. The question is whether it looks like the right person.</p>
+
+<p>This shift matters because creator trust depends on identity fidelity. An avatar that looks generically professional but not specifically like the creator undermines the parasocial connection that drives audience engagement. Viewers who subscribe to a creator expect to see that creator, not an approximation.</p>
+
+<p>HeyGen's approach of modeling both static features (dental structure, skin texture, facial geometry) and dynamic features (talking rhythm, habitual micro-expressions, gestural tendencies) suggests the company understands this distinction. The model trained on over 10 million data points captures identity signals that go beyond surface-level appearance into behavioral patterns unique to each individual.</p>
+
+<p>The integration with <a href="https://www.creativeainews.com/blog/seedance-2-capcut-global-rollout-ip-protections/">Seedance 2.0</a> for cinematic generation hints at where this technology is heading. Avatar V handles the identity layer; Seedance handles the cinematic language. Combined, they suggest a future where creators direct AI-generated video content rather than performing in it.</p>
+
+<figure>
+<img src="https://www.creativeainews.com/content/images/2026/04/heygen-sub4-identity-0001.jpg" alt="Identity preservation comparison across avatar AI generations showing increasing fidelity" />
+<figcaption>Avatar AI competition has shifted from visual realism to identity fidelity, with Face Similarity as the key metric.</figcaption>
+</figure>
+
+<h2>Impact on Creators</h2>
+
+<p>For solo creators, Avatar V removes the single biggest bottleneck in video production: being on camera. Creators who produce educational content, product reviews, or news commentary can now generate weeks of content from a single 15-second session. The 175-language support opens international markets without the production overhead of localization.</p>
+
+<p>For small teams and agencies, the economics are even more compelling. A five-person agency producing client video content no longer needs to coordinate talent schedules with studio availability. Each team member records once; the system handles everything after that. Client-facing videos in multiple languages become a configuration step, not a production milestone.</p>
+
+<p>The creative implications extend beyond cost savings. When the barrier to producing a video drops to 15 seconds plus a text prompt, creators can experiment freely. Test different scripts, try different tonal approaches, and iterate on content without the sunk cost anxiety of expensive studio time. That freedom to experiment is where the real creative value lies.</p>
+
+<h2>Key Takeaways</h2>
+
+<ul>
+<li>Avatar V achieves 0.840 Face Similarity from a 15-second webcam clip, beating Google Veo 3.1 (0.714) by 17.6%</li>
+<li>The video-reference architecture conditions on full token sequences rather than compressed embeddings, enabling stable identity over 30-minute videos</li>
+<li>Production setup collapses from hours of studio time to seconds on a phone, starting at $29/month</li>
+<li>175-language lip sync with phoneme-level accuracy makes multilingual content a configuration step</li>
+<li>Identity preservation, not visual realism, is now the primary competitive differentiator in avatar AI</li>
+</ul>
+
+<h2>What to Watch</h2>
+
+<p>The competitive response will be telling. Google, which has Veo 3.1's avatar capabilities integrated into <a href="https://www.creativeainews.com/blog/google-vids-ai-avatars-veo-free-video/">Google Vids</a>, will need to close the 0.126-point Face Similarity gap. Synthesia and D-ID, both positioned more toward enterprise markets, face pressure to match Avatar V's capture efficiency without sacrificing their compliance certifications.</p>
+
+<p>Watch for adoption patterns among content creators in the 10,000 to 100,000 subscriber range. This cohort has enough audience to justify video production investment but not enough revenue to maintain studio infrastructure. Avatar V is designed precisely for this market segment. If adoption accelerates here, it validates the broader thesis that AI avatars are not a novelty but a production tool.</p>
+
+<p>The deeper signal is HeyGen's integration with Seedance 2.0 and the broader trend toward composable AI video pipelines. Avatar V handles identity; other models handle cinematography, effects, and editing. The creator who masters this stack will produce content at a scale and speed that traditional production cannot match.</p>
+
+<hr>
+
+<p><em>This analysis was produced by <a href="https://www.creativeainews.com/">Creative AI News</a>.</em></p>
+<p><em>Subscribe for free to get the weekly digest every Tuesday.</em></p>
+
+<!--kg-card-end: html-->
+
+    </section>
+
+    <footer class="post-footer container-narrow">
+        <div class="post-tags">
+            <a href="/tag/deep-dive/" class="tag-link">Deep Dive</a>
+            <a href="/tag/ai-video/" class="tag-link">AI Video</a>
+            <a href="/tag/ai/" class="tag-link">AI</a>
+        </div>
+    </footer>
+
+    <aside class="author-bio-block container-narrow" itemscope itemtype="https://schema.org/Person">
+        <div class="author-bio-card">
+            <img class="author-bio-avatar" src="/content/images/size/w100/2026/04/img_reduced.jpg" alt="Vannarot Roeung" width="64" height="64" itemprop="image">
+            <div class="author-bio-meta">
+                <p class="author-bio-byline">By <a href="/author/vanh/" itemprop="url"><span itemprop="name">Vannarot Roeung</span></a><span class="author-bio-role">, Editor</span></p>
+                <p class="author-bio-text" itemprop="description">Editor of Creative AI News. Covering the AI tools and workflows that ship for designers, video editors, audio producers, 3d artists and more.</p>
+                <ul class="author-bio-links">
+                    <li><a href="/author/vanh/">More posts</a></li>
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+
+    <div class="house-ad-slot" data-slot="bottom" data-post="heygen-avatar-v-identity-benchmark-analysis"></div>
+
+    <aside class="inline-offer" data-inline-offer hidden>
+        <p class="inline-offer-heading">Get the next comparison first</p>
+        <p class="inline-offer-text">We test the new creative AI tools and send the ones worth your time, weekly. Free, no spam.</p>
+        <form class="email-form email-form-inline" data-listmonk-subscribe>
+            <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;width:0">
+            <button type="submit" class="btn btn-primary">Subscribe Free</button>
+        </form>
+    </aside>
+    <template data-lead-magnet-copy data-slug="heygen-avatar-v-identity-benchmark-analysis">
+    <p class="inline-offer-heading">Free: the AI image generator comparison sheet</p>
+    <p class="inline-offer-text">Prices, free plans, best uses and Arena scores for the top AI image tools, plus which free models you can sell from, on two pages (PDF and spreadsheet). Subscribe and confirm your email: the download is on the confirmation page.</p>
+</template>
+<script>
+(function() {
+    var tpl = document.querySelector('template[data-lead-magnet-copy]');
+    var offer = document.querySelector('[data-inline-offer]');
+    if (!tpl || !offer || !tpl.content) return;
+    var slug = tpl.getAttribute('data-slug') || '';
+    var isComparison = slug.indexOf('best-') === 0 || document.body.classList.contains('tag-comparison');
+    if (!isComparison) return;
+    var heading = offer.querySelector('.inline-offer-heading');
+    var text = offer.querySelector('.inline-offer-text');
+    var newHeading = tpl.content.querySelector('.inline-offer-heading');
+    var newText = tpl.content.querySelector('.inline-offer-text');
+    if (heading && newHeading) heading.textContent = newHeading.textContent;
+    if (text && newText) text.textContent = newText.textContent;
+    offer.setAttribute('data-offer', 'image-sheet-2026-10');
+    offer.classList.add('inline-offer-magnet');
+})();
+</script>
+
+    <section class="post-subscribe-cta">
+        <div class="post-subscribe-cta-inner">
+            <h3 class="post-subscribe-cta-heading">Stay ahead of AI</h3>
+            <p class="post-subscribe-cta-text">Get the latest creative AI tools, workflows, and insights delivered to your inbox weekly.</p>
+            <form class="email-form" data-listmonk-subscribe>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;width:0">
+                <button type="submit" class="btn btn-primary">Subscribe Free</button>
+            </form>
+            <p class="post-subscribe-cta-note">Free, no spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+</article>
+
+<script>
+// In-article subscribe offer: moved into deep dives before the second H2, only for readers not
+// known as subscribers. Sits before the mid house-ad slot, which is placed at the middle H2 of
+// posts with 4 or more H2s. Fires subscribe_offer_view once when half of it is on screen, so the
+// placement's conversion rate can be read in GA4 (signups carry source inline-article:...).
+// No Handlebars expressions in this block, per the theme rule.
+(function() {
+    var offer = document.querySelector('[data-inline-offer]');
+    if (!offer) return;
+    function drop() { if (offer.parentNode) offer.parentNode.removeChild(offer); }
+    var subscriber = false;
+    try {
+        subscriber = !!localStorage.getItem('isSubscriber') ||
+            new URLSearchParams(window.location.search).get('ref') === 'newsletter';
+    } catch (e) { /* storage blocked */ }
+    if (!document.body.classList.contains('tag-deep-dive') || subscriber) { drop(); return; }
+    var content = document.querySelector('.post-content');
+    var h2s = content ? content.querySelectorAll('h2') : [];
+    if (h2s.length < 3 || !h2s[1].parentNode) { drop(); return; }
+    h2s[1].parentNode.insertBefore(offer, h2s[1]);
+    offer.hidden = false;
+    if ('IntersectionObserver' in window && typeof gtag === 'function') {
+        var io = new IntersectionObserver(function(entries) {
+            if (!entries[0].isIntersecting) return;
+            io.disconnect();
+            try { gtag('event', 'subscribe_offer_view', { placement: 'inline-article' }); } catch (e) { /* ignore */ }
+        }, { threshold: 0.5 });
+        io.observe(offer);
+    }
+})();
+</script>
+
+<script>
+(function(){
+    // Remove Ghost auto-injected Article schema to avoid duplicates
+    // Ghost head injects generic Article; we inject a more specific type below
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(function(el) {
+        try {
+            var data = JSON.parse(el.textContent);
+            if (data['@type'] === 'Article' && data.publisher && data.publisher.name === 'Creative AI News' && !el.hasAttribute('data-theme')) {
+                el.remove();
+            }
+        } catch(e) {}
+    });
+
+    // Fast-news posts carry their NewsArticle as server-side microdata on the article element;
+    // adding a second article object here would give the page two.
+    var serverArticle = !!document.querySelector('article[itemtype="https://schema.org/NewsArticle"]');
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.setAttribute('data-theme', '1');
+    var h1 = document.querySelector('.post-title');
+    var time = document.querySelector('.post-meta time');
+    var img = document.querySelector('.post-feature-image img');
+    if (!h1) return;
+    var isResearch = document.body.classList.contains('tag-hash-research') || document.body.classList.contains('tag-research');
+    var isDeepDive = document.body.classList.contains('tag-deep-dive');
+    var articleType = isResearch ? 'ScholarlyArticle' : (isDeepDive ? 'Article' : 'NewsArticle');
+
+    // Author signal for E-E-A-T. Read from the in-page author bio block which
+    // already carries the canonical name + URL + sameAs links populated by
+    // Handlebars from the Ghost author profile. No JS-side hardcoding.
+    var authorName = 'Creative AI News';
+    var authorUrl = 'https://www.creativeainews.com';
+    var authorSameAs = [];
+    var bylineLink = document.querySelector('.author-bio-byline a[itemprop="url"]');
+    if (bylineLink) {
+        var nameEl = bylineLink.querySelector('[itemprop="name"]');
+        if (nameEl && nameEl.textContent.trim()) authorName = nameEl.textContent.trim();
+        if (bylineLink.href) authorUrl = bylineLink.href;
+        document.querySelectorAll('.author-bio-links a[itemprop="sameAs"]').forEach(function(a){
+            if (a.href) authorSameAs.push(a.href);
+        });
+    }
+    var authorObj = bylineLink ? {
+        "@type": "Person",
+        "name": authorName,
+        "url": authorUrl
+    } : { "@type": "Organization", "name": "Creative AI News" };
+    if (authorSameAs.length) authorObj.sameAs = authorSameAs;
+
+    var d = {
+        "@context": "https://schema.org",
+        "@type": articleType,
+        "headline": h1.textContent.trim(),
+        "url": window.location.href,
+        "datePublished": time ? time.getAttribute('datetime') : '',
+        "author": authorObj,
+        "publisher": {"@type": "Organization", "name": "Creative AI News", "url": "https://www.creativeainews.com"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": window.location.href},
+        "isAccessibleForFree": true
+    };
+    if (img) d.image = img.src;
+    s.textContent = JSON.stringify(d);
+    if (!serverArticle) document.head.appendChild(s);
+
+    // news_keywords meta tag
+    var tags = document.querySelectorAll('.tag-link');
+    if (tags.length) {
+        var nk = document.createElement('meta');
+        nk.name = 'news_keywords';
+        nk.content = Array.from(tags).map(function(t){return t.textContent.trim()}).join(', ');
+        document.head.appendChild(nk);
+    }
+
+    // A post that carries server-side JSON-LD (scripts/post-jsonld.py writes it into the post's code
+    // injection, marked data-jsonld="server") already has its breadcrumb and FAQ in the served HTML;
+    // adding them again here would duplicate them.
+    var hasServerJsonld = !!document.querySelector('script[data-jsonld="server"]');
+    // BreadcrumbList schema
+    var bc = document.createElement('script');
+    bc.type = 'application/ld+json';
+    var isArticlesPage = window.location.pathname.startsWith('/articles/');
+    var section = isArticlesPage ? 'Articles' : 'Blog';
+    var sectionUrl = isArticlesPage ? '/articles/' : '/blog/';
+    bc.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.creativeainews.com/"},
+            {"@type": "ListItem", "position": 2, "name": section, "item": "https://www.creativeainews.com" + sectionUrl},
+            {"@type": "ListItem", "position": 3, "name": h1.textContent.trim()}
+        ]
+    });
+    if (!hasServerJsonld) document.head.appendChild(bc);
+
+    // FAQPage schema for research and deep-dive posts
+    // Extracts question-like H2/H3 headings (ending with ?) and their following content
+    if ((isResearch || isDeepDive) && !hasServerJsonld) {
+        var content = document.querySelector('.post-content');
+        if (content) {
+            var faqs = [];
+            var headings = content.querySelectorAll('h2, h3');
+            headings.forEach(function(heading) {
+                var text = heading.textContent.trim();
+                if (text.indexOf('?') !== -1) {
+                    // Collect text from sibling elements until next heading
+                    var answer = '';
+                    var next = heading.nextElementSibling;
+                    while (next && next.tagName !== 'H2' && next.tagName !== 'H3') {
+                        if (next.textContent.trim()) {
+                            answer += (answer ? ' ' : '') + next.textContent.trim();
+                        }
+                        next = next.nextElementSibling;
+                    }
+                    if (answer) {
+                        faqs.push({
+                            "@type": "Question",
+                            "name": text,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": answer.substring(0, 500)
+                            }
+                        });
+                    }
+                }
+            });
+            if (faqs.length >= 2) {
+                var faqScript = document.createElement('script');
+                faqScript.type = 'application/ld+json';
+                faqScript.textContent = JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": faqs
+                });
+                document.head.appendChild(faqScript);
+            }
+        }
+    }
+})();
+</script>
+
+<script>
+// House-ad injection + GA4 attribution.
+//  - Fetches the currently-active campaign as data from admin.creativeainews.com
+//    /ads-widget/<slot>?post=<slug>&format=json and builds the card (buildCard below).
+//  - After inject, fires a GA4 'house_ad_impression' event when the card is
+//    50% visible for 1s (IntersectionObserver).
+//  - On click, fires 'house_ad_click' with ad_id/slot/post BEFORE the navigation
+//    proceeds. Because target=_blank keeps this tab alive, the gtag beacon
+//    always has time to complete. Sponsors can audit the numbers against GA4.
+//  - No Handlebars expressions in this script block -- values come from
+//    data-* attrs on the injected <a>.
+(function() {
+    // On deep dives, remove the bottom placeholder so the in-content mid slot
+    // is the only "in body" ad on long reads. Quick posts keep the bottom
+    // slot since they're too short for a mid placement to make sense.
+    if (document.body.classList.contains('tag-deep-dive')) {
+        var bottomSlot = document.querySelector('.house-ad-slot[data-slot="bottom"]');
+        if (bottomSlot && bottomSlot.parentNode) {
+            bottomSlot.parentNode.removeChild(bottomSlot);
+        }
+    }
+
+    // Insert a mid-article slot ONLY on deep dives (long posts).
+    // Quick posts use the bottom slot (rendered server-side) instead, since
+    // a mid slot in a 600-word post sits too close to the top to be useful.
+    // Skips short deep dives (<4 H2s or <6 paragraphs) as a safety net.
+    // The widget endpoint returns 204 if no campaign is active for mid,
+    // which leaves the placeholder empty -- zero layout impact when unused.
+    (function insertMidSlot() {
+        if (!document.body.classList.contains('tag-deep-dive')) return;
+        var content = document.querySelector('.post-content');
+        if (!content) return;
+        if (content.querySelector('.house-ad-slot[data-slot="mid"]')) return;
+        var topSlot = document.querySelector('.house-ad-slot[data-slot="top"]');
+        var post = topSlot ? (topSlot.getAttribute('data-post') || '') : '';
+        var h2s = content.querySelectorAll('h2');
+        if (h2s.length < 4) return;
+        var paragraphs = content.querySelectorAll('p');
+        if (paragraphs.length < 6) return;
+        var midIndex = Math.floor(h2s.length / 2);
+        var target = h2s[midIndex];
+        if (!target || !target.parentNode) return;
+        var midSlot = document.createElement('div');
+        midSlot.className = 'house-ad-slot';
+        midSlot.setAttribute('data-slot', 'mid');
+        midSlot.setAttribute('data-post', post);
+        target.parentNode.insertBefore(midSlot, target);
+    })();
+
+    var slots = document.querySelectorAll('.house-ad-slot');
+    if (!slots.length) return;
+
+    function fireGA(name, payload) {
+        if (typeof gtag === 'function') {
+            try { gtag('event', name, payload); } catch (e) { /* ignore */ }
+        }
+    }
+
+    function fireImpressionBeacon(adId, slot, post) {
+        // navigator.sendBeacon is fire-and-forget, CORS-safe for simple POSTs
+        // with url-encoded bodies. Falls back to fetch keepalive if unavailable.
+        try {
+            var body = new URLSearchParams();
+            body.append('id', adId);
+            body.append('slot', slot);
+            if (post) body.append('post', post);
+            // Path is deliberately generic; "ad-impression" was being blocked by
+            // ad-blocker filter lists (EasyPrivacy) dropping ~80% of real beacons.
+            var url = 'https://admin.creativeainews.com/api/engagement';
+            if ('sendBeacon' in navigator) {
+                navigator.sendBeacon(url, body);
+            } else if ('fetch' in window) {
+                fetch(url, { method: 'POST', body: body, keepalive: true, mode: 'no-cors', credentials: 'omit' }).catch(function(){});
+            }
+        } catch (e) { /* ignore */ }
+    }
+
+    function attachTracking(slotEl) {
+        var link = slotEl.querySelector('.house-ad__link');
+        if (!link) return;
+        var post = slotEl.getAttribute('data-post') || '';
+        var adId = link.getAttribute('data-ad-id') || '';
+        var slot = link.getAttribute('data-ad-slot') || '';
+
+        // Impression: fire once when the card is >=50% visible for >=1 s.
+        // Simple state machine: on enter, start a dwell timer; on leave, cancel
+        // it. The timer callback fires the GA event + disconnects.
+        if ('IntersectionObserver' in window) {
+            var fired = false;
+            var dwellTimer = null;
+            var io = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (fired) return;
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        if (!dwellTimer) {
+                            dwellTimer = setTimeout(function() {
+                                fired = true;
+                                fireGA('house_ad_impression', { ad_id: adId, slot: slot, post: post });
+                                fireImpressionBeacon(adId, slot, post);
+                                io.disconnect();
+                                dwellTimer = null;
+                            }, 1000);
+                        }
+                    } else {
+                        if (dwellTimer) { clearTimeout(dwellTimer); dwellTimer = null; }
+                    }
+                });
+            }, { threshold: 0.5 });
+            io.observe(link);
+        } else {
+            fireGA('house_ad_impression', { ad_id: adId, slot: slot, post: post });
+        }
+
+        // Click: fire before the browser navigates.
+        link.addEventListener('click', function() {
+            fireGA('house_ad_click', { ad_id: adId, slot: slot, post: post });
+        });
+    }
+
+    // The card is built here from data (format=json), never from HTML sent by the ad server:
+    // text goes in through textContent, the link and image must start with our own fixed
+    // prefixes, and the label is chosen here from the paid flag. So neither a sponsor's creative
+    // nor a compromised ad server can put markup or script on this page, or drop the label.
+    // A paid card always says Sponsored; only our own promotion says From Creative AI News.
+    var AD_ID_RE = /^[a-z0-9][a-z0-9_-]{1,63}$/;
+    var AD_HREF_PREFIX = 'https://admin.creativeainews.com/r/ad?';
+    var AD_IMG_PREFIXES = ['https://admin.creativeainews.com/uploads/', 'https://www.creativeainews.com/content/images/'];
+
+    function textEl(tag, cls, text, max) {
+        var n = document.createElement(tag);
+        n.className = cls;
+        n.textContent = String(text || '').slice(0, max);
+        return n;
+    }
+
+    function buildCard(ad, slot) {
+        if (!ad || typeof ad !== 'object') return null;
+        if (typeof ad.id !== 'string' || !AD_ID_RE.test(ad.id)) return null;
+        if (typeof ad.href !== 'string' || ad.href.indexOf(AD_HREF_PREFIX) !== 0 || /[\s"'<>\\]/.test(ad.href)) return null;
+        var label = ad.paid === false ? 'From Creative AI News' : 'Sponsored';
+
+        var aside = document.createElement('aside');
+        aside.className = 'house-ad house-ad--' + slot;
+        aside.setAttribute('role', 'complementary');
+        aside.setAttribute('aria-label', label);
+
+        var link = document.createElement('a');
+        link.className = 'house-ad__link';
+        link.href = ad.href;
+        link.target = '_blank';
+        link.rel = 'sponsored nofollow noopener noreferrer';
+        link.setAttribute('data-ad-slot', slot);
+        link.setAttribute('data-ad-id', ad.id);
+
+        var card = document.createElement('div');
+        card.className = 'house-ad__card';
+        var visual = document.createElement('div');
+        visual.className = 'house-ad__visual';
+        visual.setAttribute('aria-hidden', 'true');
+        var img = typeof ad.image === 'string' ? ad.image : '';
+        var imgOK = AD_IMG_PREFIXES.some(function(p) { return img.indexOf(p) === 0; }) && img.indexOf('..') === -1 && !/[\s"'<>\\]/.test(img);
+        if (imgOK) {
+            var im = document.createElement('img');
+            im.src = img;
+            im.alt = '';
+            im.loading = 'lazy';
+            im.className = 'house-ad__img';
+            visual.appendChild(im);
+        }
+        card.appendChild(visual);
+
+        var body = document.createElement('div');
+        body.className = 'house-ad__body';
+        body.appendChild(textEl('p', 'house-ad__eyebrow', label, 40));
+        body.appendChild(textEl('h3', 'house-ad__headline', ad.headline, 120));
+        if (ad.sub) body.appendChild(textEl('p', 'house-ad__sub', ad.sub, 200));
+        var cta = textEl('span', 'house-ad__cta', ad.cta || 'Learn more', 40);
+        var arrow = document.createElement('span');
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = ' →';
+        cta.appendChild(arrow);
+        body.appendChild(cta);
+        card.appendChild(body);
+        link.appendChild(card);
+        aside.appendChild(link);
+        return aside;
+    }
+
+    slots.forEach(function(el) {
+        var slot = el.getAttribute('data-slot');
+        var post = el.getAttribute('data-post') || '';
+        if (slot !== 'top' && slot !== 'mid' && slot !== 'bottom') return;
+        var url = 'https://admin.creativeainews.com/ads-widget/' + slot + '?post=' + encodeURIComponent(post) + '&format=json';
+        fetch(url, { credentials: 'omit', mode: 'cors' })
+            .then(function(r) {
+                var type = r.headers.get('Content-Type') || '';
+                if (r.status === 204 || !r.ok || type.indexOf('application/json') !== 0) return null;
+                return r.json();
+            })
+            .then(function(ad) {
+                var card = buildCard(ad, slot);
+                if (card) {
+                    el.textContent = '';
+                    el.appendChild(card);
+                    attachTracking(el);
+                }
+            })
+            .catch(function() { /* silent: placeholder stays empty */ });
+    });
+})();
+</script>
+
+<script>
+// Paid links on sponsored articles.
+//
+// Google's spam policy: a link acquired through payment or a product exchange that passes
+// PageRank without rel="sponsored" (or nofollow) is a link scheme violation, and the manual
+// action lands on the whole domain, not the one page. That would cost far more than any single
+// placement earns.
+//
+// The published HTML is supposed to carry rel="sponsored" already, written in at authoring time
+// (docs/sponsored-articles.md). This is the safety net so a hand-edited or Ghost-editor-pasted
+// link cannot ship a paid dofollow by accident. It runs only on posts carrying the sponsored
+// tag, which the post_class helper puts on the article element as a class.
+//
+// No Handlebars expressions in this block, per the theme rule: values come from the DOM.
+(function() {
+    var article = document.querySelector('.post-full');
+    if (!article || !article.classList.contains('tag-sponsored')) return;
+    var content = document.querySelector('.post-content');
+    if (!content) return;
+    var host = window.location.hostname;
+    var links = content.querySelectorAll('a[href^="http"]');
+    for (var i = 0; i < links.length; i++) {
+        var a = links[i];
+        if (a.hostname === host) continue;
+        var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+        if (rel.indexOf('sponsored') === -1) rel.push('sponsored');
+        if (rel.indexOf('nofollow') === -1) rel.push('nofollow');
+        a.setAttribute('rel', rel.join(' '));
+    }
+})();
+</script>
+
+    <section class="section read-more">
+        <div class="container">
+            <h2>Latest deep dives</h2>
+            <div class="grid grid-3">
+                    <article class="article-card">
+    <a href="/articles/do-audiences-care-if-you-use-ai-disclosure-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmpmjvp6ghz.jpg" alt="Do Audiences Care If You Use AI? What the Data Says" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Nov 2, 2026</span>
+    </div>
+    <h3><a href="/articles/do-audiences-care-if-you-use-ai-disclosure-2026/">Do Audiences Care If You Use AI? What the Data Says</a></h3>
+    <p>97% of listeners could not tell AI music from human music in Deezer&#x27;s blind test, yet an AI label still cuts trust and engagement. What 12 studies say about when to disclose AI and how to word it.</p>
+</article>
+                    <article class="article-card">
+    <a href="/articles/affinity-ipad-free-canva-ai-cost-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmpt3hw5gxr.jpg" alt="Affinity for iPad Is Free: What Canva AI Costs" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Nov 2, 2026</span>
+    </div>
+    <h3><a href="/articles/affinity-ipad-free-canva-ai-cost-2026/">Affinity for iPad Is Free: What Canva AI Costs</a></h3>
+    <p>Canva released Affinity for iPad on November 2, 2026, free for individuals. Drawing, vector, photo and layout tools cost nothing; the AI features need Canva Pro at $18 a month or $143.99 a year.</p>
+</article>
+                    <article class="article-card">
+    <a href="/articles/ai-video-models-same-prompt-yacht-test-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmphkeis1_s.jpg" alt="9 AI Video Models, One Hard Shot: Scored and Ranked" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Oct 31, 2026</span>
+    </div>
+    <h3><a href="/articles/ai-video-models-same-prompt-yacht-test-2026/">9 AI Video Models, One Hard Shot: Scored and Ranked</a></h3>
+    <p>Nine AI video models got the same start image and prompt for a hard yacht shot. Seedance 2.5 scored 9.5 out of 10, FLUX.3 Video 8.5, and Kling 4.0 7 for just 10 credits.</p>
+</article>
+                    <article class="article-card">
+    <a href="/articles/claude-code-game-recreation-rule-test-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmp569ylr2w.jpg" alt="Claude Code Won&#x27;t Clone Games: What It Still Builds" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Oct 30, 2026</span>
+    </div>
+    <h3><a href="/articles/claude-code-game-recreation-rule-test-2026/">Claude Code Won&#x27;t Clone Games: What It Still Builds</a></h3>
+    <p>Anthropic added two sentences to Claude Code on Opus 5.5 so it stops recreating specific existing games. We sent it 16 game requests: it built 14, renamed every famous one, and refused a Mario level.</p>
+</article>
+                    <article class="article-card">
+    <a href="/articles/tbc-mischief-1-cheapest-image-to-video-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmpgp_pvpem.jpg" alt="TBC mischief 1: AI Video Drafts at 5 Cents a Clip" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Oct 30, 2026</span>
+    </div>
+    <h3><a href="/articles/tbc-mischief-1-cheapest-image-to-video-2026/">TBC mischief 1: AI Video Drafts at 5 Cents a Clip</a></h3>
+    <p>TBC&#x27;s mischief 1 turns one image into a 5-second clip for $0.025 at 480p on fal and OpenRouter, a third of the next cheapest 720p rate. It is landscape only, 16 fps and silent, so it works as a cheap motion-sketch tool.</p>
+</article>
+                    <article class="article-card">
+    <a href="/articles/claude-max-vs-ultra-plans-creators-2026/">
+        <img class="article-image" src="/content/images/size/w600/2026/11/tmp03uq5138.jpg" alt="Claude Max vs Ultra: What $100 and $200 Buy Creators" loading="lazy">
+    </a>
+    <div class="article-meta">
+        <span class="article-date">Oct 30, 2026</span>
+    </div>
+    <h3><a href="/articles/claude-max-vs-ultra-plans-creators-2026/">Claude Max vs Ultra: What $100 and $200 Buy Creators</a></h3>
+    <p>Anthropic renamed Max 20x to Ultra and removed its 5-hour limit for verified accounts. Pro, Max and Ultra all cost $20 per unit of weekly usage, so the choice is about room, not price.</p>
+</article>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">Creative<span>AI</span>News</div>
+                <p>The weekly newsletter for creators who use AI tools.</p>
+            </div>
+            <div class="footer-links">
+                <p class="footer-heading">Content</p>
+                <a href="https://www.creativeainews.com/blog/">Blog</a>
+                <a href="https://www.creativeainews.com/articles/">Articles</a>
+                <a href="https://www.creativeainews.com/projects/">Projects</a>
+                <a href="https://www.creativeainews.com/advertise/">Advertise</a>
+            </div>
+            <div class="footer-links">
+                <p class="footer-heading">Company</p>
+                <a href="https://www.creativeainews.com/about/">About</a>
+                <a href="https://www.creativeainews.com/privacy/">Privacy Policy</a>
+                <a href="https://www.creativeainews.com/terms/">Terms of Service</a>
+            </div>
+            <div class="footer-links">
+                <p class="footer-heading">Connect</p>
+                <a href="https://www.youtube.com/@CreativeDesignTools">YouTube</a>
+                <a href="https://x.com/VanhDesign">Twitter / X</a>
+                <a href="https://www.linkedin.com/in/vannarot-roeung-868679341/">LinkedIn</a>
+                <a href="https://www.creativeainews.com/feed/" title="RSS Feed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>RSS Feed</a>
+                <a href="mailto:contact@creativeainews.com">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2026 Creative AI News. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Exit-Intent Popup -->
+    <div class="exit-popup-overlay" id="exitPopup">
+        <div class="exit-popup">
+            <button class="exit-popup-close" id="exitPopupClose" aria-label="Close">&times;</button>
+            <span class="exit-popup-badge">Free Weekly Newsletter</span>
+            <h3>Stay ahead of Creative AI</h3>
+            <p>Join creators getting the latest AI tools, model releases, and workflow tips delivered weekly.</p>
+            <form class="email-form" data-listmonk-subscribe>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;width:0">
+                <button type="submit" class="btn btn-primary">Subscribe Free</button>
+            </form>
+            <p class="form-note">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    
+    <script type="module" src="/assets/js/altcha-3.2.4.min.js?v=HuQaoJ6quCBcXZ0j"></script>
+    <script type="module" src="/assets/js/subscribe-altcha.js?v=MHlR7tHAHwav4N4d"></script>
+    <script>
+    (function() {
+        var ADMIN_URL = 'https://admin.creativeainews.com';
+
+        // Detect subscribe source from URL params, referrer, or page context
+        function getSource() {
+            var params = new URLSearchParams(window.location.search);
+            // 1. Explicit UTM/ref params (highest priority)
+            if (params.get('utm_source')) return params.get('utm_source');
+            if (params.get('ref')) return params.get('ref');
+
+            // 2. Referrer domain (where they came from)
+            var ref = document.referrer;
+            if (ref) {
+                try {
+                    var refHost = new URL(ref).hostname.replace('www.', '');
+                    // Known referrers
+                    if (refHost.includes('google')) return 'google-organic';
+                    if (refHost.includes('bing')) return 'bing';
+                    if (refHost.includes('duckduckgo')) return 'duckduckgo';
+                    if (refHost.includes('chatgpt') || refHost.includes('openai')) return 'chatgpt';
+                    if (refHost.includes('perplexity')) return 'perplexity';
+                    if (refHost.includes('claude') || refHost.includes('anthropic')) return 'claude-ai';
+                    if (refHost.includes('twitter') || refHost.includes('x.com')) return 'x-twitter';
+                    if (refHost.includes('linkedin')) return 'linkedin';
+                    if (refHost.includes('facebook')) return 'facebook';
+                    if (refHost.includes('threads')) return 'threads';
+                    if (refHost.includes('reddit')) return 'reddit';
+                    if (refHost.includes('inboxreads')) return 'inboxreads';
+                    if (refHost.includes('findnewsletters') || refHost.includes('find-your-newsletter')) return 'findnewsletters';
+                    if (refHost.includes('theresanaiforthat') || refHost.includes('taaft')) return 'taaft';
+                    if (refHost.includes('readsom')) return 'readsom';
+                    if (refHost.includes('letterlist')) return 'letterlist';
+                    if (refHost.includes('producthunt')) return 'producthunt';
+                    if (refHost !== 'creativeainews.com' && refHost !== 'lists.creativeainews.com') return 'ref:' + refHost;
+                } catch(e) {}
+            }
+
+            // 3. Page context (fallback)
+            var path = window.location.pathname;
+            if (path.indexOf('/blog/') === 0 || path.indexOf('/articles/') === 0) return 'blog-post';
+            if (path === '/' || path === '') return 'homepage';
+            return 'website';
+        }
+
+        // Save first-touch source on landing (before user navigates around)
+        if (!sessionStorage.getItem('firstSource')) {
+            sessionStorage.setItem('firstSource', getSource());
+        }
+
+        // Anti-bot: record page load time for timing check
+        var _pageLoadedAt = Date.now();
+
+        document.querySelectorAll('[data-listmonk-subscribe]').forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var emailInput = form.querySelector('input[type="email"]');
+                var btn = form.querySelector('button[type="submit"]');
+                var email = emailInput.value.trim();
+                if (!email) return;
+
+                // Anti-bot: honeypot check (hidden field filled = bot)
+                var honeypot = form.querySelector('input[name="website"]');
+                if (honeypot && honeypot.value) return;
+
+                btn.disabled = true;
+                btn.textContent = 'Subscribing...';
+
+                // Use first-touch source (how they found us), fall back to current page
+                var source = sessionStorage.getItem('firstSource') || getSource();
+                // Check if this is the exit popup form
+                if (form.closest('#exitPopup')) source = 'exit-popup';
+                // In-article offer on deep dives: record the placement and keep the first touch
+                if (form.closest('[data-inline-offer]')) source = 'inline-article:' + source;
+
+                // Read referral code from URL (8-char alphanumeric, not "newsletter")
+                var urlRef = new URLSearchParams(window.location.search).get('ref') || '';
+                var refCode = (/^[a-z0-9]{8}$/.test(urlRef)) ? urlRef : '';
+
+                // Anti-bot: send elapsed seconds since page load
+                var elapsed = Math.floor((Date.now() - _pageLoadedAt) / 1000);
+
+                // Proof-of-work solution from the hidden ALTCHA widget (assets/js/subscribe-altcha.js).
+                // Without one (script blocked, or still solving after 25 s) the form still posts.
+                var altchaWait = typeof form.caiAltcha === 'function' ? form.caiAltcha() : Promise.resolve('');
+                var altchaTimeout = new Promise(function(resolve) { setTimeout(function() { resolve(''); }, 25000); });
+
+                Promise.race([altchaWait, altchaTimeout]).then(function(altchaPayload) {
+                    return fetch(ADMIN_URL + '/api/subscribe', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({email: email, source: source, ref: refCode, _hp: '', _t: elapsed, altcha: altchaPayload || ''}),
+                        mode: 'cors'
+                    });
+                }).then(function(resp) {
+                    if (!resp.ok) throw new Error('Subscribe failed');
+                    return resp.json();
+                }).then(function(data) {
+                    localStorage.setItem('isSubscriber', '1');
+
+                    if (data.status === 'exists') {
+                        // Already subscribed
+                        emailInput.value = '';
+                        btn.textContent = 'Already subscribed!';
+                        btn.style.background = '#22c55e';
+                        var note = form.nextElementSibling;
+                        if (note && note.classList.contains('form-note')) {
+                            note.textContent = 'You are already on the list. Check your inbox for the next issue.';
+                        }
+                        setTimeout(function() {
+                            btn.textContent = 'Subscribe Free';
+                            btn.style.background = '';
+                            btn.disabled = false;
+                        }, 4000);
+                        return;
+                    }
+
+                    if (data.status === 'pending') {
+                        // Confirmation required: the address first gets an email with a link
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'newsletter_subscribe_pending', {
+                                method: 'website_form',
+                                source: source
+                            });
+                        }
+                        window.location.href = '/confirm/?e=' + encodeURIComponent(email);
+                        return;
+                    }
+
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'newsletter_subscribe', {
+                            method: 'website_form',
+                            source: source
+                        });
+                    }
+
+                    // Redirect to welcome page with email + referral code
+                    var confirmURL = '/confirmed/?e=' + encodeURIComponent(email);
+                    if (data.referral_code) confirmURL += '&ref=' + data.referral_code;
+                    window.location.href = confirmURL;
+                }).catch(function() {
+                    btn.textContent = 'Try again';
+                    btn.style.background = '#ef4444';
+                    btn.disabled = false;
+                    setTimeout(function() {
+                        btn.textContent = 'Subscribe Free';
+                        btn.style.background = '';
+                    }, 3000);
+                });
+            });
+        });
+    })();
+
+    // Exit-intent popup (shows once per session on blog/article pages)
+    (function() {
+        var overlay = document.getElementById('exitPopup');
+        var closeBtn = document.getElementById('exitPopupClose');
+        if (!overlay || !closeBtn) return;
+
+        // Only show on blog/article pages, not homepage or static pages
+        var path = window.location.pathname;
+        var isBlogPage = path.indexOf('/blog/') === 0 || path.indexOf('/articles/') === 0;
+        if (!isBlogPage) return;
+
+        // Never show popup to subscribers (persistent across sessions)
+        if (localStorage.getItem('isSubscriber')) return;
+
+        // Came from newsletter link -- mark as subscriber, skip popup
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('ref') === 'newsletter') {
+            localStorage.setItem('isSubscriber', '1');
+            return;
+        }
+
+        // Don't show if already dismissed this session or already subscribed
+        if (sessionStorage.getItem('exitPopupDismissed')) return;
+
+        var shown = false;
+
+        function showPopup() {
+            if (shown) return;
+            shown = true;
+            overlay.classList.add('active');
+        }
+
+        function hidePopup() {
+            overlay.classList.remove('active');
+            sessionStorage.setItem('exitPopupDismissed', '1');
+        }
+
+        // Desktop: mouse leaves viewport at top
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 5 && !e.relatedTarget && !e.toElement) {
+                showPopup();
+            }
+        });
+
+        // No popup on mobile -- only desktop exit-intent (mouse leaves viewport)
+        var isMobile = window.innerWidth <= 768;
+        if (isMobile) return;
+
+        closeBtn.addEventListener('click', hidePopup);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) hidePopup();
+        });
+    })();
+
+    // Share buttons
+    (function() {
+        var url = window.location.href;
+
+        // Copy link buttons
+        document.querySelectorAll('[data-share-copy]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                navigator.clipboard.writeText(url).then(function() {
+                    var textEl = btn.querySelector('.share-btn-copy-text');
+                    var svgEl = btn.querySelector('svg');
+                    btn.classList.add('copied');
+                    if (svgEl) svgEl.style.display = 'none';
+                    if (textEl) textEl.textContent = 'Copied!';
+                    setTimeout(function() {
+                        btn.classList.remove('copied');
+                        if (svgEl) svgEl.style.display = '';
+                        if (textEl) textEl.textContent = 'Copy link';
+                    }, 2000);
+                });
+                if (typeof gtag === 'function') {
+                    gtag('event', 'share', { method: 'copy_link', content_type: 'article' });
+                }
+            });
+        });
+
+        // Track share clicks
+        var shareTrackers = [
+            ['[data-share-x]', 'twitter'],
+            ['[data-share-threads]', 'threads'],
+            ['[data-share-facebook]', 'facebook'],
+            ['[data-share-linkedin]', 'linkedin']
+        ];
+        shareTrackers.forEach(function(pair) {
+            document.querySelectorAll(pair[0]).forEach(function(a) {
+                a.addEventListener('click', function() {
+                    if (typeof gtag === 'function') gtag('event', 'share', { method: pair[1] });
+                });
+            });
+        });
+
+        // Cite copy button
+        document.querySelectorAll('[data-cite-copy]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var snippet = btn.closest('.cite-block-content').querySelector('.cite-snippet');
+                if (snippet) {
+                    navigator.clipboard.writeText(snippet.textContent.trim());
+                    btn.textContent = 'Copied!';
+                    setTimeout(function() { btn.textContent = 'Copy citation'; }, 2000);
+                }
+            });
+        });
+
+        // Click-to-tweet
+        document.querySelectorAll('.click-to-tweet').forEach(function(el) {
+            el.addEventListener('click', function() {
+                var tweet = el.getAttribute('data-tweet') || el.textContent.trim();
+                var tweetUrl = 'https://twitter.com/intent/tweet?text=' +
+                    encodeURIComponent(tweet) +
+                    '&url=' + encodeURIComponent(url) +
+                    '&via=VanhDesign';
+                window.open(tweetUrl, '_blank', 'width=550,height=420');
+                if (typeof gtag === 'function') gtag('event', 'share', { method: 'click_to_tweet' });
+            });
+        });
+
+        // Sticky share bar visibility
+        var sticky = document.querySelector('.share-sticky');
+        var content = document.querySelector('.post-content');
+        if (sticky && content) {
+            var observer = new IntersectionObserver(function(entries) {
+                sticky.classList.toggle('visible', entries[0].isIntersecting);
+            }, { threshold: 0 });
+            observer.observe(content);
+        }
+    })();
+    </script>
+</body>
+</html>

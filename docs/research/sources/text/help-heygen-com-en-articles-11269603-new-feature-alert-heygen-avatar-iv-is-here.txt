@@ -1,0 +1,139 @@
+HeyGen Avatar IV Complete Guide! | HeyGen Help Center
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Skip to main content
+HeyGen Avatar IV Complete Guide!
+Introducing Avatar IV, a faster and simpler way to create lifelike videos using your HeyGen avatar.
+A
+Written by
+Avi
+
+Updated this week
+Now with AvatarIV and just a few clicks, you can generate quick avatar-led videos, perfect for real-time intros, updates, or replies. It’s the fastest way to bring your digital self or character to life, now available for all users!
+
+What Makes Avatar IV Different?
+Advance Intonation & Emotion:
+Unlike traditional avatars that simply sync to your words, this new-to-the-world Avatar model actually
+interprets
+them. Built on a diffusion-inspired audio-to-expression engine, it analyzes your vocal tone, rhythm, and emotion to generate photorealistic facial movements with true-to-life timing. Think head tilts, natural pauses, subtle cadences, and micro-expressions—all from a single image.
+​
+​
+​Speed + Simplicity:
+No complex script writing, scene setup, or editing in the Studio. Just open Avatar IV, fill out the required fields, and your video is ready in seconds. It’s designed for instant, on-the-fly communication.
+​
+​
+Great with non-human faces and photos:
+AvatarIV is the best suited engine for bringing to life avatars that are cartoonish, animated, or don't have traditional human-like features!
+
+Where Can You Use AvatarIV on HeyGen
+You can use AvatarIV in
+three different ways
+:
+1. Photo to Video Tool is Now Accessible Directly From Your Home Page!
+Bringing your photos to life has never been easier. HeyGen has streamlined its interface, allowing you to transform any image into a talking avatar in just a few clicks, directly from your main dashboard.
+
+What’s New?
+No more digging through complex menus. You can now find the
+"Photo to Video"
+tag directly on your Home Page. This integration is designed to speed up the workflow for creators, marketers, and businesses alike.
+
+You can access this feature from the
+Tools tab
+on the left side bar, under
+All Apps.
+
+Here you can
+upload your photo
+or use one from our library.
+
+Then either
+write your script
+or
+upload an audio file
+. If you're using a written script,
+select your preferred voice
+. Once everything’s set, click
+Generate
+to create your video. It really is that simple!
+
+Photo-to-video is perfect for animating
+non-human photos
+like dogs, cartoon characters, or 3D models. You can now create it straight from our Avatar tab as well, and can review
+this guide with some advance tips.
+
+Photo-to-video uses your Credits
+
+Pool. Each paid plan gets a different amount of Credits to use on features ( avatarIV, video assets generation, Photo Looks, Video Translation, etc)
+💡
+Pro Tip:
+Try uploading a
+song
+as your audio input—your avatar will sing it back with realistic lip-sync and expression!
+2. AvatarIV in Studio Experience
+This option allows you to create full-length videos with your avatar powered by the AvatarIV engine.
+AvatarIV engine is ideal for avatars build from photos, especially effective for
+non-human, cartoonish, or 3D model avatars
+.
+
+Credit Usage Details
+Avatar IV uses credits at different rates depending on the Look type:
+​
+Photo Look:
+16 credits per minute
+​
+Video Look:
+31 credits per minute
+​
+On legacy unlimited plans:
+Avatar IV costs 16 Premium Credits/min (Photo Look) or 31 Premium Credits/min (Video Look). Avatar III videos remain free and unlimited on legacy plans.
+Photo-to-Video
+Custom motion prompt / Higher quality with Custom Motion Prompt:
+credits are consumed at a
+2:1 ratio
+(e.g. a 30s video = 20 Credits used for AvatarIV).
+
+Studio Experience
+Usage here depends on the
+script/audio length
+and how much of your video requires avatar generation. You can actually limit AvatarIV usage only to specific scenes to save on your Credits cost.
+
+Example: a 30s video might only use 20 or 25 seconds of credits, depending on pauses or silent moments.
+✨Fun fact: we only charge for the
+actual seconds of avatar generation
+, not the entire video length — so you get more value out of each credit!
+
+🛎️ You cannot create Photo-to-video videos longer than 5000 characters in terms of your script length.
+
+Need more AvatarIV minutes?
+You can upgrade your plan and
+purchase more credits!
+Learn more about Credits and upgrades here.
+🛎️ There is no plan, including enterprise, that offers unlimited AvatarIV usage and credits. AvatarIV always requires Credits.
+AvatarIV now available on API !
+You can now use API credits to create videos with AvatarIV!
+Generally, 1 minute of AvatarIV video via API should cost about $4 at 1080p. Avatar IV does not support native 4K via the API: a 4K request is accepted but is an upscaled 1080p render, and is billed at the 1080p rate. This does not affect Avatar IV videos created in HeyGen Studio. Please review the full
+API pricing here.
+
+👋 We’d love to hear what you think of Avatar IV!
+You can share your feedback using the feedback buttons on your dashboard, or reach out to us at
+[email protected]
+if you need help getting started.
+Related Articles
+HeyGen API Pricing & Credits Explained
+Create your first Digital Twin (Video Avatar) with Avatar IV!
+Product Placement: Combine a Product with an Avatar in a Video
+Quick Avatar Video
+How to Create B-Roll with HeyGen Creative Studio
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃

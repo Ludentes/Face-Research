@@ -1,0 +1,348 @@
+How to Get Started with LiveAvatar | HeyGen Help Center
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Skip to main content
+How to Get Started with LiveAvatar
+Here you can find some advanced and detailed instructions for creating an optimal LiveAvatar.
+A
+Written by
+Avi
+
+Updated yesterday
+Imagine engaging with a lifelike avatar that responds in real-time, bringing a whole new level of interactivity to virtual conversations. Whether for customer support, live presentations, or personalized sales, HeyGen’s LiveAvatar can step into any role, speaking and interacting instantly. In this article, we'll show you how these avatars can transform the way you connect with your audience.
+
+Where to Find a LiveAvatar in HeyGen
+LiveAvatar is a completely separate platform from HeyGen! This mean separate login address as well-
+https://app.liveavatar.com/home
+You can use the same login information here as you did in HeyGen before and your account should be good to go!
+
+Once on your LiveAvatar dashboard, you will be able to toggle between 'My Avatars', 'Public Avatars', and 'Examples'. You can either choose one of the provided public avatars and create a Voice Agent for it, or you can create a custom avatar from scratch!
+
+🛎️
+Note:
+Users with
+Free
+plans have access to all
+PUBLIC
+Avatars included in their subscription;
+CUSTOM
+Avatars are available exclusively to
+paid
+users. For more details, see the
+pricing section
+below.
+
+How to Create a Custom LiveAvatar
+To start creating your avatar, you'll need to record footage specifically for this tool following the below guidelines.
+⚠️
+Important Note:
+Previous footage used for Video Avatars cannot be reused as the guidelines are unique to Custom LiveAvatar.
+🛎️
+Consent video:
+LiveAvatar
+Business
+and
+Enterprise
+plan users can upload a pre-recorded consent video. Essential and Free plan users must provide live consent via webcam, similar to the HeyGen Digital Twin live consent video.
+Recording Guidelines
+Make sure the footage is continuous, with
+no cuts or edits
+.
+
+Total Duration:
+Minimum of 2 minutes, divided into 3 distinct parts.
+Listening (15 seconds) ‼️ This portion is SILENT ‼️
+​
+Purpose:
+To show active engagement.
+Use facial expressions like raising your eyebrows or smiling to demonstrate that you're attentively listening.
+
+Talking (90 seconds)
+​
+Purpose:
+To convey your message.
+Speak clearly and confidently, ensuring your message is concise and to the point.
+
+Idling (15 seconds) ‼️ This portion is SILENT ‼️
+​
+Purpose:
+To show an attentive presence.
+Maintain a neutral expression, occasionally nodding without additional facial expressions.
+Key Differences:
+Listening:
+Engage with facial expressions to show active listening.
+Idling:
+Maintain a neutral demeanor and only nod, reflecting presence without extra expressions.
+
+Important Considerations
+Background & Environment
+Choose a
+clean, static background
+or a
+green screen
+.
+Avoid moving objects, changing light sources, or reflections in the background.
+If using green screen, keep it
+off the floor
+to reduce color spill.
+Keep the subject
+at least 5 feet
+away from the backdrop to avoid shadows.
+Camera Setup & Framing
+Use a
+1920x1080 HD camera
+or better.
+Frame the subject
+chest-up
+; avoid showing hands unless necessary; No full-body recordings (these are not supported).
+If hands are included (half- or full-body framing), keep them still and in resting position.
+🛎️ Note:
+LiveAvatar currently do not support 4K output due to latency limitations.
+Lighting
+Use
+soft, even lighting
+to avoid harsh shadows.
+Place
+two lights
+on either side of the subject with diffusion for a soft look.
+Optionally, add a
+backlight
+above and behind the head for subject-background separation.
+Warm up the color temperature to maintain natural skin tones.
+If shadows appear under hands, add
+a light below the subject
+.
+Performance Tips
+Maintain
+steady eye contact
+with the camera throughout.
+Avoid loud breathing, swaying, or unnecessary movement during pauses.
+Keep
+jewelry, glasses, and shiny clothing
+to a minimum to ensure clean background keying.
+Do
+two takes
+:
+One with
+minimal movement
+.
+One with
+4–5 slow, subtle gestures
+(below shoulder height).
+Reminder for Talent
+Begin with an
+engaged listening pose
+.
+Deliver the message with
+smooth, steady speech
+.
+End with a
+calm idle position
+—no sudden movements.
+
+For a visual explainer on how to create the best possible LiveAvatar, please watch this short video.
+
+Non-human or 3D Custom Avatars
+Have a 3D character, photo avatar, or non-human face you'd like to turn into a LiveAvatar? Good news—you can use your own custom non-human characters to create a LiveAvatar in HeyGen!
+
+The process is simple, but depending on the type of character, a quick manual review may be required to ensure everything works smoothly and meets our guidelines.
+Create your character
+Produce a video in they HeyGen Editing Studio that’s over 2 minutes long and includes
+the specific LiveAvatar footage instructions
+Submit the video along with a consent video of a
+real
+person
+The submission will be rejected automatically at first — don’t worry! Just reach out to our team at
+[email protected]
+for approval with the rejected Avatar ID [found in the top right corner under the three dot menu ... ]
+and
+a screenshot from the platform where the character was created to confirm it's free for use and doesn’t have an identifiable owner or IP restriction
+Once approved, you’re all set to enjoy your new LiveAvatar!
+
+🛎️
+Note:
+Our avatar technology is optimized for characters with
+distinct human features
+—like eyes, a nose, and lips. If your non-human character lacks these, the final avatar may not perform well in terms of realism or lip-sync accuracy.
+How to Create Your LiveAvatar from an image or photo
+You can also create a LiveAvatar from a photo!
+please click here to see the steps.
+​
+Processing Time for Custom Avatars
+Please note that your Custom LiveAvatar will take some time to be ready for use due to the tool’s complexity. To ensure the best possible result, follow the guidelines carefully and as accurately as possible.
+
+The estimated processing time for all LiveAvatar is about ~24 hours.
+
+How to Use A Custom Avatar
+First, you'll need to tell your avatar what to say and how to say it! Since your LiveAvatar is powered by a Large Language Model (LLM), you can guide it using a prompt, which we refer to as a "context" on LiveAvatar platform, formally known as knowledge-base.
+
+To set it up, create a Voice Agent. In the left menu under Playground, open Voice Agents, click Create New and choose Build from scratch. Give the agent a name, select your context under “Configure the brain”, then select a voice and default language under “Configure the voice”, and save. Then go to Avatars, open any public or custom avatar, choose your agent in the “Select voice agent” dropdown at the bottom of the screen, and click Chat now.
+
+For in-depth guidance on how to write your context, please visit the
+Prompting your LiveAvatar
+article.
+
+Users with access to Custom Avatars can also customize their LiveAvatar by changing its voice and/or renaming it.
+
+Once you've decided on the content for your avatar and are happy with the results, you're ready to test it out! To speak with your avatar, press
+Chat Now
+.
+
+Integrating Your LiveAvatar
+You can integrate LiveAvatar into your platform in two ways- Full Mode and Lite Mode.
+
+Full Mode
+– An end-to-end solution, if you want convenience. We handle the LLM, voice, and avatar layer. It’s the fastest way to integrate your LiveAvatar into your platform. It consumes 2 LiveAvatar credits per minute.
+
+Lite Mode
+– Offers significantly more flexibility, if you want more control. You can bring your own LLM, voice, and add deeper customizations. We provide the avatar layer only. It consumes 1 LiveAvatar credit per minute.
+
+🛎️
+Session Data & Privacy:
+•
+Avatar Only (Lite mode):
+We do not retain any session data.
+•
+Full mode:
+We retain session transcripts only. You can delete them at any time via the
+Delete Session Events API
+.
+
+For API docs related to Full integration method click here
+For API docs related to Lite integration method click here
+
+LiveAvatar Pricing and subscription plans
+LiveAvatar plans provide flexible, stand-alone subscription options designed exclusively for users who want access to custom Avatars.
+
+These plans operate independently from other HeyGen subscriptions and offer a more cost-effective way to use LiveAvatar features without needing a broader plan. They’re ideal for anyone primarily focused on real-time avatar interactions and looking for a more economical pricing structure tailored to that specific use case.
+
+LiveAvatar Free Plan
+Allows you to test out the integration on shorter scale, with 2 minute max session limit and 1 concurrency limit, meaning only one active session at a time.
+Assuming you use full integration here, it will allow you total 5 minutes of streaming in Full mode and 10 minutes in Lite mode test your integration for free.
+LiveAvatar Essential Plan
+Allows you to fully deploy your LiveAvatar integration onto your platform.
+For the price of
+$99/month,
+you will receive
+1,100 LiveAvatar (LA) Credits
+.
+Max session duration: 20 minutes
+Unlimited concurrent sessions — you pay for minutes streamed, never for concurrency
+1 custom 720p LiveAvatar slot included; access to 1080p Public LiveAvatar library
+Pay-as-you-go overage at
+$0.095/credit
+If you're using Full integration method- your 1,100 credits will result in 550 minutes of streaming, which is ~18 cents per minute
+If you're using Lite integration method- your 1,100 credits will result in 1,100 minutes of streaming, which is ~9 cents per minute
+LiveAvatar Business Plan
+Allows you to fully deploy and scale your LiveAvatar integration for production use.
+For the price of
+$475/month
+, you will receive
+6,000 LiveAvatar (LA) Credits
+.
+Max session duration: 60 minutes
+Unlimited concurrent sessions — you pay for minutes streamed, never for concurrency
+Includes 1 custom 1080p LiveAvatar
+Access to both 720p and 1080p avatars, including the public avatar library
+Pay-as-you-go overage at
+$0.09/credit
+— continue streaming beyond your monthly credits without interruption
+Full access to the LiveAvatar API for real-time integrations and production deployments
+Streaming efficiency:
+- Full integration method:
+6,000 credits ≈ 3,000 minutes of streaming (~$0.16 per minute)
+- Lite integration method:
+6,000 credits ≈ 6,000 minutes of streaming (~$0.08 per minute)
+
+LiveAvatar Enterprise Plan
+These are custom plans designed for larger-scale companies with a minimum budget of $40,800 that are looking to deploy at scale. We recommend considering this plan after first testing the integration with the Essential plan to gain a better understanding of the platform.
+
+Frequently Asked Questions (FAQ)
+I want to add this to my site, but I can’t code. What do I do?
+The LiveAvatar API has
+resources and documentation
+that will enable most web developers to add the LiveAvatar functionality to your website or product. Currently, adding LiveAvatar functionality to your site requires
+some
+programming, as there is no easy “copy-pasting” our Demo to your site with any customization.
+
+Is there a limit on how many connections can interact with the LiveAvatar on my website at the same time?
+No—LiveAvatar supports unlimited concurrent sessions on all paid plans. You pay for minutes streamed, never for concurrency. Enterprise users can access dedicated capacity and custom terms by contacting their Enterprise Representative.
+
+I already have a custom GPT or LLM. How do I connect it to the LiveAvatar?
+As mentioned before, the LiveAvatar acts as the 'body,' while the instructions come from your Context. If you want to use an existing prompt, you can copy and paste the text into a Context (only text is supported, no file uploads) and attach it to a Voice Agent. Alternatively, a developer can connect your own LLM through the LiveAvatar API (
+docs.liveavatar.com
+), using a custom LLM configuration or your own pipeline in Lite mode.
+
+Can the LiveAvatar speak any language?
+There are two parts to this answer:
+
+First, users are not directly communicating with the LiveAvatar—they’re speaking with ChatGPT or the LLM (Large Language Model) you’ve connected. If that LLM supports multiple languages, the LiveAvatar will be able to speak those languages as well.
+
+Second, the accent of the LiveAvatar is determined by the Voice ID you assign. HeyGen offers different Voice IDs from various text-to-speech providers, including ElevenLabs, Fish and Cartesia (OpenAI and Gemini are available when you connect your own OpenAI Realtime or Gemini setup in Lite mode). The accent and sound of the voices will vary depending on the provider.
+
+I want my users to be able to speak with the LiveAvatar out loud. Can I do that?
+Yes! You can use the
+LiveAvatar Web SDK
+in order to add voice chat functionality to your app or website.
+
+My LiveAvatar is making weird movements. How can I fix this?
+If your LiveAvatar is making strange movements, it’s likely due to the input footage. Since we can’t adjust already rendered footage, you may need to refilm. When recording footage for a LiveAvatar, it’s important to:
+Look directly at the camera
+Limit hand, arm, and head movements to subtle, ‘micro movements’
+Maintain a pleasant, relaxed expression
+By following these guidelines and all outlined above, you can improve the avatar’s accuracy and avoid unnatural motions.
+
+Can I redo my LiveAvatar?
+We offer one free remake of your LiveAvatar if you’re not satisfied with the final result. This is the only complimentary remake provided. For more information, please contact
+[email protected]
+
+Which voice can I use with the Streaming API?
+You can use different Voice IDs with Avatars. To explore the available Voice IDs, visit the
+AI Voices
+section on the HeyGen homepage.
+
+Developers can choose from HeyGen’s Public Voices, Private Voices created alongside avatars, or voices sourced from third-party platforms like ElevenLabs.
+
+Can I remove the background from my Custom LiveAvatar?
+You can remove the background from your LiveAvatar, though this requires more advanced coding skills than most users have. For additional information, please refer to
+this link
+; however, note that our regular support center won’t be able to assist with questions on this topic.
+
+How can I remove the watermark from the LiveAvatar?
+The watermark should be removed from your LiveAvatar if you have LiveAvatar credits and are using them for streaming. LiveAvatar credits are a separate system and are not related to HeyGen API credits.
+
+So, in general:
+If you’re using the LiveAvatar via the HeyGen platform (Share button, hosted link, or HTML embed), the watermark cannot be removed—even with a paid plan.
+However, if you’re using the LiveAvatar outside of HeyGen (via API token or SDK integration), then having LiveAvatar credits allows you to remove the watermark from your embedded avatar experience.
+If you are seeing the watermark while using LiveAvatar credits, please reach out to
+[email protected]
+for assistance.
+
+Where can I find the LiveAvatar trial token?
+We have removed the token / secret mechanism that was formerly used with the LiveAvatar streaming process. This is not required anymore to embed LiveAvatar on your website. For developer documentation, see
+docs.liveavatar.com
+.
+
+Can I use a Photo Avatar as a LiveAvatar?
+You can create a LiveAvatar from AI photo if you provide a video (at least 2 minutes long) that follows the specified guidelines above. To do this, you can use HeyGen or another platform to create a Photo Avatar video and use a consent video featuring yourself. Note that this will trigger a moderation flag, and you’ll need to contact
+[email protected]
+for approval.
+Related Articles
+Digital Twin (Video Avatar): Filming Tips
+HeyGen Legacy Unlimited plans
+HeyGen API Pricing & Credits Explained
+Introducing LiveAvatar
+LiveAvatar FAQ
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃

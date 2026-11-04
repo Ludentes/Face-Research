@@ -1,0 +1,360 @@
+GitHub - bithuman-archive/bithuman-sdk-public: Moved to GitLab: https://gitlab.com/bithuman (this GitHub copy is archived, read-only) · GitHub
+
+Skip to content
+
+You signed in with another tab or window.
+Reload
+to refresh your session.
+
+You signed out in another tab or window.
+Reload
+to refresh your session.
+
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+
+Dismiss alert
+
+This repository was archived by the owner on Oct 8, 2026. It is now read-only.
+
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+
+History
+354 Commits
+354 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+
+Examples
+Examples
+
+mcp
+mcp
+
+python
+python
+
+scripts
+scripts
+
+swift
+swift
+
+templates
+templates
+
+.cursorrules
+.cursorrules
+
+AGENTS.md
+AGENTS.md
+
+CLAUDE.md
+CLAUDE.md
+
+CONTRIBUTING.md
+CONTRIBUTING.md
+
+LICENSE
+LICENSE
+
+Package.swift
+Package.swift
+
+README.md
+README.md
+
+SECURITY.md
+SECURITY.md
+
+View all files
+Repository files navigation
+bitHuman SDK (archived copy: current docs at docs.bithuman.ai)
+
+This GitHub repository is an archived snapshot from September 2026 and is no longer updated.
+
+The code, examples and facts below the line may be out of date. For anything current, use:
+
+Docs:
+
+https://docs.bithuman.ai
+(start here:
+https://docs.bithuman.ai/start
+)
+
+Developer page and API secret:
+
+https://www.bithuman.ai/developers
+
+Source:
+
+https://gitlab.com/bithuman
+
+bitHuman makes real-time talking avatars from one portrait.
+Send speech audio in; get a lip-synced, moving face
+out, live. Two models:
+
+Essence 2
+renders a photoreal person.
+
+Expression 2
+renders any character.
+
+Where it runs (current)
+
+Where
+
+What you use
+
+iPhone, iPad, Mac
+
+Swift package
+
+Android (arm64, physical device)
+
+Android SDK
+
+Linux (x86_64, arm64) and macOS on Apple silicon
+
+Python SDK and CLI
+
+Windows 11 (x86_64)
+
+Python SDK
+
+A Linux PC with no GPU
+
+Python SDK and CLI: both models run live on the CPU
+
+A browser tab
+
+Web embed; with WebGPU the avatar renders in the tab
+
+bitHuman cloud
+
+REST API, web embed, LiveKit
+
+LiveKit and Pipecat agents
+
+livekit-plugins-bithuman
+,
+pipecat-bithuman
+
+ChatGPT and Claude
+
+Hosted MCP server
+
+Measured speed for every published configuration:
+https://docs.bithuman.ai/performance
+
+One command per path
+
+#
+Python (3.10-3.14; use a venv)
+
+pip install
+"
+bithuman[expression-2]
+"
+
+#
+CLI (macOS arm64, Linux x86_64 / arm64)
+
+curl -fsSL https://install.bithuman.ai
+|
+sh
+
+#
+LiveKit agent
+
+pip install
+"
+livekit-agents[openai,silero]
+"
+livekit-plugins-bithuman python-dotenv
+
+#
+Pipecat
+
+pip install
+"
+pipecat-bithuman[expression-2]
+"
+
+#
+MCP server for Claude Code
+
+claude mcp add bithuman -- bithuman mcp
+
+// Swift package (iOS, iPadOS, macOS). The package is now on GitLab:
+
+.
+package
+(
+url
+:
+
+"
+https://gitlab.com/bithuman/sdk/homebrew-bithuman
+"
+,
+from
+:
+
+"
+2.21.4
+"
+)
+
+//
+Android
+
+implementation(
+"
+ai.bithuman:expression2-android:0.6.2
+"
+)
+
+Current versions of every package:
+https://docs.bithuman.ai/versions.json
+
+Device requirements (Swift)
+
+Expression 2:
+iPhone or iPad on iOS 16 or newer; a Mac with Apple silicon on macOS 13 or newer.
+
+Essence 2:
+iPhone or an M-series iPad on iOS 26 or newer (a physical device); a Mac with M3 or newer on macOS 26.
+
+Details:
+https://docs.bithuman.ai/platforms/ios
+and
+https://docs.bithuman.ai/platforms/macos
+
+API secret and plans
+
+One API secret works on every surface. Set it as
+BITHUMAN_API_SECRET
+. Get one by signing up at
+
+https://www.bithuman.ai/developers
+.
+
+API and SDK use needs the
+Creator plan or higher
+. Prices and credits:
+https://docs.bithuman.ai/pricing
+
+Moving from this repo
+
+Old (this repo)
+
+Now
+
+Swift package
+github.com/bithuman-product/bithuman-sdk-public
+
+gitlab.com/bithuman/sdk/homebrew-bithuman
+
+brew install bithuman-product/bithuman/bithuman-cli
+
+curl -fsSL https://install.bithuman.ai | sh
+(see
+https://docs.bithuman.ai/platforms/cli
+)
+
+.imx
+files and
+AsyncBithuman
+(bithuman 2.3)
+
+Essence 2 / Expression 2 agents:
+https://docs.bithuman.ai/models
+
+"Windows is planned"
+
+Python SDK on Windows 11 x86_64:
+https://docs.bithuman.ai/platforms/windows
+
+Examples/
+in this repo
+
+Current examples:
+https://www.bithuman.ai/developers/examples
+
+Help
+
+Docs:
+https://docs.bithuman.ai
+
+Discord:
+https://discord.gg/JtFz5Mra7w
+
+Source and issues:
+https://gitlab.com/bithuman
+
+The files in this repository are kept as they were in September 2026 for reference only.
+
+About
+Moved to GitLab:
+https://gitlab.com/bithuman
+(this GitHub copy is archived, read-only)
+gitlab.com/bithuman
+Topics
+ai
+ai-assistant
+apple-silicon
+avatar
+conversational-ai
+digital-human
+edge-ai
+lip-sync
+livekit
+nvidia
+on-device
+public
+python-sdk
+raspberry-pi
+real-time
+swift-sdk
+swiftpm
+text-to-speech
+voice-agent
+webrtc
+Resources
+Readme
+Apache-2.0 license
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+4
+stars
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+
+You can’t perform that action at this time.

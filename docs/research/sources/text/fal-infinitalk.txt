@@ -1,0 +1,162 @@
+Try FLUX 3 Max, post-trained by fal
+Loading model
+fal-ai
+/
+infinitalk
+fal-ai
+/
+infinitalk
+Schema
+Onboard your agent
+Loading
+playground
+Input
+Result
+Input
+Form
+Prompt
+*
+Additional Settings
+More
+Customize your input with more control.
+Reset
+Sign in to run
+Result
+Idle
+Preview
+JSON
+What would you like to do next?
+Download
+fal-ai
+/
+infinitalk
+, details and endpoints
+Sandbox
+Open in Sandbox
+Infinitalk model generates a talking avatar video from an image and audio file. The avatar lip-syncs to the provided audio with natural facial expressions.
+fal-ai
+/
+infinitalk
+Audio
+Infinitalk model generates a talking avatar video from an image and audio file. The avatar lip-syncs to the provided audio with natural facial expressions.
+Inference
+Commercial use
+This endpoint is deprecated
+This model is no longer supported.
+Schema
+Onboard your agent
+Playground
+API
+Sandbox
+Open in Sandbox
+Loading
+playground
+Input
+Result
+Input
+Form
+Prompt
+*
+Additional Settings
+More
+Customize your input with more control.
+For 720p price will be doubled.
+Reset
+Sign in to run
+Result
+Idle
+Preview
+JSON
+What would you like to do next?
+Download
+For 720p price will be doubled.
+Loading
+playground
+Input
+Result
+Input
+Form
+Prompt
+*
+Additional Settings
+More
+Customize your input with more control.
+For 720p price will be doubled.
+Reset
+Sign in to run
+Result
+Idle
+Preview
+JSON
+What would you like to do next?
+Download
+For 720p price will be doubled.
+Input
+Result
+Input
+Form
+Image URL
+*
+Add Image
+Hint:
+Drag and drop
+
+image files
+from your computer,
+images
+from web pages, paste from clipboard (Ctrl/Cmd+V), or provide a URL.
+
+Accepted file types: jpg, jpeg, png, webp, gif, avif, heic, heif
+Audio URL
+*
+Add Audio
+Hint:
+Drag and drop
+
+audio files
+from your computer,
+audio
+from web pages, paste from clipboard (Ctrl/Cmd+V), or provide a URL.
+
+Accepted file types: mp3, ogg, wav, m4a, aac
+Prompt
+*
+A woman with colorful hair talking on a podcast.
+A woman with colorful hair talking on a podcast.
+Type
+#
+to reference inputs.
+Additional Settings
+More
+Customize your input with more control.
+Pricing details
+Reset
+Sign in to run
+or try similar models free in Sandbox
+Result
+Idle
+Preview
+JSON
+What would you like to do next?
+Download
+{
+"video": {
+"file_name": "74af6c0bdd6041c3b1130d54885e3eee.mp4",
+"content_type": "application/octet-stream",
+"url": "https://v3.fal.media/files/kangaroo/z6VqUwNTwzuWa6YE1g7In_74af6c0bdd6041c3b1130d54885e3eee.mp4",
+"file_size": 515275
+}
+}
+Your request
+
+will cost
+
+$
+0.2
+
+per
+
+second
+.
+For 720p price will be doubled.
+Infinitalk (Video to Video) API on fal

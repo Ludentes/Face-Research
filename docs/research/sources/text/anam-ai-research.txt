@@ -1,0 +1,118 @@
+Anam Research - Advancing Interactive AI Avatar Technology
+
+Developers
+Pricing
+Resources
+Sign in
+Company
+Team
+Research
+Security
+Start building
+Developers
+Documentation
+Tools
+Changelog
+Resources
+Cara-4.1 Express
+Blog
+Customer stories
+Avatar Benchmark
+Interactive Avatars
+Sign in
+We’re a research-led
+product company
+Test it out
+Our research teams investigate
+the safety, inner workings, and societal impacts of AI models – so that artificial intelligence has a positive impact as it becomes increasingly capable.
+Meet Cara-4.1 Express.
+Our industry-leading foundation model.
+Cara-4.1 Express renders expressive avatars at 25fps in landscape and portrait. Anam’s full pipeline measured 1.24 s median reply latency and 1.42 s median connection time in our benchmark (see
+Avatar Benchmark, October 2026
+).
+Our breakthrough diffusion model CARA-4 controls every pixel in real-time for unparalleled expression, delivering 25fps in landscape and portrait mode, and our conversation engine ensures sub-1-second median latency.
+Real-time rendering
+Our breakthrough diffusion model Cara-4.1 Express controls every pixel in real-time for photorealistic avatar rendering.
+Fast replies and connections
+1.24 s median reply latency, from the end of your sentence to the start of the avatar’s reply. 1.42 s median connection time, from pressing Start to the first visible avatar frame.
+Expressivity
+Cara-4.1 Express generates micro-expressions, natural head movement, and emotion that matches the tone of speech.
+Image-to-avatar
+Upload a single photo and Cara-4.1 Express creates a fully animated, conversational avatar.
+Our research
+Cara-4 built on Cara-3’s improvements to lip sync, eye movement and head motion. Cara-4.1 Express continues that work with expressive real-time avatars and control over how an avatar performs a conversation. A feature we call
+Director Notes.
+A face that keeps up with the conversation
+The right performance depends on the job. A distressed patient should not behave like a self-assured sales coach. An angry customer needs a different presence from a supportive therapist or a warm language tutor.
+Director Notes, introduced in beta with Cara-4, lets you set that direction. Choose a preset style such as warm, supportive, angry or distressed, or write a short custom prompt such as:
+Keep steady eye contact. Stay composed and attentive. Use restrained movement, as if coaching someone through a difficult conversation.
+The Expressivity control then determines how strongly Cara-4.1 Express follows that direction. Turn it down for a steady, understated performance or up when the situation calls for more energy.
+But real conversations do not stay in one emotional register, so we’ve made Director Notes
+dynamic.
+During a session, the LLM can add performance cues as it streams the spoken response, shifting the avatar from curious to concerned to warm within a single turn.
+We still have a long way to go: prompt adherence is not yet where we want it, and Cara-4.1 Express cannot deliver the full range of gestures and actions a developer might want to direct, such as typing on a keyboard while looking something up. But this is the first step towards giving builders full control over how their avatar performs.
+Built for the screens people use
+Cara-4.1 Express renders natively in both landscape and portrait: 1152×768 or 768×1152. That’s ~2.5 times the pixels of Cara-3, but the more important change is portrait being a first-class output.
+On a phone, we no longer need to render a landscape frame and discard the sides. The model spends its pixel budget on the part of the screen the user can see. Our longer-term goal is arbitrary output sizes within a compute budget, so builders can optimise the experience for a phone, an iPad or a layout we haven’t anticipated.
+More ways to look like yourself
+Custom avatars no longer need to come from a conventional photo. Cara-4.1 Express can animate a wider range of images, including animated 3D characters or anime.
+This matters for products with a visual world of their own. The face of an agent can now feel native to a learning app or consumer brand rather than looking pasted in from somewhere else.
+Built for production
+In production, quality is only part of the job. An avatar also needs to start quickly, respond consistently and remain economical at meaningful volume.
+In our full-pipeline benchmark (see
+Avatar Benchmark, October 2026
+), Cara-4.1 Express measured 1.24 s median reply latency and 1.42 s median connection time. Reply latency runs from the end of your sentence to the start of the avatar’s reply; connection time runs from pressing Start to the first visible avatar frame. Enterprise customers can also choose zero data retention and regional data residency options.
+Cara-4.1 Express comes with improvements to model architecture, inference performance and hardware utilisation which have reduces the GPU cost of high-volume deployment. We are passing these savings onto customers, opening up new avatar use-cases previously difficult to justify.
+What comes next
+We have already started work towards Cara-5: more expressive, more controllable, higher fidelity and lower latency.
+Our aim is for Anam to continue being the clear choice for real-time avatars without asking builders to trade quality against speed, flexibility or price.
+Cara-4.1 Express is available now in
+Anam Lab
+and through the API with
+avatarModel: "cara-4-1-express"
+. You can also invite your avatar to a Zoom, Microsoft Teams or Google Meet call with a click. Read the
+model guide
+, explore
+Director Notes
+, or start building in
+Anam Lab
+.
+Product
+Cara-4.1 Express
+Interactive Avatars
+Customer stories
+API Platform
+Blog
+Pricing
+Get started
+Company
+About
+Research
+Careers
+Resources
+Documentation
+API Reference
+Changelog
+Tools
+Avatar Benchmark
+Glossary
+Compare
+Guides
+Status Page
+llms.txt
+llms.txt
+Legal
+Trust Center
+AI Governance
+Terms of Service
+DPA
+Acceptable Use
+Privacy Policy
+Contact
+LinkedIn
+Youtube
+Newsletter
+Slack Community
+X
+© 2026 Anam Labs
+SOC 2 Type II report · HIPAA-aligned controls.

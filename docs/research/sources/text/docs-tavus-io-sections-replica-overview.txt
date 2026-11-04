@@ -1,0 +1,99 @@
+Overview - Tavus
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+​
+What is a Face?
+
+A
+Face
+is how a
+PAL
+looks. Train one from a photo or a video, or pick a stock face. Most faces are realistic humans. Other human styles, such as cartoon, anime, or Pixar-style, also work. Animals, mascots, and other non-human figures do not.
+
+With Tavus, you can create a face that looks like you - or use a stock face for instant prototyping. Faces capture natural expressions, tone, and presence so interactions feel human and engaging.
+
+​
+Custom Faces
+
+You create a custom face by picking a Phoenix model, then sending either a training video or a training image. See
+Choose a Model and Training Path
+for which to pick.
+
+Models
+
+Phoenix-4.5
+– A zero-shot preview is usable early (about a minute from a photo; a few minutes from video), then tunes in the background. The preview carries a visible watermark; the later tuned version does not. How to poll:
+Phoenix-4.5 Preview and Status
+.
+
+Phoenix-4
+– Ready when the full training job finishes. Use this for full body, or when you specifically need the Phoenix-4 look and image rules.
+
+Input
+
+Video
+– Captures movement and creates a voice from the footage audio.
+
+Photo
+– Faster to set up. Attach a voice separately. See
+Voices for Image-Based Faces
+.
+
+Creating a custom face is
+only available
+on the Starter, Growth, and Enterprise plans.
+
+​
+Stock Faces
+
+Alternatively, Tavus offers 100+ ready-to-use
+stock Faces
+- great for quick prototyping, demos, or teams without access to custom training footage or images.
+
+Pro faces
+– A hand-picked, top-performing set of stock faces. See
+Pro Faces
+.
+
+​
+Key Features
+
+Realistic Face Cloning
+Custom faces capture a person’s look, expressions, and speaking style.
+Emotional Control
+Faces express emotions through lifelike facial expressions while speaking and listening.
+Full Motion Control
+Smooth transitions between speaking and listening with fully generated, natural head and (on Phoenix-4.5) torso motion.
+
+​
+Platform Policies
+
+By using PAL Maker and the Tavus APIs, you agree to comply with Tavus’
+Terms of Service
+and
+Acceptable Use Policy
+. You are responsible for ensuring you have the necessary rights and permissions to upload and use any training data, including videos, images, voices, and likenesses.
+
+​
+Getting Started
+
+You can create a face using either the PAL Maker or the API, depending on your workflow.
+
+For a guided flow, use
+Face Studio
+in PAL Maker. Create a Phoenix-4.5 face from a video, a photo, or a text prompt, then remix and adjust it before training. Uploads get inline validation.
+
+For API flows, use
+Video to Face
+or
+Image to Face
+. For which model to pick, recording rules, and best practices, see
+Choose a Model and Training Path
+.

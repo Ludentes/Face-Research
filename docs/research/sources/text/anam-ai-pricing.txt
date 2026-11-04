@@ -1,0 +1,346 @@
+Anam Pricing - Real-Time AI Avatar API Plans
+Real-time AI avatar pricing.
+
+Start free, scale to
+
+$0.04
+
+a minute.
+Every plan includes the API and SDKs, unlimited custom avatars and voice cloning. Usage is billed per second.
+Plans
+$0
+/month
+No credit card required
+30
+min
+/ month
+No extra minutes
+Start for free
+Includes
+API and SDK access
+Unlimited custom avatars
+Custom voice clone
+1 simultaneous session
+3-minute conversations
+$12
+/month
+Billed monthly
+50
+min
+/ month
+then $0.16/min
+Get started
+Free features, plus
+Commercial use
+Pay as you go past your minutes
+5-minute conversations
+$49
+/month
+Billed monthly
+250
+min
+/ month
+then $0.14/min
+Get started
+Starter features, plus
+3 simultaneous sessions
+Remove the embed watermark
+10-minute conversations
+$299
+/month
+Billed monthly
+2,000
+min
+/ month
+then $0.12/min
+Get started
+Explorer features, plus
+5 simultaneous sessions
+2-hour conversations
+Priority support
+$999
+/month
+Billed monthly
+8,000
+min
+/ month
+then $0.11/min
+Get started
+Growth features, plus
+10 simultaneous sessions
+Lowest self-serve rate, $0.11/min
+Custom
+Volume rates for high usage
+Volume minutes
+from
+$0.04
+/min
+Talk to sales
+Professional features, plus
+Volume pricing from $0.04/min
+Uptime SLA and dedicated enterprise support
+Region selection and data residency
+Zero data retention
+Free plan needs no credit card
+Set a spend cap on extra minutes
+SOC 2 Type II, HIPAA-aligned controls
+Trusted by teams at
+Estimate your monthly cost.
+
+Find the plan that fits your usage.
+Minutes of conversation per month
+1,000
+min
+About
+200
+five-minute conversations.
+100
+min
+500
+min
+2,000
+min
+10,000
+min
+Free
+Over limit
+Starter
+$164/mo
+Explorer
+Lowest cost
+$154/mo
+Growth
+$299/mo
+Professional
+$999/mo
+Explorer
+is the lowest-cost plan at this usage
+: $154 a month
+.
+Get Explorer
+Pricing questions?
+
+Ask Sophie.
+Talk
+Large scale needs?
+
+Discover our enterprise plans.
+Enterprise
+From
+$0.04
+/min
+Volume pricing sized to your usage, with custom limits and terms.
+Talk to sales
+100 to unlimited simultaneous sessions
+Uptime SLA and dedicated enterprise support
+Region selection and data residency
+Zero data retention
+SOC 2 Type II report and DPA
+Teams ship with Anam.
+
+Often in a couple of weeks.
+“
+We've gone from first talking about it, to having it demoed, to running it in less than a couple of weeks.
+”
+Mark Temple
+CEO & Founder, iMeld
+“
+The main difference we saw was around the length of conversation. People would engage with video personas much longer than with text or voice.
+”
+Adam Liska
+CEO & Co-Founder, Glyphic
+“
+With Anam, the integration was incredibly smooth. We were up and running quickly, and the level of realism was a game-changer.
+”
+Michael Patchen
+Co-Founder & CEO, Colleva
+Read customer stories
+Plans and features.
+
+Compare every plan.
+Every plan includes API and SDK access, unlimited custom avatars, text-to-avatar and image upload, voice cloning and 70+ languages.
+Anam plans compared: monthly price, included minutes, limits and features
+Feature
+Free
+$0
+/mo
+Start free
+Starter
+$12
+/mo
+Get started
+Explorer
+$49
+/mo
+Get started
+Most popular
+Growth
+$299
+/mo
+Get started
+Professional
+$999
+/mo
+Get started
+Enterprise
+Custom
+Talk to sales
+Minutes included per month
+30
+50
+250
+2,000
+8,000
+Custom
+Extra minutes
+Not available
+$0.16/min
+$0.14/min
+$0.12/min
+$0.11/min
+From $0.04/min
+Simultaneous conversations
+1
+1
+3
+5
+10
+100 to unlimited
+Max conversation length
+3 min
+5 min
+10 min
+2 hours
+2 hours
+2 hours
+Commercial use
+Not included
+Included
+Included
+Included
+Included
+Included
+Remove embed watermark
+Not included
+Not included
+Included
+Included
+Included
+Included
+Region selection and data residency
+Not included
+Not included
+Not included
+Not included
+Not included
+Included
+Zero data retention
+Not included
+Not included
+Not included
+Not included
+Not included
+Included
+Uptime SLA
+Not included
+Not included
+Not included
+Not included
+Not included
+Included
+Support
+Limited
+Enhanced
+Enhanced
+Priority
+Priority
+Dedicated
+Free
+Starter
+Explorer
+Growth
+Professional
+Enterprise
+Growth
+Most popular
+$299
+/mo
+Start free
+Get started
+Get started
+Get started
+Get started
+Talk to sales
+Minutes included per month
+2,000
+Extra minutes
+$0.12/min
+Simultaneous conversations
+5
+Max conversation length
+2 hours
+Commercial use
+Included
+Remove embed watermark
+Included
+Region selection and data residency
+Not included
+Zero data retention
+Not included
+Uptime SLA
+Not included
+Support
+Priority
+Prices in USD.
+Frequently asked questions
+More on usage and billing in the
+
+documentation
+.
+Sign up
+Contact sales
+Which plan should I choose?
+Start on Free to try avatars in the Lab and the API. Starter covers a first commercial project. Explorer suits pilots that need up to 3 simultaneous sessions. Growth is for products with real users, and Professional for production at scale. On cost alone with monthly billing, Explorer is cheaper than Starter above about 500 minutes a month, Growth is cheaper than Explorer above about 2,250, and Professional is cheaper than Growth above about 7,800.
+Is there a free plan?
+Yes. The Free plan includes 30 minutes every month, API access, unlimited custom avatars and custom voice cloning, with no credit card required.
+How does billing work?
+Each plan includes a monthly minute allowance. Usage is measured by the second. On paid plans, extra usage beyond the included minutes is billed at the plan's per-minute rate. The Free plan includes 30 minutes per month and does not allow overages.
+What counts as a minute?
+Minutes are counted from the moment you start a conversation with an AI avatar (pressing "Start Chat" or initiating a session via the API). The timer runs for the entire duration of the session until you end it, regardless of whether you are actively speaking or not.
+What happens to unused minutes?
+Unused minutes do not roll over. If you have 250 included minutes on Explorer and only use 50, the remaining 200 minutes expire at the end of your billing period. If you cancel or downgrade your plan, unused minutes from your previous plan are not carried over to your new plan.
+How do I cap my usage?
+Set a spend cap in your Account Settings to limit how much you can be charged for extra minutes beyond your included allowance, or set conversation time limits programmatically using the SDK when initiating sessions.
+What is a conversation limit?
+A conversation limit is the maximum length of a single session with an AI avatar. Free allows 3 minutes per session, Starter 5 minutes and Explorer 10 minutes. Growth, Professional and Enterprise allow up to 2 hours per session.
+What is a simultaneous session?
+A simultaneous session (also called concurrency) is the number of avatar conversations that can happen at the same time. As a rule of thumb, we see a 200:1 ratio between daily active users and concurrent sessions needed, so 200 daily active users would typically need 1 simultaneous session. Actual requirements depend on when users start sessions and how long those sessions last.
+What support comes with each plan?
+Free includes limited support. Starter and Explorer include enhanced support. Growth and Professional include priority support. Enterprise includes dedicated enterprise support and an uptime SLA.
+What are custom avatars?
+Custom avatars are video avatars you create from your own images. Every plan includes unlimited saved custom avatars. Daily image-generation and image-moderation limits still apply.
+How can I create a custom avatar?
+Upload an image in the Lab or generate one from a text prompt. A custom avatar takes under 2 minutes to generate and come to life.
+What is the "Remove Watermark" feature?
+When you embed Anam avatars on your website, the widget shows a watermark by default. Explorer and above can hide it for a cleaner branded experience.
+What is Custom Voice Clone?
+Custom voice clones let you create a unique AI voice that matches a specific person or style. Upload voice samples to train a personalized voice for your avatar. Custom Voice is included in every plan, including Free.
+Can I pause or cancel my subscription?
+You can't pause a paid subscription. If you cancel, your plan stays active until the end of the billing period you've paid for, then your account moves to the Free plan. Payments are not refunded, and unused minutes are not carried over to the Free plan.
+Do you offer volume or enterprise pricing?
+Yes. Enterprise contracts start from $0.04 per minute at volume, with 100 to unlimited simultaneous sessions, an uptime SLA, dedicated enterprise support, region selection and data residency, and zero data retention. Talk to our sales team for a quote.
+For agents and scripts:
+
+this page as Markdown
+. Or ask an assistant to pick a plan:
+
+ChatGPT
+,
+
+Claude
+.
+Start building today.
+
+30 free minutes every month, no credit card required.
+Start for free
+Talk to sales

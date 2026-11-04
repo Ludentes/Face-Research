@@ -1,0 +1,157 @@
+Simli: real-time AI avatars from less than a penny a minute
+Docs
+Pricing
+Log in
+Start free
+Menu
+Anna
+Talk to
+Anna
+Zahra
+Talk to
+Zahra
+Grace
+Talk to
+Grace
+Professor Gearwright
+Talk to
+Professor Gearwright
+Hana
+Talk to
+Hana
+Mateo
+Talk to
+Mateo
+Jordan
+Talk to
+Jordan
+Kenji
+Talk to
+Kenji
+Claire
+Talk to
+Claire
+Daniel
+Talk to
+Daniel
+Caesar
+Talk to
+Caesar
+Nova
+Talk to
+Nova
+Lukas
+Talk to
+Lukas
+Anna
+Talk to
+Anna
+Zahra
+Talk to
+Zahra
+Grace
+Talk to
+Grace
+Professor Gearwright
+Talk to
+Professor Gearwright
+Hana
+Talk to
+Hana
+Mateo
+Talk to
+Mateo
+Jordan
+Talk to
+Jordan
+Kenji
+Talk to
+Kenji
+Claire
+Talk to
+Claire
+Daniel
+Talk to
+Daniel
+Caesar
+Talk to
+Caesar
+Nova
+Talk to
+Nova
+Lukas
+Talk to
+Lukas
+Real-time
+avatars from less than a penny a minute.
+Start free
+Read the docs
+50 minutes free every month. No credit card needed.
+Price
+Efficient by design, priced to scale.
+Our models need a fraction of the compute of other avatar models, and we pass that on. Self-serve plans start at $0.009 per minute, and volume pricing goes as low as $0.005 per minute.
+See pricing
+Price per minute
+$0.005
+per minute at scale
+Hobby
+$0.01
+Pro
+$0.0095
+Scale
+$0.009
+Enterprise
+$0.005
+Latency
+Conversations that feel live.
+Send Simli audio and the avatar video comes back in about 150 ms, so the avatar adds almost no delay on top of your voice agent. Streams run at 1366 × 768 in 16:9, with square and portrait canvases too.
+Response time
+~150 ms
+from sending audio to getting video back
+~
+150
+ms
+
+Audio
+sent
+Video frame
+back
+Your stack
+Works with the stack you already have.
+Keep your own speech-to-text, LLM and voice. Send Simli the audio you want spoken and we render the avatar in real time. Plug into LiveKit or Pipecat with our official integrations, or use our SDKs with anything else.
+Read the docs
+How it fits
+Voice agent
+STT · LLM · TTS
+audio
+Simli avatar
+Live video
+LiveKit
+Agents plugin
+Pipecat
+Official service
+Simli SDKs
+For any other stack
+Technology
+Built in 3D. Driven by speech.
+From a single photo we build a full 3D avatar out of Gaussian splats on real geometry. Our animation model turns speech into motion that drives it, so the avatar stays consistent from every angle and efficient enough to run at scale.
+Put a real-time avatar in your product today.
+50 minutes free every month. No credit card needed.
+Talk to us about volume pricing and enterprise plans.
+Start free
+Talk to sales
+API
+Start free
+Pricing
+Docs
+Company
+Home
+About us
+Careers
+Contact us
+Simli AS ©2026
+Legal docs
+Back to top
+Social
+X (Twitter)
+LinkedIn

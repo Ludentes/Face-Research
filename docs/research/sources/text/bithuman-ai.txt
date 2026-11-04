@@ -1,0 +1,275 @@
+AI with character: real-time AI avatars for apps and agents | bitHuman
+AI with character.
+Give your LLM or voice agent a face, in real time.
+Talk to an AI character
+Meet the characters
+Wise Pup
+Milo
+Ethan
+Gio
+Sofia
+Grumblewick
+Bolt
+Make your own
+Your photo, your character
+See all characters
+Make a clip in seconds
+Type a line. A character says it.
+▾
+A line for
+Wise Pup
+Make clip
+Every clip is labelled “AI character”.
+Wise Pup
+“
+Hello, friend. Tea's ready. Shall we chat?
+”
+Make
+Wise Pup
+say it
+Pip
+“
+Hi! Your coffee and your avatar are ready.
+”
+Make
+Pip
+say it
+Gio
+“
+Come on, let me show you around!
+”
+Make
+Gio
+say it
+Captain Axl
+“
+Ready for launch? Let's build your avatar.
+”
+Make
+Captain Axl
+say it
+Pick a character
+✕
+Wise Pup
+Pip
+Shelly
+Gio
+Bolt
+Mochi
+Sprocket
+Rusty
+Peanut
+Yuki
+Chef Waddles
+Naps
+Captain Axl
+Toasty
+Flicker
+Works in ChatGPT and Claude
+Add bitHuman once. Then ask for a clip or a live talk.
+1
+Copy this address
+https://mcp.bithuman.ai/mcp
+Copy
+2
+ChatGPT
+↗
+Claude
+↗
+3
+Ask: “Show me the bitHuman characters.”
+Full guide
+Have
+Wise Pup
+say good morning to the team.
+Wise Pup
+“Good morning, team! Grab a tea and let’s make it a good one.”
+AI character
+For developers
+Build it into your app
+Essence 2 and Expression 2 render on the device,
+inside your app.
+iPhone · Swift
+Android · Kotlin
+Python
+app.py
+AI character
+Rendered on the device: iPhone.
+ContentView.swift
+·
+Swift package 3.0.0
+Copy
+.
+package
+(url:
+"https://gitlab.com/bithuman/sdk/homebrew-bithuman"
+,
+
+from:
+"3.0.0"
+)
+
+let
+engine =
+try
+
+Expression2Engine
+.
+create
+(
+
+avatarContainer: avatarURL,
+
+sharedEngineContainer: sharedEngineURL,
+
+stagingDir: stagingURL)
+
+engine.
+feed
+(samples)
+
+engine.
+flushTail
+()
+
+for
+
+await
+frame
+in
+engine.
+frames
+(audioClock: {
+played
+() }) {
+
+show
+(frame.bgr, frame.width, frame.height)
+
+if
+frame.audioTime ==
+0
+{
+play
+(reply) }
+
+if
+frame.endsReply {
+break
+}
+
+}
+implementation
+(
+"ai.bithuman:expression2-android:0.6.2"
+)
+
+Expression2Avatar
+.
+create
+(context, model,
+Expression2Options
+()).use { avatar ->
+
+val
+frame = avatar.
+newFrameBitmap
+()
+
+avatar.
+feed
+(pcm16k)
+
+avatar.
+flushTail
+()
+
+while
+(
+true
+) {
+
+if
+(avatar.
+pull
+(frame) !=
+null
+) {
+show
+(frame);
+continue
+}
+
+if
+(!avatar.hasPendingTail && avatar.queuedFrames ==
+0
+)
+break
+
+Thread
+.
+sleep
+(
+10
+)
+
+}
+
+}
+pip install
+"bithuman[expression-2]"
+
+import
+bithuman
+
+with
+bithuman.
+open
+(
+"wise-pup.imx"
+) as avatar:
+
+for
+image
+in
+avatar.
+render
+(
+"speech.wav"
+):
+
+show
+(image)
+show, play and played are your app's own. You bring the conversation.
+That's the whole loop.
+Or let your AI agent build it →
+Try a live demo
+Live demo
+Pip, the barista
+Say “checkout”, then pay with one phone scan.
+Try it
+Mic on when you tap. Swipe for more.
+Live demo
+Uber pitch deck
+A deck that presents itself. Interrupt anytime.
+Try it
+Mic on when you tap. Swipe for more.
+Live demo
+Shopify sales agent
+Reads a live catalog and fills the cart.
+Try it
+Mic on when you tap. Swipe for more.
+1 / 3
+What will you build?
+An iPhone app
+A SwiftUI app with a talking character, rendered on the phone.
+An Android app
+A Kotlin app rendering any character on the phone.
+A web page
+One iframe: a live avatar that listens and answers.
+A talking video
+One MP4 from an audio file.
+Bring your idea to life
+Start building
+Contact sales
+Talk to an AI character

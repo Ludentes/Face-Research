@@ -1,0 +1,352 @@
+We tested every popular open-source avatar model released in the past year (August 2026) | Tight Studio
+
+Skip to article
+
+On this page
+
+TL;DR
+- Seven open-source avatar models met our cutoff: a public release between August 23, 2025 and August 23, 2026, plus at least 1,000 GitHub stars. We ran every one. Six produced videos from the same public avatar and male narration. LTX-2.3 DubIt could not start because its official checkpoint requires Hugging Face approval. LiveAvatar made the sharpest heavyweight result, EchoMimicV3-Flash offered the best balance on a 48 GB GPU, and SoulX-FlashHead was by far the lightest at 5.8 GB of peak VRAM.
+
+The question we wanted to answer
+
+Open-source talking-avatar releases now arrive faster than most comparison posts can track them. Claims such as “real time,” “infinite length,” and “identity preserving” are difficult to compare because projects use different inputs, resolutions, GPUs, and definitions of inference time.
+
+We wanted a narrower, reproducible answer: which recent models with meaningful community adoption can turn the same portrait and narration into a convincing talking video, and what does each one actually require to run?
+
+For this round, a model qualified only if it met both rules:
+
+Its first official, usable code and weights were released from August 23, 2025 through August 23, 2026.
+
+Its official GitHub repository had more than 1,000 stars on August 23, 2026.
+
+Repository stars are a measure of attention, not quality. For Wan2.2 and LTX-2.3, the star count belongs to the parent project because the avatar capability ships inside that repository.
+
+The seven qualifying models
+
+Model
+GitHub stars
+Public release
+Official input
+Test result
+Wan2.2-S2V-14B
+17,261
+August 26, 2025
+Image + audio, optional pose video
+Completed
+LTX-2.3 DubIt
+9,226
+May 11, 2026
+Reference video + target text
+Blocked by gated checkpoint
+LongCat-Video-Avatar 1.5
+7,515
+May 21, 2026
+Image + audio
+Completed
+LiveAvatar
+2,384
+December 8, 2025
+Image + audio
+Completed
+SoulX-FlashTalk
+1,476
+January 8, 2026
+Image + audio
+Completed
+EchoMimicV3-Flash
+1,025
+January 22, 2026
+Image + audio
+Completed
+SoulX-FlashHead
+1,006
+February 12, 2026
+Image + audio
+Completed
+
+Projects released before the cutoff were excluded regardless of their star count.
+
+Same public avatar, same male voice
+
+Every successful run used this frame from a silent,
+AI-generated Pexels video by AI25.Studio
+, under the
+Pexels license
+. The source creator does not endorse this comparison.
+
+The 3.63-second narration used Daniel, a neutral male system voice included with macOS:
+
+Open source avatar models can now generate convincing videos from one image.
+
+We deployed pinned versions of the official repositories and weights on
+Modal
+. The measured time starts when the generation container starts and ends when the final MP4 is returned. Model weights were already stored in a persistent Modal volume, so initial internet download time is excluded, but model loading, preprocessing, generation, decoding, and muxing are included.
+
+Results at a glance
+
+Model
+GPU tested
+Min. always-on GPU/mo
+Peak VRAM
+Time
+Est. compute
+Model cache
+Output
+Wan2.2-S2V-14B
+H200
+$2,843 (H100)
+58,681 MiB
+780.29s
+$1.3692
+45.76 GiB
+512 x 896, 16 fps
+LTX-2.3 DubIt
+None
+Unknown
+None
+Blocked before GPU
+$0 GPU
+Checkpoint gated
+No output
+LongCat-Video-Avatar 1.5
+H200
+$2,843 (H100)
+46,827 MiB
+233.08s
+$0.4011
+44.82 GB
+480 x 832, 25 fps
+LiveAvatar
+H200
+$2,843 (H100)
+61,401 MiB
+181.44s
+$0.3184
+47.03 GiB
+384 x 704, 25 fps
+SoulX-FlashTalk
+H200
+$2,843 (H100)
+57,805 MiB
+331.93s
+$0.5825
+51.07 GiB
+416 x 720, 25 fps
+EchoMimicV3-Flash
+L40S
+$1,405 (L40S)
+33,726 MiB
+251.94s
+$0.2120
+22.28 GiB
+480 x 848, 25 fps
+SoulX-FlashHead Lite
+L40S
+$575 (L4)
+5,763 MiB
+235.31s
+$0.1980
+7.60 GiB
+512 x 512, 25 fps
+
+Compute estimates use
+Modal’s August 23, 2026 list prices
+for the requested GPU, CPU, and memory during the measured generation function. They exclude storage, internet transfer, and the one-time weight download.
+
+The monthly column is a GPU-only capacity estimate for continuous operation over a 30-day month. It uses the least expensive Modal GPU class we expect to run the measured configuration without redesigning the pipeline: H100 for the heavyweight models, L40S for EchoMimic, and L4 for FlashHead Lite. CPU, memory, volumes, and network charges are extra. Modal scales to zero, so the actual monthly minimum is $0 and a usage-based deployment can cost far less than the always-on estimate.
+
+These are deployment measurements, not a perfectly controlled model-quality benchmark. The official pipelines produce different resolutions and use different numbers of steps. That is part of the result: it shows what each project’s recommended runnable path delivers.
+
+The generated videos
+
+Wan2.2-S2V-14B
+
+Wan kept the identity and background stable, with restrained facial motion. It was also the slowest successful run at 13 minutes for a 3.8-second output.
+
+Wan is the heavyweight cinematic option. We ran the official 40-step speech-to-video path on one H200. It produced a clean, stable portrait, but the motion was conservative and the 16 fps output was less fluid than the 25 fps models. Peak VRAM reached 58,681 MiB, and the estimated compute cost was more than four times LiveAvatar’s.
+
+The official setup also required several dependency fixes before inference would start, including packages used by its audio and video readers. None of those failed attempts reached denoising, so they are not included in the timing above.
+
+LongCat-Video-Avatar 1.5
+
+LongCat created the most visible head and body performance, including a hand gesture not present in the reference image.
+
+LongCat remained the most expressive image-to-video result. Its 8-step INT8 path kept the avatar recognizable while adding head, face, and upper-body motion. A few mouth frames looked slightly exaggerated, but it made the still image feel more like a complete performance than the more conservative models.
+
+The official example uses two GPUs. We ran it on one H200 by setting context parallelism to one. It peaked at 46,827 MiB, which is too close for comfort on a typical 48 GB card once framework overhead is included.
+
+LiveAvatar
+
+LiveAvatar produced the sharpest heavyweight result and the fastest successful H200 job.
+
+LiveAvatar gave us the best combination of sharp identity, convincing mouth shapes, blinking, and restrained expression among the large models. Its four-step FP8 pipeline finished in 181.44 seconds, faster than LongCat, FlashTalk, and Wan.
+
+That speed does not make it a small model. It peaked at 61,401 MiB and depended on model offloading for the final VAE decode. The upstream single-GPU runner also assumes distributed-process environment variables, and its documented one-off path works best with compilation disabled. After matching those official settings, the run completed reliably.
+
+SoulX-FlashTalk 14B
+
+FlashTalk was visually strong and is designed for chunked, continuous generation, but its 14B cold start was expensive.
+
+FlashTalk produced a stable face with clear mouth motion. The first generated chunk took 119.58 seconds because TorchInductor compiled its graph. Later chunks took about 3.75 seconds each. That makes the 331.93-second cold job look worse than a warmed streaming deployment would feel.
+
+The tradeoff is infrastructure. Peak VRAM was 57,805 MiB, and the persistent cache was the largest in this test at 51.07 GiB. It belongs on an 80 GB-class GPU unless the deployment adds more aggressive offloading or quantization.
+
+EchoMimicV3-Flash
+
+EchoMimic delivered the best practical balance: clean identity and lip motion on a cheaper L40S.
+
+EchoMimicV3-Flash was the most compelling deployment candidate. Its 1.3B, 8-step pipeline produced a clean 25 fps video, preserved the face well, and ran on an L40S instead of an H200. The mouth and body motion were subtler than LongCat’s, but there were fewer distracting full-frame changes.
+
+Our 768-area official configuration peaked at 33,726 MiB. The project advertises lower-memory modes, so this is observed usage for our settings rather than a claim about the theoretical minimum. Its 22.28 GiB cache was less than half the size of the 14B models.
+
+SoulX-FlashHead 1.3B Lite
+
+FlashHead was dramatically smaller, but the close crop, softer identity, and weaker mouth motion made it the least convincing result.
+
+FlashHead Lite peaked at only 5,763 MiB, an order of magnitude below the large generators. Like FlashTalk, its cold timing was dominated by first-run compilation. The first chunk took 155.7 seconds, while later chunks took about 0.19 seconds each.
+
+That is interesting for an always-warm streaming service and suggests it could run on much cheaper hardware than the L40S used here. For a polished landing-page clip, however, we would choose EchoMimic’s stronger visual result.
+
+Why LTX-2.3 DubIt has no video here
+
+LTX-2.3 DubIt
+is different from the audio-driven models above. It takes a voiced reference video and target text, then generates matching speech and lip motion while attempting to retain the speaker’s vocal identity.
+
+Its code is public, but the official
+Lightricks/LTX-2.3-22b-IC-LoRA-DubIt
+checkpoint returned an authorization error from Hugging Face. We had no approved token in the test environment, so the job stopped during CPU-only weight preparation before any GPU was allocated.
+
+We did not substitute a third-party mirror that bypassed the official access gate. Reproducibility and access are part of evaluating an open-source release. Once official access is approved, the prepared Modal runner can execute the same test with the public reference video and target sentence.
+
+Does each model preserve or select a voice?
+
+Most avatar models do not select or clone a voice. They animate a supplied audio file, then place that same audio in the final video. Voice creation is a separate text-to-speech or voice-cloning step.
+
+Model
+Built-in voice selector
+Uses supplied speech
+Learns from a reference voice
+What we observed
+Wan2.2-S2V-14B
+No
+Yes
+No
+Input audio preserved, correlation 0.999897
+LTX-2.3 DubIt
+No voice menu
+No, it takes target text
+Yes, from the voiced reference video
+Not run because weights were gated
+LongCat-Video-Avatar 1.5
+No
+Yes
+No
+Input audio preserved, correlation 0.999562
+LiveAvatar
+No
+Yes
+No
+Input audio preserved, correlation 0.999897
+SoulX-FlashTalk
+No
+Yes
+No
+Input audio preserved, correlation 0.999751
+EchoMimicV3-Flash
+No
+Yes
+No
+Input audio preserved, correlation 0.999198
+SoulX-FlashHead
+No
+Yes
+No
+Input audio preserved, correlation 0.999751
+
+The tiny differences are from resampling and AAC encoding, not a different synthesized speaker. In other words, the six successful models can use a real recording, a consented clone made elsewhere, or any TTS voice. They do not change the vocal identity themselves.
+
+DubIt is the exception. Its purpose is to create new target-language or target-script speech resembling the voice in the reference video. That makes it useful for dubbing, but its output audio will not be a waveform copy of the original.
+
+Parameters worth tuning
+
+The defaults are not necessarily the best setting for every face or deployment. These are the highest-impact controls to test before changing model code:
+
+Model
+Parameters that matter most
+Likely tradeoff
+Wan2.2-S2V-14B
+Denoising steps, guidance scale, output area, seed, optional pose video
+More steps and pixels increase latency sharply; pose control can improve body motion
+LTX-2.3 DubIt
+Prompt, target text, reference-video length, LoRA strength, seed
+Stronger conditioning may improve identity but reduce natural variation
+LongCat-Video-Avatar 1.5
+8-step distilled vs full path, quantization, guidance, seed, context parallelism
+Full precision or more steps may improve detail but need more memory and time
+LiveAvatar
+Sample steps, output area, FP8, model offload, compilation
+Compilation helps repeated jobs; offload saves memory but adds transfers
+SoulX-FlashTalk
+Chunk size, overlap, compilation, audio guidance, seed
+Larger chunks can improve continuity but raise latency and memory
+EchoMimicV3-Flash
+Inference steps, guidance scale, audio guidance, sample size, seed
+Higher audio guidance can strengthen mouth motion but may exaggerate it
+SoulX-FlashHead
+Lite vs full checkpoint, crop, chunk length, compilation
+The full model should improve quality at a higher memory cost; crop strongly affects composition
+
+For a fair product test, tune one variable at a time against the same portrait and narration. The most useful first pass would be audio guidance for EchoMimic, sample steps for LiveAvatar, crop and full-checkpoint quality for FlashHead, and a warmed second request for both SoulX models.
+
+What the hardware really looks like
+
+The six successful generators fall into three practical infrastructure groups:
+
+Under 16 GB:
+SoulX-FlashHead Lite is the only tested full generator that clearly fits. Its 5.8 GB peak leaves room for a 12 GB or 16 GB card, although latency and framework support still need validation on consumer hardware.
+
+48 GB class:
+EchoMimicV3-Flash ran comfortably on an L40S at 33.7 GB. LongCat’s 46.8 GB allocation is too close to the limit for a comfortable 48 GB deployment.
+
+80 GB class:
+Wan2.2-S2V, LiveAvatar, SoulX-FlashTalk, and LongCat are safest on H100 or H200-class GPUs with 80 GB or more.
+
+Persistent storage matters too. FlashHead and EchoMimic use about 7.6 and 22.3 GiB, respectively. The large models need roughly 45 to 51 GiB each. Hosting every cache in this article at once would consume well over 200 GiB before container images, outputs, and temporary files.
+
+Modal is a good fit for experiments because containers can scale to zero while model caches stay on persistent volumes. After this test, every Modal app reported zero running tasks and no GPU remained active.
+
+What we would use today
+
+There is no single winner for every avatar workflow:
+
+Use LiveAvatar
+when heavyweight image-to-video quality matters most and an 80 GB GPU is available. It produced our sharpest large-model result and had the fastest H200 cold job.
+
+Use EchoMimicV3-Flash
+for the best practical quality-to-infrastructure balance. It ran on a cheaper L40S, used a much smaller cache, and produced a clean result.
+
+Use LongCat-Video-Avatar 1.5
+when expressive body motion matters more than conservative identity preservation.
+
+Use SoulX-FlashHead Lite
+when low VRAM and warm streaming speed matter more than polish.
+
+The most surprising result was not that the biggest model looked best. It was how close EchoMimic came while using a cheaper GPU and less than half the model storage. Open-source avatar generation is now practical, but the serving strategy still matters as much as the checkpoint.
+
+Copy link
+
+Share on X
+
+Related Posts
+August 28, 2026
+10 min read
+Electron is not your screen recorder's bottleneck
+We benchmarked native and Electron media paths for 4K recording, editing, and export. Electron used more memory, but the framework label did not determine media performance.
+April 7, 2026
+2 min read
+We made exports 6x faster
+Real numbers from our analytics - export speed improved from ~2,000ms per second of video to ~300ms. A 60-second recording now exports in 20 seconds instead of 2 minutes.
+September 6, 2026
+12 min read
+6 best Tella alternatives in 2026 (free and paid)
+Compare six Tella alternatives for Mac, Windows, and browser recording. Check pricing, free-plan limits, AI narration, editing, and sharing before you switch.

@@ -1,0 +1,223 @@
+Tavus Introduces Griffin, the First Face-to-Face Human Interaction Model, Unlocking the Future of Conversational AI | Morningstar
+
+Tavus Introduces Griffin, the First Face-to-Face Human Interaction Model, Unlocking the Future of Conversational AI
+
+Griffin scores 3.83 against NVIDIA’s 3.92 human benchmark, the highest score ever recorded for an AI, while in blind testing, 48% of participants thought they were talking with a real person
+
+Tavus
+, the human computing company, today announced
+Griffin
+, the first Human Interaction Model, creating a new class of AI built to understand and participate in human interaction. Griffin is a full-duplex, video-to-video model that holds face-to-face conversations in real time. It sees, hears, interprets, speaks, moves, reacts, and responds continuously, allowing what it notices to change what it says and does as a conversation unfolds.
+
+This press release features multimedia. View the full release here:
+https://www.businesswire.com/news/home/20261001092598/en/
+
+AI has advanced rapidly, but people still have to communicate on the computer’s terms: through text, commands, or voice. Human Interaction Models flip that relationship, enabling machines to interact the way people already do.
+
+Griffin is uniquely able to process the full scale of face-to-face human interactions. It can adapt words, timing, tone, expressions, and movements to what is happening in the moment, just as a live person would. Think reacting to interruptions, recognizing when to laugh or lean in, or waving at someone who just entered the room. Griffin responds dynamically as conversations unfold, even if a conversation takes an unexpected turn.
+
+This groundbreaking model is stunningly life-like and is already approaching human performance in independent evaluations of face-to-face conversational AI. On
+NVIDIA’s VideoFDB benchmark
+, Griffin scored 3.83 out of 5 on generation, compared with a 3.92 human reference and 2.80 for the next-highest published system. In a separate live study, 48% of participants believed they were speaking with a real person rather than an AI.
+
+“For decades, we’ve imagined computers as partners, not just tools,” said Hassaan Raza, CEO of Tavus. ”AI has become incredibly intelligent, but we still have to meet the machine on its terms. Griffin is a step toward changing that — toward machines that understand how we naturally communicate and meet us where we are. That’s what we mean by human computing.”
+
+Built on Industry-leading Research
+
+Griffin’s breakthrough was made possible by years of Tavus research into the different components of human interaction. Tavus’ research team, whose work has been cited more than 90,000 times, has developed industry-leading models across perception, conversational timing, and expressive video. More than 150,000 developers and businesses already use one or more of these technologies.
+
+Phoenix-4.5
+is Tavus’ industry leading real-time rendering model, designed to generate the subtle movements and active-listening behaviors that make face-to-face interaction feel natural.
+Raven-1
+focuses on multimodal perception, allowing AI to understand not only what someone says, but signals including tone, expression, and visual context.
+Sparrow-2
+focuses on the dynamics of conversation, modeling signals including prosody, backchannels, interruptions, and the broader audio environment.
+
+Griffin builds on the research behind these systems but represents a fundamentally different approach: a single Human Interaction Model designed around the interaction itself. Perception, conversational decision-making, speech, and video generation operate continuously, allowing the model to react while it is speaking as well as while it is listening.
+
+The result is a model that does more than process a conversation. It participates in one.
+
+Griffin in Action
+
+To get a sense of what Griffin is, Tavus is releasing a
+short film
+, which features Vanessa, one of Tavus’ PALs– the human representation that interacts with users. Vanessa runs on top of Griffin. She is the most realistic PAL ever built.
+
+That could mean a tutor who notices when a student is struggling before they know how to ask for help, an employee rehearsing a difficult conversation with someone who reacts dynamically, or a customer holding a broken part up to the camera and working through a solution without needing to know what the part is called. In each case, the person can simply communicate as they naturally would, while the model works to understand what they mean from their words, behavior, and surroundings.
+
+Because the same capabilities that make Human Interaction Models powerful interfaces can also make AI more difficult to distinguish from a person, Tavus is initially making Griffin-Lite available only to select trusted testers as a research preview. The company is developing additional disclosure and safety mechanisms before making Griffin broadly available.
+
+To meet Vanessa and see Griffin in action, watch the short film
+here
+. For updates and additional information, please visit
+www.tavus.io
+.
+
+About Tavus
+
+Tavus is a San Francisco-based AI research company pioneering human computing: the pursuit of teaching machines the art of being human so that interacting with a machine can feel as natural as interacting with a friend or coworker. Tavus trains the foundational models that power every PAL, or human representation. The work of its research team, led by Ioannis Patras and Maja Pantic, has been cited over 90,000 times. The company has raised $70M in funding and is backed by CRV, Sequoia Capital, Scale Venture Partners and Y Combinator. Customers include leading enterprises such as Amazon, Mayo Clinic and Salesforce, as well as 150,000 developers and creators. Learn more at
+www.tavus.io
+.
+
+Media Contact:
+
+Leslie Dailey
+
+leslie@lbdcomms.com
+
+706-461-1323
+
+View source version on businesswire.com:
+https://www.businesswire.com/news/home/20261001092598/en/
+
+The articles, information, and content displayed on this webpage may
+include materials prepared and provided by third parties. Such
+third-party content is offered for informational purposes only and
+is not endorsed, reviewed, or verified by Morningstar.
+
+Morningstar makes no representations or warranties regarding the
+accuracy, completeness, timeliness, or reliability of any third-party
+content displayed on this site. The views and opinions expressed in
+third-party content are those of the respective authors and do not
+necessarily reflect the views of Morningstar, its affiliates, or employees.
+
+Morningstar is not responsible for any errors, omissions, or delays
+in this content, nor for any actions taken in reliance thereon.
+Users are advised to exercise their own judgment and seek independent
+financial advice before making any decisions based on such content.
+The third-party providers of this content are not affiliated with
+Morningstar, and their inclusion on this site does not imply any
+form of partnership, agency, or endorsement.
+
+Plus, whether Microsoft, Alphabet, or Amphenol look attractive after earnings.
+
+David Sekera, CFA and Sarah Hansen
+
+Nov 2, 2026
+
+This chip stock looks cheap at a 30% discount, and its biggest growth years could still be ahead.
+
+William Kerwin, CFA
+
+Oct 29, 2026
+
+The stocks of these high-quality companies look cheap today.
+
+Tori Brovet
+
+Nov 2, 2026
+
+Historian Joseph Moore explores why a promising product can fail as an investment and why beating the market may not be worth the effort.
+
+Christine Benz and Amy C. Arnott, CFA
+
+Nov 1, 2026
+
+Underwhelming results have added to investor worries about AI spending.
+
+Vicky McKeever
+
+Oct 30, 2026
+
+Sponsor Center
+
+Transparency is how we protect the integrity of our work and keep empowering investors to achieve their goals and dreams.
+And we have unwavering standards for how we keep that integrity intact, from our research and data to our policies on
+content and your personal data.
+
+We’d like to share more about how we work and what drives our day-to-day business.
+
+How we make money
+
+We sell different types of products and services to both investment professionals and individual investors.
+These products and services are usually sold through license agreements or subscriptions. Our investment management
+business generates asset-based fees, which are calculated as a percentage of assets under management.
+We also sell both admissions and sponsorship packages for our investment conferences and advertising on our websites
+and newsletters.
+
+How we use your personal data
+
+How we use your information depends on the product and service that you use and your relationship with us. We may use it to:
+
+Verify your identity, personalize the content you receive, or create and administer your account.
+
+Provide specific products and services to you, such as portfolio management or data aggregation.
+
+Develop and improve features of our offerings.
+
+Gear advertisements and other marketing efforts towards your interests.
+
+To learn more about how we handle and protect your data, visit our
+privacy center
+.
+
+How we approach editorial content
+
+Maintaining independence and editorial freedom is essential to our mission of empowering investor success.
+We provide a platform for our authors to report on investments fairly, accurately, and from the investor’s point of view.
+We also respect individual opinions––they represent the unvarnished thinking of our people and exacting analysis of our
+research processes. Our authors can publish views that we may or may not agree with, but they show their work,
+distinguish facts from opinions, and make sure their analysis is clear and in no way misleading or deceptive.
+
+To further protect the integrity of our editorial content, we keep a strict separation between our sales teams and authors to remove any pressure or influence on our analyses and research.
+
+Read our
+editorial policy
+to learn more about our process.
+
+Site Index
+
+What We Do
+
+All Products & Services
+
+Our Signature Methodologies
+
+Morningstar Investment Conference
+
+Company
+
+About Us
+
+Careers
+
+Culture
+
+Corporate Sustainability
+
+Newsroom
+
+Investor Relations
+
+Get Help
+
+Advertising Opportunities
+
+Feedback
+
+Reprints
+
+Investing Terms and Definitions
+
+Global Contacts
+
+Affiliate Program
+
+United States
+
+© Copyright 2026 Morningstar, Inc. All rights reserved.
+Dow Jones Industrial Average, S&P 500, Nasdaq, and Morningstar Index (Market Barometer) quotes are real-time.
+
+Terms and Conditions
+
+Privacy Center
+
+Disclosures
+
+Member User Agreement
+
+Corrections
+
+Do Not Sell or Share My Personal Information
+
+Accessibility

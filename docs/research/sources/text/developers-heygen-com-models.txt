@@ -1,0 +1,197 @@
+Models - HeyGen Documentation
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Developer Guide
+API Reference
+MCP
+Skills
+CLI
+Changelog
+Get help
+
+HeyGen Video
+Prompt to video. Generates the whole frame.
+Avatar V
+Highest fidelity. Opt-in per look.
+Avatar IV
+Default engine. Broadest coverage.
+Avatar III
+Photo-to-video pipeline. 4K.
+HeyGen Voice
+Voice clones and speech.
+
+The v3 API exposes three model families.
+
+​
+HeyGen Video
+
+HeyGen Video
+generates video from a prompt, inventing the subject, the setting and the sound together in one call to
+POST /v3/models/videos
+.
+
+​
+HeyGen Avatar
+
+Avatar rendering engines turn a look and a script into video, selected per request through the
+engine
+field on
+POST /v3/videos
+. New integrations should default to
+Avatar IV
+for broad coverage, opt into
+Avatar V
+for the highest-fidelity motion and lip-sync, and use
+Avatar III
+for its dedicated photo-to-video pipeline.
+
+{
+
+"type"
+:
+"avatar"
+,
+
+"avatar_id"
+:
+"YOUR_LOOK_ID"
+,
+
+"script"
+:
+"Hello from HeyGen."
+,
+
+"voice_id"
+:
+"YOUR_VOICE_ID"
+,
+
+"engine"
+: {
+"type"
+:
+"avatar_iv"
+}
+
+}
+
+Before requesting an engine, confirm the look supports it:
+supported_api_engines
+on
+GET /v3/avatars/looks/{look_id}
+lists which of
+avatar_iii
+,
+avatar_iv
+, and
+avatar_v
+the look accepts. Requesting an engine that isn’t listed returns
+400
+.
+
+Avatar V
+Avatar IV
+Avatar III
+engine.type
+avatar_v
+avatar_iv
+avatar_iii
+API version
+v3
+v3
+v3
+Default engine
+✗ (explicit opt-in)
+✓
+✗ (explicit opt-in)
+Available to new users
+✓
+✓
+✓
+Digital Twin
+✓
+✓
+✓
+Photo Avatar
+✓
+✓
+✓ (dedicated pipeline)
+Studio Avatar
+✓
+✓
+✓ (renders as Digital Twin)
+Arbitrary image input
+✗
+✓
+✗
+motion_prompt
+✓
+✓ (photo avatars and images only)
+✗
+expressiveness
+✗
+✓ (photo avatars and images only)
+✗
+Cross-reference animation
+✓
+✗
+✗
+Eligibility check required
+✓
+✗
+✗
+
+A separate, older Avatar III engine remains available to existing customers through the
+legacy v1/v2 endpoints
+. It uses a different pipeline and is
+not
+the same as the Avatar III (
+avatar_iii
+) engine documented here. See
+Avatar III
+for the distinction.
+
+​
+HeyGen Voice
+
+HeyGen Voice
+is HeyGen’s in-house voice model. Clone a speaker in one of two modes on
+POST /v3/models/audio/voices
+; both speak through
+Text to Speech
+, completed or streamed.
+
+Instant Clone
+Professional Clone
+mode
+instant
+professional
+Source audio
+One recording
+1–10 recordings, 20+ minutes in total
+Ready in
+Seconds
+Asynchronous training; poll until
+ACTIVE
+Availability
+Beta. Free to create during the preview
+Beta. Paid: one purchased
+voice clone slot
+per voice
+
+Stock and
+designed voices
+from the
+voice catalog
+speak through
+Third Party Speech
+instead.
+⌘
+I
+Assistant
+Responses are generated using AI and may contain mistakes.

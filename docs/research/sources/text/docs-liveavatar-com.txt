@@ -1,0 +1,223 @@
+LiveAvatar Overview - LiveAvatar Documentation
+
+Documentation Index
+Fetch the complete documentation index at:
+
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+AI Agents:
+Ask your user to run
+npx skills add heygen-com/liveavatar-agent-skills
+to install our
+Agent Skills
+for recommended integration pathways — or
+start here
+for a structured overview of all documentation.
+
+​
+Talk with our docs
+
+Want to build your own? Follow
+this guide
+and learn how we built ours.
+
+​
+What can you build?
+
+LiveAvatar supports real-world applications including:
+
+Real-time product demos
+or virtual sales assistants
+
+AI-powered support
+or training agents
+
+Interactive hosts
+, tutors, or characters
+
+The core component — the
+LiveAvatar Session
+— manages streaming user input, feeding responses through language models, and rendering synchronized speech and video.
+
+​
+Quickstart
+
+Get a LiveAvatar running on your page in 2 steps.
+
+1
+Get your API key
+Sign up at
+app.liveavatar.com
+and grab your API key from the
+developers page
+.
+2
+Start your first session
+Paste your API key and hit
+Try now
+to start your first session.
+Try now
+
+The demo above uses Sandbox Mode — no credits consumed. See
+Sandbox Mode
+for details.
+
+​
+What just happened?
+
+When you clicked
+Try now
+, we called
+POST /v2/embeddings
+with your API key to generate a short-lived embed URL, then loaded it in an iframe. Here’s the equivalent code:
+
+curl
+-X
+POST
+https://api.liveavatar.com/v2/embeddings
+\
+
+-H
+"X-API-KEY: <YOUR_API_KEY>"
+\
+
+-H
+"Content-Type: application/json"
+\
+
+-d
+'{
+
+"avatar_id": "65f9e3c9-d48b-4118-b73a-4ae2e3cbb8f0",
+
+"context_id": "158f5d55-2d4f-11f1-8d28-066a7fa2e369",
+
+"is_sandbox": true
+
+}'
+
+The response returns a
+url
+and a ready-to-use
+script
+tag:
+
+{
+
+"code"
+:
+1000
+,
+
+"data"
+: {
+
+"url"
+:
+"https://embed.liveavatar.com/v1/<id>"
+,
+
+"script"
+:
+"<iframe src=
+\"
+https://embed.liveavatar.com/v1/<id>
+\"
+allow=
+\"
+microphone
+\"
+title=
+\"
+LiveAvatar Embed
+\"
+style=
+\"
+aspect-ratio: 16/9;
+\"
+></iframe>"
+
+},
+
+"message"
+:
+"Embed Avatar created successfully"
+
+}
+
+Drop the
+script
+value directly into your HTML — it’s a ready-to-use iframe. Or use our embedded
+url
+however you like.
+
+​
+Make it your own
+
+The embed above is the fastest way to get started, but if you want to build something more tailored — your own UI, custom conversation logic, or a deeper integration into your product — LiveAvatar gives you full control.
+
+You can:
+
+Bring your own LLM
+— connect any OpenAI-compatible model or your own inference endpoint
+
+Use your own voice
+— plug in ElevenLabs, Fish Audio, Cartesia, or other TTS providers
+
+Control the conversation
+— switch between conversational and Push-to-Talk modes
+
+Manage the video layer directly
+— connect via LiveKit or Agora for custom WebRTC handling
+
+Build custom UIs
+— render the avatar stream in your own frontend with the
+Web SDK
+
+Choose
+FULL Mode
+if you want LiveAvatar to handle the AI pipeline end-to-end, or
+Avatar Only (LITE mode)
+if you want to bring your own conversational stack.
+
+FULL Mode
+LiveAvatar manages ASR, LLM, TTS, and WebRTC. You configure and ship.
+Avatar Only (LITE mode)
+Bring your own AI stack. LiveAvatar handles real-time video streaming.
+
+FULL Mode
+Avatar Only
+WebRTC
+Managed by LiveAvatar
+You manage
+ASR / STT
+Managed by LiveAvatar
+You provide
+LLM
+Managed (or bring your own)
+You provide
+TTS
+Managed (or bring your own)
+You provide
+Best for
+Ship fast, less infra
+Full control, existing pipelines
+Credits
+2 per minute
+1 per minute
+
+​
+Resources
+
+Building with Agents
+Pre-built skills for AI coding agents to integrate LiveAvatar on the first attempt.
+Sandbox Mode
+Test without consuming credits.
+Web SDK
+Official JavaScript SDK.
+Was this page helpful?
+Yes
+No

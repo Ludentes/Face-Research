@@ -1,0 +1,363 @@
+Video generation and editing - Alibaba Cloud Model Studio - Alibaba Cloud Documentation Center
+
+Document Center
+
+All Products
+
+Search
+
+Document Center
+
+Alibaba Cloud Model Studio
+
+User Guide (Models)
+
+Model calls
+
+Vision
+
+Videos
+
+all-products-head
+
+This Product
+
+This Product
+
+All Products
+
+Alibaba Cloud Model Studio:Video generation and editing
+
+Choose the right model for text-to-video, image-to-video, and video editing.
+Migrate from closed-source models
+
+Map your current Sora, Veo, Kling, or Runway model to an equivalent Bailian model.
+
+Model capability
+Closed-source examples
+Bailian recommendation
+Text-to-video (t2v), Image-to-video (i2v)
+Sora 2, Veo 3.1, Kling 3.0
+happyhorse-1.1-t2v
+,
+happyhorse-1.1-i2v
+,
+wan3.0-video
+,
+wan3.0-video-prime
+Reference-to-video (r2v)
+Seedance 2.0, Runway Gen-4
+happyhorse-1.1-r2v
+,
+wan3.0-video
+,
+wan3.0-video-prime
+
+Text-to-video
+
+Generate videos with audio from text prompts. We recommend
+happyhorse-1.1-t2v
+. It supports 1080P resolution and clips up to 15 seconds long.
+
+For longer videos (up to 30s), adaptive aspect ratio, smart duration, audio toggle, and reference audio, use
+wan3.0-video
+. It supports 480P, 720P, and 1080P resolutions. The speed-optimized version
+wan3.0-video-prime
+significantly improves generation speed while maintaining high quality.
+
+Image-to-video
+
+Create dynamic videos from static images. For first-frame image-to-video, use
+happyhorse-1.1-i2v
+. For the Wan series, use
+wan3.0-video
+(speed-optimized:
+wan3.0-video-prime
+), which supports first-frame and first/last-frame image-to-video.
+
+First-frame image-to-video
+
+Generate video from a single image. We recommend
+happyhorse-1.1-i2v
+, which supports audio, 1080P, and 3 to 15 seconds.
+
+First/last-frame stitching for long videos
+
+Use a first/last-frame model such as
+wan3.0-video
+to stitch multiple clips together. Setting the last frame of one clip as the first frame of the next creates seamless transitions, ideal for narratives, product demos, or tutorials.
+
+Reference image-to-video
+
+Maintain character consistency across scenes using reference images. We recommend
+happyhorse-1.1-r2v
+. For the Wan series, use
+wan3.0-video
+(speed-optimized:
+wan3.0-video-prime
+), which supports all-in-one reference capabilities with multiple reference images, videos, and audio. It also supports file input (docx, ppt, pdf, etc.) and web links as references.
+
+Video editing
+
+Edit existing videos using text instructions for style transfer, element replacement, and other operations. We recommend
+happyhorse-1.0-video-edit
+. For effect replication or camera movement replication, use
+wan2.7-videoedit
+.
+
+Character animation
+
+Motion-driven character animation
+
+To transfer motion from a reference video to a character in a static image, use
+wan2.2-animate-move
+. The background remains unchanged. The pro mode (wan-pro) produces results closer to live-action footage, while the standard mode (wan-std) is faster and more cost-effective.
+
+Character replacement in video
+
+To replace a character in a video with one from a source image, use
+wan2.2-animate-mix
+. It also supports pro and standard modes.
+
+Recommended models
+
+Model ID
+Use case
+Max resolution
+Max duration
+wan3.0-video
+Text-to-video, first/last-frame image-to-video, all-in-one reference-to-video
+480P, 720P, 1080P
+2-30s
+wan3.0-video-prime
+Text-to-video, first/last-frame image-to-video, all-in-one reference-to-video (speed-optimized)
+480P, 720P, 1080P
+2-30s
+happyhorse-1.1-t2v
+Text-to-video
+480P, 720P, 1080P
+3–15s
+happyhorse-1.1-i2v
+First-frame image-to-video
+480P, 720P, 1080P
+3–15s
+happyhorse-1.1-r2v
+Reference image-to-video
+480P, 720P, 1080P
+3–15s
+happyhorse-1.0-video-edit
+Video editing
+720P, 1080P
+3–15s
+wan2.7-videoedit
+Video editing, effect replication, camera movement replication
+720P, 1080P
+2–10s
+wan2.2-animate-move
+Transfer motion to a static character
+720P
+2–30s
+wan2.2-animate-mix
+Replace a character in a video
+720P
+2–30s
+
+All models
+
+HappyHorse 1.1
+
+Model ID
+Type
+Features
+Output specs
+happyhorse-1.1-t2v
+Text-to-video
+Audio
+480P, 720P, 1080P. 3–15s. 24 fps, MP4
+happyhorse-1.1-i2v
+First-frame image-to-video
+Audio
+480P, 720P, 1080P. 3–15s. 24 fps, MP4
+happyhorse-1.1-r2v
+Reference image-to-video
+Audio
+480P, 720P, 1080P. 3–15s. 24 fps, MP4
+
+HappyHorse 1.0
+
+Model ID
+Type
+Features
+Output specs
+happyhorse-1.0-t2v
+Text-to-video
+Audio
+720P, 1080P. 3–15s. 24 fps, MP4
+happyhorse-1.0-i2v
+First-frame image-to-video
+Audio
+720P, 1080P. 3–15s. 24 fps, MP4
+happyhorse-1.0-r2v
+Reference image-to-video
+Audio
+720P, 1080P. 3–15s. 24 fps, MP4
+happyhorse-1.0-video-edit
+Video editing
+Audio
+720P, 1080P. 3–15s. 24 fps, MP4
+
+Wan 3.0
+
+Model ID
+Type
+Features
+Output specs
+wan3.0-video
+All-in-One reference
+Text-to-video, first/last-frame, all-in-one reference, audio, audio toggle, smart duration, adaptive aspect ratio
+480P, 720P, 1080P. 2-30s. 30 fps, MP4
+wan3.0-video-prime
+All-in-One reference (speed-optimized)
+Text-to-video, first/last-frame, all-in-one reference, audio, audio toggle, smart duration, adaptive aspect ratio
+480P, 720P, 1080P. 2-30s. 30 fps, MP4
+
+Wan 2.7
+
+Model ID
+Type
+Features
+Output specifications
+wan2.7-t2v
+text-to-video
+Audio sync, multi-shot narrative
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.7-t2v-2026-06-12
+text-to-video
+Audio sync, multi-shot narrative
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.7-t2v-2026-04-25
+text-to-video
+Audio sync, multi-shot narrative
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.7-i2v
+image-to-video
+First frame, first/last frame, video continuation, audio-driven
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.7-i2v-2026-04-25
+image-to-video
+First frame, first/last frame, video continuation, audio-driven
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.7-r2v-2026-06-12
+video reference
+Multi-character, ImageN/VideoN reference format
+720P, 1080P. 2–10s. 30 fps, MP4
+wan2.7-videoedit
+video editing
+Instruction-based editing, style transfer
+720P, 1080P. 2–10s. 30 fps, MP4
+
+Wan 2.6
+
+Model ID
+Type
+Features
+Output specifications
+wan2.6-t2v
+text-to-video
+Audio sync, multi-shot narrative
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.6-i2v
+image-to-video
+Audio sync, multi-shot narrative
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.6-i2v-flash
+image-to-video
+Audio, multi-shot, fast generation
+720P, 1080P. 2–15s. 30 fps, MP4
+wan2.6-r2v
+video reference
+Audio sync, multi-character, narrative
+720P, 1080P. 2–10s. 30 fps, MP4
+wan2.6-r2v-flash
+video reference
+Multi-character, fast generation
+720P, 1080P. 2–10s. 30 fps, MP4
+
+Wan 2.5
+
+Model ID
+Type
+Features
+Output specifications
+wan2.5-t2v-preview
+text-to-video
+Audio sync
+480P, 720P, 1080P. 5s, 10s. 30 fps, MP4
+wan2.5-i2v-preview
+image-to-video
+Audio sync
+480P, 720P, 1080P. 5s, 10s. 30 fps, MP4
+
+Wan 2.2
+
+Model ID
+Type
+Features
+Output specifications
+wan2.2-t2v-plus
+text-to-video
+No audio
+480P, 1080P. 5s. 30 fps, MP4
+wan2.2-i2v-plus
+image-to-video
+No audio
+480P, 1080P. 5s. 30 fps, MP4
+wan2.2-i2v-flash
+image-to-video
+No audio, 50% faster than 2.1
+480P, 720P, 1080P. 5s. 30 fps, MP4
+wan2.2-kf2v-flash
+first/last frame
+No audio
+480P, 720P, 1080P. 5s. 30 fps, MP4
+wan2.2-animate-move
+character animation
+wan-std / wan-pro modes
+720P. 2–30s. 15/25 fps. MP4
+wan2.2-animate-mix
+character replacement
+wan-std / wan-pro modes
+720P. 2–30s. 15/25 fps. MP4
+
+Wan 2.1 (Wan 2.7 is recommended)
+
+Model ID
+Type
+Features
+Output specifications
+wan2.1-t2v-plus
+text-to-video
+No audio
+720P. 5s. 30 fps, MP4
+wan2.1-t2v-turbo
+text-to-video
+No audio
+480P, 720P. 5s. 30 fps, MP4
+wan2.1-i2v-plus
+image-to-video
+No audio
+720P. 5s. 30 fps, MP4
+wan2.1-i2v-turbo
+image-to-video
+No audio
+480P, 720P. 3–5s. 30 fps, MP4
+wan2.1-kf2v-plus
+first/last frame
+No audio
+720P. 5s. 30 fps, MP4
+wan2.1-vace-plus
+video editing
+No audio
+720P. Max 5s. 30 fps, MP4
+
+Thank you! We've received your feedback.

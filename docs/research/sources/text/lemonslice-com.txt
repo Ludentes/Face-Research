@@ -1,0 +1,252 @@
+The most expressive,
+interactive avatars.
+Build real-time interactive avatars that listen, talk, and respond live directly inside your product or website.
+Get started
+Contact sales
+Try CWM-1 on yourself
+As featured in
+[
+LemonSlice
+]
+is state of the art. It's so lifelike. It has been such a pleasure for us at Microsoft to work with LemonSlice.
+Brad Smith
+
+· President of Microsoft
+Read case study
+What is an
+interactive avatar?
+An interactive avatar, also called a real-time avatar, is a digital character that can listen, talk, and respond to users in real time within a video call. Unlike static video avatars that play pre-recorded clips, LemonSlice's interactive avatars generate every frame on the fly so the lips, facial expressions, and body language all move naturally. Whether you need a photorealistic AI assistant for customer support or a cartoon mascot for education, any character with a face can become an interactive AI avatar in minutes.
+Image.png
+Step 1: Pick or upload any image.
+Upload a photo of any character. No training, fine-tuning, or character rigs required. If it has a face, LemonSlice can animate it.
+ElevenLabs v3
+Sonnet 4
+OpenAI Voice
+Gemini Pro
+Cartesia Sonic-3
+GPT-5.5 Mini
+Gemini Audio
+Qwen3 235B
+Hume
+Step 2: Connect any LLM/voice model.
+Plug in any language model, voice provider, and knowledge base through LemonSlice's API. OpenAI, Claude, ElevenLabs, Cartesia, and more.
+Step 3: Go live with ultra-low latency.
+Deploy to your site with a widget, hosted pipeline, or self-managed pipeline. LemonSlice runs at 471ms p99 latency, so conversations feel instant.
+Image.png
+Step 1: Pick or upload any image.
+Upload a photo of any character. No training, fine-tuning, or character rigs required. If it has a face, LemonSlice can animate it.
+ElevenLabs v3
+Sonnet 4
+OpenAI Voice
+Gemini Pro
+Cartesia Sonic-3
+GPT-5.5 Mini
+Gemini Audio
+Qwen3 235B
+Hume
+Step 2: Connect any LLM/voice model.
+Plug in any language model, voice provider, and knowledge base through LemonSlice's API. OpenAI, Claude, ElevenLabs, Cartesia, and more.
+Step 3: Go live with ultra-low latency.
+Deploy to your site with a widget, hosted pipeline, or self-managed pipeline. LemonSlice runs at 471ms p99 latency, so conversations feel instant.
+We train foundational
+
+Character World Models
+
+from scratch: interactive avatars that can listen, talk, and act in real-time.
+Our mission: build the emotional engine for AI.
+Learn more
+CWM-1
+A state-of-the-art Character World Model (CWM) for interactive avatars.
+LemonSlice-2.1
+20B parameter model that animates any character at 20 fps from just 1 photo.
+The most advanced interactive avatar model in the
+
+world.
+Watch video
+Avatar library
+Make your own
+Try demo
+Control actions + emotions
+LemonSlice CWM-1 uses our Action Engine to animate faces, hands, shoulders, and posture for any character, with no character-specific training. You can also directly control actions and emotions via our API.
+Controllable actions and emotions
+Interact with the world
+Director-level control
+Try demo
+Any character. Any style.
+LemonSlice is the only interactive avatar model that can animate non-humans - like a turtle or a smiling teacup - as easily as humans.
+Non-humans
+Cartoons
+Photorealistic humans
+Try demo
+Ultra-low latency
+The fastest real-time avatar on the market, at 471ms time-to-first-byte and 2.04s end to end.
+The industry's fastest from p75 through p99, ahead of Tavus Phoenix-4 and Anam Cara-3
+Optimized for real-time conversation
+Read technical report
+Image-to-avatar
+Turn any image into an interactive avatar instantly. No training or fine tuning required.
+Just one image. Instant avatar creation.
+Unlimited avatars
+Update the clothes or setting in real-time
+Make your own
+Character world models
+Our novel architecture demonstrates emergent world-modeling, physics simulation, and spatial understanding.
+Animated backgrounds
+Physics-based simulations
+No setup required
+Blow kiss
+Touch hair
+Smile
+Angry
+Texting
+Set up an avatar in 5 minutes with our developer-friendly API.
+Add LemonSlice avatars to the custom stack you already use or drop a hosted widget into your website with two lines of code. LemonSlice is built to be API-first.
+Get API key
+Examples
+Docs
+5 min quickstart
+avatar
+=
+lemonslice.
+AvatarSession
+(
+
+agent_image_url
+=
+"https://example.com/image.png"
+,
+
+agent_prompt
+=
+"Talk with hand gestures."
+
+)
+See all integrations and full code
+Let your coding agent add an avatar
+Install the LemonSlice skill, then ask Cursor, Claude, or Copilot to add a video avatar to a voice app. The skill checks what you already have. It attaches the avatar to an existing LiveKit agent, or scaffolds the starter app with keys, the voice cascade, an image, and a ringing UI.
+$
+npx skills add lemonsliceai/skills
+Copy
+Ask your coding agent:
+“
+Add a LemonSlice video avatar to a real-time voice app.
+”
+Where teams use interactive avatars
+Where a chatbot or a voice agent is already talking to someone, it can have a face.
+Interactive characters for games and entertainment
+Generate companions, NPCs, and stream hosts that listen, react, and hold a real conversation. Bring game characters and performers to life with expression, gesture, and a voice.
+Companion App
+I had such a weird day at work. Can I tell you about it?
+Interactive NPCs
+What happened to this village here?
+Streaming host
+Hey, can you give chat a shoutout?
+Tutors for learning and training
+Bring tutors to life for language practice, kids' lessons, and medical training. They explain concepts, react to questions, and hold the conversation with natural expression and gesture.
+Language learning
+Let's practice checking into a hotel in Spanish.
+Kids Tutor
+Why did dinosaurs go extinct?
+Medical training
+Does it make the pain better or worse?
+Guides for museums, tourism, and airports
+Deploy greeters on kiosks and displays in museums, tourism offices, and airports. They listen and answer whoever walks up, with natural expression and gesture, at any hour.
+Historical exhibit
+What was your greatest accomplishment as president?
+Tourism office
+I only have four hours here. What should I see?
+Airport Help Desk
+How do I get to Terminal 2?
+A face for support, sales, and training
+Put a face on customer support, sales, and internal tools. Avatars listen, react, and guide someone through a billing issue, a product demo, or a training question.
+Corporate training
+What should I do if a customer asks for something outside our company policy?
+Product demo
+What makes your company different from other payroll platforms?
+Customer support
+I was charged twice. Can you help me?
+Built for enterprise scale
+Thousands of concurrent calls
+When support or sales gets busy, every person still gets a face. The conversation does not fall back to a text box.
+Multi-region servers
+Someone far from your office gets the same quick back-and-forth. The avatar meets them where they are.
+Zero data retention mode
+Support, health, and other sensitive conversations can happen without the call being kept afterward.
+Thousands of concurrent calls
+When support or sales gets busy, every person still gets a face. The conversation does not fall back to a text box.
+Multi-region servers
+Someone far from your office gets the same quick back-and-forth. The avatar meets them where they are.
+Zero data retention mode
+Support, health, and other sensitive conversations can happen without the call being kept afterward.
+Frequently asked questions
+What is the best real-time avatar for customer support?
+LemonSlice is built for 24/7 customer support. It runs thousands of concurrent real-time avatar calls, works with your own LLM and knowledge base, and delivers some of the lowest latency on the market at 471ms, so a support avatar answers instantly and handles traffic spikes.
+How do I add a real-time avatar to my app?
+You have two paths. Drop in a hosted widget with two lines of code, or integrate through the API, where you send audio and receive real-time avatar video in return. LemonSlice plugs into the voice-agent stack you already run, with native LiveKit, Pipecat, Daily, and Agora integrations, REST and WebSocket endpoints, and Python and Node SDKs. For the full integration code and runnable examples, see the
+
+Avatar API page
+.
+What is the lowest-latency real-time avatar?
+LemonSlice runs at 471ms time-to-first-byte, the fastest from p75 through p99 and ahead of Tavus Phoenix-4 and Anam Cara-3, with an end-to-end response of about 2.04s.
+What are interactive avatars?
+Interactive avatars, also called real-time avatars, are digital characters that engage in real-time conversations. They are a natural extension of voice agents. You can add one to your website or use the LemonSlice interactive avatar platform and
+
+API
+
+to build interactive AI avatars into your products. LemonSlice offers the best interactive avatars in the world, and the only ones that work for both photorealistic and cartoon characters.
+How do I make an interactive avatar?
+All you need is an image. Get started in our
+
+playground
+
+or build with our
+
+API
+. Your image can be any character in any style, from photorealistic humans to cartoon mascots. You can upload an image, generate one on LemonSlice, or pick one from the library.
+Can interactive avatars respond in real time?
+Yes. LemonSlice interactive avatars are designed to reply instantly, creating natural, back-and-forth interactions just like a real conversation.
+Do interactive avatars support different languages?
+Yes, LemonSlice interactive avatars can speak in any language, allowing you to create engaging experiences for global audiences.
+Can I use my own large language model or AI voice model?
+Yes. Our
+
+API
+
+lets you create a real-time interactive avatar from any LLM or AI voice model, including OpenAI, Claude, ElevenLabs, and Cartesia.
+How much do interactive avatars cost?
+Get started with LemonSlice interactive avatars for as little as $8 per month. For high-volume applications and enterprise support,
+
+reach out to our team
+. Each subscription includes monthly credits, and each minute of a call uses credits from your total.
+What kind of characters do interactive avatars support?
+We trained our own proprietary video diffusion transformer model so you can turn any character into an interactive avatar. If it has a face, LemonSlice can animate it: photorealistic humans, illustrated characters, stylized designs, cartoons, brand mascots, and more.
+How do I add an interactive avatar to my website or application?
+If you are a developer, use one of our
+
+plugins
+
+to integrate LemonSlice into your own agent pipeline, with native LiveKit, Pipecat, Daily, and Agora support. You send us audio, and we stream back video. You can also drop in a hosted widget with two lines of code. See the
+
+Avatar API page
+
+for full code and examples.
+Who is LemonSlice for?
+LemonSlice is for software developers and businesses building conversational AI experiences that need a face. If you have a voice agent or chatbot, LemonSlice adds the visual layer that makes interactions feel personal and engaging.
+What are LemonSlice interactive avatar use-cases?
+Anywhere you have a chatbot or voice agent, you can add an interactive avatar. Common use-cases include learning and development, language learning, physical installations, customer support, sales enablement, and entertainment.
+What are the key features of LemonSlice interactive avatars?
+Hyper-realistic avatars from a single photo, cartoon and brand mascots, real-time back-and-forth interaction, a developer-friendly API, scalable concurrent sessions, and some of the lowest latency on the market (471ms p99).
+Can I try LemonSlice today?
+Yes. You can chat with several demo interactive avatars on our homepage for free, sign up to make your own custom avatars, or try the
+
+API
+
+and give your AI agents a face. You can also
+
+request a demo
+.
+Ready to build with real-time interactive avatars?
+Get started
+Contact sales
+Try demo
+Real-Time Interactive Avatar Platform | LemonSlice

@@ -1,0 +1,108 @@
+What’s New at HeyGen: May 2026 Product Updates
+Skip to main content
+HeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT
+Install HeyGen Plugin for ChatGPT
+Product Updates
+What’s new at HeyGen: May 2026
+Written by
+Holly Xiao
+Last Updated
+October 20th, 2026
+Summarize with:
+ChatGPT
+Perplexity
+Claude
+Gemini
+Grok
+Create AI videos, starring you in 177+ languages and dialects.
+Get started for free
+Summarize with
+ChatGPT
+Perplexity
+Claude
+Gemini
+Grok
+AI video generator:
+Create talking videos with AI
+Start creating for free
+Summary
+Explore the biggest HeyGen updates from May 2026, including HyperFrames, Avatar V, LiveAvatar, Android, and integrations that make AI video native to your workflows.
+May didn't let up. Eighteen features and products shipped, and the story from April only gets louder. Video stopped being something you make and started being something your tools just do.
+Your webpage is now a video too, written in the same HTML and rendered a thousand ways in the cloud before standup. Your avatar takes direction, leans in, stays serious, and delivers exactly the way you want. Your Digital Twin holds a live conversation inside the voice agent you're building, in the same face and voice that recorded yesterday's keynote.
+Here are the big updates for the month, what each one is, and how to put it to work.
+Video the way you code a webpage
+HyperFrames turns plain HTML into video. Your agent writes the markup, the markup becomes a finished video, and the skills that already build your webpages now build your videos too. No separate tool, no separate team, no separate budget. In May, that idea grew into a full studio.
+Community hub
+. Publish your own compositions and remix everyone else's, so you start from real work instead of a blank page.
+HTML in Canvas
+. Your video can bend, melt, and move through 3D space, which unlocks motion graphics you could not pull off before.
+Texture and shader catalog
+. Texture-masked text, shader backgrounds, and shader-powered transitions, all installable with one command.
+Live inspector
+. Tweak any composition in real time, the way you would in a real editor.
+Open-source captions
+. Fifteen styles you add with a single command, then ask your agent to drop onto your video. Transcription and background removal run locally, with no API keys to manage.
+Templates and variables
+. Render at scale in the cloud on Lambda, so one composition becomes a thousand with no render farm to babysit.
+Vercel deploy
+. Spin up your own HyperFrames render API in a few clicks.
+The artifact your engineers already know how to build is now the same artifact your video team ships, so the localized campaign that used to need its own software, its own headcount, and its own line item needs none of them.
+Try it at hyperframes.heygen.com.
+Avatars you direct, not just prompt
+Avatar V got three upgrades in May that together turn an avatar from something you prompt into something you direct.
+Avatar V: Custom Motion
+. Write the performance in plain English. "Look at the camera, lean in, stay serious." "Open hand gestures throughout." "Thumbs up at the end." Face, hands, posture, gaze, and energy are all directable in a sentence, so the same script becomes a measured executive update or a high-energy social cut depending only on how you direct it.
+Avatar V API
+. The same model is now a clean API call at five cents per second, grounded enough to ship inside a product instead of a demo.
+LiveAvatar integrations
+. Your Twin can now hold a live, real-time conversation inside whatever you are building.
+Put together, that is one identity across three surfaces. Recorded video, live conversation, and a programmatic API, all in the same (or different) face and voice. The avatar that recorded yesterday's keynote can answer customer questions on your support page this morning.
+Create your AI avatar at app.heygen.com/avatars.
+Video that lives inside the tools you already use
+Four integrations and a native app shipped in May. Each one lets you generate a finished video without opening HeyGen.
+Superhuman
+. Reply to an email thread with an avatar video instead of retyping the same explanation a fourth time.
+Codex
+. Generate a product demo, tutorial, or feature walkthrough from your editor, with A-roll, B-roll, audio, captions, and motion graphics all callable as you write code. Your product can ship video the same week it ships the feature.
+Canva
+. Pull an avatar into a slide your team already built, turning a static design into a narrated video on the same canvas.
+Lovable
+. Add HeyGen as a personal connector over MCP and OAuth, then prompt avatar video straight into the app you are building, so it launches with a face and a voice on day one.
+Across all of them, video stops being a separate project on someone's calendar and becomes a step inside the work already in front of you.
+HeyGen, now on your Android
+The web has been HeyGen's home base. In May, the full app came to Android, so you can record, generate, and share without a laptop. The idea you have on a call, in your car, or while running an errand no longer waits until you are back at your desk. Video becomes something you do on the spot.
+Download it
+on Google Play.
+Written by
+Holly Xiao
+About
+Meet Holly Xiao, Head of Marketing at HeyGen. With deep expertise in product and growth marketing, Holly has led marketing teams at Drift, Envoy, and Canvas, crafting narratives that fuel business growth through clear positioning and storytelling. At HeyGen, she’s helping redefine how businesses use AI-powered video to scale enterprise communication and engagement.
+Product Updates
+Continue Reading
+Latest blog posts related to What’s new at HeyGen: May 2026.
+Browse All
+Product Updates
+Published
+October 21st, 2026
+HeyGen Voice Turbo: The #1-ranked voice model, now free in your API
+The #1-ranked text-to-speech model on Artificial Analysis now costs nothing to use through November 30. Bring an API key, pick a voice, and start shipping speech today.
+Written by
+Adam Halper
+Product Updates
+Published
+October 21st, 2026
+HeyGen Video: The Highest-Quality Free AI Video Generator
+Meet HeyGen Video, our general-purpose video model. Describe a scene and get picture and sound together in one call, via text, image or reference to video.
+Written by
+Ayesha Shaheryar
+Product Updates
+Published
+October 1st, 2026
+What’s new at HeyGen: September 2026
+September was built for developers. HeyGen shipped an open-source real-time avatar stack powered by GPT-Live-1, launched the Code2Video Benchmark for evaluating AI-generated motion graphics, and brought Professional Voice Clone to the API.
+Written by
+Holly Xiao
+Start creating videos with AI
+See how businesses like yours scale content creation and drive growth with the most innovative AI video.
+Book a meeting
+Contact sales

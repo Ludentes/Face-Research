@@ -1,0 +1,257 @@
+AppDirect acquires interactive AI avatar firm Soul Machines for advisers and businesses - SiliconANGLE
+
+Skip to content
+
+SHARE
+
+UPDATED 09:00 EDT / SEPTEMBER 28 2026
+
+APPS
+
+AppDirect acquires interactive AI avatar firm Soul Machines for advisers and businesses
+
+by
+Kyt Dotson
+
+AppDirect Inc.
+, the cloud-based business commerce platform and marketplace provider, today announced it acquired
+Soul Machines Ltd.
+, an artificial intelligence human-like avatar experience provider, to expand the company’s ability to deploy interactive experiences for sales, advisers, support and services.
+
+As more organizations move beyond experimenting with AI, many are looking for ways to use the technology to interface with users. By bringing in Soul Machines, AppDirect is seeking to provide a digital “human face” for apps on its platform for customers and employees.
+
+AppDirect provides a commerce service that lets administrators make company-approved services available to users through a custom catalog that functions like an App Store on the front end and adds management features such as centralized billing on the back end.
+
+The company bills itself as an “everything store” for business technology, including cloud applications, infrastructure, telecom and security tools. It automates everything from recurring billing, invoicing, user provisioning and mobile management. This simplifies how business customers discover, buy, sell and manage software and cloud services.
+
+“Soul Machines helps us take the next step in making AI more useful and more accessible for businesses,” said AppDirect Chairman and Chief Executive Nicolas Desmarais. “Companies are no longer asking whether they should adopt AI; they’re asking how to put it to work in ways that improve customer engagement, support employees and drive real business outcomes.
+
+Soul Machines provides human-like digital avatars that are highly engaging, see, listen, react and remember interactions. The company says the avatars even appear to empathize more like a real human, generating a greater sense of trust and engagement.
+
+By recreating a human-like appearance that looks, acts and behaves close to a person, with a lifelike voice, the platform can automate face-to-face tasks for critical business functions such as customer support and self-service, learning and development, training, employee help desks and digital commerce assistance.
+
+AppDirect said this acquisition will help its customers move beyond text-based AI interfaces to more engaging experiences by adding human-based avatars to applications. Soul Machine’s AI avatars will also soon be available
+in apps built in
+Devs.ai
+, an enterprise vibe-coding platform powered by AppDirect that lets developers
+build apps and agents.
+
+Image: Soul Machines
+
+A message from John Furrier, co-founder of SiliconANGLE:
+
+Support our mission to keep content open and free by engaging with theCUBE community.
+Join theCUBE’s Alumni Trust Network
+, where technology leaders connect, share intelligence and create opportunities.
+
+15M+ viewers of theCUBE videos
+, powering conversations across AI, cloud, cybersecurity and more
+
+11.4k+ theCUBE alumni
+— Connect with more than 11,400 tech and business leaders shaping the future through a unique trusted-based network
+
+Are you an AWS customer?
+Support SiliconANGLE financially by buying your AWS services from our
+Marketplace portal page and links:
+https://siliconangle.com/aws-marketplace/
+
+About SiliconANGLE Media
+
+SiliconANGLE Media is a recognized leader in digital media innovation, uniting breakthrough technology, strategic insights and real-time audience engagement. As the parent company of
+SiliconANGLE
+,
+theCUBE Network
+,
+theCUBE Research
+,
+CUBE365
+,
+theCUBE AI
+and theCUBE SuperStudios — with flagship locations in Silicon Valley and the New York Stock Exchange — SiliconANGLE Media operates at the intersection of media, technology and AI.
+
+Founded by tech visionaries John Furrier and Dave Vellante, SiliconANGLE Media has built a dynamic ecosystem of industry-leading digital media brands that reach 15+ million elite tech professionals. Our new proprietary theCUBE AI Video Cloud is breaking ground in audience interaction, leveraging theCUBEai.com neural network to help technology companies make data-driven decisions and stay at the forefront of industry conversations.
+
+LATEST STORIES
+Autonomous site reliability engineering startup Traversal bags $120M in funding at a $1B valuation
+Supermicro and Arista Networks crush expectations as AI infrastructure wins again
+AMD beats expectations as agentic AI sparks its data center revenue growth engines
+Google offers tepid response to accusations it would hold Search hostage if schools restrict AI tools
+AI cloud startup Applied Compute raises $350M after reaching key revenue milestone
+CrowdStrike to acquire cybersecurity startups Fiddler AI, Dreadnode for reported $495M
+LATEST STORIES
+Autonomous site reliability engineering startup Traversal bags $120M in funding at a $1B valuation
+CLOUD
+- BY
+MIKE WHEATLEY
+.
+3 HOURS AGO
+Supermicro and Arista Networks crush expectations as AI infrastructure wins again
+INFRA
+- BY
+MIKE WHEATLEY
+.
+4 HOURS AGO
+AMD beats expectations as agentic AI sparks its data center revenue growth engines
+INFRA
+- BY
+MIKE WHEATLEY
+.
+5 HOURS AGO
+Google offers tepid response to accusations it would hold Search hostage if schools restrict AI tools
+POLICY
+- BY
+JAMES FARRELL
+.
+5 HOURS AGO
+AI cloud startup Applied Compute raises $350M after reaching key revenue milestone
+INFRA
+- BY
+MARIA DEUTSCHER
+.
+5 HOURS AGO
+CrowdStrike to acquire cybersecurity startups Fiddler AI, Dreadnode for reported $495M
+SECURITY
+- BY
+MARIA DEUTSCHER
+.
+7 HOURS AGO
+
+CUBE EVENT COVERAGE
+
+help_outline
+
+LATEST FROM THECUBE
+IBM puts agentic workloads at the heart of its AI operating model
+Enterprise architecture: Dell and Microsoft integrate hybrid AI
+Rack-scale AI: How Dell and AMD are building infrastructure
+On theCUBE Pod: Stock market gets the jitters and Anthropic files IPO
+Enterprises bring AI to their data as privacy rules tighten and costs climb
+
+DIVE INTO DAVE VELLANTE’S BREAKING ANALYSIS SERIES
+help_outline
+Can enterprise AI pay for the boom?
+Micron’s memory boom: Is the industry's cyclicality really ending?
+ServiceNow AI Control Tower: Selling a penthouse while building the frame
+The AI control gap: Who gets to say ‘It’s safe'?
+Nvidia’s scale-in play: Controlling agents is the next infrastructure priority
+
+Sign Up for Our Weekly Newsletter
+SUBSCRIBE
+
+UPCOMING CUBE EVENTS
+SEE MORE
+
+RECENT CUBE EVENTS
+monday.com Elevate 2026
+Intuit Connect 2026
+EVOLVE26
+AI Cybersecurity & Resilience Summit 2026
+IBM's AI Operating Model 2026
+
+×
+
+Send us a news tip
+
+Send us a News Tip
+
+Facebook
+This field is for validation purposes and should be left unchanged.
+Name
+*
+
+First
+
+Last
+
+Type of Pitch
+*
+Consumer or Enterprise?
+Enterprise
+Startup News
+Emerging Technology
+Email
+*
+
+What's your story?
+*
+File
+Max. file size: 244 MB.
+
+CAPTCHA
+
+×
+
+Sign in
+
+SIGN IN
+...
+Remember me
+LOGIN
+Forgot Password?
+
+×
+
+Bio
+
+Ethics statement
+
+×
+
+Extract the signal from the noise
+
+Get SiliconANGLE updates and analysis.
+
+×
+
+Contact us
+
+Inquire about guest posts
+All other inquiries
+
+×
+Partner with us
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+
+COMMENTS
+*
+
+×
+Contact us
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+
+COMMENTS
+*
+CAPTCHA
+
+×
+Guest inquiry
+
+NAME OF INDIVIDUAL
+*
+NAME OF COMPANY
+*
+EMAIL
+*
+COMMENTS
+*
+CAPTCHA
+
+We use cookies for analytics and measurement. You can accept or reject tracking cookies. See our
+Privacy Policy
+.
+
+Accept
+
+Reject

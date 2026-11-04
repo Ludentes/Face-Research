@@ -1,0 +1,240 @@
+Self-Hosted Expressive Avatars: Real-Time AI Videos in Your Cloud
+
+Skip to main content
+
+D-ID Expressive Avatars · Self-Hosted
+
+Run D-ID’s
+Expressive Avatars
+inside your own cloud.
+
+Deploy real-time conversational avatars entirely within your own infrastructure. Your data never leaves your network, and D-ID’s avatar model renders in under 200ms.
+
+Book a demo
+
+See how it works
+
+Your stack, your choice.
+Bring your own avatars, voices, and language models, or use D-ID’s stock library.
+
+Live
+
+Your environment · 100% private
+
+~180ms
+
+<200ms
+D-ID avatar model latency
+
+Unlimited
+Concurrent avatar sessions
+
+99.9%
+Uptime with high-availability failover
+
+100%
+Of your data stays in your environment
+
+Why self-host
+
+Why run it yourself.
+
+For teams with strict data, latency, and compliance requirements, the public API isn’t always an option. Self-hosting brings the full Expressive Avatars experience into infrastructure you already control.
+
+Total data ownership
+
+Conversations, configs, and assets stay in your network. Nothing is sent to D-ID when an avatar is running, built for regulated industries and data-residency rules.
+
+Lower, predictable latency
+
+D-ID’s avatar model renders in under 200ms, and running it next to your application removes the public-internet round trip.
+
+No lock-in
+
+Swap the speech, language, and voice providers behind the avatar whenever you like, and use your own avatars or D-ID’s stock library.
+
+Compliance by design
+
+Pass internal security reviews and meet regulatory frameworks by keeping every layer (data, networking, identity) under your governance.
+
+Built-in insights
+
+Full visibility into every session: usage, latency, and engagement metrics surfaced from your own deployment.
+
+Extend with your logic
+
+Wire the avatar into your own workflows, tools, and business logic.
+
+Avatars
+
+Bring your own, or use ours.
+
+Deploy a custom avatar that looks and sounds like your brand, or choose from D-ID’s library of expressive stock presenters.
+
+Choose a presenter
+
++ Your
+brand
+
+Book a demo
+
+Adam
+
+Bring your own avatar
+
+Deploy a custom presenter that looks and sounds like your brand.
+
+How it works
+
+One real-time conversation loop.
+
+A client connects to your backend over WebRTC. Audio flows through the speech, language, and voice services you choose, and an expressive avatar video is generated and streamed straight back, all in real time.
+
+Client connects
+
+Speech-to-text
+
+Turn detection
+
+LLM
+
+Text-to-speech
+
+Avatar streams back
+
+Runs inside
+your own environment
+. Plug in your choice of AI.
+
+OpenAI
+Anthropic
+Google Gemini
+Azure OpenAI
+AWS Bedrock
+ElevenLabs
+Cartesia
+Deepgram
+your private model
+
+Deploy anywhere
+
+One stack.
+Your cloud, your rules.
+
+The same Expressive Avatars across every environment, running in-region to stay within your latency, residency, and compliance requirements.
+
+Public Cloud
+Azure · AWS · GCP
+Deploy into your own cloud account using the GPU capacity and managed services you already run.
+
+Private Network
+Your VPC, your keys
+Run inside your private network with your own identity and access controls, without standing credentials handed to anyone.
+
+Cloud Marketplace
+Transactable on Azure & AWS
+Procure through the Azure and AWS marketplaces, so D-ID spend counts toward your committed-use and enterprise discount agreements.
+
+Expert support
+
+Forward-deployed engineers in your corner.
+
+D-ID’s forward-deployed engineers work alongside your team to design the architecture, get it running in your environment, and tune it for your latency and scale targets, then keep it healthy with ongoing patches and fixes.
+
+Talk to our experts
+
+Deploy with us
+FDEs help you stand up the full stack inside your own cloud or data center.
+
+Tune & optimize
+Dial in latency, scale, and cost for your specific traffic patterns.
+
+Ongoing support
+Regular security patches, bug fixes, and expert help whenever you need it.
+
+Transparent pricing
+
+Simple pricing that scales with you.
+
+An annual platform license that includes your streaming minutes, with on-demand minutes available as you scale.
+
+D-ID Self-Hosted
+
+Annual
+platform license
+
++
+
+Scale pricing
+per streaming minute
+
+Annual license includes your streaming minutes
+
+On-demand minutes as you scale
+
+Bring your own AI providers, no markup
+
+Get a pricing quote
+
+Trusted & compliant
+
+Enterprise security,
+end to end.
+
+D-ID powers digital human experiences for global brands. Self-hosting keeps your data in your environment, on top of the certifications enterprise teams require.
+
+SOC 2 Type II
+Independently audited controls for security, availability, and confidentiality.
+
+ISO 27001
+Certified information-security management across the platform.
+
+GDPR & CCPA
+Built to meet global data-protection and privacy regulations.
+
+Ethical AI
+Responsible-use commitments and “ethical use” clauses built into D-ID’s terms.
+
+Trusted by
+
+FAQ
+
+Self-hosting, answered.
+
+Does any of my data leave my environment?
+
+No. Conversations, avatar configurations, and assets all stay inside your own network, and the avatar runs there too. The only outbound traffic goes to the speech, language, and voice providers you choose to connect. D-ID never receives your end-user data while an avatar is running.
+
+Can I bring my own models and voices?
+
+Yes. The pipeline is provider-agnostic: plug in the speech-to-text, language model, and text-to-speech services you prefer. You stay in control of cost, quality, and where each call is processed.
+
+Can I use my own avatars?
+
+Absolutely. Use your own custom avatars for a fully branded presence, or choose from D-ID’s library of stock presenters to get started quickly.
+
+What infrastructure do I need?
+
+You run it in your own cloud account with GPU capacity for the avatar rendering plus standard compute for the streaming backend. It’s cloud-agnostic across Azure, AWS, and Google Cloud, and transactable through the Azure and AWS marketplaces. Our team helps you size everything during onboarding.
+
+How does it scale?
+
+There’s no cap on concurrent sessions. The deployment scales automatically based on the metrics you define, adding and removing capacity as demand changes, to as many simultaneous avatar conversations as your infrastructure supports, with high-availability options for production.
+
+What support do I get?
+
+D-ID’s forward-deployed engineers help you design, deploy, and optimize the stack, and you receive ongoing security patches, bug fixes, and direct access to our experts. Book a demo and we’ll map out a deployment plan with you.
+
+Ready to self-host?
+
+Bring expressive avatars into your own cloud.
+
+Talk to our team to design and deploy a self-hosted Expressive Avatars solution that meets your performance, privacy, and compliance needs.
+
+Book a demo
+
+See how it works
+
+Book your D-ID demo
+
+Loading form…
