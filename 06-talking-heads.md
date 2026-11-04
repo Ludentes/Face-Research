@@ -153,7 +153,7 @@ Through the first quarter of 2026, the talking-head field saw a clear set of ext
 
 ## Open-Weight Presenter Models, Mid-2025 to Late 2026
 
-The papers above are research advances on specific axes. In parallel, a crowded field of *open-weight presenter models* appeared — photo or short clip plus audio in, talking-presenter video out, often half-body and minutes long — that are the open counterparts of HeyGen-style products (Chapter 13 covers the products). Almost all are fine-tunes or adapters on **Alibaba's Wan 2.1/2.2** video diffusion transformers, which are Apache-2.0 [27]. The section was added in November 2026; the full dossier is `docs/research/agents/oss-avatar/report.md`.
+The papers above are research advances on specific axes. In parallel, a crowded field of *open-weight presenter models* appeared — photo or short clip plus audio in, talking-presenter video out, often half-body and minutes long — that are the open counterparts of HeyGen-style products (Chapter 13 covers the products). Almost all are fine-tunes or adapters on **Alibaba's Wan 2.1/2.2** video diffusion transformers, which are Apache-2.0 [27]. The section was added in November 2026; the full dossier is `docs/research/agents/oss-avatar/open-weight-avatar-models.md`.
 
 | Model (org) | First open release | Output | Base | Licence |
 |---|---|---|---|---|

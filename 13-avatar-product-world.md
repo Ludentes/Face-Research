@@ -201,7 +201,7 @@ This puts generator quality where latency does not matter and template economics
 
 ## References
 
-All sources were retrieved on 2026-11-04. The saved copy of each is in `docs/research/sources/text/<slug>.txt`; GitHub API snapshots are in `docs/research/agents/duix-realtime/gh/`. The full dossiers are `docs/research/agents/commercial/report.md`, `docs/research/agents/duix-realtime/report.md` and `docs/research/agents/oss-avatar/report.md`; the audit of this chapter is in `docs/research/agents/audit/`.
+All sources were retrieved on 2026-11-04. The saved copy of each is in `docs/research/sources/text/<slug>.txt`; GitHub API snapshots are in `docs/research/agents/duix-realtime/gh/`. The full dossiers are `docs/research/agents/commercial/commercial-avatar-vendors.md`, `docs/research/agents/duix-realtime/duix-and-realtime-stacks.md` and `docs/research/agents/oss-avatar/open-weight-avatar-models.md`; the audit of this chapter is in `docs/research/agents/audit/`.
 
 [1] HeyGen. "Avatar V Technical Report." `dynamic.heygen.ai/www/Paper%20Links/avatarv_tech_report.pdf`. Saved: `heygen-avatarv-tech-report`.
 
