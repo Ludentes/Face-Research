@@ -67,7 +67,7 @@ For a step up in quality without commissioning a rig: use Textoon to generate a 
 
 ## Use Case 3: Real-Time AI Assistant with Face
 
-**Context.** Building a virtual assistant (chatbot with voice, AI concierge, automated customer service agent) that needs a face to speak the output. The identity is fixed — you want a single brand-consistent face that every user sees. Real-time response matters: latency from input to face animation should be under 500 ms.
+**Context.** Building a virtual assistant (chatbot with voice, AI concierge, automated customer service agent) that needs a face to speak the output. The identity is fixed — you want a single brand-consistent face that every user sees. Real-time response matters: latency from input to face animation should be under 500 ms. (This target was originally written for the whole turn. No measured product meets that — see the latency note below — so it is now best read as the budget for the face stage alone.)
 
 **Key questions:**
 
@@ -77,24 +77,24 @@ For a step up in quality without commissioning a rig: use Textoon to generate a 
 
 *What's the deployment platform?* Cloud-server with GPU, or on-device mobile?
 
-*Build or buy?* Every major avatar vendor now sells this as a per-minute API (HeyGen LiveAvatar, Tavus, Anam, Simli, D-ID and others; see Chapter 13). Buying is the default unless you need on-premise deployment, a custom renderer, or a cost per minute below what the vendors charge. Only D-ID among the Western vendors sells a self-hosted version.
+*Build or buy?* Most major avatar vendors now sell this as a per-minute API (HeyGen LiveAvatar, Tavus, Anam, Simli, D-ID and others; see Chapter 13). Buying is the default unless you need on-premise deployment, a custom renderer, or a cost per minute below what the vendors charge. D-ID is the only major Western vendor found advertising a self-hosted version. Weigh vendor risk too: Soul Machines went into receivership in 2026, bitHuman limited its SDK to its Creator plan and above in October 2026, and per-minute prices have changed between plan revisions.
 
-**A note on latency.** The 500 ms target above is for the face stage. The full turn — end of user speech, transcription, language-model reply, speech synthesis, rendering, network — measured 1.2–2.1 s median across four commercial products in the only cross-vendor benchmark available (run by one of the vendors), and open stacks report similar figures (OpenAvatarChat: 2.2 s average, vendor claim). Budget for the whole turn, design for interruption (barge-in) from the start, and measure end-to-end rather than trusting render-latency claims. See Chapter 13, *Why Latency Claims Do Not Compare*.
+**A note on latency.** The 500 ms target above is for the face stage. The full turn — end of user speech, transcription, language-model reply, speech synthesis, rendering, network — measured 1.2–2.1 s median across four commercial products with their default pipelines, and 2.1–2.7 s across five when all used the same speech and language models, in the only cross-vendor benchmark available (run by one of the vendors), and open stacks report similar figures (OpenAvatarChat: 2.2 s average, vendor claim). Budget for the whole turn, design for interruption (barge-in) from the start, and measure end-to-end rather than trusting render-latency claims. See Chapter 13, *Why Latency Claims Do Not Compare*.
 
-**Recommendation (cloud deployment, custom build):** Build a 3DGS avatar of your chosen brand identity using GaussianAvatars or FlashAvatar from a professional recording session (one hour of multi-view video). At runtime, drive via NVIDIA Audio2Face (audio → ARKit blendshapes) → ARKit-to-FLAME solver → 3DGS rendering. Expected face-stage latency: ~100-200 ms, on top of the speech-recognition, LLM and TTS stages. Frame rate: 60+ FPS on a single consumer GPU. Tavus and Simli describe commercial renderers of this Gaussian-splat kind.
+**Recommendation (cloud deployment, custom build):** Build a 3DGS avatar of your chosen brand identity using GaussianAvatars or FlashAvatar from a professional recording session (one hour of multi-view video). At runtime, drive via NVIDIA Audio2Face (audio → ARKit blendshapes) → ARKit-to-FLAME solver → 3DGS rendering. Expected face-stage latency: ~100-200 ms, on top of the speech-recognition, LLM and TTS stages. Frame rate: 60+ FPS on a single consumer GPU. Simli describes a commercial Gaussian-splat renderer, built from a single photo rather than a studio capture.
 
 **Recommendation (open-source stack, fast to stand up):** LiveTalking or OpenAvatarChat with MuseTalk as the face back-end, over a short recorded video of the brand identity. This is template re-lip-sync — the body and head motion come from the recording — but it runs on one consumer GPU, MuseTalk's weights allow commercial use, and the surrounding ASR/LLM/TTS pipeline is already assembled. For a single photo instead of a recording, SoulX-FlashHead Lite reports real time on one RTX 4090, head only, at visibly lower quality. One-shot full-quality streaming generators (LiveAvatar, SoulX-FlashTalk) need 2–8 datacentre GPUs per stream.
 
 **Recommendation (mobile deployment):** Use SplattingAvatar with the same pipeline. Expected frame rate: 30 FPS on iPhone 13+, with slightly lower output resolution (256²-384²).
 
-**Recommendation (lower budget):** Use SadTalker with a high-quality reference image of your brand identity. Lower quality than 3DGS but production-viable and simpler to deploy.
+**Recommendation (lower budget):** Use SadTalker with a high-quality reference image of your brand identity. Lower quality than 3DGS but production-viable and simpler to deploy. In 2026 the open-source stack above (MuseTalk over a short recording) is usually the better low-budget choice, since it is real-time and commercially licensed.
 
 **Why not something else?**
 - *LivePortrait* is great for motion transfer but is not designed for audio-driven lip sync; the pipeline to get audio to drive it is multiple stages with quality loss.
 - *Live2D* is aesthetically wrong for most professional assistant use cases (anime stylization does not match enterprise branding).
-- *Pure diffusion methods* (EMO, Hallo) are offline-only and cannot hit real-time latency.
+- *Classic diffusion methods* (EMO, Hallo) are offline-only. Distilled streaming diffusion models (Quark LiveAvatar, SoulX-FlashTalk) reach real-time throughput but need several datacentre GPUs per stream; see the open-source recommendation above.
 - *FLOAT* is close to real-time but still noticeably slower than 3DGS + Audio2Face.
-- *Duix-Avatar* is offline-only despite its popularity, and its model licence is non-commercial; Duix-Mobile's on-device avatars must be trained by the vendor as a paid service (Chapter 13).
+- *Duix-Avatar* is offline-only despite its popularity, and its three licence documents contradict each other, the strictest (the model licence) being non-commercial; Duix-Mobile's on-device avatars must be made by the vendor (Chapter 13).
 
 **Pitfalls.** Budget for the capture session — an hour of multi-view video of a person is logistically nontrivial (studio, cameras, lighting, talent release forms). Test with representative audio: models trained on English may produce wrong mouth shapes for other languages. Plan for the "resting face" problem — an idle avatar that just waits for input needs subtle idle animation or it looks disconcerting.
 
@@ -114,7 +114,7 @@ For a step up in quality without commissioning a rig: use Textoon to generate a 
 
 **Recommendation (full-face, best quality):** Hallo or EchoMimic for offline high-quality full-face synthesis. Seconds per second of output, but the quality is worth it for premium content.
 
-**Recommendation (full-face and body, open weights, 2026):** InfiniteTalk (Apache-2.0), which was built for exactly this task: it keeps keyframes of the source video and re-synthesizes lips, head motion, posture and expression to match the new audio. Its own README says output stays clean for about a minute in image-to-video mode, so long videos need chunking and review. It runs on a 14B Wan model, so expect minutes of datacentre-GPU time per minute of video; hosted versions cost roughly $1.80–24 per output minute depending on provider (Chapter 06, *Open-Weight Presenter Models*; Chapter 13).
+**Recommendation (full-face and body, open weights, 2026):** InfiniteTalk (Apache-2.0), which was built for video dubbing: it keeps keyframes of the source video and re-synthesizes lips, head motion, posture and expression to match the new audio. Note that this changes the speaker's original head motion and expression — the opposite of the mouth-only approach above — so it suits cases where a fresh performance is acceptable. Its README's caveat that output stays clean for only about a minute applies to its image-to-video mode; dubbing-mode limits are not documented. It runs on a 14B Wan model and no measured speed on a named GPU was found; comparable 14B models took tens to hundreds of GPU-seconds per output second in the one independent benchmark. Hosted versions cost roughly $1.80–24 per output minute depending on provider (Chapter 06, *Open-Weight Presenter Models*; Chapter 13).
 
 **Recommendation (voice-first pipeline that generates both TTS and face):** OmniTalker is designed specifically for the text → TTS → talking-head chain and produces coherent results at 25 FPS.
 

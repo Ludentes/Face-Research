@@ -12,7 +12,7 @@ The central structural claims this review has defended are:
 
 3. **Hybrid representations dominate the active research front.** Pure explicit parameterizations (Live2D alone, raw FLAME alone) cannot reach photorealism. Pure implicit representations (early GANs, raw diffusion) cannot reach clean parametric control. The methods that combine explicit parametric control with implicit learned rendering — RigFace, Arc2Face + expression adapter, GaussianAvatars, 3D Gaussian Blendshapes, HeadStudio, Arc2Avatar — are where the interesting advances are happening.
 
-4. **Real-time and generation are different tasks that need different methods.** Diffusion is the right tool for generating novel identities but cannot run in real-time. 3DGS and neural deformation are the right tools for real-time rendering but cannot generate new identities from scratch. The dominant architectural pattern is to use diffusion for offline generation and hand off to 3DGS or neural deformation for runtime animation.
+4. **Real-time and generation are different tasks that need different methods.** Diffusion is the right tool for generating novel identities but cannot run in real-time. (*Update, November 2026:* distilled streaming video-diffusion avatars now reach real-time throughput on multi-GPU datacentre hardware; see Chapters 06 and 13.) 3DGS and neural deformation are the right tools for real-time rendering but cannot generate new identities from scratch. The dominant architectural pattern is to use diffusion for offline generation and hand off to 3DGS or neural deformation for runtime animation.
 
 5. **Community preference is shaped by aesthetic and integration cost, not by technical quality.** Live2D dominates VTubing because the anime aesthetic is the product. ComfyUI dominates diffusion workflows because the node-graph integration pattern is easier than scripting. ARKit dominates face tracking because the cross-platform convention saves everyone integration effort. Tools that ignore these dynamics lose to tools that embrace them, regardless of technical merit.
 
@@ -71,7 +71,7 @@ Taking these convergences and open problems together, several specific developme
 
 **Likely (60-80% confidence):**
 
-5. The first credible "photo-to-real-time-3DGS-avatar" commercial product will ship within 18 months, probably from a startup that emerged from the Arc2Avatar research lineage or an adjacent paper.
+5. The first credible "photo-to-real-time-3DGS-avatar" commercial product will ship within 18 months, probably from a startup that emerged from the Arc2Avatar research lineage or an adjacent paper. (*Update, November 2026:* Simli already describes a real-time Gaussian-splat avatar built from one photo; its lineage is not disclosed. See Chapter 13.)
 6. At least one research project will produce a working "photo-to-anime-to-Live2D-rig" pipeline, even if not at commercial quality. The incentives are right and the ingredients exist.
 7. A significant talking-head method will reach 60 FPS real-time at broadcast quality, combining flow-matching speed improvements with 3DGS rendering.
 8. Inochi2D will grow from minority to meaningful-minority adoption as licensing-sensitive automation projects target it.
