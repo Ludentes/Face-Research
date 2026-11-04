@@ -9,7 +9,7 @@ The field is fragmented across non-overlapping research communities. A researche
 
 ## Contents
 
-- [The Review](#the-review) — 13 chapters, read linearly or as standalone references
+- [The Review](#the-review) — 15 chapters, read linearly or as standalone references
 - [Curated Links](#curated-links) — papers, repos, and tools grouped by world
 - [How to Cite](#how-to-cite)
 - [Contributing](#contributing)
@@ -25,14 +25,15 @@ The field is fragmented across non-overlapping research communities. A researche
 | 03 | [MediaPipe & ARKit](03-mediapipe-arkit-world.md) | Landmark and blendshape capture as the lingua franca of production face pipelines |
 | 04 | [The FLAME World](04-flame-3dmm-world.md) | 3D morphable models, DECA/EMOCA/SMIRK extractors, FLAME in diffusion |
 | 05 | [Neural Image Deformation](05-neural-deformation.md) | LivePortrait and the implicit-keypoint lineage, plus 2026 successors (IM-Animation, FG-Portrait, PersonaLive, Durian) |
-| 06 | [Talking Heads](06-talking-heads.md) | Audio-driven face synthesis 2024–2026 (EMO, Hallo, MuseTalk, FLOAT, NVIDIA Audio2Face, FantasyTalking2, UniTalking, DyStream) |
+| 06 | [Talking Heads](06-talking-heads.md) | Audio-driven face synthesis 2024–2026 (EMO, Hallo, MuseTalk, FLOAT, NVIDIA Audio2Face, FantasyTalking2, UniTalking, DyStream) and the open-weight presenter models built on Wan (InfiniteTalk, LiveAvatar, SoulX, LongCat-Video-Avatar) |
 | 07 | [3DGS Avatars](07-3dgs-avatars.md) | The real-time photorealism track — GaussianAvatars, SplattingAvatar, 3D Gaussian Blendshapes, Arc2Avatar |
 | 08 | [Diffusion-Based Parametric Generation](08-diffusion-parametric.md) | Arc2Face, RigFace, MorphFace, Concept Sliders, h-space direction finding |
 | 09 | [Bridges and Conversions](09-bridges-and-conversions.md) | Explicit conversions between representations — cost, quality, and common pipelines |
 | 10 | [Decision Trees by Use Case](10-decision-trees.md) | Given a concrete application, which stack to pick |
 | 11 | [Market, Community, and Tooling Reality](11-market-and-community.md) | VTubing economics, enterprise digital humans, tool popularity rankings |
 | 12 | [The Game Engine World](12-game-engine-world.md) | Game-dev face pipelines end to end — scanning, rigging, performance capture, runtime emotion; MetaHuman, JALI, Speech Graphics, Audio2Face; what AAA studios actually use; and a first-hand test of MetaHuman's audio solve as an offline presenter on Linux |
-| 13 | [Conclusions and 12–24 Month Horizon](13-conclusions.md) | Open problems and where the field is going |
+| 13 | [The Avatar Product World](13-avatar-product-world.md) | Commercial and open avatar products — HeyGen Avatar V, Synthesia, D-ID, Tavus and the real-time vendors; Duix and the Chinese open stacks (LiveTalking, OpenAvatarChat); why latency claims don't compare; and what it takes to build one on open Wan-based models |
+| 14 | [Conclusions and 12–24 Month Horizon](14-conclusions.md) | Open problems and where the field is going |
 
 ## Curated Links
 
@@ -122,6 +123,11 @@ The architectural mechanism for LP-class generators' photoreal-skin bias and the
 - [Cubism Motion-Sync](https://docs.live2d.com/en/cubism-editor-manual/motion-sync/) — Live2D Editor's audio-to-vowel-viseme bake (`.motionsync3.json`) and the Unity runtime `CubismMotionSyncController`. See [Ch02](02-live2d-world.md).
 - [CRI LipSync in Cubism 5.0](https://blog.criware.com/index.php/2023/11/17/cri-lipsync-in-live2d-cubism-5-0/) — higher-quality real-time lip sync bundled with Cubism 5.0. See [Ch02](02-live2d-world.md).
 - [Audio2Face-3D v3.0 (Hugging Face)](https://huggingface.co/nvidia/Audio2Face-3D-v3.0) — NVIDIA's open-weights audio-to-ARKit-52 model card; NVIDIA Open Model License, commercial use permitted under terms. See [Ch03](03-mediapipe-arkit-world.md), [Ch06](06-talking-heads.md).
+- [InfiniteTalk](https://github.com/MeiGen-AI/InfiniteTalk) — Apache-2.0 Wan2.1-based dubbing and photo-to-presenter video, long-form. See [Ch06](06-talking-heads.md), [Ch13](13-avatar-product-world.md).
+- [LiveAvatar](https://github.com/Alibaba-Quark/LiveAvatar) — Apache-2.0 streaming avatar distilled from Wan2.2-S2V; real-time on multi-GPU datacentre hardware. See [Ch06](06-talking-heads.md), [Ch13](13-avatar-product-world.md).
+- [SoulX-FlashHead](https://github.com/Soul-AILab/SoulX-FlashHead) — 1.3B streaming head model, the one open generator reporting real time on a single RTX 4090. See [Ch06](06-talking-heads.md), [Ch13](13-avatar-product-world.md).
+- [LongCat-Video-Avatar](https://github.com/meituan-longcat/LongCat-Video) — MIT, non-Wan 13.6B presenter model; the most expressive in the one independent benchmark. See [Ch06](06-talking-heads.md).
+- [Open-source talking avatar benchmark (Tight Studio)](https://github.com/tight-studio/open-source-talking-avatar-benchmark) — the only independent cross-model speed and quality comparison found (August 2026). See [Ch06](06-talking-heads.md), [Ch13](13-avatar-product-world.md).
 
 ### 3DGS Avatars
 
@@ -176,6 +182,17 @@ The architectural mechanism for LP-class generators' photoreal-skin bias and the
 - [SALSA LipSync Suite](https://assetstore.unity.com/packages/tools/animation/salsa-lipsync-suite-148442) — dominant amplitude-based Unity lip-sync asset. See [Ch12](12-game-engine-world.md).
 - [uLipSync](https://github.com/hecomi/uLipSync) — open-source MFCC-based Unity lip-sync. See [Ch12](12-game-engine-world.md).
 - [Reallusion Character Creator 4](https://www.reallusion.com/character-creator/) — affordable ARKit-compatible character authoring with AccuLips lip-sync. See [Ch12](12-game-engine-world.md).
+
+### Avatar Products
+
+- [HeyGen Avatar V technical report](https://dynamic.heygen.ai/www/Paper%20Links/avatarv_tech_report.pdf) — the most detailed architecture disclosure by a commercial avatar vendor (April 2026). See [Ch13](13-avatar-product-world.md).
+- [Synthesia Express models](https://synthesiaresearch.github.io/express-video) — Express-2's three-model design (animate, evaluate, 2-step render). See [Ch13](13-avatar-product-world.md).
+- [Anam latency benchmark](https://anam.ai/tools/latency-benchmark) — the only cross-vendor end-to-end latency measurement found; vendor-run. See [Ch13](13-avatar-product-world.md).
+- [D-ID self-hosted avatars](https://www.d-id.com/self-hosting-realtime-avatars/) — the one on-premise offer among major Western vendors. See [Ch13](13-avatar-product-world.md).
+- [Duix-Avatar](https://github.com/duixcom/Duix-Avatar) — formerly HeyGem; offline open client over closed Docker services, with contradictory licences. See [Ch13](13-avatar-product-world.md).
+- [Duix-Mobile](https://github.com/duixcom/Duix-Mobile) — on-device CPU avatar SDK; avatars trained by the vendor. See [Ch13](13-avatar-product-world.md).
+- [LiveTalking](https://github.com/lipku/LiveTalking) — Apache-2.0 real-time avatar engine (Wav2Lip, MuseTalk, Ultralight back-ends). See [Ch13](13-avatar-product-world.md).
+- [OpenAvatarChat](https://github.com/HumanAIGC-Engineering/OpenAvatarChat) — Alibaba's modular VAD→ASR→LLM→TTS→avatar pipeline. See [Ch13](13-avatar-product-world.md).
 
 ### Proprietary / Enterprise
 

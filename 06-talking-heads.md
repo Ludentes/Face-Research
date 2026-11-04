@@ -151,19 +151,40 @@ Through the first quarter of 2026, the talking-head field saw a clear set of ext
 
 **The shape of the 2026 lineage.** The 2026 talking-head papers do not represent a single dominant architecture shift — they represent differentiated advances on multiple axes: preference alignment (FantasyTalking2), joint A/V generation (UniTalking), streaming dyadic support (DyStream), and explicit emotion editing (EditEmoTalk, Cross-Modal Emotion Transfer). The field is becoming less monolithic and more specialized, with each new method addressing a specific limitation of the 2024-2025 baseline rather than attempting to be the next general-purpose SOTA.
 
+## Open-Weight Presenter Models, Mid-2025 to Late 2026
+
+The papers above are research advances on specific axes. In parallel, a crowded field of *open-weight presenter models* appeared — photo or short clip plus audio in, talking-presenter video out, often half-body and minutes long — that are the open counterparts of HeyGen-style products (Chapter 13 covers the products). Almost all are fine-tunes or adapters on **Alibaba's Wan 2.1/2.2** video diffusion transformers, which are Apache-2.0 [27]. The section was added in November 2026; the full dossier is `docs/research/agents/oss-avatar/report.md`.
+
+| Model (org) | First open release | Output | Base | Licence |
+|---|---|---|---|---|
+| MultiTalk (MeiGen) [28] | 2025-06 | multi-person conversation, ≤15 s | Wan2.1-I2V-14B | Apache-2.0 |
+| InfiniteTalk (MeiGen) [29] | 2025-08 | dubbing or photo-to-video, head + body, "unlimited" length | Wan2.1-I2V-14B | Apache-2.0 |
+| Wan2.2-S2V (Alibaba) [30] | 2025-08 | half/full body, 480p/720p | Wan2.2 14B | Apache-2.0 |
+| OmniAvatar (ZJU/Alibaba) [31] | 2025-06 | half/full body with text control, 480p | Wan2.1 + LoRA | Apache-2.0 |
+| StableAvatar (Fudan/Microsoft) [32] | 2025-08 | "infinite-length" portrait | Wan2.1-Fun 1.3B | MIT |
+| EchoMimicV3 / Flash (Ant) [33] | 2025-08 / 2026-01 | head or half body | Wan2.1-Fun 1.3B | Apache-2.0 |
+| LongCat-Video-Avatar 1.0 / 1.5 (Meituan) [34] | 2025-12 / 2026-05 | half body, multi-speaker, continuation | LongCat-Video 13.6B (not Wan) | MIT |
+| LiveAvatar (Alibaba Quark) [35] | 2025-12 | streaming, claimed 10,000+ s | Wan2.2-S2V + distillation | Apache-2.0 |
+| SoulX-FlashTalk / FlashHead / LiveAct (Soul) [36][37][38] | 2026-01 to 03 | streaming; FlashHead head-only 512² | Wan2.1 14B / 1.3B | Apache-2.0 (FlashHead Lite's VAE is OpenRAIL-M) |
+| Kandinsky S2V 1.0 (Kandinsky Lab) [39] | 2026-10 | whole figure, 5 s chunks | Kandinsky 5 Video (not Wan) | MIT |
+
+Three things distinguish this cohort from the methods earlier in the chapter. First, **long-form and half-body output became normal** in open weights — though the long-duration claims are the authors' own, and InfiniteTalk's README itself concedes that image-to-video output is clean only up to about a minute before colour drift appears [29]. Second, **real-time streaming arrived** through few-step causal distillation (Self-Forcing / DMD style) of 14B Wan models: LiveAvatar reports 45 fps on 5×H800 [35], SoulX-FlashTalk 32 fps on 8×H800 [36], and SoulX-LiveAct 20 fps on 2×H100 [38]. On a single consumer GPU, only the 1.3B SoulX-FlashHead Lite reports real time (96 fps on an RTX 4090, head only) [37]. Distilled students tend to collapse toward static motion, a failure mode a 2026 paper names and measures [40]. Third, there is now **one independent cross-model benchmark**: Tight Studio (August 2026) ran the official pipelines on one portrait and a 3.6-second clip and found that none ran faster than playback on a cold job — Wan2.2-S2V took 204.6 s of H200 compute per output second, LiveAvatar 48.8 s — with LiveAvatar the sharpest, EchoMimicV3-Flash the best value, and LongCat 1.5 the most expressive but with exaggerated mouth shapes [41]. LongCat's authors claim parity with HeyGen and OmniHuman 1.5 in their own human evaluation [34]; its lip sync is therefore contested.
+
+The closed systems these models are measured against — ByteDance's OmniHuman 1.5, Kuaishou's KlingAvatar 2.0, Seedance 2.0 — and Alibaba's own later Wan versions (2.5 to 3.0, API-only) are not open.
+
 ## What Still Does Not Exist
 
 Several gaps in the talking-head landscape are worth flagging explicitly.
 
-**Real-time, zero-shot, full-face, high-quality, open-source.** No method combines all five. FLOAT is close but not fully real-time at broadcast resolution. READ is real-time but slightly lower quality. MuseTalk is real-time and open-source but only animates the mouth region. The full combination would be a significant commercial product; the closest publicly available approximation as of early 2026 is FLOAT running at moderate speed on good hardware.
+**Real-time, zero-shot, full-face, high-quality, open-source.** No method combines all five. FLOAT is close but not fully real-time at broadcast resolution. READ is real-time but slightly lower quality. MuseTalk is real-time and open-source but only animates the mouth region. The full combination would be a significant commercial product; the closest publicly available approximation as of early 2026 is FLOAT running at moderate speed on good hardware. *Update, November 2026:* the distilled Wan-based streaming models (see *Open-Weight Presenter Models*) now combine all five on multi-GPU datacentre hardware, by their authors' figures; on a single consumer GPU only head-only models with visibly softer quality reach real time, and no real-time figure has been independently verified.
 
 **Emotional control separate from audio prosody.** Current methods mostly take emotional expression from the audio itself — happy audio produces happy face. Independent control over emotional expression (audio-neutral + explicit emotion parameter) is not well supported in any publicly available method. The few methods that attempt this (V-Express, some research prototypes) are not mature.
 
-**Cross-language prosody generalization.** Methods trained on English often produce wrong mouth shapes or unnatural motion for other languages, especially tonal languages or languages with phoneme sets that do not appear in the training data. This limits the practical reach of open-source methods for non-English applications.
+**Cross-language prosody generalization.** Methods trained on English often produce wrong mouth shapes or unnatural motion for other languages, especially tonal languages or languages with phoneme sets that do not appear in the training data. This limits the practical reach of open-source methods for non-English applications. The 2025–2026 open presenter models do not change this: their audio encoders are Chinese wav2vec2 or Whisper variants, and none publishes a multilingual lip-sync evaluation.
 
-**Long-form temporal consistency.** Most methods are benchmarked on clips of 5-10 seconds. For multi-minute videos, identity drift, expression drift, and stylistic drift become visible problems. Fixing this requires either very large temporal context windows (expensive) or clever memory mechanisms (active research).
+**Long-form temporal consistency.** Most methods are benchmarked on clips of 5-10 seconds. For multi-minute videos, identity drift, expression drift, and stylistic drift become visible problems. Fixing this requires either very large temporal context windows (expensive) or clever memory mechanisms (active research). *Update, November 2026:* InfiniteTalk, StableAvatar, LiveAvatar, SoulX-LiveAct and LongCat-Video-Avatar all claim minute- to hour-scale generation, but the only independent benchmark used a 3.6-second clip; long-form drift remains unmeasured by anyone other than the authors.
 
-**Full-body talking head.** Almost all current methods animate only the head (face and neck). Full-body motion that includes gesture matching the speech — the kind of motion a news anchor or a presenter naturally produces — is handled by a separate tradition (audio-to-gesture generation) and has not been unified with talking-head face synthesis in a single production-quality system. The combined problem remains open.
+**Full-body talking head.** Almost all current methods animate only the head (face and neck). Full-body motion that includes gesture matching the speech — the kind of motion a news anchor or a presenter naturally produces — is handled by a separate tradition (audio-to-gesture generation) and has not been unified with talking-head face synthesis in a single production-quality system. The combined problem remains open. *Update, November 2026:* half- and upper-body presenter generation with gesture is now routine in open weights (OmniAvatar, Wan2.2-S2V, EchoMimicV3, LongCat-Video-Avatar, Kandinsky S2V), and an independent test observed LongCat adding a hand gesture absent from the reference photo [41]. Semantically planned gesture, as in the closed OmniHuman 1.5, is not yet available openly.
 
 ## Where Talking Heads Fit in the Landscape
 
@@ -232,5 +253,35 @@ The next chapter turns to 3D Gaussian Splatting avatars — the real-time photor
 [25] Sun, Z., Lv, T., Ye, S., Lin, M. G., Sheng, J., Wen, Y.-H., Yu, M., Liu, Y.-J. "DiffPoseTalk: Speech-Driven Stylistic 3D Facial Animation and Head Pose Generation via Diffusion Models." SIGGRAPH 2024. `github.com/DiffPoseTalk/DiffPoseTalk`, project page `diffposetalk.github.io`. FLAME expression (ψ), jaw, and global rotation prediction; ~30 FPS generation on RTX 3090; live-streaming pipeline incurs ~7.33 s total latency from window-fill plus processing.
 
 [26] "UniTalker: Scaling up Audio-Driven 3D Facial Animation through A Unified Model." `github.com/X-niper/UniTalker`, project page `x-niper.github.io/projects/UniTalker/`. Multi-dataset unified model targeting FLAME 2020 expression and jaw parameters; no native ARKit-52 export.
+
+[27] Hugging Face. Wan-AI organization model list (retrieved 2026-11-04). Saved: `hf-api-wan-ai-models-list`.
+
+[28] Kong, Z. et al. "Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation" (MultiTalk). arXiv:2505.22647. `github.com/MeiGen-AI/MultiTalk`. Saved: `arxiv-2505.22647-multitalk`, `gh-multitalk-readme`.
+
+[29] Yang, S. et al. "InfiniteTalk: Audio-driven Video Generation for Sparse-Frame Video Dubbing." arXiv:2508.14033. `github.com/MeiGen-AI/InfiniteTalk`. Saved: `arxiv-2508.14033-infinitetalk`, `gh-infinitetalk-readme`.
+
+[30] Wan team. "Wan-S2V: Audio-Driven Cinematic Video Generation." arXiv:2508.18621. Saved: `arxiv-2508.18621-wan-s2v`, `gh-wan22-readme`.
+
+[31] Gan, Q. et al. "OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation." arXiv:2506.18866. Saved: `arxiv-2506.18866-omniavatar`, `gh-omniavatar-readme`.
+
+[32] Tu, S. et al. "StableAvatar: Infinite-Length Audio-Driven Avatar Video Generation." arXiv:2508.08248. Saved: `arxiv-2508.08248-stableavatar`, `gh-stableavatar-readme`.
+
+[33] Meng, R. et al. "EchoMimicV3: 1.3B Parameters are All You Need for Unified Multi-Modal and Multi-Task Human Animation." arXiv:2507.03905. Saved: `arxiv-2507.03905-echomimicv3`, `gh-echomimicv3-readme`.
+
+[34] Meituan LongCat team. "LongCat-Video-Avatar 1.5." arXiv:2605.26486. Saved: `arxiv-2605.26486-longcat-avatar-1.5`, `gh-longcat-video-readme`.
+
+[35] Huang, Y. et al. "Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length." arXiv:2512.04677. `github.com/Alibaba-Quark/LiveAvatar`. Saved: `arxiv-2512.04677-liveavatar`, `gh-liveavatar-readme`.
+
+[36] Soul AI Lab. "SoulX-FlashTalk." arXiv:2512.23379. Saved: `arxiv-2512.23379-soulx-flashtalk`, `gh-soulx-flashtalk-readme`.
+
+[37] Soul AI Lab. "SoulX-FlashHead." arXiv:2602.07449. Saved: `arxiv-2602.07449-soulx-flashhead`, `gh-soulx-flashhead-readme`.
+
+[38] Soul AI Lab. "SoulX-LiveAct." arXiv:2603.11746. Saved: `arxiv-2603.11746-soulx-liveact`, `gh-soulx-liveact-readme`.
+
+[39] Kandinsky Lab. "Kandinsky S2V 1.0." arXiv:2610.19290. Saved: `arxiv-2610.19290-kandinsky-s2v`, `gh-kandinsky-s2v-readme`.
+
+[40] "DynaForcing." arXiv:2608.17707. Saved: `arxiv-2608.17707-dynaforcing`.
+
+[41] Tight Studio. "Open-source talking avatar benchmark." August 2026. `github.com/tight-studio/open-source-talking-avatar-benchmark`. Saved: `tight-benchmark-report`, `tight-studio-blog`.
 
 See also `vamp-interface/docs/research/2026-04-12-3dmm-flame-diffusion-vtuber-realtime.md` for the underlying research that this chapter draws on for the talking-head section, especially the comparison tables for fastest production-grade methods, and `vamp-interface/docs/research/2026-05-11-speech-to-blendshape-models.md` for the per-model audit (output formats, licenses, runtime requirements) of the academic audio-to-parameter lineage.

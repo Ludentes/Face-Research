@@ -104,20 +104,22 @@ The LivePortrait community is smaller and younger than the others, having coales
 
 A parallel market that overlaps with face animation but has different buyers and different tooling: enterprise digital humans. This market includes virtual customer service agents, corporate brand avatars, AI assistants with faces, and the broader category of "give your enterprise software a human-looking presenter." The market is valued at roughly $7-19 billion with growth rates of 22-44% CAGR [2], though the exact numbers depend heavily on how the market is defined.
 
-**Key players:**
+**Key players (updated November 2026; Chapter 13 covers the products and their technology in depth):**
 
-- **Soul Machines** (New Zealand) pioneered the digital human category with neural-rendered brand avatars. Still active as of 2026.
-- **Synthesia** produces AI avatar videos for corporate training and marketing. One of the larger commercial deployments of talking-head technology.
-- **D-ID** produces avatar videos for similar use cases. Competitor to Synthesia.
-- **UneeQ** focuses on interactive digital humans for customer service.
-- **HeyGen** has gained significant traction for AI avatar video creation.
+- **HeyGen** leads offline avatar video; its fifth-generation engine, Avatar V (April–May 2026), is a distilled video diffusion transformer that builds an identity from a 15-second recording, and its LiveAvatar product (October 2025) covers real time [5].
+- **Synthesia** produces AI avatar video for corporate training; it raised $200M at a roughly $4B valuation in January 2026 and added an Enterprise interactive-avatar API in July 2026 [6].
+- **D-ID** moved to a diffusion-based V4 model in March 2026 and is the only major Western vendor found selling a self-hosted deployment [7].
+- **Tavus, Anam, Simli, Beyond Presence, bitHuman, LemonSlice** are real-time-first vendors selling conversational avatars by the minute, at prices ranging from under a cent (Simli) to tens of cents per minute.
+- **Duix / Silicon Intelligence** (硅基智能) is the largest Chinese player by its own account, with an open-source offline tool (Duix-Avatar), an on-device SDK and a cloud API; it has filed for a Hong Kong listing [8].
+- **Soul Machines** (New Zealand), which pioneered the category, went into receivership in February 2026 and was acquired by AppDirect in September 2026 [9][10].
+- **UneeQ** has repositioned around AI roleplay training.
 - **NVIDIA Omniverse + Audio2Face + ACE** targets enterprise deployment of digital humans via NVIDIA's stack.
 
 **Tooling stack.** Enterprise digital humans are typically built on a combination of pre-recorded actor performances, speech synthesis, and either a proprietary rendering engine (Soul Machines) or a widely-used game engine (Unreal Engine with MetaHuman + Live Link Face). The tooling is commercial, closed-source, and not accessible to individual developers in most cases.
 
-**Where the money flows.** Enterprise sales cycles, $10,000-$200,000 per deployment, long integration processes with enterprise IT. The buyers are usually not the ultimate users but corporate procurement and marketing departments.
+**Where the money flows.** Two models coexist. The traditional one is enterprise sales cycles, $10,000-$200,000 per deployment, long integration processes with enterprise IT. The newer one, which most 2024–2026 entrants use, is self-serve per-minute pricing through an API — live avatar minutes from under $0.01 to about $0.35, offline video by credits or per second of output (HeyGen's Avatar V API is $0.05 per second) [5]. The buyers are usually not the ultimate users but corporate procurement and marketing departments.
 
-**Product implications.** This market is not accessible to an open-source project or a small startup without significant enterprise sales capability. It is a real market with real budgets, but the sales and integration overhead is high. The technical options are narrower than in the creator market — most enterprise buyers want a polished commercial product, not an open-source toolkit.
+**Product implications.** The top of this market is not accessible to an open-source project or a small startup without significant enterprise sales capability, although per-minute APIs have opened a developer segment below it. It is a real market with real budgets, but the sales and integration overhead is high. The technical options are narrower than in the creator market — most enterprise buyers want a polished commercial product, not an open-source toolkit.
 
 ## Tool Popularity: An Informal Ranking
 
@@ -227,5 +229,17 @@ The final chapter of this review turns to conclusions and the 12-24 month outloo
 [3] VTuber market size data. Business Research Insights 2025, with channel count and viewership figures from the same source.
 
 [4] Hololive and Nijisanji revenue figures: Cover Corp FY2025 annual report and Nijisanji FY2025 financial disclosure.
+
+[5] HeyGen Avatar V technical report, May 2026 release notes and API model documentation. Saved in `docs/research/sources/text/`: `heygen-avatarv-tech-report`, `heygen-com-blog-heygen-may-2026-release`, `developers-heygen-com-models`. See Chapter 13.
+
+[6] Built In, "Synthesia raises $200M Series E" (2026-01-26), and Synthesia, "Interactive Avatar API" (2026-07-15). Saved: `builtin-com-articles-synthesia-raises-200m-series-e-20260126`, `synthesia-io-post-interactive-avatar-api-real-time-avatars`.
+
+[7] D-ID V4 press release (March 2026) and "Self-hosted Expressive Avatars." Saved: `elearningindustry-com-press-releases-d-id-launches-v4-expressive-visual-agents-for-real-ti`, `d-id-com-self-hosting-realtime-avatars`.
+
+[8] 36Kr coverage of the Silicon Intelligence prospectus, and HKEXnews application proof (May 2026). Saved: `36kr-com-p-3825797690614017`, `www1-hkexnews-hk-app-sehk-2026-108560-a133153-sehk26052101556-pdf`.
+
+[9] NBR, "Soul Machines in receivership" (2026-02-09). Saved: `nbr-co-nz-tech-soul-machines-in-receivership`.
+
+[10] SiliconANGLE, "AppDirect acquires interactive AI avatar firm Soul Machines" (2026-09-28). Saved: `siliconangle-com-2026-09-28-appdirect-acquires-interactive-ai-avatar-firm-soul-machines-fo`.
 
 See `vamp-interface/docs/research/2026-04-12-parametric-face-generation-market-scan.md` for the primary-source market analysis that this chapter synthesizes, and `portrait-to-live2d/docs/research/2026-04-03-realtime-portrait-animation-vtubing.md` for the community-side observations about VTubing tool adoption patterns.
